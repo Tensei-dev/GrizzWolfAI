@@ -1,0 +1,5 @@
+node_modules/
+.env
+
+# dados de idioma que o tesseract.js (OCR) baixa na primeira execução
+*.traineddata

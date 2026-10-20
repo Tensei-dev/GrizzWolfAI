@@ -1,0 +1,727 @@
+:root,
+:root[data-theme="dark"] {
+    --bg: #050505;
+    --text: #e8e8e8;
+    --text-muted: #9aa3b0;
+    --bg-image: url('images/fundo-escuro.jpg');
+    --bg-overlay: rgba(0, 0, 0, 0.6);
+    --bg-glow: none;
+    --box-bg: rgba(20, 20, 20, 0.75);
+    --box-border: rgba(255, 255, 255, 0.2);
+    --box-shadow: rgba(0, 0, 0, 0.6);
+    --accent: #3b6bff;
+    color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+    --bg: #f2f4f8;
+    --text: #1a1d24;
+    --text-muted: #555e6e;
+    --bg-image: url('images/fundo-claro.jpg');
+    --bg-overlay: rgba(255, 255, 255, 0.6);
+    --bg-glow: url('images/brilhos-claro.png');
+    --bg-filter: hue-rotate(-8deg) saturate(1.6) brightness(1.05);
+    --box-bg: rgba(255, 255, 255, 0.8);
+    --box-border: rgba(0, 0, 0, 0.15);
+    --box-shadow: rgba(0, 0, 0, 0.12);
+    --accent: #7c3aed;
+    color-scheme: light;
+}
+
+html {
+    background-color: var(--bg);
+}
+
+body {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-weight: 400;
+    font-variant-numeric: lining-nums;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text);
+    transition: color 0.3s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* ===== Chat ===== */
+.chat {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.chat .text-box {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* com a conversa em andamento, a caixa de texto fica presa embaixo da tela */
+.chat.started .text-box {
+    position: sticky;
+    bottom: 16px;
+    z-index: 5;
+}
+
+.chat.started .intro {
+    display: none;
+}
+
+.messages:empty {
+    display: none;
+}
+
+.footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 0 16px;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    inset: -20px; /* evita bordas claras/escuras causadas pelo blur */
+    background: var(--bg-image) center / cover no-repeat;
+    filter: blur(2px) var(--bg-filter, );
+}
+
+body::after {
+    inset: -20px;
+    background: var(--bg-glow) center / cover no-repeat, var(--bg-overlay);
+    transition: background-color 0.3s;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 8px;
+    text-align: center;
+}
+
+.logo {
+    --logo-size: 240px;
+    display: block;
+    width: min(var(--logo-size), 85vw);
+    height: auto;
+}
+
+.logo-dark {
+    width: min(calc(var(--logo-size) * 1.092), 90vw);
+}
+
+.logo-light { display: none; }
+:root[data-theme="light"] .logo-light {
+    display: block;
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.6))
+            drop-shadow(0 0 18px rgba(124, 58, 237, 0.35));
+}
+:root[data-theme="light"] .logo-dark { display: none; }
+
+h1 {
+    font-weight: 700;
+    margin: 8px 0 0;
+}
+
+.subtitle {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--box-border);
+    border-radius: 50%;
+    background: var(--box-bg);
+    backdrop-filter: blur(6px);
+    color: var(--text);
+    cursor: pointer;
+    box-shadow: 0 2px 12px var(--box-shadow);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+    border-color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.theme-toggle .icon-sun { display: block; }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
+.text-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 12px;
+    border: 1px solid var(--box-border);
+    border-radius: 16px;
+    background: var(--box-bg);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px var(--box-shadow);
+}
+
+.text-box textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    resize: none;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.text-box button {
+    padding: 0 4px;
+    border: none;
+    background: none;
+    color: var(--accent);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.text-box button:hover {
+    transform: translateX(2px);
+}
+
+.text-box button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+/* ===== Mensagens ===== */
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    max-width: 85%;
+    padding: 12px 16px;
+    border: 1px solid var(--box-border);
+    border-radius: 16px;
+    background: var(--box-bg);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px var(--box-shadow);
+}
+
+.message.grizz {
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.message.user {
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    border-color: var(--accent);
+}
+
+.message.error {
+    border-color: #e5484d;
+}
+
+/* cada mensagem fica numa linha; nas do Grizz, a miniatura do lobo vem à esquerda */
+.message-row {
+    display: flex;
+    align-items: flex-end; /* lobo alinhado com o "bico" do balão, embaixo */
+    gap: 8px;
+}
+
+.message-row.user {
+    justify-content: flex-end;
+}
+
+.message-row > .message {
+    align-self: auto;
+    min-width: 0;
+}
+
+.avatar {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+}
+
+.avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.avatar .avatar-light { display: none; }
+:root[data-theme="light"] .avatar .avatar-light {
+    display: block;
+    filter: drop-shadow(0 0 3px rgba(139, 92, 246, 0.6));
+}
+:root[data-theme="light"] .avatar .avatar-dark { display: none; }
+
+@media (max-width: 480px) {
+    .avatar {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.message-author {
+    margin: 0 0 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.message-text {
+    margin: 0;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.message a {
+    color: var(--accent);
+}
+
+.citation {
+    font-size: 0.8em;
+    text-decoration: none;
+    vertical-align: super;
+}
+
+/* ===== Respostas em Markdown ===== */
+.message-text.markdown {
+    white-space: normal; /* o espaçamento vem dos parágrafos e listas, não das quebras de linha */
+}
+
+.markdown > :first-child { margin-top: 0; }
+.markdown > :last-child { margin-bottom: 0; }
+
+.markdown p {
+    margin: 0 0 0.6em;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+    margin: 1em 0 0.4em;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.markdown h1 { font-size: 1.2rem; }
+.markdown h2 { font-size: 1.1rem; }
+.markdown h3,
+.markdown h4 {
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.markdown ul,
+.markdown ol {
+    margin: 0 0 0.6em;
+    padding-left: 1.4em;
+}
+
+.markdown li + li {
+    margin-top: 0.25em;
+}
+
+.markdown li > ul,
+.markdown li > ol {
+    margin: 0.25em 0 0;
+}
+
+.markdown li::marker {
+    color: var(--accent);
+}
+
+/* lista de verificação ("- [ ] item") */
+.markdown li:has(> input[type="checkbox"]) {
+    list-style: none;
+    margin-left: -1.4em;
+}
+
+.markdown input[type="checkbox"] {
+    margin: 0 0.5em 0 0;
+    vertical-align: -0.1em;
+    accent-color: var(--accent);
+}
+
+.markdown strong {
+    font-weight: 700;
+}
+
+.markdown hr {
+    margin: 0.9em 0;
+    border: none;
+    border-top: 1px solid var(--box-border);
+}
+
+.markdown blockquote {
+    margin: 0 0 0.6em;
+    padding: 0.2em 0 0.2em 0.9em;
+    border-left: 3px solid var(--accent);
+    color: var(--text-muted);
+}
+
+.markdown code {
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    background: var(--box-border);
+    font-size: 0.9em;
+}
+
+/* tabelas largas rolam dentro do balão em vez de estourar a tela */
+.markdown table {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 0.6em;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.92em;
+}
+
+.markdown th,
+.markdown td {
+    padding: 0.4em 0.7em;
+    border: 1px solid var(--box-border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.markdown th {
+    background: var(--box-border);
+    font-weight: 700;
+}
+
+.typing {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.message-sources {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.message-sources summary {
+    cursor: pointer;
+}
+
+.message-sources ol {
+    margin: 6px 0 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.message-sources li + li {
+    margin-top: 4px;
+}
+
+.message-feedback {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.message-feedback button {
+    padding: 2px 6px;
+    border: 1px solid var(--box-border);
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+}
+
+.message-feedback button:hover:not(:disabled) {
+    border-color: var(--accent);
+}
+
+.text-box button:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+/* ===== Barra lateral de conversas ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 260px;
+    padding: 16px 12px;
+    box-sizing: border-box;
+    border-right: 1px solid var(--box-border);
+    background: var(--box-bg);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.25s;
+}
+
+.sidebar.open {
+    transform: none;
+    box-shadow: 4px 0 24px var(--box-shadow);
+}
+
+.sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 15;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--box-border);
+    border-radius: 50%;
+    background: var(--box-bg);
+    backdrop-filter: blur(6px);
+    color: var(--text);
+    cursor: pointer;
+    box-shadow: 0 2px 12px var(--box-shadow);
+}
+
+.sidebar-toggle svg,
+.new-chat svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-toggle:hover {
+    border-color: var(--accent);
+}
+
+.new-chat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    background: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.new-chat svg {
+    color: var(--accent);
+}
+
+.new-chat:hover {
+    background: var(--box-border);
+}
+
+.sidebar-title {
+    margin: 12px 4px 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.conversation-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.conversation-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.conversation-item:hover,
+.conversation-item:has([aria-current="true"]) {
+    background: var(--box-border);
+}
+
+.conversation-open {
+    flex: 1;
+    min-width: 0; /* deixa o título encolher e ganhar reticências */
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    background: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.conversation-open[aria-current="true"] {
+    font-weight: 600;
+}
+
+/* a lixeira só aparece na conversa sob o mouse, na ativa ou com foco do teclado */
+.conversation-delete {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-right: 4px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+}
+
+.conversation-delete svg {
+    width: 16px;
+    height: 16px;
+}
+
+.conversation-item:hover .conversation-delete,
+.conversation-item:has([aria-current="true"]) .conversation-delete,
+.conversation-delete:focus-visible {
+    opacity: 1;
+}
+
+.conversation-delete:hover {
+    color: #e5484d;
+}
+
+/* em telas de toque não existe "passar o mouse": a lixeira fica sempre visível */
+@media (hover: none) {
+    .conversation-delete {
+        opacity: 1;
+    }
+}
+
+.conversation-title {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.conversation-date {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.conversation-empty {
+    margin: 4px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.new-chat:focus-visible,
+.sidebar-toggle:focus-visible,
+.conversation-list button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+.new-chat:focus-visible,
+.sidebar-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* em telas largas a barra fica sempre aberta e o conteúdo abre espaço para ela */
+@media (min-width: 1000px) {
+    .sidebar {
+        transform: none;
+    }
+
+    .sidebar-toggle,
+    .sidebar-backdrop {
+        display: none;
+    }
+
+    body {
+        padding-left: 260px;
+    }
+
+    /* ao passar o mouse a barra expande até 30% da tela, por cima do conteúdo,
+       para mostrar os títulos inteiros; o conteúdo não se mexe */
+    .sidebar {
+        transition: width 0.25s, box-shadow 0.25s;
+    }
+
+    .sidebar:hover,
+    .sidebar:focus-within {
+        width: max(260px, 30vw);
+        box-shadow: 4px 0 24px var(--box-shadow);
+    }
+}

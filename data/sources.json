@@ -1,0 +1,24 @@
+{
+    "categories": [
+        { "slug": "graduacao", "name": "Graduação", "description": "Normas gerais dos cursos de graduação" }
+    ],
+    "documents": [
+        {
+            "source": "pdfs/exemplo.pdf",
+            "title": "Título do documento",
+            "docType": "resolução",
+            "issuer": "CONGRAD",
+            "number": "00/0000",
+            "sourceUrl": "https://link-oficial-do-pdf",
+            "publishedAt": "2000-01-01",
+            "categories": ["graduacao"]
+        },
+        {
+            "source": "https://endereco-de-uma-pagina-da-ufu",
+            "title": "Título da página",
+            "docType": "página",
+            "issuer": "FACOM",
+            "categories": ["graduacao"]
+        }
+    ]
+}
