@@ -1,7 +1,6 @@
 const pgvector = require('pgvector/pg');
 const pool = require('../db/pool');
 
-// insere todos os trechos de um documento numa transação só
 async function createMany(documentId, chunks) {
     const client = await pool.connect();
     try {
@@ -39,9 +38,6 @@ async function removeByDocument(documentId) {
     await pool.query('DELETE FROM chunks WHERE document_id = $1', [documentId]);
 }
 
-// as duas buscas do RAG híbrido: só consideram documentos vigentes e,
-// se categoryIds for passado, só documentos dessas categorias
-
 const SEARCH_COLUMNS = `
     c.id, c.document_id, c.chunk_index, c.content, c.page,
     d.title, d.subject, d.doc_type, d.number, d.source_url`;
@@ -64,9 +60,6 @@ async function searchVector(embedding, { limit = 20, categoryIds = null } = {}) 
     return rows;
 }
 
-// os termos são combinados com OU: perguntas em linguagem natural quase nunca têm
-// todas as palavras no mesmo trecho; o ts_rank_cd põe na frente quem tem mais termos.
-// frases entre aspas continuam exigindo as palavras juntas
 async function searchKeyword(text, { limit = 20, categoryIds = null } = {}) {
     const { rows } = await pool.query(
         `SELECT ${SEARCH_COLUMNS}, ts_rank_cd(c.tsv, query.q) AS score

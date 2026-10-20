@@ -1,7 +1,3 @@
-// cursos de graduação da FACOM e seus currículos (projetos pedagógicos).
-// startYear é o primeiro ano de ingresso no currículo; startSemester, quando o
-// currículo começou no 2º semestre (quem entrou no 1º semestre desse ano ficou no anterior)
-// fonte: títulos dos projetos pedagógicos na aba Documentos do site da FACOM
 const COURSES = {
     bcc: {
         name: 'Bacharelado em Ciência da Computação',
@@ -31,8 +27,6 @@ const COURSES = {
     },
 };
 
-// currículo de quem ingressou no ano informado. Quando o ano tem dois currículos
-// possíveis (um começou no 2º semestre), retorna os dois para o agente considerar
 function curriculumFor(courseId, entryYear) {
     const course = COURSES[courseId];
     if (!course || !entryYear) return [];
@@ -46,7 +40,6 @@ function curriculumFor(courseId, entryYear) {
     return [latest];
 }
 
-// descrição do perfil para o prompt do agente e para enriquecer a busca
 function describeProfile(courseId, entryYear) {
     const course = COURSES[courseId];
     if (!course) return null;

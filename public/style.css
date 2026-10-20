@@ -48,7 +48,6 @@ body {
     gap: 16px;
 }
 
-/* ===== Chat ===== */
 .chat {
     display: flex;
     flex-direction: column;
@@ -64,7 +63,6 @@ body {
     box-sizing: border-box;
 }
 
-/* com a conversa em andamento, a caixa de texto fica presa embaixo da tela */
 .chat.started .text-box {
     position: sticky;
     bottom: 16px;
@@ -96,7 +94,7 @@ body::after {
 }
 
 body::before {
-    inset: -20px; /* evita bordas claras/escuras causadas pelo blur */
+    inset: -20px; 
     background: var(--bg-image) center / cover no-repeat;
     filter: blur(2px) var(--bg-filter, );
 }
@@ -238,7 +236,6 @@ h1 {
     clip: rect(0 0 0 0);
 }
 
-/* ===== Mensagens ===== */
 .messages {
     display: flex;
     flex-direction: column;
@@ -270,10 +267,9 @@ h1 {
     border-color: #e5484d;
 }
 
-/* cada mensagem fica numa linha; nas do Grizz, a miniatura do lobo vem à esquerda */
 .message-row {
     display: flex;
-    align-items: flex-end; /* lobo alinhado com o "bico" do balão, embaixo */
+    align-items: flex-end;
     gap: 8px;
 }
 
@@ -288,8 +284,8 @@ h1 {
 
 .avatar {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
 }
 
 .avatar img {
@@ -302,14 +298,14 @@ h1 {
 .avatar .avatar-light { display: none; }
 :root[data-theme="light"] .avatar .avatar-light {
     display: block;
-    filter: drop-shadow(0 0 3px rgba(139, 92, 246, 0.6));
+    filter: drop-shadow(0 0 2px rgba(139, 92, 246, 0.35));
 }
 :root[data-theme="light"] .avatar .avatar-dark { display: none; }
 
 @media (max-width: 480px) {
     .avatar {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
     }
 }
 
@@ -337,9 +333,8 @@ h1 {
     vertical-align: super;
 }
 
-/* ===== Respostas em Markdown ===== */
 .message-text.markdown {
-    white-space: normal; /* o espaçamento vem dos parágrafos e listas, não das quebras de linha */
+    white-space: normal;
 }
 
 .markdown > :first-child { margin-top: 0; }
@@ -385,7 +380,6 @@ h1 {
     color: var(--accent);
 }
 
-/* lista de verificação ("- [ ] item") */
 .markdown li:has(> input[type="checkbox"]) {
     list-style: none;
     margin-left: -1.4em;
@@ -421,7 +415,6 @@ h1 {
     font-size: 0.9em;
 }
 
-/* tabelas largas rolam dentro do balão em vez de estourar a tela */
 .markdown table {
     display: block;
     max-width: 100%;
@@ -495,7 +488,6 @@ h1 {
     cursor: wait;
 }
 
-/* ===== Barra lateral de conversas ===== */
 .sidebar {
     position: fixed;
     top: 0;
@@ -609,7 +601,7 @@ h1 {
 
 .conversation-open {
     flex: 1;
-    min-width: 0; /* deixa o título encolher e ganhar reticências */
+    min-width: 0;
     padding: 8px 10px;
     border: none;
     border-radius: 8px;
@@ -625,7 +617,6 @@ h1 {
     font-weight: 600;
 }
 
-/* a lixeira só aparece na conversa sob o mouse, na ativa ou com foco do teclado */
 .conversation-delete {
     display: grid;
     place-items: center;
@@ -658,7 +649,6 @@ h1 {
     color: #e5484d;
 }
 
-/* em telas de toque não existe "passar o mouse": a lixeira fica sempre visível */
 @media (hover: none) {
     .conversation-delete {
         opacity: 1;
@@ -698,7 +688,6 @@ h1 {
     outline-offset: 2px;
 }
 
-/* em telas largas a barra fica sempre aberta e o conteúdo abre espaço para ela */
 @media (min-width: 1000px) {
     .sidebar {
         transform: none;
@@ -713,8 +702,6 @@ h1 {
         padding-left: 260px;
     }
 
-    /* ao passar o mouse a barra expande até 30% da tela, por cima do conteúdo,
-       para mostrar os títulos inteiros; o conteúdo não se mexe */
     .sidebar {
         transition: width 0.25s, box-shadow 0.25s;
     }
@@ -724,4 +711,112 @@ h1 {
         width: max(260px, 30vw);
         box-shadow: 4px 0 24px var(--box-shadow);
     }
+}
+
+.confirm-dialog {
+    width: min(380px, calc(100vw - 32px));
+    padding: 0;
+    border: 1px solid var(--box-border);
+    border-radius: 18px;
+    background: var(--bg);
+    color: var(--text);
+    box-shadow: 0 12px 40px var(--box-shadow);
+}
+
+.confirm-dialog[open] {
+    animation: confirm-in 0.18s ease-out;
+}
+
+.confirm-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+@keyframes confirm-in {
+    from { opacity: 0; transform: translateY(8px) scale(0.97); }
+    to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .confirm-dialog[open] { animation: none; }
+}
+
+.confirm-dialog form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    text-align: center;
+}
+
+.confirm-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: rgba(229, 72, 77, 0.15);
+    color: #e5484d;
+}
+
+.confirm-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.confirm-title {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.confirm-message {
+    margin: 0 0 20px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.confirm-actions button {
+    flex: 1;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, filter 0.15s;
+}
+
+.confirm-cancel {
+    border: 1px solid var(--box-border);
+    background: none;
+    color: var(--text);
+}
+
+.confirm-cancel:hover {
+    border-color: var(--accent);
+}
+
+.confirm-danger {
+    border: 1px solid #e5484d;
+    background: #e5484d;
+    color: #fff;
+}
+
+.confirm-danger:hover {
+    filter: brightness(1.1);
+}
+
+.confirm-actions button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }

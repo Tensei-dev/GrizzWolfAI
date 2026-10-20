@@ -4,9 +4,8 @@ const { rerank } = require('./reranker');
 
 const CANDIDATES_PER_SEARCH = 20;
 const CANDIDATES_TO_RERANK = 15;
-const RRF_K = 60; // constante padrão do Reciprocal Rank Fusion
+const RRF_K = 60;
 
-// junta várias listas ordenadas: cada trecho soma 1 / (k + posição) em cada lista em que aparece
 function reciprocalRankFusion(lists) {
     const fused = new Map();
     for (const list of lists) {
@@ -19,8 +18,6 @@ function reciprocalRankFusion(lists) {
     return [...fused.values()].sort((a, b) => b.rrfScore - a.rrfScore);
 }
 
-// sem embedding (cota do Gemini esgotada, por exemplo) a busca segue só com as
-// palavras-chave: a resposta fica menos precisa, mas o Grizz não para
 async function vectorSearch(text, categoryIds) {
     try {
         return await Chunk.searchVector(await embedQuery(text), { limit: CANDIDATES_PER_SEARCH, categoryIds });
@@ -30,9 +27,6 @@ async function vectorSearch(text, categoryIds) {
     }
 }
 
-// busca vetorial + palavras-chave -> fusão RRF -> rerank
-// profileText (curso e currículo do aluno) entra só na busca vetorial e no rerank:
-// na busca por palavras-chave, termos como "computação" aparecem em quase todo documento
 async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank = true, profileText = null } = {}) {
     const [vectorResults, keywordResults] = await Promise.all([
         vectorSearch(profileText ? `${question}\nEstudante do ${profileText}` : question, categoryIds),

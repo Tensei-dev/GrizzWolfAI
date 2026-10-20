@@ -1,4 +1,3 @@
-// uso: npm run ingest -- data/sources.json
 const fs = require('fs');
 const path = require('path');
 const pool = require('../db/pool');
@@ -15,14 +14,13 @@ async function main() {
     let failures = 0;
 
     for (const entry of manifest.documents) {
-        // caminhos locais são relativos ao arquivo de fontes
         const source = /^https?:\/\//i.test(entry.source) ? entry.source : path.resolve(path.dirname(file), entry.source);
         try {
             console.log(`ok    ${entry.title}: ${await ingestDocument({ ...entry, source }, categoriesBySlug)}`);
         } catch (err) {
             failures++;
             console.error(`falha ${entry.title}: ${err.message}`);
-            if (err instanceof DailyQuotaError) break; // os próximos falhariam do mesmo jeito
+            if (err instanceof DailyQuotaError) break;
         }
     }
     if (failures) process.exitCode = 1;

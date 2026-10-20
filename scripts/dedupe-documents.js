@@ -1,14 +1,8 @@
-// marca como duplicados os documentos com o mesmo texto de outro já importado.
-// o duplicado perde os trechos (sai da busca), mas continua no banco para a
-// sincronização não reimportar o link dele
-// uso: npm run dedupe            (aplica)
-//      npm run dedupe -- --dry-run  (só lista)
 const pool = require('../db/pool');
 
 async function main() {
     const dryRun = process.argv.includes('--dry-run');
 
-    // documentos cujo texto completo (todos os trechos em ordem) é idêntico
     const { rows } = await pool.query(`
         WITH texts AS (
             SELECT d.id, d.title, d.number,
@@ -23,7 +17,6 @@ async function main() {
 
     let marked = 0;
     for (const { docs } of rows) {
-        // mantém o que tem número identificado (ex.: "Resolução nº 30/2026"); no empate, o mais antigo
         const keep = docs.find((d) => d.number) || docs[0];
         const duplicates = docs.filter((d) => d.id !== keep.id).map((d) => d.id);
         console.log(`mantém #${keep.id} ${keep.title}`);

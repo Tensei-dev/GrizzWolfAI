@@ -3,8 +3,8 @@ const { complete, CHAT_MODEL } = require('./llm');
 const { extractProfile, askForProfile } = require('./profile');
 const { describeProfile } = require('./courses');
 
-const HISTORY_MESSAGES = 6; // últimas mensagens da conversa enviadas ao modelo
-const MAX_PROFILE_PROMPTS = 2; // depois disso o Grizz responde mesmo sem o perfil completo
+const HISTORY_MESSAGES = 6;
+const MAX_PROFILE_PROMPTS = 2;
 const EMPTY_PROFILE = { course: null, entryYear: null, pendingQuestion: null, profilePrompts: 0 };
 
 const SYSTEM_PROMPT = `Você é o Grizz, o lobo ancião da FACOM/UFU: um veterano experiente que ajuda calouros com a burocracia da universidade.
@@ -41,13 +41,10 @@ function formatSources(chunks) {
         .join('\n\n');
 }
 
-// resposta fixa do Grizz, sem busca nem fontes
 function reply(content, profile) {
     return { answer: content, sources: [], profile, model: null };
 }
 
-// decide o que responder: pede o perfil se faltar algo, ou devolve a pergunta a ser
-// respondida (pode ser a que ficou pendente enquanto o Grizz pedia o perfil)
 async function resolveProfile(profile, message, history) {
     if (profile.course && profile.entryYear) return { profile, question: message };
 
@@ -58,7 +55,6 @@ async function resolveProfile(profile, message, history) {
         entryYear: profile.entryYear || extracted.entryYear,
     };
 
-    // recusar uma vez basta: o Grizz responde sem o perfil e não pergunta de novo
     if (extracted.declined) profile.profilePrompts = MAX_PROFILE_PROMPTS;
     const complete = profile.course && profile.entryYear;
     if (!complete && profile.profilePrompts < MAX_PROFILE_PROMPTS) {
@@ -70,20 +66,15 @@ async function resolveProfile(profile, message, history) {
         };
     }
 
-    // perfil completo (ou o aluno não quis informar): responde a dúvida atual ou a pendente
     return { profile, question: extracted.hasQuestion ? message : profile.pendingQuestion };
 }
 
-// responde uma mensagem sem guardar nada: a conversa fica no navegador do aluno, que envia
-// as últimas mensagens (history) e o perfil a cada pergunta e recebe o perfil atualizado.
-// profile: { course, entryYear, pendingQuestion, profilePrompts }
 async function answer({ message, history = [], profile = {} }) {
     history = history.slice(-HISTORY_MESSAGES);
     const resolved = await resolveProfile({ ...EMPTY_PROFILE, ...profile }, message, history);
     if (resolved.ask) return reply(resolved.ask, resolved.profile);
 
     const { question } = resolved;
-    // a pergunta pendente é respondida agora; se algo falhar, o navegador mantém o perfil antigo
     profile = { ...resolved.profile, pendingQuestion: null };
     const described = describeProfile(profile.course, profile.entryYear);
     if (!question) {
@@ -98,7 +89,6 @@ async function answer({ message, history = [], profile = {} }) {
         ...history.map((m) => ({ role: m.role, content: m.content })),
         { role: 'user', content: `Trechos dos documentos oficiais:\n\n${formatSources(chunks)}\n\nPergunta: ${question}` },
     ]);
-    // os modelos gpt-oss às vezes citam no formato próprio deles: 【1†L1-L4】 -> [1]
     const content = raw.replace(/【(\d+)[^】]*】/g, '[$1]');
 
     return {
@@ -106,7 +96,6 @@ async function answer({ message, history = [], profile = {} }) {
         question,
         model: CHAT_MODEL,
         profile,
-        // n é o número usado nas citações [n] da resposta
         sources: chunks.map((c, i) => ({
             n: i + 1,
             chunkId: c.id,

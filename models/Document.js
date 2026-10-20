@@ -45,7 +45,6 @@ async function findAll({ status = null, categoryId = null } = {}) {
     return rows;
 }
 
-// revoga o documento antigo e aponta para o que o substituiu
 async function markReplaced(oldId, newId) {
     const { rows } = await pool.query(
         `UPDATE documents SET status = 'revogado', replaced_by = $2, updated_at = now()
@@ -58,8 +57,6 @@ async function markReplaced(oldId, newId) {
 async function remove(id) {
     await pool.query('DELETE FROM documents WHERE id = $1', [id]);
 }
-
-// document_categories
 
 async function addCategory(documentId, categoryId) {
     await pool.query(

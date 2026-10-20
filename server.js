@@ -9,8 +9,6 @@ const app = express();
 app.use(express.json({ limit: '64kb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// bibliotecas do front servidas a partir do node_modules (sem depender de CDN):
-// marked converte o Markdown das respostas em HTML e o DOMPurify limpa esse HTML
 const VENDOR = {
     'marked.js': 'node_modules/marked/lib/marked.umd.js',
     'purify.js': 'node_modules/dompurify/dist/purify.min.js',
@@ -24,9 +22,7 @@ app.get('/vendor/:file', (req, res, next) => {
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const MAX_QUESTION_CHARS = 1000;
 const MAX_HISTORY_MESSAGES = 6;
-const MAX_HISTORY_CHARS = 4000; // por mensagem: respostas longas do Grizz cabem
-
-// o histórico e o perfil vêm do navegador; aqui só passa o que tem o formato esperado
+const MAX_HISTORY_CHARS = 4000;
 
 const text = (value, max) => (typeof value === 'string' ? value.slice(0, max) : null);
 
@@ -64,7 +60,6 @@ app.post('/api/chat', async (req, res) => {
     }));
 });
 
-// guarda anonimamente só a resposta avaliada (pergunta, resposta, fontes e nota)
 app.post('/api/feedback', async (req, res) => {
     const body = req.body || {};
     const rating = Number(body.rating);
@@ -98,10 +93,8 @@ app.post('/api/feedback', async (req, res) => {
     res.status(201).end();
 });
 
-// o Express 5 encaminha para cá os erros das rotas async
 app.use((err, req, res, next) => {
     console.error(err);
-    // limite do plano gratuito do Gemini ou da Groq: vale avisar que é passageiro
     const busy = /\b429\b|cota/i.test(err.message);
     res.status(busy ? 503 : 500).json({
         error: busy

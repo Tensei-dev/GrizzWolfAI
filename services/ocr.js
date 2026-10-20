@@ -1,11 +1,10 @@
 const { createWorker } = require('tesseract.js');
 
-const SCALE = 2; // renderiza as páginas em 2x: o OCR erra bem menos em imagem maior
+const SCALE = 2;
 
-// parser: um PDFParse já aberto; retorna [{ num, text }] lido das imagens das páginas
 async function ocrPdf(parser) {
     const screenshots = await parser.getScreenshot({ scale: SCALE, imageDataUrl: false });
-    const worker = await createWorker('por'); // baixa os dados do português na primeira vez
+    const worker = await createWorker('por');
     try {
         const pages = [];
         for (const shot of screenshots.pages) {

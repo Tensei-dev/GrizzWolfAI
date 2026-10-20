@@ -21,10 +21,8 @@ Use o histórico da conversa para interpretar respostas curtas: se o Grizz pergu
 Sistemas de Informação e o estudante respondeu "Santa Mônica", o curso é "bsi"; se respondeu "Monte Carmelo", é "bsi-mc".
 Considere curso e ano informados em qualquer mensagem do histórico, não só na última.`;
 
-const HISTORY_MESSAGES = 4; // mensagens anteriores enviadas junto, para entender respostas curtas
+const HISTORY_MESSAGES = 4;
 
-// extrai { course, entryYear, siCampusUnknown, hasQuestion, declined } da mensagem atual,
-// usando as mensagens anteriores da conversa como contexto
 async function extractProfile(message, history = []) {
     const context = history
         .slice(-HISTORY_MESSAGES)
@@ -56,7 +54,6 @@ async function extractProfile(message, history = []) {
     }
 }
 
-// pergunta do Grizz para completar o que falta do perfil
 function askForProfile({ course, entryYear, siCampusUnknown }) {
     const why = 'Assim eu sei qual currículo vale pra você e não te passo regra errada.';
     if (!course && siCampusUnknown) {

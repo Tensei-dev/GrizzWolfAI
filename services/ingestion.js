@@ -5,8 +5,6 @@ const { extract } = require('./extractor');
 const { chunk } = require('./chunker');
 const { embedDocuments } = require('./embeddings');
 
-// ementa ("Aprova as Normas de Estágio do curso de ...") nos primeiros trechos do documento;
-// mesma regra da migration 005, que preencheu os documentos já importados
 const SUBJECT = /(?:Aprova|Dispõe sobre|Estabelece|Altera|Regulamenta|Institui|Normatiza|Define)\s[^.]{10,250}/;
 
 function extractSubject(chunks) {
@@ -22,8 +20,6 @@ async function ensureCategories(categories = []) {
     return bySlug;
 }
 
-// entry: { source, title, docType, issuer, number, sourceUrl, publishedAt, status, categories, replaces }
-// source é uma URL ou um caminho local já resolvido
 async function ingestDocument(entry, categoriesBySlug = {}) {
     const { pages, hash } = await extract(entry.source);
 
@@ -50,14 +46,13 @@ async function ingestDocument(entry, categoriesBySlug = {}) {
             if (!categoriesBySlug[slug]) throw new Error(`categoria não declarada: ${slug}`);
             await Document.addCategory(doc.id, categoriesBySlug[slug].id);
         }
-        // "replaces": { "issuer": "CONGRAD", "number": "15/2011" } revoga o documento antigo
         if (entry.replaces) {
             const old = await Document.findByNumber(entry.replaces.issuer, entry.replaces.number);
             if (!old) throw new Error(`documento substituído não encontrado: ${entry.replaces.issuer} ${entry.replaces.number}`);
             await Document.markReplaced(old.id, doc.id);
         }
     } catch (err) {
-        await Document.remove(doc.id); // não deixa documento sem trechos no banco
+        await Document.remove(doc.id);
         throw err;
     }
     return `${chunks.length} trechos`;

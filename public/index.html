@@ -60,11 +60,10 @@
 
     <main id="chat" class="chat">
 
-        <!-- apresentação: aparece só enquanto a conversa não começou -->
         <div id="intro" class="message-row grizz intro">
             <span class="avatar" aria-hidden="true">
-                <img src="images/logo-grizz-light.svg" alt="" class="avatar-light">
-                <img src="images/logo-grizz-dark.svg" alt="" class="avatar-dark">
+                <img src="images/avatar-grizz-light.svg" alt="" class="avatar-light">
+                <img src="images/avatar-grizz-dark.svg" alt="" class="avatar-dark">
             </span>
             <section class="message grizz">
                 <p class="message-author">GRIZZ</p>
@@ -88,8 +87,24 @@
     </main>
 
     <footer class="footer">
-        <p>Feito pelos membros da Liga Acadêmica DataLab - UFU · As respostas se baseiam nos documentos oficiais da UFU</p>
+        <p>Feito pelos membros da Liga Acadêmica DataLab · As respostas se baseiam nos documentos oficiais da UFU</p>
     </footer>
+
+    <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+        <form method="dialog">
+            <div class="confirm-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/>
+                </svg>
+            </div>
+            <h2 id="confirm-title" class="confirm-title">Apagar conversa?</h2>
+            <p id="confirm-message" class="confirm-message"></p>
+            <div class="confirm-actions">
+                <button type="submit" value="cancel" class="confirm-cancel" autofocus>Cancelar</button>
+                <button type="submit" value="confirm" class="confirm-danger">Apagar</button>
+            </div>
+        </form>
+    </dialog>
 
     <script src="vendor/marked.js"></script>
     <script src="vendor/purify.js"></script>

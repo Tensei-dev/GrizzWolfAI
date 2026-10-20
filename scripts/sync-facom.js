@@ -1,6 +1,3 @@
-// importa os PDFs novos da aba Documentos do site da FACOM
-// uso: npm run sync:facom            (importa)
-//      npm run sync:facom -- --dry-run  (só lista o que seria importado)
 const pool = require('../db/pool');
 const Document = require('../models/Document');
 const { crawl, shouldSkip, toEntry } = require('../services/facomCrawler');
@@ -39,7 +36,7 @@ async function main() {
         } catch (err) {
             failures++;
             console.error(`falha ${entry.title}: ${err.message}`);
-            if (err instanceof DailyQuotaError) break; // os próximos falhariam do mesmo jeito
+            if (err instanceof DailyQuotaError) break;
         }
     }
     if (failures) process.exitCode = 1;

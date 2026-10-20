@@ -7,21 +7,16 @@ themeToggle.addEventListener('click', () => {
     try { localStorage.setItem('theme', next); } catch (e) {}
 });
 
-// ===== Chat =====
 const chatEl = document.getElementById('chat');
 const messagesEl = document.getElementById('messages');
 const form = document.getElementById('form-box');
 const queryInput = document.getElementById('query');
 const submitButton = form.querySelector('button[type="submit"]');
 
-// ===== Histórico local =====
-// as conversas ficam só neste navegador (localStorage); o servidor não guarda nada.
-// conversa: { id, title, createdAt, updatedAt, profile, messages: [{ id, role, content, sources, model, question, rating }] }
-// profile é o estado que o servidor devolve a cada resposta: curso, ano, pergunta pendente
 const STORE_KEY = 'grizz:conversations';
 const ACTIVE_KEY = 'grizz:activeConversation';
 const MAX_CONVERSATIONS = 50;
-const HISTORY_SENT = 6; // mensagens anteriores enviadas ao servidor como contexto
+const HISTORY_SENT = 6;
 const TITLE_MAX_CHARS = 60;
 
 function readStore() {
@@ -36,7 +31,6 @@ function readStore() {
 let conversations = readStore();
 let conversationId = null;
 try { conversationId = localStorage.getItem(ACTIVE_KEY); } catch (e) {}
-// ids das versões anteriores, quando o histórico ficava no servidor
 try { localStorage.removeItem('clientId'); localStorage.removeItem('conversationId'); } catch (e) {}
 
 function saveStore() {
@@ -47,7 +41,6 @@ function saveStore() {
             localStorage.setItem(STORE_KEY, JSON.stringify(conversations));
             return;
         } catch (e) {
-            // armazenamento cheio: descarta a conversa mais antiga e tenta de novo
             if (conversations.length <= 1) return;
             conversations.pop();
         }
@@ -70,34 +63,29 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
-// as respostas vêm em Markdown (títulos, listas, tabelas…): o marked converte em HTML
-// e o DOMPurify remove qualquer HTML perigoso. As citações [n] viram links para a fonte
-const CITATION_MARK = (n) => `⟦${n}⟧`; // ⟦n⟧: o marked não mexe nesse texto
+const CITATION_MARK = (n) => `⟦${n}⟧`;
 
 function formatAnswer(text, sources = []) {
     const urls = Object.fromEntries(sources.map((s) => [s.n, s.sourceUrl]));
     const markdown = text.replace(/\[(\d+)\]/g, (_, n) => CITATION_MARK(n));
     const html = window.marked && window.DOMPurify
         ? DOMPurify.sanitize(marked.parse(markdown, { gfm: true, breaks: true }))
-        : `<p>${escapeHtml(markdown).replace(/\n/g, '<br>')}</p>`; // bibliotecas não carregaram
+        : `<p>${escapeHtml(markdown).replace(/\n/g, '<br>')}</p>`;
     return html.replace(/⟦(\d+)⟧/g, (_, n) => urls[n]
         ? `<a class="citation" href="${escapeHtml(urls[n])}" target="_blank" rel="noopener">[${n}]</a>`
         : `[${n}]`);
 }
 
-// a apresentação do Grizz some quando a conversa começa, e a caixa de texto desce
 function setStarted(started) {
     chatEl.classList.toggle('started', started);
 }
 
-// miniatura do lobo ao lado das respostas; o CSS mostra a do tema atual
 const GRIZZ_AVATAR = `
     <span class="avatar" aria-hidden="true">
-        <img src="images/logo-grizz-light.svg" alt="" class="avatar-light">
-        <img src="images/logo-grizz-dark.svg" alt="" class="avatar-dark">
+        <img src="images/avatar-grizz-light.svg" alt="" class="avatar-light">
+        <img src="images/avatar-grizz-dark.svg" alt="" class="avatar-dark">
     </span>`;
 
-// retorna o <article> do balão (é nele que entram fontes e avaliação)
 function addMessage(role, html) {
     setStarted(true);
     const isUser = role === 'user';
@@ -113,9 +101,6 @@ function addMessage(role, html) {
     return row.querySelector('article');
 }
 
-// ===== Rolagem =====
-// a tela acompanha a conversa enquanto o usuário estiver perto do fim dela;
-// se ele subir para reler algo, a rolagem automática para até ele voltar ao fim
 const FOLLOW_THRESHOLD_PX = 120;
 let followConversation = true;
 
@@ -124,15 +109,11 @@ function isNearBottom() {
 }
 
 function scrollToBottom() {
-    // rolagem instantânea: a suave dispara eventos de scroll no meio do caminho,
-    // que fariam parecer que o usuário saiu do fim da conversa
     window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'auto' });
 }
 
 window.addEventListener('scroll', () => { followConversation = isNearBottom(); }, { passive: true });
 
-// qualquer crescimento da conversa (mensagem nova, resposta substituindo o
-// "Farejando…", fontes abertas) rola a tela junto
 new ResizeObserver(() => { if (followConversation) scrollToBottom(); }).observe(messagesEl);
 
 function renderSources(article, sources) {
@@ -149,9 +130,8 @@ function renderSources(article, sources) {
         </details>`);
 }
 
-// avaliação: o servidor guarda anonimamente só esta pergunta, a resposta, as fontes e a nota
 function renderFeedback(article, conversation, message) {
-    if (!message.model) return; // respostas fixas (pedido de curso/ano) não são avaliadas
+    if (!message.model) return;
     const box = document.createElement('div');
     box.className = 'message-feedback';
     article.appendChild(box);
@@ -206,7 +186,7 @@ function renderConversation(conversation) {
 }
 
 async function sendQuestion(question) {
-    followConversation = true; // quem acabou de perguntar quer ver a resposta
+    followConversation = true;
     addMessage('user', escapeHtml(question));
     const pending = addMessage('grizz', '<span class="typing">Farejando os documentos…</span>');
     submitButton.disabled = true;
@@ -222,14 +202,12 @@ async function sendQuestion(question) {
                 profile: current?.profile,
             }),
         });
-        // a resposta pode não ser JSON (servidor fora do ar, página aberta fora do servidor)
         let data = null;
         try { data = await res.json(); } catch (e) {}
         if (!res.ok || !data) {
             throw new Error(data?.error || `O servidor não respondeu direito (HTTP ${res.status}). Confira se ele está rodando com npm run dev.`);
         }
 
-        // só uma resposta bem-sucedida entra no histórico: se falhar, a pergunta não fica salva
         const now = new Date().toISOString();
         const conversation = current || {
             id: crypto.randomUUID(),
@@ -257,14 +235,12 @@ async function sendQuestion(question) {
         renderFeedback(pending, conversation, answer);
     } catch (err) {
         pending.classList.add('error');
-        // fetch só lança TypeError quando não consegue nem conectar
         pending.querySelector('.message-text').textContent = err instanceof TypeError
             ? 'Não consegui falar com o servidor. Confira se ele está rodando com npm run dev.'
             : err.message;
     } finally {
         submitButton.disabled = false;
         queryInput.focus();
-        // conversa nova entra no topo da lista; uma existente sobe para o topo
         renderConversationList();
     }
 }
@@ -276,7 +252,7 @@ function openConversation(id) {
     messagesEl.innerHTML = '';
     setStarted(false);
     closeSidebar();
-    followConversation = true; // conversa reaberta começa mostrando as últimas mensagens
+    followConversation = true;
     renderConversation(conversation);
     highlightActiveConversation();
 }
@@ -290,7 +266,6 @@ function startNewConversation() {
     queryInput.focus();
 }
 
-// ===== Barra lateral =====
 const sidebar = document.getElementById('sidebar');
 const sidebarToggle = document.getElementById('sidebar-toggle');
 const sidebarBackdrop = document.getElementById('sidebar-backdrop');
@@ -324,9 +299,24 @@ function highlightActiveConversation() {
     });
 }
 
-function deleteConversation(id) {
+const confirmDialog = document.getElementById('confirm-dialog');
+
+function askConfirmation(message) {
+    confirmDialog.querySelector('.confirm-message').textContent = message;
+    confirmDialog.returnValue = 'cancel';
+    confirmDialog.showModal();
+    return new Promise((resolve) => {
+        confirmDialog.addEventListener('close', () => resolve(confirmDialog.returnValue === 'confirm'), { once: true });
+    });
+}
+
+confirmDialog.addEventListener('click', (event) => {
+    if (event.target === confirmDialog) confirmDialog.close('cancel');
+});
+
+async function deleteConversation(id) {
     const title = findConversation(id)?.title || 'esta conversa';
-    if (!confirm(`Apagar a conversa "${title}"? Isso não pode ser desfeito.`)) return;
+    if (!(await askConfirmation(`"${title}" vai sumir deste navegador. Isso não pode ser desfeito.`))) return;
 
     conversations = conversations.filter((c) => c.id !== id);
     saveStore();
@@ -367,7 +357,6 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeSidebar();
 });
 
-// ===== Caixa de texto =====
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const question = queryInput.value.trim();
@@ -377,7 +366,6 @@ form.addEventListener('submit', (event) => {
     sendQuestion(question);
 });
 
-// Enter envia, Shift+Enter quebra linha
 queryInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' && !event.shiftKey) {
         event.preventDefault();

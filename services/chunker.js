@@ -3,12 +3,9 @@ const { normalize } = require('./extractor');
 const MAX_CHARS = 1200;
 const OVERLAP_CHARS = 200;
 
-// normas da UFU são organizadas em artigos: sempre começa um trecho novo
-// num "Art." se o trecho atual já tiver conteúdo suficiente
 const ARTICLE_START = /^Art\.?\s*\d+/i;
 const MIN_CHARS_BEFORE_ARTICLE_BREAK = 400;
 
-// pages: [{ num, text }] -> [{ content, page }]
 function chunk(pages) {
     const chunks = [];
     let current = '';
@@ -16,7 +13,6 @@ function chunk(pages) {
 
     const flush = () => {
         if (current.trim()) chunks.push({ content: current.trim(), page: currentPage });
-        // repete o fim do trecho anterior para não cortar o contexto no meio
         current = current.length > OVERLAP_CHARS ? current.slice(-OVERLAP_CHARS).replace(/^\S*\s/, '') : '';
     };
 
@@ -36,7 +32,6 @@ function chunk(pages) {
     return chunks;
 }
 
-// parágrafos maiores que MAX_CHARS são quebrados por frase
 function splitLong(paragraphs) {
     const out = [];
     for (const p of paragraphs) {

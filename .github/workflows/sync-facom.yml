@@ -2,8 +2,8 @@ name: Sincronizar documentos da FACOM
 
 on:
   schedule:
-    - cron: '0 9 * * *' # todo dia às 06h de Brasília
-  workflow_dispatch: # permite rodar na mão pela aba Actions
+    - cron: '0 9 * * *'
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -23,6 +23,6 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       - run: npm run dedupe
-        if: always() # roda mesmo se algum documento falhou na sincronização
+        if: always()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

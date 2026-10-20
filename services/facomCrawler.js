@@ -3,7 +3,6 @@ const cheerio = require('cheerio');
 const BASE_URL = 'https://facom.ufu.br';
 const LISTING_URL = `${BASE_URL}/central-de-conteudos/documentos`;
 
-// documentos que não servem para os alunos: vida funcional dos docentes, concursos, eleições, eventos
 const SKIP_TITLES = [
     /memoria(l|is)/i,
     /progress[aã]o funcional/i,
@@ -31,7 +30,7 @@ const DOC_TYPES = [
 ];
 
 const HEADERS = { 'User-Agent': 'GrizzWolfAI/1.0 (+https://github.com/Tensei-dev/GrizzWolfAI)' };
-const DELAY_MS = 1500; // pausa entre páginas para não ser bloqueado pelo site
+const DELAY_MS = 1500;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -39,7 +38,6 @@ async function fetchPage(url) {
     for (let attempt = 1; ; attempt++) {
         const res = await fetch(url, { headers: HEADERS });
         if (res.ok) return res.text();
-        // 403/429 = bloqueio temporário por excesso de requisições
         if ([403, 429, 503].includes(res.status) && attempt < 4) {
             await sleep(30000 * attempt);
             continue;
@@ -48,14 +46,13 @@ async function fetchPage(url) {
     }
 }
 
-// lê uma página da listagem: [{ title, fileName, fileUrl, publishedAt }]
 async function fetchListingPage(page) {
     const $ = cheerio.load(await fetchPage(`${LISTING_URL}?page=${page}`));
 
     const items = [];
     $('.region-content .views-row').each((_, row) => {
         const title = $(row).find('h3.titulo').text().trim().replace(/\s+/g, ' ');
-        const date = $(row).find('.info-lateral li').first().text().trim(); // dd/mm/aaaa
+        const date = $(row).find('.info-lateral li').first().text().trim();
         const [d, m, y] = date.split('/');
 
         $(row).find('.linha-fina a[href]').each((_, a) => {
@@ -70,8 +67,6 @@ async function fetchListingPage(page) {
     return items;
 }
 
-// percorre a listagem inteira; são poucas páginas, e assim documentos que
-// falharam numa execução anterior são tentados de novo
 async function crawl() {
     const all = [];
     for (let page = 0; ; page++) {
@@ -84,17 +79,14 @@ async function crawl() {
 }
 
 function shouldSkip(item) {
-    if (!/\.pdf($|\?)/i.test(item.fileUrl)) return true; // .zip, .docx etc. ficam de fora
+    if (!/\.pdf($|\?)/i.test(item.fileUrl)) return true;
     return SKIP_TITLES.some((r) => r.test(item.title)) || SKIP_FILES.some((r) => r.test(item.fileName));
 }
 
-// metadados que dá para tirar do título, ex.: "Resolução nº 30/2026, do Conselho da Faculdade de Computação"
-// siblings: quantos itens da listagem têm esse mesmo título
 function toEntry(item, siblings) {
     const number = item.title.match(/n[º°o.]\s*([\d.]+\/\d{4})/i)?.[1] || null;
     const docType = DOC_TYPES.find(([r]) => r.test(item.title))?.[1] || 'documento';
     const issuer = /conselho da faculdade de computa[cç][aã]o/i.test(item.title) ? 'CONFACOM' : 'FACOM';
-    // quando o mesmo item tem vários arquivos, o nome do arquivo diferencia os títulos
     const title = siblings > 1 ? `${item.title} - ${item.fileName.replace(/\.pdf$/i, '')}` : item.title;
 
     return {

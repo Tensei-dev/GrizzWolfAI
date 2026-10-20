@@ -2,7 +2,6 @@ CREATE EXTENSION IF NOT EXISTS vector;
 CREATE EXTENSION IF NOT EXISTS unaccent;
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
--- busca por palavras-chave em português, ignorando acentos ("matricula" encontra "matrícula")
 CREATE TEXT SEARCH CONFIGURATION pt_unaccent (COPY = portuguese);
 ALTER TEXT SEARCH CONFIGURATION pt_unaccent
     ALTER MAPPING FOR hword, hword_part, word WITH unaccent, portuguese_stem;
@@ -74,7 +73,6 @@ CREATE TABLE message_sources (
     PRIMARY KEY (message_id, chunk_id)
 );
 
--- uma avaliação por resposta: cada mensagem pertence a uma única conversa (sessão)
 CREATE TABLE feedback (
     id         SERIAL PRIMARY KEY,
     message_id INTEGER NOT NULL UNIQUE REFERENCES messages(id) ON DELETE CASCADE,

@@ -1,6 +1,5 @@
 const pool = require('../db/pool');
 
-// retorna null se essa resposta já foi avaliada (um voto por resposta, sem troca)
 async function create({ answerId, rating, comment = null, question, answer, sources = [], course = null, entryYear = null, model = null }) {
     const { rows } = await pool.query(
         `INSERT INTO feedback (answer_id, rating, comment, question, answer, sources, course, entry_year, model)
