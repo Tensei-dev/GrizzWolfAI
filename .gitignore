@@ -1,5 +1,24 @@
+# dependências (recriadas com npm install)
 node_modules/
+
+# segredos: chaves das APIs e URL do banco
 .env
+.env.*
+!.env.example
 
 # dados de idioma que o tesseract.js (OCR) baixa na primeira execução
 *.traineddata
+
+# logs
+*.log
+npm-debug.log*
+
+# sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editores
+.vscode/
+.idea/
+*.swp
