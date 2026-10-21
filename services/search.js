@@ -27,15 +27,16 @@ async function vectorSearch(text, categoryIds) {
     }
 }
 
-async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank = true, profileText = null } = {}) {
+async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank = true, profileText = null, previousMessages = [] } = {}) {
+    const searchText = [...previousMessages, question].join('\n');
     const [vectorResults, keywordResults] = await Promise.all([
-        vectorSearch(profileText ? `${question}\nEstudante do ${profileText}` : question, categoryIds),
-        Chunk.searchKeyword(question, { limit: CANDIDATES_PER_SEARCH, categoryIds }),
+        vectorSearch(profileText ? `${searchText}\nEstudante do ${profileText}` : searchText, categoryIds),
+        Chunk.searchKeyword(searchText, { limit: CANDIDATES_PER_SEARCH, categoryIds }),
     ]);
 
     const fused = reciprocalRankFusion([vectorResults, keywordResults]).slice(0, CANDIDATES_TO_RERANK);
     if (!useRerank) return fused.slice(0, topK);
-    return rerank(question, fused, { topK, profileText });
+    return rerank(question, fused, { topK, profileText, previousMessages });
 }
 
 module.exports = { hybridSearch, reciprocalRankFusion };

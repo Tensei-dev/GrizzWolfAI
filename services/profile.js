@@ -87,14 +87,36 @@ Se o curso do estudante for informado, ignore os documentos de outros cursos.`;
 
 const MAX_SNIPPET_CHARS = 300;
 
-async function hasCompetingVersions(question, chunks, profile) {
+const COURSE_PATTERNS = [
+    ['bia', /intelig[eê]ncia artificial/i],
+    ['bsi-mc', /monte carmelo/i],
+    ['bsi', /sistemas de informa[cç][aã]o/i],
+    ['bcc', /ci[eê]ncia da computa[cç][aã]o/i],
+];
+
+function documentCourse(chunk) {
+    const text = `${chunk.title} ${chunk.subject || ''}`;
+    return COURSE_PATTERNS.find(([, pattern]) => pattern.test(text))?.[0] || null;
+}
+
+async function hasCompetingVersions(question, chunks, { courseId = null, courseName = null } = {}) {
     const documents = new Map();
     for (const c of chunks) {
-        if (!documents.has(c.document_id)) documents.set(c.document_id, c);
+        const key = c.number || `doc-${c.document_id}`;
+        if (!documents.has(key)) documents.set(key, { ...c, course: documentCourse(c) });
     }
-    if (documents.size < 2) return false;
 
-    const list = [...documents.values()]
+    let candidates = [...documents.values()];
+    if (courseId) {
+        candidates = candidates.filter((d) => d.course === courseId);
+    } else {
+        const perCourse = {};
+        for (const d of candidates) if (d.course) perCourse[d.course] = (perCourse[d.course] || 0) + 1;
+        candidates = candidates.filter((d) => d.course && perCourse[d.course] >= 2);
+    }
+    if (candidates.length < 2) return false;
+
+    const list = candidates
         .map((c, i) => `[${i + 1}] ${c.title}${c.subject ? `\nEmenta: ${c.subject}` : ''}\nTrecho: ${c.content.slice(0, MAX_SNIPPET_CHARS)}`)
         .join('\n\n');
     try {
@@ -103,7 +125,7 @@ async function hasCompetingVersions(question, chunks, profile) {
                 { role: 'system', content: VERSIONS_PROMPT },
                 {
                     role: 'user',
-                    content: `${profile ? `Curso do estudante: ${profile.courseName}\n` : ''}Pergunta: ${question}\n\nDocumentos vigentes:\n\n${list}`,
+                    content: `${courseName ? `Curso do estudante: ${courseName}\n` : ''}Pergunta: ${question}\n\nDocumentos vigentes:\n\n${list}`,
                 },
             ],
             { model: RERANK_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }

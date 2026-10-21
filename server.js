@@ -24,6 +24,16 @@ function readHistory(value) {
         .map((m) => ({ role: m.role, content: m.content.slice(0, MAX_HISTORY_CHARS) }));
 }
 
+const MAX_USER_MESSAGES = 20;
+
+function readUserMessages(value) {
+    if (!Array.isArray(value)) return [];
+    return value
+        .filter((m) => typeof m === 'string' && m.trim())
+        .slice(-MAX_USER_MESSAGES)
+        .map((m) => m.trim().slice(0, MAX_QUESTION_CHARS));
+}
+
 function readProfile(value) {
     if (!value || typeof value !== 'object') return { ...EMPTY_PROFILE };
     const year = Number(value.entryYear);
@@ -49,6 +59,7 @@ app.post('/api/chat', async (req, res) => {
         message: question,
         history: readHistory(req.body.history),
         profile: readProfile(req.body.profile),
+        userMessages: readUserMessages(req.body.userMessages),
     }));
 });
 

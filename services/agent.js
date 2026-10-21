@@ -106,7 +106,7 @@ function shouldAskEntryYear(profile) {
     return !profile.course || hasMultipleCurricula(profile.course);
 }
 
-async function answer({ message, history = [], profile = {} }) {
+async function answer({ message, history = [], profile = {}, userMessages = [] }) {
     history = history.slice(-HISTORY_MESSAGES);
     const resolved = await resolveProfile({ ...EMPTY_PROFILE, ...profile }, message, history);
     if (resolved.offTopic) return reply(OFF_TOPIC_REPLY, resolved.profile);
@@ -122,9 +122,12 @@ async function answer({ message, history = [], profile = {} }) {
             : 'Fala! Manda a sua dúvida que eu farejo os documentos!', profile);
     }
 
-    const chunks = await hybridSearch(question, { profileText: described?.text });
+    const previousMessages = userMessages.filter((m) => m !== question && m !== message);
+    const chunks = await hybridSearch(question, { profileText: described?.text, previousMessages });
 
-    if (shouldAskEntryYear(profile) && await hasCompetingVersions(question, chunks, described)) {
+    const competing = shouldAskEntryYear(profile)
+        && await hasCompetingVersions(question, chunks, { courseId: profile.course, courseName: described?.courseName });
+    if (competing) {
         profile = { ...profile, pendingQuestion: question, yearAsked: true };
         return reply(ASK_ENTRY_YEAR, profile);
     }
