@@ -1,11 +1,18 @@
 const { hybridSearch } = require('./search');
 const { complete, CHAT_MODEL } = require('./llm');
 const { extractProfile, askForProfile } = require('./profile');
-const { describeProfile } = require('./courses');
+const { describeProfile, hasMultipleCurricula } = require('./courses');
 
 const HISTORY_MESSAGES = 6;
 const MAX_PROFILE_PROMPTS = 2;
-const EMPTY_PROFILE = { course: null, entryYear: null, pendingQuestion: null, profilePrompts: 0 };
+const EMPTY_PROFILE = {
+    course: null,
+    entryYear: null,
+    prospective: false,
+    pendingQuestion: null,
+    pendingNeedsYear: false,
+    profilePrompts: 0,
+};
 
 const OFF_TOPIC_REPLY = 'Essa aí foge do meu território! 🐺 Meu faro só funciona nos regulamentos e documentos da FACOM/UFU: estágio, TCC, atividades complementares, monitoria e as outras burocracias da faculdade. Manda uma dúvida dessas que eu te ajudo!';
 
@@ -42,7 +49,9 @@ function profileInstructions(profile) {
 - Use as regras que valem para esse curso e currículo. Normas específicas de outros cursos não se aplicam a ele: ignore-as e não as cite.
 - Se nenhum documento consultado for uma norma do curso dele, diga isso e só então mostre o que as normas de outros cursos dizem, deixando claro de qual curso são.
 - Se houver regras diferentes por currículo, use a do currículo dele.${profile.curricula.length > 1 ? `
-- O currículo depende do semestre em que ele entrou; se isso mudar a resposta, explique as duas situações.` : ''}`;
+- O currículo depende do semestre em que ele entrou; se isso mudar a resposta, explique as duas situações.` : ''}${profile.curricula.length === 0 ? `
+- O ano de ingresso não foi informado: se a resposta mudar conforme o currículo, mostre as diferenças entre os currículos.` : ''}${profile.prospective ? `
+- Ele ainda não é aluno: use o currículo mais recente e as normas atuais, e fale com ele como um futuro calouro.` : ''}`;
 }
 
 function formatSources(chunks) {
@@ -59,27 +68,41 @@ function reply(content, profile) {
     return { answer: content, sources: [], profile, model: null };
 }
 
+function profileKnown(profile) {
+    return Boolean(profile.course) && (Boolean(profile.entryYear) || profile.prospective || !hasMultipleCurricula(profile.course));
+}
+
 async function resolveProfile(profile, message, history) {
-    if (profile.course && profile.entryYear) return { profile, question: message };
+    if (profileKnown(profile)) return { profile, question: message };
 
     const extracted = await extractProfile(message, history);
+    const learned = (extracted.course && !profile.course)
+        || (extracted.entryYear && !profile.entryYear)
+        || (extracted.prospective && !profile.prospective);
     profile = {
         ...profile,
         course: profile.course || extracted.course,
         entryYear: profile.entryYear || extracted.entryYear,
+        prospective: profile.prospective || extracted.prospective,
     };
     if (extracted.offTopic) return { profile, offTopic: true };
-
     if (extracted.declined) profile.profilePrompts = MAX_PROFILE_PROMPTS;
-    const complete = profile.course && profile.entryYear;
-    const relevant = extracted.needsProfile || Boolean(profile.pendingQuestion);
-    if (!complete && relevant && profile.profilePrompts < MAX_PROFILE_PROMPTS) {
-        profile.pendingQuestion = profile.pendingQuestion || (extracted.hasQuestion ? message : null);
+
+    const pending = Boolean(profile.pendingQuestion);
+    const needsYear = extracted.needsEntryYear || (pending && profile.pendingNeedsYear);
+    const needsCourse = extracted.needsCourse || needsYear || pending;
+    const missingCourse = needsCourse && !profile.course;
+    const missingYear = needsYear && !profile.entryYear && !profile.prospective
+        && !(profile.course && !hasMultipleCurricula(profile.course));
+
+    const canAsk = profile.profilePrompts === 0 || (learned && profile.profilePrompts < MAX_PROFILE_PROMPTS);
+    if ((missingCourse || missingYear) && canAsk) {
+        if (!pending && extracted.hasQuestion) {
+            profile.pendingQuestion = message;
+            profile.pendingNeedsYear = needsYear;
+        }
         profile.profilePrompts += 1;
-        return {
-            profile,
-            ask: askForProfile({ course: profile.course, entryYear: profile.entryYear, siCampusUnknown: extracted.siCampusUnknown }),
-        };
+        return { profile, ask: askForProfile({ missingCourse, missingYear, siCampusUnknown: extracted.siCampusUnknown }) };
     }
 
     return { profile, question: extracted.hasQuestion ? message : profile.pendingQuestion };
@@ -92,8 +115,8 @@ async function answer({ message, history = [], profile = {} }) {
     if (resolved.ask) return reply(resolved.ask, resolved.profile);
 
     const { question } = resolved;
-    profile = { ...resolved.profile, pendingQuestion: null };
-    const described = describeProfile(profile.course, profile.entryYear);
+    profile = { ...resolved.profile, pendingQuestion: null, pendingNeedsYear: false };
+    const described = describeProfile(profile.course, profile.entryYear, profile);
     if (!question) {
         return reply(described
             ? `Anotado: ${described.text}. Agora manda a sua dúvida que eu farejo os documentos!`

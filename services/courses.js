@@ -40,14 +40,34 @@ function curriculumFor(courseId, entryYear) {
     return [latest];
 }
 
-function describeProfile(courseId, entryYear) {
-    const course = COURSES[courseId];
-    if (!course) return null;
-    const curricula = curriculumFor(courseId, entryYear).map((c) => c.name);
-    const curriculumText = curricula.length > 1
-        ? `currículo ${curricula.join(' ou ')} (depende do semestre de ingresso)`
-        : `currículo ${curricula[0]}`;
-    return { courseName: course.name, entryYear, curricula, text: `${course.name}, ingresso em ${entryYear}, ${curriculumText}` };
+function hasMultipleCurricula(courseId) {
+    return (COURSES[courseId]?.curricula.length || 0) > 1;
 }
 
-module.exports = { COURSES, curriculumFor, describeProfile };
+function describeProfile(courseId, entryYear, { prospective = false } = {}) {
+    const course = COURSES[courseId];
+    if (!course) return null;
+    const latest = course.curricula[course.curricula.length - 1];
+
+    let when = null;
+    let curricula = [];
+    if (prospective) {
+        when = 'ainda não ingressou, está pensando em cursar';
+        curricula = [latest.name];
+    } else if (entryYear) {
+        when = `ingresso em ${entryYear}`;
+        curricula = curriculumFor(courseId, entryYear).map((c) => c.name);
+    } else if (!hasMultipleCurricula(courseId)) {
+        curricula = [latest.name];
+    } else {
+        when = 'ano de ingresso não informado';
+    }
+
+    const curriculumText = curricula.length > 1
+        ? `currículo ${curricula.join(' ou ')} (depende do semestre de ingresso)`
+        : curricula.length ? `currículo ${curricula[0]}` : null;
+    const text = [course.name, when, curriculumText].filter(Boolean).join(', ');
+    return { courseName: course.name, entryYear, prospective, curricula, text };
+}
+
+module.exports = { COURSES, curriculumFor, hasMultipleCurricula, describeProfile };
