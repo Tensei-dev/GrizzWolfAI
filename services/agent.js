@@ -1,6 +1,6 @@
 const { hybridSearch } = require('./search');
 const { complete, CHAT_MODEL } = require('./llm');
-const { extractProfile, askForProfile } = require('./profile');
+const { extractProfile, askForCourse, hasCompetingVersions } = require('./profile');
 const { describeProfile, hasMultipleCurricula } = require('./courses');
 
 const HISTORY_MESSAGES = 6;
@@ -10,9 +10,11 @@ const EMPTY_PROFILE = {
     entryYear: null,
     prospective: false,
     pendingQuestion: null,
-    pendingNeedsYear: false,
+    yearAsked: false,
     profilePrompts: 0,
 };
+
+const ASK_ENTRY_YEAR = 'Achei mais de uma norma vigente sobre isso, e cada uma vale para uma turma diferente. Em que ano você entrou na UFU? Se ainda não entrou, é só me dizer.';
 
 const OFF_TOPIC_REPLY = 'Essa aí foge do meu território! 🐺 Meu faro só funciona nos regulamentos e documentos da FACOM/UFU: estágio, TCC, atividades complementares, monitoria e as outras burocracias da faculdade. Manda uma dúvida dessas que eu te ajudo!';
 
@@ -48,6 +50,8 @@ function profileInstructions(profile) {
     return `Perfil do estudante: ${profile.text}.
 - Use as regras que valem para esse curso e currículo. Normas específicas de outros cursos não se aplicam a ele: ignore-as e não as cite.
 - Se nenhum documento consultado for uma norma do curso dele, diga isso e só então mostre o que as normas de outros cursos dizem, deixando claro de qual curso são.
+- Uma norma do curso dele vale para todos os currículos do curso, a não ser que o próprio documento diga a quais currículos ou turmas se aplica. Nunca deixe de responder só porque o documento não cita o currículo dele.
+- Se houver duas normas vigentes do curso dele sobre o mesmo assunto, use o ano de ingresso, as datas e o que os documentos dizem sobre a quem se aplicam para escolher a que vale para ele. Se nada indicar, use a mais recente e avise que existe a outra.
 - Se houver regras diferentes por currículo, use a do currículo dele.${profile.curricula.length > 1 ? `
 - O currículo depende do semestre em que ele entrou; se isso mudar a resposta, explique as duas situações.` : ''}${profile.curricula.length === 0 ? `
 - O ano de ingresso não foi informado: se a resposta mudar conforme o currículo, mostre as diferenças entre os currículos.` : ''}${profile.prospective ? `
@@ -68,12 +72,8 @@ function reply(content, profile) {
     return { answer: content, sources: [], profile, model: null };
 }
 
-function profileKnown(profile) {
-    return Boolean(profile.course) && (Boolean(profile.entryYear) || profile.prospective || !hasMultipleCurricula(profile.course));
-}
-
 async function resolveProfile(profile, message, history) {
-    if (profileKnown(profile)) return { profile, question: message };
+    if (profile.course && !profile.pendingQuestion) return { profile, question: message };
 
     const extracted = await extractProfile(message, history);
     const learned = (extracted.course && !profile.course)
@@ -89,23 +89,21 @@ async function resolveProfile(profile, message, history) {
     if (extracted.declined) profile.profilePrompts = MAX_PROFILE_PROMPTS;
 
     const pending = Boolean(profile.pendingQuestion);
-    const needsYear = extracted.needsEntryYear || (pending && profile.pendingNeedsYear);
-    const needsCourse = extracted.needsCourse || needsYear || pending;
-    const missingCourse = needsCourse && !profile.course;
-    const missingYear = needsYear && !profile.entryYear && !profile.prospective
-        && !(profile.course && !hasMultipleCurricula(profile.course));
-
+    const missingCourse = (extracted.needsCourse || pending) && !profile.course;
     const canAsk = profile.profilePrompts === 0 || (learned && profile.profilePrompts < MAX_PROFILE_PROMPTS);
-    if ((missingCourse || missingYear) && canAsk) {
-        if (!pending && extracted.hasQuestion) {
-            profile.pendingQuestion = message;
-            profile.pendingNeedsYear = needsYear;
-        }
+    if (missingCourse && canAsk) {
+        if (!pending && extracted.hasQuestion) profile.pendingQuestion = message;
         profile.profilePrompts += 1;
-        return { profile, ask: askForProfile({ missingCourse, missingYear, siCampusUnknown: extracted.siCampusUnknown }) };
+        return { profile, ask: askForCourse({ siCampusUnknown: extracted.siCampusUnknown }) };
     }
 
-    return { profile, question: extracted.hasQuestion ? message : profile.pendingQuestion };
+    const answeredGrizz = pending && learned;
+    return { profile, question: extracted.hasQuestion && !answeredGrizz ? message : profile.pendingQuestion };
+}
+
+function shouldAskEntryYear(profile) {
+    if (profile.entryYear || profile.prospective || profile.yearAsked) return false;
+    return !profile.course || hasMultipleCurricula(profile.course);
 }
 
 async function answer({ message, history = [], profile = {} }) {
@@ -115,15 +113,22 @@ async function answer({ message, history = [], profile = {} }) {
     if (resolved.ask) return reply(resolved.ask, resolved.profile);
 
     const { question } = resolved;
-    profile = { ...resolved.profile, pendingQuestion: null, pendingNeedsYear: false };
+    profile = resolved.profile;
     const described = describeProfile(profile.course, profile.entryYear, profile);
     if (!question) {
+        profile = { ...profile, pendingQuestion: null };
         return reply(described
             ? `Anotado: ${described.text}. Agora manda a sua dúvida que eu farejo os documentos!`
             : 'Fala! Manda a sua dúvida que eu farejo os documentos!', profile);
     }
 
     const chunks = await hybridSearch(question, { profileText: described?.text });
+
+    if (shouldAskEntryYear(profile) && await hasCompetingVersions(question, chunks, described)) {
+        profile = { ...profile, pendingQuestion: question, yearAsked: true };
+        return reply(ASK_ENTRY_YEAR, profile);
+    }
+    profile = { ...profile, pendingQuestion: null };
 
     const raw = await complete([
         {

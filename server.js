@@ -33,7 +33,7 @@ function readProfile(value) {
         entryYear: Number.isInteger(year) && year >= 1980 && year <= new Date().getFullYear() ? year : null,
         prospective: value.prospective === true,
         pendingQuestion: text(value.pendingQuestion, MAX_QUESTION_CHARS),
-        pendingNeedsYear: value.pendingNeedsYear === true,
+        yearAsked: value.yearAsked === true,
         profilePrompts: Number.isInteger(prompts) ? Math.min(Math.max(prompts, 0), MAX_PROFILE_PROMPTS) : 0,
     };
 }

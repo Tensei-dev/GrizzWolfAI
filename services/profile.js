@@ -8,23 +8,18 @@ Cursos possíveis:
 ${COURSE_LIST}
 
 Responda só com JSON no formato:
-{"course": "<id do curso ou null>", "entryYear": <ano de ingresso com 4 dígitos ou null>, "siCampusUnknown": <true|false>, "hasQuestion": <true|false>, "needsCourse": <true|false>, "needsEntryYear": <true|false>, "prospective": <true|false>, "offTopic": <true|false>, "declined": <true|false>}
+{"course": "<id do curso ou null>", "entryYear": <ano de ingresso com 4 dígitos ou null>, "siCampusUnknown": <true|false>, "hasQuestion": <true|false>, "needsCourse": <true|false>, "prospective": <true|false>, "offTopic": <true|false>, "declined": <true|false>}
 
 - course: só preencha se o estudante disser o curso. "BCC", "CC" e "computação" = "bcc"; "BIA" e "IA" = "bia".
   Se disser Sistemas de Informação sem indicar o campus, use null e siCampusUnknown = true.
 - entryYear: ano em que o estudante ENTROU na UFU. Converta expressões relativas usando o ano atual
   (ex.: "entrei ano passado"). Se ele disser só o período em que está, use null.
-- hasQuestion: true se a mensagem tem alguma dúvida ou pedido além de informar curso e ano.
+- hasQuestion: true só se a MENSAGEM ATUAL, sozinha, traz uma dúvida ou pedido novo. Dúvidas que aparecem só no histórico
+  não contam. Responder a uma pergunta do Grizz (curso, ano, campus, "ainda não entrei") não é dúvida: use false.
 - needsCourse: true se a resposta muda conforme o curso do estudante e o curso ainda não está claro na conversa
   (ex.: estágio, TCC, grade, disciplinas, horários, atividades complementares, monitoria do curso).
   false se a dúvida já cita o curso, se vale igual para toda a FACOM/UFU (ligas acadêmicas, eleições, extensão em geral,
   pós-graduação, quem procurar para algo) ou se a mensagem não tem dúvida.
-- needsEntryYear: true só se a resposta muda conforme o CURRÍCULO em que o estudante está, ou seja, depende de quando
-  ele entrou: grade curricular, disciplinas de um período, carga horária total, pré-requisitos, equivalências,
-  horas de atividades complementares, regras de TCC do currículo dele.
-  false para normas que valem para o curso inteiro independentemente do currículo (ex.: regras de estágio,
-  monitoria, horários de aula), para perguntas sobre o curso como ele é hoje (ex.: "qual a ementa do curso novo de IA",
-  "como é o curso de BCC") e para tudo que não depende do curso.
 - prospective: true se o estudante diz que ainda não entrou na UFU, que vai prestar ou que está pensando em cursar.
 - offTopic: true se a mensagem pede algo fora da vida acadêmica na UFU/FACOM (ex.: receitas, futebol, política,
   piadas, fazer o exercício ou o código do estudante, perguntas gerais de conhecimento ou de programação).
@@ -62,29 +57,62 @@ async function extractProfile(message, history = []) {
             siCampusUnknown: data.siCampusUnknown === true,
             hasQuestion: data.hasQuestion !== false,
             needsCourse: data.needsCourse === true,
-            needsEntryYear: data.needsEntryYear === true,
             prospective: data.prospective === true,
             offTopic: data.offTopic === true,
             declined: data.declined === true,
         };
     } catch (err) {
         console.error(`extração do perfil falhou: ${err.message}`);
-        return { course: null, entryYear: null, siCampusUnknown: false, hasQuestion: true, needsCourse: false, needsEntryYear: false, prospective: false, offTopic: false, declined: false };
+        return { course: null, entryYear: null, siCampusUnknown: false, hasQuestion: true, needsCourse: false, prospective: false, offTopic: false, declined: false };
     }
 }
 
-function askForProfile({ missingCourse, missingYear, siCampusUnknown }) {
-    const year = 'em que ano você entrou na UFU (se ainda não entrou, é só me dizer)';
-    if (missingCourse && siCampusUnknown) {
-        return `Sistemas de Informação, beleza! Mas de qual campus: Santa Mônica (Uberlândia) ou Monte Carmelo?${missingYear ? ` E ${year}?` : ''} Cada campus tem as suas normas.`;
+function askForCourse({ siCampusUnknown }) {
+    if (siCampusUnknown) {
+        return 'Sistemas de Informação, beleza! Mas de qual campus: Santa Mônica (Uberlândia) ou Monte Carmelo? Cada campus tem as suas normas.';
     }
-    if (missingCourse && missingYear) {
-        return `Antes de farejar os documentos, me conta: qual curso você faz e ${year}? Assim eu sei qual currículo vale pra você e não te passo regra errada.`;
-    }
-    if (missingCourse) {
-        return 'Antes de farejar os documentos, me conta: qual curso você faz (ou pretende fazer)? Cada curso tem as suas normas.';
-    }
-    return `Show! E ${year}? Essa resposta muda conforme o currículo, e o currículo depende de quando você entrou.`;
+    return 'Antes de farejar os documentos, me conta: qual curso você faz (ou pretende fazer)? Cada curso tem as suas normas.';
 }
 
-module.exports = { extractProfile, askForProfile };
+const VERSIONS_PROMPT = `Você recebe a pergunta de um estudante da FACOM/UFU e os documentos oficiais VIGENTES que a busca encontrou para ela.
+Responda só com JSON: {"needsEntryYear": <true|false>}
+
+needsEntryYear = true somente se, entre esses documentos, houver dois ou mais documentos DIFERENTES que regulam o MESMO
+assunto da pergunta para o MESMO curso (ex.: dois projetos pedagógicos vigentes do mesmo curso; duas resoluções vigentes
+com normas de estágio do mesmo curso; a grade de um currículo antigo e a de um currículo novo).
+
+needsEntryYear = false se só um documento trata do assunto da pergunta, se os documentos são de cursos diferentes,
+se tratam de assuntos diferentes, ou se são o mesmo documento (ex.: texto original e texto consolidado da mesma resolução).
+Se o curso do estudante for informado, ignore os documentos de outros cursos.`;
+
+const MAX_SNIPPET_CHARS = 300;
+
+async function hasCompetingVersions(question, chunks, profile) {
+    const documents = new Map();
+    for (const c of chunks) {
+        if (!documents.has(c.document_id)) documents.set(c.document_id, c);
+    }
+    if (documents.size < 2) return false;
+
+    const list = [...documents.values()]
+        .map((c, i) => `[${i + 1}] ${c.title}${c.subject ? `\nEmenta: ${c.subject}` : ''}\nTrecho: ${c.content.slice(0, MAX_SNIPPET_CHARS)}`)
+        .join('\n\n');
+    try {
+        const raw = await complete(
+            [
+                { role: 'system', content: VERSIONS_PROMPT },
+                {
+                    role: 'user',
+                    content: `${profile ? `Curso do estudante: ${profile.courseName}\n` : ''}Pergunta: ${question}\n\nDocumentos vigentes:\n\n${list}`,
+                },
+            ],
+            { model: RERANK_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }
+        );
+        return JSON.parse(raw).needsEntryYear === true;
+    } catch (err) {
+        console.error(`checagem de normas concorrentes falhou: ${err.message}`);
+        return false;
+    }
+}
+
+module.exports = { extractProfile, askForCourse, hasCompetingVersions };
