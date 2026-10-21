@@ -143,17 +143,11 @@ Para publicar:
 
 Depois disso, cada push na `main` publica uma nova versão automaticamente. Se mudar uma variável de ambiente, faça um **Redeploy** para ela valer.
 
-> [!NOTE]
-> A importação de documentos (OCR, Gemini) não roda na Vercel: ela continua no GitHub Actions. A função da Vercel só responde às perguntas.
-
 ## Atualização automática
 
 O workflow [`.github/workflows/sync-facom.yml`](.github/workflows/sync-facom.yml) roda todo dia às 6h (horário de Brasília). Ele aplica as migrations, importa os documentos novos e marca os duplicados. Também dá para rodá-lo na mão pela aba **Actions**, em **Run workflow**.
 
 Para ele funcionar, cadastre em **Settings → Secrets and variables → Actions** os segredos `DATABASE_URL` e `GEMINI_API_KEY`.
-
-> [!WARNING]
-> Em repositórios públicos, o GitHub desativa as tarefas agendadas depois de 60 dias sem nenhum commit. Se isso acontecer, reative o workflow pela aba Actions.
 
 ### Filtros da importação
 

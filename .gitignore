@@ -9,9 +9,25 @@ node_modules/
 # dados de idioma que o tesseract.js (OCR) baixa na primeira execução
 *.traineddata
 
+# PDFs baixados para importar com npm run ingest (são públicos e podem ser baixados de novo)
+data/pdfs/
+
+# configuração local da Vercel criada pelo CLI (vercel link / vercel dev)
+.vercel/
+
+# configurações locais do Claude Code
+.claude/settings.local.json
+
 # logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# arquivos temporários
+tmp/
+*.tmp
 
 # sistema operacional
 .DS_Store
