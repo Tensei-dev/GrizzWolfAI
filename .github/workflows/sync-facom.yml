@@ -2,7 +2,7 @@ name: Sincronizar documentos da FACOM
 
 on:
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '17 9 * * *'
   workflow_dispatch:
 
 jobs:

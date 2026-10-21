@@ -145,7 +145,7 @@ Depois disso, cada push na `main` publica uma nova versão automaticamente. Se m
 
 ## Atualização automática
 
-O workflow [`.github/workflows/sync-facom.yml`](.github/workflows/sync-facom.yml) roda todo dia às 6h (horário de Brasília). Ele aplica as migrations, importa os documentos novos e marca os duplicados. Também dá para rodá-lo na mão pela aba **Actions**, em **Run workflow**.
+O workflow [`.github/workflows/sync-facom.yml`](.github/workflows/sync-facom.yml) roda todo dia por volta das 6h17 (horário de Brasília). O GitHub pode atrasar tarefas agendadas em alguns minutos ou horas quando está com muita demanda. Ele aplica as migrations, importa os documentos novos e marca os duplicados. Também dá para rodá-lo na mão pela aba **Actions**, em **Run workflow**.
 
 Para ele funcionar, cadastre em **Settings → Secrets and variables → Actions** os segredos `DATABASE_URL` e `GEMINI_API_KEY`.
 
