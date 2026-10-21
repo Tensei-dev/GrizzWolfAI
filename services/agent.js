@@ -7,6 +7,8 @@ const HISTORY_MESSAGES = 6;
 const MAX_PROFILE_PROMPTS = 2;
 const EMPTY_PROFILE = { course: null, entryYear: null, pendingQuestion: null, profilePrompts: 0 };
 
+const OFF_TOPIC_REPLY = 'Essa aí foge do meu território! 🐺 Meu faro só funciona nos regulamentos e documentos da FACOM/UFU: estágio, TCC, atividades complementares, monitoria e as outras burocracias da faculdade. Manda uma dúvida dessas que eu te ajudo!';
+
 const SYSTEM_PROMPT = `Você é o Grizz, o lobo ancião da FACOM/UFU: um veterano experiente que ajuda os estudantes com a burocracia da universidade.
 Fale em português, de forma acolhedora e direta, como um veterano conversando com um colega mais novo.
 
@@ -25,7 +27,12 @@ Regras:
 - Se os documentos consultados não respondem a pergunta, diga isso em uma ou duas frases e oriente procurar a coordenação do curso ou a secretaria da FACOM. Não sugira outros sites, portais ou sistemas, e não diga onde a informação "normalmente" fica.
 - Nunca invente prazos, números de resolução, cargas horárias ou regras.
 - Não precisa cumprimentar em toda resposta. Chame o estudante de "calouro" só se ele entrou neste ano.
-- Seja objetivo: vá direto ao ponto e use listas quando houver passos ou requisitos.`;
+- Seja objetivo: vá direto ao ponto e use listas quando houver passos ou requisitos.
+
+Fora do seu território:
+- Você só ajuda com a vida acadêmica na FACOM/UFU: normas, cursos, disciplinas, estágio, TCC, documentos, prazos e procedimentos.
+- Se o estudante pedir qualquer outra coisa (receitas, futebol, política, piadas, fazer o exercício ou o código dele, perguntas gerais de conhecimento ou de programação), não responda o pedido, nem em parte. Responda exatamente: "${OFF_TOPIC_REPLY}"
+- Se perguntarem quem você é, apresente-se em uma ou duas frases como o Grizz, o lobo ancião da FACOM/UFU, e diga com o que pode ajudar.`;
 
 function profileInstructions(profile) {
     if (!profile) {
@@ -61,6 +68,7 @@ async function resolveProfile(profile, message, history) {
         course: profile.course || extracted.course,
         entryYear: profile.entryYear || extracted.entryYear,
     };
+    if (extracted.offTopic) return { profile, offTopic: true };
 
     if (extracted.declined) profile.profilePrompts = MAX_PROFILE_PROMPTS;
     const complete = profile.course && profile.entryYear;
@@ -80,6 +88,7 @@ async function resolveProfile(profile, message, history) {
 async function answer({ message, history = [], profile = {} }) {
     history = history.slice(-HISTORY_MESSAGES);
     const resolved = await resolveProfile({ ...EMPTY_PROFILE, ...profile }, message, history);
+    if (resolved.offTopic) return reply(OFF_TOPIC_REPLY, resolved.profile);
     if (resolved.ask) return reply(resolved.ask, resolved.profile);
 
     const { question } = resolved;

@@ -8,7 +8,7 @@ Cursos possíveis:
 ${COURSE_LIST}
 
 Responda só com JSON no formato:
-{"course": "<id do curso ou null>", "entryYear": <ano de ingresso com 4 dígitos ou null>, "siCampusUnknown": <true|false>, "hasQuestion": <true|false>, "needsProfile": <true|false>, "declined": <true|false>}
+{"course": "<id do curso ou null>", "entryYear": <ano de ingresso com 4 dígitos ou null>, "siCampusUnknown": <true|false>, "hasQuestion": <true|false>, "needsProfile": <true|false>, "offTopic": <true|false>, "declined": <true|false>}
 
 - course: só preencha se o estudante disser o curso. "BCC", "CC" e "computação" = "bcc"; "BIA" e "IA" = "bia".
   Se disser Sistemas de Informação sem indicar o campus, use null e siCampusUnknown = true.
@@ -21,6 +21,10 @@ Responda só com JSON no formato:
   false: assuntos que valem igual para toda a FACOM/UFU (ligas acadêmicas, eleições, extensão em geral, pós-graduação,
   quem procurar para algo), cumprimentos, agradecimentos e mensagens sem dúvida.
   Na dúvida entre os dois, use true.
+- offTopic: true se a mensagem pede algo fora da vida acadêmica na UFU/FACOM (ex.: receitas, futebol, política,
+  piadas, fazer o exercício ou o código do estudante, perguntas gerais de conhecimento ou de programação).
+  false para dúvidas sobre normas, cursos, disciplinas, estágio, TCC, documentos, prazos e procedimentos da UFU/FACOM,
+  e também para cumprimentos, agradecimentos, respostas sobre curso e ano e perguntas sobre o próprio Grizz.
 - declined: true se o estudante se recusa a informar ou diz que não sabe (ex.: "prefiro não dizer", "tanto faz, só responde").
 
 Use o histórico da conversa para interpretar respostas curtas: se o Grizz perguntou o campus de
@@ -53,11 +57,12 @@ async function extractProfile(message, history = []) {
             siCampusUnknown: data.siCampusUnknown === true,
             hasQuestion: data.hasQuestion !== false,
             needsProfile: data.needsProfile !== false,
+            offTopic: data.offTopic === true,
             declined: data.declined === true,
         };
     } catch (err) {
         console.error(`extração do perfil falhou: ${err.message}`);
-        return { course: null, entryYear: null, siCampusUnknown: false, hasQuestion: true, needsProfile: true, declined: false };
+        return { course: null, entryYear: null, siCampusUnknown: false, hasQuestion: true, needsProfile: true, offTopic: false, declined: false };
     }
 }
 
