@@ -1,5 +1,6 @@
-const pgvector = require('pgvector/pg');
 const pool = require('../db/pool');
+
+const toVector = (embedding) => `[${embedding.join(',')}]`;
 
 async function createMany(documentId, chunks) {
     const client = await pool.connect();
@@ -11,7 +12,7 @@ async function createMany(documentId, chunks) {
                 `INSERT INTO chunks (document_id, chunk_index, content, page, token_count, embedding)
                  VALUES ($1, $2, $3, $4, $5, $6)
                  RETURNING id, document_id, chunk_index, content, page, token_count`,
-                [documentId, i, chunk.content, chunk.page ?? null, chunk.tokenCount ?? null, pgvector.toSql(chunk.embedding)]
+                [documentId, i, chunk.content, chunk.page ?? null, chunk.tokenCount ?? null, toVector(chunk.embedding)]
             );
             created.push(rows[0]);
         }
@@ -55,7 +56,7 @@ async function searchVector(embedding, { limit = 20, categoryIds = null } = {}) 
          WHERE ${SEARCH_FILTER}
          ORDER BY c.embedding <=> $1
          LIMIT $2`,
-        [pgvector.toSql(embedding), limit, categoryIds]
+        [toVector(embedding), limit, categoryIds]
     );
     return rows;
 }

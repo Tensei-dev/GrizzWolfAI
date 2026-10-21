@@ -33,10 +33,12 @@
     "marked": "^18.1.1",
     "pdf-parse": "^2.4.5",
     "pg": "^8.23.1",
-    "pgvector": "^0.3.0",
     "tesseract.js": "^7.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
