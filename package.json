@@ -10,7 +10,8 @@
     "sync:facom": "node scripts/sync-facom.js",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "dedupe": "node scripts/dedupe-documents.js"
+    "dedupe": "node scripts/dedupe-documents.js",
+    "postinstall": "node scripts/copy-vendor.js"
   },
   "repository": {
     "type": "git",

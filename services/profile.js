@@ -8,13 +8,19 @@ Cursos possíveis:
 ${COURSE_LIST}
 
 Responda só com JSON no formato:
-{"course": "<id do curso ou null>", "entryYear": <ano de ingresso com 4 dígitos ou null>, "siCampusUnknown": <true|false>, "hasQuestion": <true|false>, "declined": <true|false>}
+{"course": "<id do curso ou null>", "entryYear": <ano de ingresso com 4 dígitos ou null>, "siCampusUnknown": <true|false>, "hasQuestion": <true|false>, "needsProfile": <true|false>, "declined": <true|false>}
 
 - course: só preencha se o estudante disser o curso. "BCC", "CC" e "computação" = "bcc"; "BIA" e "IA" = "bia".
   Se disser Sistemas de Informação sem indicar o campus, use null e siCampusUnknown = true.
 - entryYear: ano em que o estudante ENTROU na UFU. Converta expressões relativas usando o ano atual
   (ex.: "entrei ano passado"). Se ele disser só o período em que está, use null.
 - hasQuestion: true se a mensagem tem alguma dúvida ou pedido além de informar curso e ano.
+- needsProfile: true só se a resposta da dúvida muda conforme o curso ou o currículo do estudante. Exemplos:
+  true: estágio (cada curso tem sua norma), TCC, grade curricular, disciplinas de um período, carga horária do curso,
+  atividades complementares, pré-requisitos, equivalências, horários de aula, monitoria do curso.
+  false: assuntos que valem igual para toda a FACOM/UFU (ligas acadêmicas, eleições, extensão em geral, pós-graduação,
+  quem procurar para algo), cumprimentos, agradecimentos e mensagens sem dúvida.
+  Na dúvida entre os dois, use true.
 - declined: true se o estudante se recusa a informar ou diz que não sabe (ex.: "prefiro não dizer", "tanto faz, só responde").
 
 Use o histórico da conversa para interpretar respostas curtas: se o Grizz perguntou o campus de
@@ -46,11 +52,12 @@ async function extractProfile(message, history = []) {
             entryYear: Number.isInteger(year) && year >= 1980 && year <= new Date().getFullYear() ? year : null,
             siCampusUnknown: data.siCampusUnknown === true,
             hasQuestion: data.hasQuestion !== false,
+            needsProfile: data.needsProfile !== false,
             declined: data.declined === true,
         };
     } catch (err) {
         console.error(`extração do perfil falhou: ${err.message}`);
-        return { course: null, entryYear: null, siCampusUnknown: false, hasQuestion: true, declined: false };
+        return { course: null, entryYear: null, siCampusUnknown: false, hasQuestion: true, needsProfile: true, declined: false };
     }
 }
 

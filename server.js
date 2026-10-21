@@ -9,16 +9,6 @@ const app = express();
 app.use(express.json({ limit: '64kb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const VENDOR = {
-    'marked.js': 'node_modules/marked/lib/marked.umd.js',
-    'purify.js': 'node_modules/dompurify/dist/purify.min.js',
-};
-app.get('/vendor/:file', (req, res, next) => {
-    const file = VENDOR[req.params.file];
-    if (!file) return next();
-    res.sendFile(path.join(__dirname, file), { maxAge: '7d' });
-});
-
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const MAX_QUESTION_CHARS = 1000;
 const MAX_HISTORY_MESSAGES = 6;
@@ -103,5 +93,9 @@ app.use((err, req, res, next) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`GrizzWolfAI rodando em http://localhost:${PORT}`));
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`GrizzWolfAI rodando em http://localhost:${PORT}`));
+}
+
+module.exports = app;

@@ -64,7 +64,7 @@ async function searchKeyword(text, { limit = 20, categoryIds = null } = {}) {
     const { rows } = await pool.query(
         `SELECT ${SEARCH_COLUMNS}, ts_rank_cd(c.tsv, query.q) AS score
          FROM chunks c JOIN documents d ON d.id = c.document_id
-         CROSS JOIN (SELECT replace(websearch_to_tsquery('pt_unaccent', $1)::text, ' & ', ' | ')::tsquery AS q) query
+         CROSS JOIN (SELECT replace(websearch_to_tsquery('pt_unaccent', pt_normalize($1))::text, ' & ', ' | ')::tsquery AS q) query
          WHERE c.tsv @@ query.q AND ${SEARCH_FILTER}
          ORDER BY score DESC
          LIMIT $2`,

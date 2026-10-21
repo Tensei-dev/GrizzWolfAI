@@ -18,6 +18,7 @@ Regras:
 - Responda SOMENTE com o que está nos documentos consultados. Não use conhecimento próprio sobre a UFU.
 - Responda direto à pergunta. Ignore os documentos consultados que não têm a ver com ela: não os descreva nem os resuma.
 - Cite a fonte de cada afirmação com o número do documento entre colchetes simples, ex.: [1] ou [2][3]. Não use outro formato de citação.
+- Cite só os documentos que sustentam o que você afirmou. Ao dizer que não encontrou uma informação, não cite nenhum documento.
 - Se a regra depender de outro documento (ex.: "conforme o PPC"), diga qual é o documento.
 - Confira na ementa de cada documento a qual curso a norma se aplica. Norma específica de outro curso nunca vale para o estudante, mesmo que seja mais recente.
 - Entre normas do MESMO curso e do mesmo assunto que se contradizem, vale a mais recente (veja o ano no número da resolução, ex.: 18/2024 é mais nova que 3/2022). Use a mais recente e mencione isso.
@@ -63,7 +64,8 @@ async function resolveProfile(profile, message, history) {
 
     if (extracted.declined) profile.profilePrompts = MAX_PROFILE_PROMPTS;
     const complete = profile.course && profile.entryYear;
-    if (!complete && profile.profilePrompts < MAX_PROFILE_PROMPTS) {
+    const relevant = extracted.needsProfile || Boolean(profile.pendingQuestion);
+    if (!complete && relevant && profile.profilePrompts < MAX_PROFILE_PROMPTS) {
         profile.pendingQuestion = profile.pendingQuestion || (extracted.hasQuestion ? message : null);
         profile.profilePrompts += 1;
         return {
@@ -84,8 +86,9 @@ async function answer({ message, history = [], profile = {} }) {
     profile = { ...resolved.profile, pendingQuestion: null };
     const described = describeProfile(profile.course, profile.entryYear);
     if (!question) {
-        const noted = described ? `Anotado: ${described.text}. ` : '';
-        return reply(`${noted}Agora manda a sua dúvida que eu farejo os documentos!`, profile);
+        return reply(described
+            ? `Anotado: ${described.text}. Agora manda a sua dúvida que eu farejo os documentos!`
+            : 'Fala! Manda a sua dúvida que eu farejo os documentos!', profile);
     }
 
     const chunks = await hybridSearch(question, { profileText: described?.text });

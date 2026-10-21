@@ -126,6 +126,26 @@ Abra **http://localhost:3000**.
 | `npm run ingest -- data/sources.json` | Importa documentos de outros sites a partir de uma lista. Veja [Adicionando outros documentos](#adicionando-outros-documentos). |
 | `npm run dedupe` | Marca como duplicados os documentos com texto idêntico a outro. Use `-- --dry-run` para só listar. |
 
+## Publicando na Vercel
+
+O projeto já vem configurado para a [Vercel](https://vercel.com), com plano gratuito para projetos não comerciais.
+
+- **Arquivos estáticos:** a página, os estilos e as imagens de `public/` são servidos pelo CDN da Vercel.
+- **API:** as rotas `/api/*` rodam como uma função serverless (`api/index.js`), que reaproveita o app do `server.js`.
+- **Região:** a função roda em Cleveland (`cle1`), perto do banco no Neon (AWS US East 2, Ohio). Se o seu banco estiver em outra região, troque `regions` no [`vercel.json`](vercel.json).
+
+Para publicar:
+
+1. Entre em [vercel.com](https://vercel.com) com a conta do GitHub e clique em **Add New → Project**.
+2. Importe o repositório `GrizzWolfAI`. A configuração vem do `vercel.json`, então não precisa mudar nada na tela de build.
+3. Em **Environment Variables**, cadastre `DATABASE_URL`, `GEMINI_API_KEY` e `GROQ_API_KEY`, com os mesmos valores do `.env`.
+4. Clique em **Deploy**.
+
+Depois disso, cada push na `main` publica uma nova versão automaticamente. Se mudar uma variável de ambiente, faça um **Redeploy** para ela valer.
+
+> [!NOTE]
+> A importação de documentos (OCR, Gemini) não roda na Vercel: ela continua no GitHub Actions. A função da Vercel só responde às perguntas.
+
 ## Atualização automática
 
 O workflow [`.github/workflows/sync-facom.yml`](.github/workflows/sync-facom.yml) roda todo dia às 6h (horário de Brasília). Ele aplica as migrations, importa os documentos novos e marca os duplicados. Também dá para rodá-lo na mão pela aba **Actions**, em **Run workflow**.
@@ -174,6 +194,8 @@ npm run ingest -- data/sources.json
 
 ```
 ├── server.js                 # servidor Express e rotas da API
+├── api/index.js              # entrada da função serverless na Vercel
+├── vercel.json               # configuração do deploy na Vercel
 ├── db/
 │   ├── pool.js               # conexão com o Postgres
 │   ├── migrate.js            # executor das migrations
