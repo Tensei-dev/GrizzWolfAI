@@ -3,7 +3,7 @@ const { embedQuery } = require('./embeddings');
 const { rerank } = require('./reranker');
 
 const CANDIDATES_PER_SEARCH = 20;
-const CANDIDATES_TO_RERANK = 15;
+const CANDIDATES_TO_RERANK = 12;
 const RRF_K = 60;
 
 function reciprocalRankFusion(lists) {

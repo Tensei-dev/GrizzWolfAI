@@ -10,6 +10,10 @@
     --box-border: rgba(255, 255, 255, 0.2);
     --box-shadow: rgba(0, 0, 0, 0.6);
     --accent: #3b6bff;
+    --brand-gradient: linear-gradient(135deg, #2b6ab0, #2f5bff);
+    --brand-highlight: #4fdff7;
+    --brand-soft: rgba(47, 91, 255, 0.16);
+    --brand-glow: rgba(79, 223, 247, 0.25);
     color-scheme: dark;
 }
 
@@ -25,6 +29,10 @@
     --box-border: rgba(0, 0, 0, 0.15);
     --box-shadow: rgba(0, 0, 0, 0.12);
     --accent: #7c3aed;
+    --brand-gradient: linear-gradient(135deg, #7c3aed, #5b2db8);
+    --brand-highlight: #a78bfa;
+    --brand-soft: rgba(139, 92, 246, 0.14);
+    --brand-glow: rgba(139, 92, 246, 0.3);
     color-scheme: light;
 }
 
@@ -646,7 +654,12 @@ h1 {
 }
 
 .conversation-delete:hover {
-    color: #e5484d;
+    background: var(--brand-soft);
+    color: var(--brand-highlight);
+}
+
+:root[data-theme="light"] .conversation-delete:hover {
+    color: var(--accent);
 }
 
 @media (hover: none) {
@@ -716,11 +729,19 @@ h1 {
 .confirm-dialog {
     width: min(380px, calc(100vw - 32px));
     padding: 0;
-    border: 1px solid var(--box-border);
+    border: 1px solid var(--brand-soft);
     border-radius: 18px;
     background: var(--bg);
     color: var(--text);
-    box-shadow: 0 12px 40px var(--box-shadow);
+    box-shadow: 0 12px 40px var(--box-shadow), 0 0 0 1px var(--brand-soft), 0 0 32px var(--brand-glow);
+    overflow: hidden;
+}
+
+.confirm-dialog::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background: var(--brand-gradient);
 }
 
 .confirm-dialog[open] {
@@ -756,8 +777,13 @@ h1 {
     height: 48px;
     margin-bottom: 12px;
     border-radius: 50%;
-    background: rgba(229, 72, 77, 0.15);
-    color: #e5484d;
+    background: var(--brand-soft);
+    box-shadow: inset 0 0 0 1px var(--brand-glow);
+    color: var(--brand-highlight);
+}
+
+:root[data-theme="light"] .confirm-icon {
+    color: var(--accent);
 }
 
 .confirm-icon svg {
@@ -807,13 +833,14 @@ h1 {
 }
 
 .confirm-danger {
-    border: 1px solid #e5484d;
-    background: #e5484d;
+    border: 1px solid transparent;
+    background: var(--brand-gradient);
     color: #fff;
+    box-shadow: 0 4px 14px var(--brand-glow);
 }
 
 .confirm-danger:hover {
-    filter: brightness(1.1);
+    filter: brightness(1.12);
 }
 
 .confirm-actions button:focus-visible {

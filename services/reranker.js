@@ -1,6 +1,6 @@
 const { complete, RERANK_MODEL } = require('./llm');
 
-const MAX_PASSAGE_CHARS = 700;
+const MAX_PASSAGE_CHARS = 500;
 const MIN_SCORE = 2;
 
 const SYSTEM_PROMPT = `Você avalia a relevância de trechos de documentos oficiais da UFU para a pergunta de um estudante.
