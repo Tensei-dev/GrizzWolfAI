@@ -4,8 +4,14 @@ const MODEL = 'gemini-embedding-001';
 const DIMENSIONS = 768;
 const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:batchEmbedContents`;
 
-const TEXTS_PER_MINUTE = Number(process.env.EMBED_TEXTS_PER_MINUTE) || 80;
+const SAFETY_MARGIN = 0.85;
+const TEXTS_PER_MINUTE = Math.floor((Number(process.env.EMBED_TEXTS_PER_MINUTE) || 100) * SAFETY_MARGIN);
+const TOKENS_PER_MINUTE = Math.floor((Number(process.env.EMBED_TOKENS_PER_MINUTE) || 30000) * SAFETY_MARGIN);
 const BATCH_SIZE = Math.min(100, TEXTS_PER_MINUTE);
+const BATCH_TOKENS = Math.floor(TOKENS_PER_MINUTE / 2);
+const CHARS_PER_TOKEN = 3;
+
+const estimateTokens = (text) => Math.ceil(text.length / CHARS_PER_TOKEN);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -17,15 +23,34 @@ function retryDelayMs(body) {
 }
 
 const sent = [];
-async function throttle(count) {
+async function throttle(count, tokens) {
     for (;;) {
         const now = Date.now();
         while (sent.length && now - sent[0].at > 60000) sent.shift();
-        const used = sent.reduce((sum, s) => sum + s.count, 0);
-        if (used + count <= TEXTS_PER_MINUTE) break;
+        const usedTexts = sent.reduce((sum, s) => sum + s.count, 0);
+        const usedTokens = sent.reduce((sum, s) => sum + s.tokens, 0);
+        if (usedTexts + count <= TEXTS_PER_MINUTE && usedTokens + tokens <= TOKENS_PER_MINUTE) break;
         await sleep(60000 - (now - sent[0].at) + 100);
     }
-    sent.push({ at: Date.now(), count });
+    sent.push({ at: Date.now(), count, tokens });
+}
+
+function splitIntoBatches(texts) {
+    const batches = [];
+    let current = [];
+    let currentTokens = 0;
+    for (const text of texts) {
+        const tokens = estimateTokens(text);
+        if (current.length && (current.length >= BATCH_SIZE || currentTokens + tokens > BATCH_TOKENS)) {
+            batches.push(current);
+            current = [];
+            currentTokens = 0;
+        }
+        current.push(text);
+        currentTokens += tokens;
+    }
+    if (current.length) batches.push(current);
+    return batches;
 }
 
 async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infinity } = {}) {
@@ -38,8 +63,9 @@ async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infin
         })),
     };
 
+    const tokens = texts.reduce((sum, text) => sum + estimateTokens(text), 0);
     for (let attempt = 1; ; attempt++) {
-        await throttle(texts.length);
+        await throttle(texts.length, tokens);
         const res = await fetch(URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
@@ -64,8 +90,8 @@ async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infin
 
 async function embedDocuments(texts) {
     const vectors = [];
-    for (let i = 0; i < texts.length; i += BATCH_SIZE) {
-        vectors.push(...await embedBatch(texts.slice(i, i + BATCH_SIZE), 'RETRIEVAL_DOCUMENT'));
+    for (const batch of splitIntoBatches(texts)) {
+        vectors.push(...await embedBatch(batch, 'RETRIEVAL_DOCUMENT'));
     }
     return vectors;
 }

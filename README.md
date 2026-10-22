@@ -108,7 +108,8 @@ Abra **http://localhost:3000**.
 | `GROQ_API_KEY` | sim | Chave da API da Groq, usada para gerar as respostas e fazer o rerank. |
 | `GROQ_MODEL` | não | Modelo das respostas. Padrão: `openai/gpt-oss-120b`. |
 | `GROQ_RERANK_MODEL` | não | Modelo do rerank e da leitura do perfil do aluno. Padrão: `openai/gpt-oss-20b`. |
-| `EMBED_TEXTS_PER_MINUTE` | não | Limite de trechos enviados ao Gemini por minuto. Padrão: `80`. |
+| `EMBED_TEXTS_PER_MINUTE` | não | Limite de requisições por minuto (RPM) do seu plano no Gemini. Padrão: `100`. |
+| `EMBED_TOKENS_PER_MINUTE` | não | Limite de tokens por minuto (TPM) do seu plano no Gemini. Padrão: `30000`. |
 | `FACOM_IP` | não | IP do servidor do site da FACOM. Só use se o DNS de `facom.ufu.br` falhar: a importação passa a acessar o site direto por esse IP. Para descobrir o IP, abra o site no navegador e veja **Remote Address** nas ferramentas de desenvolvedor (F12 → Network). Remova quando o DNS voltar a funcionar. |
 | `PORT` | não | Porta do servidor. Padrão: `3000`. |
 
