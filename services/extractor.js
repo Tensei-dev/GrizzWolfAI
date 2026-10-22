@@ -1,3 +1,4 @@
+require('./hostOverrides');
 const fs = require('fs/promises');
 const crypto = require('crypto');
 const cheerio = require('cheerio');

@@ -1,3 +1,4 @@
+require('./hostOverrides');
 const cheerio = require('cheerio');
 
 const BASE_URL = 'https://facom.ufu.br';

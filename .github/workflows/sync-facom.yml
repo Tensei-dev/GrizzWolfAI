@@ -22,6 +22,7 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FACOM_IP: ${{ secrets.FACOM_IP }}
       - run: npm run dedupe
         if: always()
         env:
