@@ -38,7 +38,10 @@ function fromHtml(html) {
 
 async function extract(source) {
     if (/^https?:\/\//i.test(source)) {
-        const res = await fetch(source, { headers: { 'User-Agent': 'GrizzWolfAI/1.0 (+https://github.com/Tensei-dev/GrizzWolfAI)' } });
+        const res = await fetch(source, { headers: { 'User-Agent': 'GrizzWolfAI/1.0 (+https://github.com/Tensei-dev/GrizzWolfAI)' } })
+            .catch((err) => {
+                throw new Error(`não consegui baixar ${source} (${err.cause?.code || err.message})`);
+            });
         if (!res.ok) throw new Error(`HTTP ${res.status} ao baixar ${source}`);
         const type = res.headers.get('content-type') || '';
         if (type.includes('pdf') || /\.pdf($|\?)/i.test(source)) {

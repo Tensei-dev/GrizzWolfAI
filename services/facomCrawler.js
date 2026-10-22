@@ -34,9 +34,21 @@ const DELAY_MS = 1500;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+const NETWORK_ATTEMPTS = 3;
+
 async function fetchPage(url) {
     for (let attempt = 1; ; attempt++) {
-        const res = await fetch(url, { headers: HEADERS });
+        let res;
+        try {
+            res = await fetch(url, { headers: HEADERS });
+        } catch (err) {
+            if (attempt < NETWORK_ATTEMPTS) {
+                await sleep(10000 * attempt);
+                continue;
+            }
+            const cause = err.cause?.code || err.cause?.message || err.message;
+            throw new Error(`não consegui acessar o site da FACOM (${cause}); ele pode estar fora do ar, tente mais tarde`);
+        }
         if (res.ok) return res.text();
         if ([403, 429, 503].includes(res.status) && attempt < 4) {
             await sleep(30000 * attempt);
