@@ -41,7 +41,7 @@ async function removeByDocument(documentId) {
 
 const SEARCH_COLUMNS = `
     c.id, c.document_id, c.chunk_index, c.content, c.page,
-    d.title, d.subject, d.doc_type, d.number, d.source_url`;
+    d.title, d.subject, d.doc_type, d.number, d.issuer, d.source_url`;
 
 const SEARCH_FILTER = `
     d.status = 'vigente'

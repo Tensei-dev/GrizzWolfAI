@@ -106,10 +106,16 @@ function documentCourse(chunk) {
     return courseOfText(`${chunk.title} ${chunk.subject || ''}`);
 }
 
+// Versões da mesma norma (original, republicação, consolidado) têm o mesmo número, órgão e tipo e contam como uma só;
+// documentos diferentes que só compartilham o número (o Edital 10/2023 e a Resolução 10/2023) ficam separados.
+function normKey(chunk) {
+    return chunk.number ? `${chunk.number}|${chunk.issuer || ''}|${chunk.doc_type}` : `doc-${chunk.document_id}`;
+}
+
 async function hasCompetingVersions(question, chunks, { courseId = null, courseName = null } = {}) {
     const documents = new Map();
     for (const c of chunks) {
-        const key = c.number || `doc-${c.document_id}`;
+        const key = normKey(c);
         if (!documents.has(key)) documents.set(key, { ...c, course: documentCourse(c) });
     }
 
