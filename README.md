@@ -1,8 +1,8 @@
 # 🐺 GrizzWolfAI
 
-**O lobo ancião da FACOM/UFU.** Como o veterano da alcateia cujo focinho ficou grisalho de tanta experiência, o Grizz guia os calouros pela burocracia da universidade com respostas baseadas nos documentos oficiais. Todo calouro merece um veterano que já leu todas as normas.
+**O lobo ancião da FACOM e do IME/UFU.** Como o veterano da alcateia cujo focinho ficou grisalho de tanta experiência, o Grizz guia os calouros pela burocracia da universidade com respostas baseadas nos documentos oficiais. Todo calouro merece um veterano que já leu todas as normas.
 
-O Grizz é um assistente de perguntas e respostas (RAG) sobre as normas da Faculdade de Computação da Universidade Federal de Uberlândia: estágio, TCC, atividades complementares, monitoria, extensão, horários e mais. Cada resposta cita o trecho e o PDF oficial de onde a informação saiu.
+O Grizz é um assistente de perguntas e respostas (RAG) sobre as normas da Faculdade de Computação (FACOM) e do Instituto de Matemática e Estatística (IME) da Universidade Federal de Uberlândia: estágio, TCC, atividades complementares, monitoria, extensão, horários e mais. Cada resposta cita o trecho e o PDF oficial de onde a informação saiu.
 
 > [!NOTE]
 > O Grizz não substitui a coordenação do curso nem a secretaria. Ele só responde com base nos documentos que conseguiu ler e avisa quando não encontra a informação.
@@ -10,9 +10,10 @@ O Grizz é um assistente de perguntas e respostas (RAG) sobre as normas da Facul
 ## Funcionalidades
 
 - **Respostas com fontes:** cada afirmação traz uma citação `[n]` com link para o PDF oficial.
-- **Respostas por curso e currículo:** na primeira conversa o Grizz pergunta o curso e o ano de ingresso. Com isso ele identifica o currículo do aluno e não mistura as normas de cursos diferentes. Os cursos atendidos são Ciência da Computação, Sistemas de Informação (Santa Mônica e Monte Carmelo) e Inteligência Artificial.
+- **Respostas por curso e currículo:** na primeira conversa o Grizz pergunta o curso e o ano de ingresso. Com isso ele identifica o currículo do aluno e não mistura as normas de cursos diferentes. Os cursos atendidos são, na FACOM, Ciência da Computação, Sistemas de Informação (Santa Mônica e Monte Carmelo) e Inteligência Artificial e, no IME, Matemática (bacharelado, licenciatura presencial e licenciatura EaD) e Ciência de Dados e Estatística.
 - **Busca híbrida com rerank:** junta a busca por significado (vetorial) com a busca por palavras-chave. Depois, um modelo de linguagem reordena os trechos por relevância.
-- **Base atualizada sozinha:** um robô lê diariamente a aba [Documentos](https://facom.ufu.br/central-de-conteudos/documentos) do site da FACOM e importa o que for novo, inclusive PDFs escaneados, que passam por OCR.
+- **Grafo de conhecimento:** um mapa liga cada documento aos cursos, currículos e assuntos a que ele se aplica e às normas que ele altera, revoga ou cita. A busca usa esse mapa para seguir as regras do Grizz antes mesmo de chamar o modelo: deixa de fora normas de outros cursos, troca normas revogadas pelas que as revogaram e traz junto a versão mais nova de uma norma alterada.
+- **Base atualizada sozinha:** um robô lê diariamente a aba Documentos dos sites da [FACOM](https://facom.ufu.br/central-de-conteudos/documentos) e do [IME](https://ime.ufu.br/central-de-conteudos/documentos) e importa o que for novo, inclusive PDFs escaneados, que passam por OCR. Depois, mapeia os documentos novos no grafo.
 - **Histórico no navegador:** as conversas ficam só no navegador do aluno. O servidor não guarda nada da conversa.
 - **Avaliação das respostas:** o aluno pode marcar 👍 ou 👎. Só as respostas avaliadas são guardadas, de forma anônima, para melhorar o Grizz.
 - **Tema claro e escuro.**
@@ -22,27 +23,33 @@ O Grizz é um assistente de perguntas e respostas (RAG) sobre as normas da Facul
 ```mermaid
 flowchart LR
     subgraph importacao ["Importação (diária, GitHub Actions)"]
-        A[Site da FACOM] -->|lê a aba Documentos| B[PDFs e páginas]
+        A[Sites da FACOM e do IME] -->|lê a aba Documentos| B[PDFs e páginas]
         B -->|texto ou OCR| C[Trechos por artigo]
         C -->|Gemini| D[(Postgres + pgvector)]
+        D -->|regras + Groq| K[(Grafo de conhecimento)]
     end
 
     subgraph pergunta ["Pergunta"]
         E[Aluno] -->|pergunta + histórico + perfil| F[Servidor Express]
-        F --> G[Busca vetorial]
-        F --> H[Busca por palavras-chave]
-        G & H -->|fusão RRF| I[Rerank - Groq]
+        F -->|perfil + assunto| L[Escopo no grafo]
+        L --> G[Busca vetorial]
+        L --> H[Busca por palavras-chave]
+        G & H -->|fusão RRF| M[Versões no grafo]
+        M --> I[Rerank - Groq]
         I -->|5 melhores trechos| J[Resposta - Groq]
         J -->|resposta com citações| E
     end
 
     D -.-> G & H
+    K -.-> L & M
 ```
 
 1. **Importação:** os documentos são baixados e o texto é extraído. PDFs escaneados passam por OCR. O texto é dividido em trechos que respeitam os artigos das normas ("Art. 1º…"), e cada trecho vira um vetor de 768 dimensões gerado pelo Gemini.
-2. **Busca:** a pergunta é procurada de duas formas ao mesmo tempo. A busca vetorial acha trechos de significado parecido, e a busca textual em português, que ignora acentos, acha termos exatos como "Resolução 19/2024". As duas listas são combinadas com *Reciprocal Rank Fusion*.
-3. **Rerank:** um modelo da Groq dá uma nota de 0 a 10 para cada trecho, considerando o curso do aluno e a ementa do documento, e descarta os irrelevantes.
-4. **Resposta:** o Grizz responde só com base nos trechos escolhidos, citando cada um. Quando a busca vetorial fica indisponível, por exemplo com a cota do Gemini esgotada, a busca continua só com palavras-chave.
+2. **Grafo:** cada documento vira um nó ligado aos cursos, currículos, unidade e assuntos a que se aplica, e às outras normas do acervo que ele altera, revoga ou cita. As ligações vêm de regras (padrões no título, na ementa e nas referências "Resolução nº X/AAAA" do texto) e de uma leitura do início do documento por um modelo da Groq. Ao ligar uma norma a outra, o órgão emissor é conferido: a "Resolução nº 2/2019 do Colegiado" não é confundida com a nº 2/2019 do Conselho da FACOM.
+3. **Busca:** com o perfil do aluno, o grafo define o escopo: saem os documentos que valem só para outros cursos ou para a outra unidade, e os documentos do curso dele sobre o assunto da pergunta (estágio, TCC, monitoria…) entram como candidatos extras. A pergunta é procurada de duas formas ao mesmo tempo. A busca vetorial acha trechos de significado parecido, e a busca textual em português, que ignora acentos, acha termos exatos como "Resolução 19/2024". As duas listas são combinadas com *Reciprocal Rank Fusion*.
+4. **Versões:** trechos de normas revogadas saem, e as normas que alteraram ou revogaram um documento encontrado entram na lista.
+5. **Rerank:** um modelo da Groq dá uma nota de 0 a 10 para cada trecho, considerando o curso do aluno e a quem o documento vale, e descarta os irrelevantes. Se nada do curso do aluno sobrar, a busca é refeita no acervo todo e o Grizz avisa de qual curso é a regra.
+6. **Resposta:** o Grizz responde só com base nos trechos escolhidos, citando cada um. Cada documento chega ao modelo com as linhas "Vale para", "Alterado por", "Altera" e "Menciona", tiradas do grafo. Quando a busca vetorial fica indisponível, por exemplo com a cota do Gemini esgotada, a busca continua só com palavras-chave.
 
 ## Tecnologias
 
@@ -87,7 +94,8 @@ Crie as tabelas, importe os documentos e suba o servidor:
 
 ```bash
 npm run migrate       # cria as tabelas
-npm run sync:facom    # importa os documentos do site da FACOM (demora; veja a nota abaixo)
+npm run sync          # importa os documentos dos sites da FACOM e do IME (demora; veja a nota abaixo)
+npm run graph         # monta o grafo de conhecimento dos documentos importados
 npm run dev           # sobe o servidor e reinicia a cada alteração
 ```
 
@@ -97,7 +105,7 @@ Abra **http://localhost:3000**.
 > Abra a página pelo endereço do servidor (`localhost:3000`). Se abrir pelo Live Server do VS Code ou direto pelo arquivo `index.html`, as perguntas não funcionam, porque a página não encontra a API.
 
 > [!TIP]
-> A primeira importação é longa e pode esbarrar no limite diário gratuito do Gemini. Se isso acontecer, ela para sozinha com o aviso "cota diária do Gemini esgotada". É só rodar `npm run sync:facom` de novo no dia seguinte: o que já foi importado é pulado.
+> A primeira importação é longa e pode esbarrar no limite diário gratuito do Gemini. Se isso acontecer, ela para sozinha com o aviso "cota diária do Gemini esgotada". É só rodar `npm run sync` de novo no dia seguinte: o que já foi importado é pulado.
 
 ### Variáveis de ambiente
 
@@ -110,6 +118,7 @@ Abra **http://localhost:3000**.
 | `GROQ_RERANK_MODEL` | não | Modelo do rerank e da leitura do perfil do aluno. Padrão: `openai/gpt-oss-20b`. |
 | `EMBED_TEXTS_PER_MINUTE` | não | Limite de requisições por minuto (RPM) do seu plano no Gemini. Padrão: `100`. |
 | `EMBED_TOKENS_PER_MINUTE` | não | Limite de tokens por minuto (TPM) do seu plano no Gemini. Padrão: `30000`. |
+| `IME_IP` | não | O mesmo que `FACOM_IP`, para o site do IME (`ime.ufu.br`). |
 | `FACOM_IP` | não | IP do servidor do site da FACOM. Só use se o DNS de `facom.ufu.br` falhar: a importação passa a acessar o site direto por esse IP. Para descobrir o IP, abra o site no navegador e veja **Remote Address** nas ferramentas de desenvolvedor (F12 → Network). Remova quando o DNS voltar a funcionar. |
 | `PORT` | não | Porta do servidor. Padrão: `3000`. |
 
@@ -123,8 +132,10 @@ Abra **http://localhost:3000**.
 | `npm run dev` | Sobe o servidor com `nodemon`, que reinicia a cada alteração. |
 | `npm start` | Sobe o servidor, para produção. |
 | `npm run migrate` | Aplica as migrations de `db/migrations` que ainda não rodaram. |
-| `npm run sync:facom` | Importa os documentos novos da aba Documentos do site da FACOM. |
-| `npm run sync:facom -- --dry-run` | Só lista o que seria importado, sem gravar nada. |
+| `npm run sync` | Importa os documentos novos da aba Documentos dos sites da FACOM e do IME. |
+| `npm run sync:facom` / `npm run sync:ime` | Importa só de uma unidade. |
+| `npm run sync -- --dry-run` | Só lista o que seria importado, sem gravar nada. |
+| `npm run graph` | Mapeia no grafo os documentos que ainda não foram lidos pelo modelo. Sem `GROQ_API_KEY`, ou com `-- --rules-only`, usa só as regras. Com `-- --rebuild`, refaz o grafo inteiro. |
 | `npm run ingest -- data/sources.json` | Importa documentos de outros sites a partir de uma lista. Veja [Adicionando outros documentos](#adicionando-outros-documentos). |
 | `npm run dedupe` | Marca como duplicados os documentos com texto idêntico a outro. Use `-- --dry-run` para só listar. |
 
@@ -147,13 +158,15 @@ Depois disso, cada push na `main` publica uma nova versão automaticamente. Se m
 
 ## Atualização automática
 
-O workflow [`.github/workflows/sync-facom.yml`](.github/workflows/sync-facom.yml) roda todo dia por volta das 6h17 (horário de Brasília). O GitHub pode atrasar tarefas agendadas em alguns minutos ou horas quando está com muita demanda. Ele aplica as migrations, importa os documentos novos e marca os duplicados. Também dá para rodá-lo na mão pela aba **Actions**, em **Run workflow**.
+O workflow [`.github/workflows/sync-documents.yml`](.github/workflows/sync-documents.yml) roda todo dia por volta das 6h17 (horário de Brasília). O GitHub pode atrasar tarefas agendadas em alguns minutos ou horas quando está com muita demanda. Ele aplica as migrations, importa os documentos novos das duas unidades, marca os duplicados e atualiza o grafo de conhecimento. Também dá para rodá-lo na mão pela aba **Actions**, em **Run workflow**.
 
-Para ele funcionar, cadastre em **Settings → Secrets and variables → Actions** os segredos `DATABASE_URL` e `GEMINI_API_KEY`.
+Para ele funcionar, cadastre em **Settings → Secrets and variables → Actions** os segredos `DATABASE_URL`, `GEMINI_API_KEY` e `GROQ_API_KEY`. O último é usado pelo grafo; sem ele, o grafo é montado só com as regras.
 
 ### Filtros da importação
 
-Nem tudo o que a FACOM publica interessa aos alunos. Os filtros ficam em `SKIP_TITLES` e `SKIP_FILES`, no arquivo [`services/facomCrawler.js`](services/facomCrawler.js). Hoje ficam de fora arquivos que não são PDF e documentos sobre a vida funcional dos professores, concursos, eleições e eventos.
+Nem tudo o que as unidades publicam interessa aos alunos. Os filtros de cada unidade ficam em `skipTitles` e `skipFiles`, no arquivo [`services/unitCrawler.js`](services/unitCrawler.js). Hoje ficam de fora arquivos que não são PDF e documentos sobre a vida funcional dos professores, concursos, eleições e eventos. No IME também ficam de fora o material didático, as reportagens sobre a profissão e as chamadas de parcerias.
+
+Para incluir outra unidade da UFU com o mesmo modelo de site, basta acrescentá-la em `UNITS`, no [`services/unitCrawler.js`](services/unitCrawler.js), e cadastrar os cursos dela no [`services/courses.js`](services/courses.js).
 
 ## Adicionando outros documentos
 
@@ -199,17 +212,18 @@ npm run ingest -- data/sources.json
 ├── models/                   # acesso às tabelas (um arquivo por tabela)
 ├── services/
 │   ├── agent.js              # o Grizz: perfil do aluno, busca e resposta
-│   ├── search.js             # busca híbrida e fusão RRF
+│   ├── search.js             # busca híbrida, fusão RRF e uso do grafo
+│   ├── knowledgeGraph.js     # grafo de conhecimento: montagem e consulta
 │   ├── reranker.js           # rerank dos trechos com a Groq
 │   ├── profile.js            # leitura do curso e ano informados pelo aluno
-│   ├── courses.js            # cursos da FACOM e seus currículos
+│   ├── courses.js            # unidades, cursos e seus currículos
 │   ├── llm.js                # cliente da Groq
 │   ├── embeddings.js         # cliente do Gemini, com controle de cota
 │   ├── extractor.js          # texto de PDFs e páginas HTML
 │   ├── ocr.js                # OCR de PDFs escaneados
 │   ├── chunker.js            # divisão do texto em trechos por artigo
 │   ├── ingestion.js          # importação de um documento
-│   └── facomCrawler.js       # leitura da aba Documentos do site da FACOM
+│   └── unitCrawler.js        # leitura da aba Documentos dos sites da FACOM e do IME
 ├── scripts/                  # comandos de importação e manutenção
 ├── data/sources.json         # lista de documentos extras para importar
 └── public/                   # front: HTML, CSS, JS e imagens
@@ -228,13 +242,15 @@ npm run ingest -- data/sources.json
 |---|---|
 | `documents` | Documentos oficiais: título, tipo, número, ementa, link, data e status (`vigente`, `revogado` ou `duplicado`). |
 | `chunks` | Trechos de cada documento, com o embedding (`vector(768)`) e o índice de busca textual (`tsvector`). |
-| `categories` e `document_categories` | Categorias dos documentos. |
+| `categories` e `document_categories` | Categorias dos documentos. A categoria `facom` ou `ime` indica a unidade de origem. |
+| `kg_nodes` e `kg_edges` | Grafo de conhecimento. Nós: unidades, cursos, currículos, assuntos e documentos. Arestas: `pertence_a`, `emitido_por`, `aplica_a`, `trata_de`, `altera`, `revoga` e `cita`, com a origem de cada uma (`regra` ou `llm`). |
 | `feedback` | Respostas avaliadas pelos alunos, sem identificação. |
 
 ## Limitações conhecidas
 
 - **Cobertura:** o Grizz só conhece o que foi importado. Normas da PROGRAD (matrícula, trancamento, calendário) ainda não entram automaticamente e precisam ser adicionadas pelo `npm run ingest`.
-- **Tabela de currículos:** a relação entre ano de ingresso e currículo, em [`services/courses.js`](services/courses.js), foi montada a partir dos títulos dos projetos pedagógicos. Vale confirmar com as coordenações.
+- **Tabela de currículos:** a relação entre ano de ingresso e currículo, em [`services/courses.js`](services/courses.js), foi montada a partir dos títulos dos projetos pedagógicos. No IME, os anos de início das turmas da Matemática EaD são aproximados, tirados das datas dos projetos pedagógicos de cada turma. Vale confirmar com as coordenações.
+- **Grafo:** as ligações lidas pelo modelo podem errar, e um documento ligado ao curso errado deixa de aparecer para os alunos do curso certo. As ligações ficam em `kg_edges` para conferência e podem ser refeitas com `npm run graph -- --rebuild`.
 - **Perguntas de continuação:** a busca usa só a pergunta atual. Continuações muito curtas, como "e o prazo?", podem buscar pior.
 - **Histórico:** fica só no navegador. Ele não sincroniza entre dispositivos e some se os dados do navegador forem limpos.
 

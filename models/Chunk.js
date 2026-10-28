@@ -47,21 +47,23 @@ const SEARCH_FILTER = `
     d.status = 'vigente'
     AND ($3::int[] IS NULL OR EXISTS (
         SELECT 1 FROM document_categories dc
-        WHERE dc.document_id = d.id AND dc.category_id = ANY($3)))`;
+        WHERE dc.document_id = d.id AND dc.category_id = ANY($3)))
+    AND ($4::int[] IS NULL OR NOT (d.id = ANY($4)))
+    AND ($5::int[] IS NULL OR d.id = ANY($5))`;
 
-async function searchVector(embedding, { limit = 20, categoryIds = null } = {}) {
+async function searchVector(embedding, { limit = 20, categoryIds = null, excludeIds = null, onlyIds = null } = {}) {
     const { rows } = await pool.query(
         `SELECT ${SEARCH_COLUMNS}, 1 - (c.embedding <=> $1) AS score
          FROM chunks c JOIN documents d ON d.id = c.document_id
          WHERE ${SEARCH_FILTER}
          ORDER BY c.embedding <=> $1
          LIMIT $2`,
-        [toVector(embedding), limit, categoryIds]
+        [toVector(embedding), limit, categoryIds, excludeIds, onlyIds]
     );
     return rows;
 }
 
-async function searchKeyword(text, { limit = 20, categoryIds = null } = {}) {
+async function searchKeyword(text, { limit = 20, categoryIds = null, excludeIds = null, onlyIds = null } = {}) {
     const { rows } = await pool.query(
         `SELECT ${SEARCH_COLUMNS}, ts_rank_cd(c.tsv, query.q) AS score
          FROM chunks c JOIN documents d ON d.id = c.document_id
@@ -69,7 +71,7 @@ async function searchKeyword(text, { limit = 20, categoryIds = null } = {}) {
          WHERE c.tsv @@ query.q AND ${SEARCH_FILTER}
          ORDER BY score DESC
          LIMIT $2`,
-        [text, limit, categoryIds]
+        [text, limit, categoryIds, excludeIds, onlyIds]
     );
     return rows;
 }

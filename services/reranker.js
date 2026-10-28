@@ -7,8 +7,7 @@ const SYSTEM_PROMPT = `Você avalia a relevância de trechos de documentos ofici
 Dê a cada trecho uma nota de 0 a 10:
 10 = responde diretamente a pergunta; 5 = relacionado, mas não responde; 0 = irrelevante.
 Se o perfil do estudante for informado, trechos de normas específicas de OUTRO curso valem no máximo 1.
-O curso de cada norma costuma aparecer na ementa, depois do título (ex.: "Aprova as Normas de Estágio ... do curso de ...").
-Responda só com JSON no formato {"scores": [{"id": 1, "score": 7}, ...]}, com uma entrada para cada trecho.`;
+O curso de cada norma aparece em "Vale para", quando informado, ou na ementa, depois do título (ex.: "Aprova as Normas de Estágio ... do curso de ...").Responda só com JSON no formato {"scores": [{"id": 1, "score": 7}, ...]}, com uma entrada para cada trecho.`;
 
 async function rerank(question, candidates, { topK = 5, profileText = null, previousMessages = [] } = {}) {
     if (candidates.length === 0) return [];
@@ -18,7 +17,11 @@ async function rerank(question, candidates, { topK = 5, profileText = null, prev
         : '';
 
     const passages = candidates
-        .map((c, i) => `[${i + 1}] (${[c.title, c.subject].filter(Boolean).join(' — ')})\n${c.content.slice(0, MAX_PASSAGE_CHARS)}`)
+        .map((c, i) => {
+            const header = [c.title, c.subject].filter(Boolean).join(' — ');
+            const appliesTo = c.graph?.appliesTo.length ? `\nVale para: ${c.graph.appliesTo.join('; ')}` : '';
+            return `[${i + 1}] (${header})${appliesTo}\n${c.content.slice(0, MAX_PASSAGE_CHARS)}`;
+        })
         .join('\n\n');
 
     let scores;

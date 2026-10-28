@@ -16,13 +16,13 @@ const EMPTY_PROFILE = {
 
 const ASK_ENTRY_YEAR = 'Achei mais de uma norma vigente sobre isso, e cada uma vale para uma turma diferente. Em que ano você entrou na UFU? Se ainda não entrou, é só me dizer.';
 
-const OFF_TOPIC_REPLY = 'Essa aí foge do meu território! 🐺 Meu faro só funciona nos regulamentos e documentos da FACOM/UFU: estágio, TCC, atividades complementares, monitoria e as outras burocracias da faculdade. Manda uma dúvida dessas que eu te ajudo!';
+const OFF_TOPIC_REPLY = 'Essa aí foge do meu território! 🐺 Meu faro só funciona nos regulamentos e documentos da FACOM e do IME da UFU: estágio, TCC, atividades complementares, monitoria e as outras burocracias da graduação. Manda uma dúvida dessas que eu te ajudo!';
 
-const SYSTEM_PROMPT = `Você é o Grizz, o lobo ancião da FACOM/UFU: um veterano experiente que ajuda os estudantes com a burocracia da universidade.
+const SYSTEM_PROMPT = `Você é o Grizz, o lobo ancião da FACOM e do IME da UFU: um veterano experiente que ajuda os estudantes com a burocracia da universidade.
 Fale em português, de forma acolhedora e direta, como um veterano conversando com um colega mais novo.
 
 Como você trabalha:
-- Antes de cada resposta, você mesmo consultou o acervo de documentos oficiais da FACOM/UFU. O resultado dessa consulta aparece no fim destas instruções, em "Documentos consultados". O estudante não vê esses documentos e não os enviou.
+- Antes de cada resposta, você mesmo consultou o acervo de documentos oficiais da FACOM (Faculdade de Computação) e do IME (Instituto de Matemática e Estatística) da UFU. O resultado dessa consulta aparece no fim destas instruções, em "Documentos consultados". O estudante não vê esses documentos e não os enviou.
 - Fale como quem pesquisou: "Pela Resolução nº 19/2024…", "Nas normas de estágio do seu curso…", "Não encontrei isso nos documentos que tenho…". Nunca use expressões como "os trechos", "os documentos fornecidos", "os documentos apresentados" ou "o que você enviou".
 
 Regras:
@@ -31,23 +31,25 @@ Regras:
 - Cite a fonte de cada afirmação com o número do documento entre colchetes simples, ex.: [1] ou [2][3]. Não use outro formato de citação.
 - Cite só os documentos que sustentam o que você afirmou. Ao dizer que não encontrou uma informação, não cite nenhum documento.
 - Se a regra depender de outro documento (ex.: "conforme o PPC"), diga qual é o documento.
-- Confira na ementa de cada documento a qual curso a norma se aplica. Norma específica de outro curso nunca vale para o estudante, mesmo que seja mais recente.
+- Confira a qual curso cada norma se aplica: use a linha "Vale para" do documento e, se ela não existir, a ementa. Norma específica de outro curso nunca vale para o estudante, mesmo que seja mais recente. Norma de uma unidade (FACOM ou IME) não vale para os cursos da outra.
 - Entre normas do MESMO curso e do mesmo assunto que se contradizem, vale a mais recente (veja o ano no número da resolução, ex.: 18/2024 é mais nova que 3/2022). Use a mais recente e mencione isso.
-- Se os documentos consultados não respondem a pergunta, diga isso em uma ou duas frases e oriente procurar a coordenação do curso ou a secretaria da FACOM. Não sugira outros sites, portais ou sistemas, e não diga onde a informação "normalmente" fica.
+- Se um documento traz "Alterado por", a parte alterada vale como está no documento mais novo: use a regra do documento que alterou e mencione a alteração. Se o documento que alterou não estiver entre os consultados, avise que a norma foi alterada e diga por qual documento.
+- A linha "Menciona" lista outros documentos do acervo que a norma cita. Se a resposta depender de um deles e ele não estiver entre os consultados, diga qual é.
+- Se os documentos consultados não respondem a pergunta, diga isso em uma ou duas frases e oriente procurar a coordenação do curso ou a secretaria da unidade (FACOM ou IME). Não sugira outros sites, portais ou sistemas, e não diga onde a informação "normalmente" fica.
 - Nunca invente prazos, números de resolução, cargas horárias ou regras.
 - Não precisa cumprimentar em toda resposta. Chame o estudante de "calouro" só se ele entrou neste ano.
 - Seja objetivo: vá direto ao ponto e use listas quando houver passos ou requisitos.
 
 Fora do seu território:
-- Você só ajuda com a vida acadêmica na FACOM/UFU: normas, cursos, disciplinas, estágio, TCC, documentos, prazos e procedimentos.
-- Se o estudante pedir qualquer outra coisa (receitas, futebol, política, piadas, fazer o exercício ou o código dele, perguntas gerais de conhecimento ou de programação), não responda o pedido, nem em parte. Responda exatamente: "${OFF_TOPIC_REPLY}"
-- Se perguntarem quem você é, apresente-se em uma ou duas frases como o Grizz, o lobo ancião da FACOM/UFU, e diga com o que pode ajudar.`;
+- Você só ajuda com a vida acadêmica na FACOM e no IME da UFU: normas, cursos, disciplinas, estágio, TCC, documentos, prazos e procedimentos.
+- Se o estudante pedir qualquer outra coisa (receitas, futebol, política, piadas, fazer o exercício ou o código dele, perguntas gerais de conhecimento, de programação ou de matemática), não responda o pedido, nem em parte. Responda exatamente: "${OFF_TOPIC_REPLY}"
+- Se perguntarem quem você é, apresente-se em uma ou duas frases como o Grizz, o lobo ancião da FACOM e do IME da UFU, e diga com o que pode ajudar.`;
 
 function profileInstructions(profile) {
     if (!profile) {
         return `O estudante não informou curso e ano de ingresso. Se a resposta depender do curso ou do currículo, diga isso e mostre as diferenças que aparecerem nos documentos consultados.`;
     }
-    return `Perfil do estudante: ${profile.text}.
+    return `Perfil do estudante: ${profile.text}. A unidade dele é a ${profile.unitName}: se não encontrar a resposta, oriente procurar a coordenação do curso ou a secretaria da ${profile.unitName}.
 - Use as regras que valem para esse curso e currículo. Normas específicas de outros cursos não se aplicam a ele: ignore-as e não as cite.
 - Se nenhum documento consultado for uma norma do curso dele, diga isso e só então mostre o que as normas de outros cursos dizem, deixando claro de qual curso são.
 - Uma norma do curso dele vale para todos os currículos do curso, a não ser que o próprio documento diga a quais currículos ou turmas se aplica. Nunca deixe de responder só porque o documento não cita o currículo dele.
@@ -58,12 +60,26 @@ function profileInstructions(profile) {
 - Ele ainda não é aluno: use o currículo mais recente e as normas atuais, e fale com ele como um futuro calouro.` : ''}`;
 }
 
+// Linhas que o grafo de conhecimento acrescenta a cada documento consultado.
+function graphLines(graph, numberOf) {
+    if (!graph) return '';
+    const cite = (d) => (numberOf.has(d.documentId) ? `${d.title} (veja [${numberOf.get(d.documentId)}])` : `${d.title} (não consultado)`);
+    return [
+        graph.appliesTo.length && `Vale para: ${graph.appliesTo.join('; ')}`,
+        graph.alteredBy.length && `Alterado por: ${graph.alteredBy.map(cite).join('; ')}`,
+        graph.alters.length && `Altera: ${graph.alters.join('; ')}`,
+        graph.cites.length && `Menciona: ${graph.cites.slice(0, 5).join('; ')}`,
+    ].filter(Boolean).map((line) => `\n${line}`).join('');
+}
+
 function formatSources(chunks) {
     if (chunks.length === 0) return 'A consulta não encontrou nenhum documento relevante para esta pergunta.';
+    const numberOf = new Map();
+    chunks.forEach((c, i) => { if (!numberOf.has(c.document_id)) numberOf.set(c.document_id, i + 1); });
     return chunks
         .map((c, i) => {
             const ref = [c.title, c.page && `p. ${c.page}`].filter(Boolean).join(', ');
-            return `[${i + 1}] ${ref}${c.subject ? `\nEmenta do documento: ${c.subject}` : ''}\n${c.content}`;
+            return `[${i + 1}] ${ref}${c.subject ? `\nEmenta do documento: ${c.subject}` : ''}${graphLines(c.graph, numberOf)}\n${c.content}`;
         })
         .join('\n\n');
 }
@@ -94,7 +110,7 @@ async function resolveProfile(profile, message, history) {
     if (missingCourse && canAsk) {
         if (!pending && extracted.hasQuestion) profile.pendingQuestion = message;
         profile.profilePrompts += 1;
-        return { profile, ask: askForCourse({ siCampusUnknown: extracted.siCampusUnknown }) };
+        return { profile, ask: askForCourse({ ambiguousCourse: extracted.ambiguousCourse }) };
     }
 
     const answeredGrizz = pending && learned;
@@ -123,7 +139,7 @@ async function answer({ message, history = [], profile = {}, userMessages = [] }
     }
 
     const previousMessages = userMessages.filter((m) => m !== question && m !== message);
-    const chunks = await hybridSearch(question, { profileText: described?.text, previousMessages });
+    const chunks = await hybridSearch(question, { profile: described, previousMessages });
 
     const competing = shouldAskEntryYear(profile)
         && await hasCompetingVersions(question, chunks, { courseId: profile.course, courseName: described?.courseName });

@@ -1,13 +1,16 @@
 {
   "name": "grizzwolfai",
   "version": "1.0.0",
-  "description": "🐺 GrizzWolfAI, the grey-muzzled wolf of FACOM/UFU. Like the elder of the pack whose muzzle turned grey from experience, it guides newcomers through university bureaucracy with answers grounded in official documents, because every freshman deserves a veteran who has already read every regulation.",
+  "description": "🐺 GrizzWolfAI, the grey-muzzled wolf of FACOM and IME at UFU. Like the elder of the pack whose muzzle turned grey from experience, it guides newcomers through university bureaucracy with answers grounded in official documents, because every freshman deserves a veteran who has already read every regulation.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "node db/migrate.js",
     "ingest": "node scripts/ingest.js",
-    "sync:facom": "node scripts/sync-facom.js",
+    "sync": "node scripts/sync.js",
+    "sync:facom": "node scripts/sync.js facom",
+    "sync:ime": "node scripts/sync.js ime",
+    "graph": "node scripts/build-graph.js",
     "start": "node server.js",
     "dev": "nodemon server.js",
     "dedupe": "node scripts/dedupe-documents.js",
