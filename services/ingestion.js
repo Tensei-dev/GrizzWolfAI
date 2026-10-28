@@ -20,10 +20,23 @@ async function ensureCategories(categories = []) {
     return bySlug;
 }
 
+// O mesmo arquivo em outra URL: guarda o endereço, para a sincronização não baixá-lo de novo, e a categoria
+// de onde ele veio. Se a categoria for nova (ex.: publicado também no site da outra unidade), o grafo é refeito.
+async function linkExisting(doc, sourceUrl, slugs = [], categoriesBySlug = {}) {
+    if (sourceUrl) await Document.addSource(doc.id, sourceUrl);
+    const current = new Set((await Document.getCategories(doc.id)).map((c) => c.slug));
+    const added = slugs.filter((slug) => categoriesBySlug[slug] && !current.has(slug));
+    for (const slug of added) await Document.addCategory(doc.id, categoriesBySlug[slug].id);
+    if (added.length) await Document.resetGraph(doc.id);
+    return `já existe (#${doc.id}), endereço guardado${added.length ? `, categoria ${added.join(', ')} acrescentada` : ''}`;
+}
+
 async function ingestDocument(entry, categoriesBySlug = {}) {
     const { pages, hash } = await extract(entry.source);
+    const sourceUrl = entry.sourceUrl || (/^https?:\/\//i.test(entry.source) ? entry.source : null);
 
-    if (await Document.findByHash(hash)) return 'já existe';
+    const existing = await Document.findByHash(hash);
+    if (existing) return linkExisting(existing, sourceUrl, entry.categories, categoriesBySlug);
 
     const chunks = chunk(pages);
     if (chunks.length === 0) throw new Error('nenhum texto extraído (PDF escaneado?)');
@@ -34,13 +47,14 @@ async function ingestDocument(entry, categoriesBySlug = {}) {
         docType: entry.docType,
         issuer: entry.issuer,
         number: entry.number,
-        sourceUrl: entry.sourceUrl || (/^https?:\/\//i.test(entry.source) ? entry.source : null),
+        sourceUrl,
         publishedAt: entry.publishedAt,
         status: entry.status,
         subject: extractSubject(chunks),
         fileHash: hash,
     });
     try {
+        if (sourceUrl) await Document.addSource(doc.id, sourceUrl);
         await Chunk.createMany(doc.id, chunks.map((c, i) => ({ ...c, embedding: embeddings[i] })));
         for (const slug of entry.categories || []) {
             if (!categoriesBySlug[slug]) throw new Error(`categoria não declarada: ${slug}`);

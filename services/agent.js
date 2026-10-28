@@ -2,6 +2,7 @@ const { hybridSearch } = require('./search');
 const { complete, CHAT_MODEL } = require('./llm');
 const { extractProfile, askForCourse, hasCompetingVersions } = require('./profile');
 const { describeProfile, hasMultipleCurricula } = require('./courses');
+const { rewriteQuestion } = require('./queryRewriter');
 
 const HISTORY_MESSAGES = 6;
 const MAX_PROFILE_PROMPTS = 2;
@@ -108,13 +109,15 @@ async function resolveProfile(profile, message, history) {
     const missingCourse = (extracted.needsCourse || pending) && !profile.course;
     const canAsk = profile.profilePrompts === 0 || (learned && profile.profilePrompts < MAX_PROFILE_PROMPTS);
     if (missingCourse && canAsk) {
-        if (!pending && extracted.hasQuestion) profile.pendingQuestion = message;
+        if (!pending && extracted.hasQuestion) profile.pendingQuestion = extracted.searchQuery || message;
         profile.profilePrompts += 1;
         return { profile, ask: askForCourse({ ambiguousCourse: extracted.ambiguousCourse }) };
     }
 
+    // A pergunta pendente já foi guardada completa; a mensagem atual vem com a versão reescrita pela leitura do perfil.
     const answeredGrizz = pending && learned;
-    return { profile, question: extracted.hasQuestion && !answeredGrizz ? message : profile.pendingQuestion };
+    if (extracted.hasQuestion && !answeredGrizz) return { profile, question: message, searchQuery: extracted.searchQuery };
+    return { profile, question: profile.pendingQuestion, searchQuery: profile.pendingQuestion };
 }
 
 function shouldAskEntryYear(profile) {
@@ -122,7 +125,7 @@ function shouldAskEntryYear(profile) {
     return !profile.course || hasMultipleCurricula(profile.course);
 }
 
-async function answer({ message, history = [], profile = {}, userMessages = [] }) {
+async function answer({ message, history = [], profile = {} }) {
     history = history.slice(-HISTORY_MESSAGES);
     const resolved = await resolveProfile({ ...EMPTY_PROFILE, ...profile }, message, history);
     if (resolved.offTopic) return reply(OFF_TOPIC_REPLY, resolved.profile);
@@ -138,13 +141,13 @@ async function answer({ message, history = [], profile = {}, userMessages = [] }
             : 'Fala! Manda a sua dúvida que eu farejo os documentos!', profile);
     }
 
-    const previousMessages = userMessages.filter((m) => m !== question && m !== message);
-    const chunks = await hybridSearch(question, { profile: described, previousMessages });
+    const searchQuery = resolved.searchQuery || await rewriteQuestion(question, history);
+    const chunks = await hybridSearch(searchQuery, { profile: described, originalQuestion: question });
 
     const competing = shouldAskEntryYear(profile)
-        && await hasCompetingVersions(question, chunks, { courseId: profile.course, courseName: described?.courseName });
+        && await hasCompetingVersions(searchQuery, chunks, { courseId: profile.course, courseName: described?.courseName });
     if (competing) {
-        profile = { ...profile, pendingQuestion: question, yearAsked: true };
+        profile = { ...profile, pendingQuestion: searchQuery, yearAsked: true };
         return reply(ASK_ENTRY_YEAR, profile);
     }
     profile = { ...profile, pendingQuestion: null };

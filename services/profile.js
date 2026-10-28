@@ -1,5 +1,6 @@
 const { complete, RERANK_MODEL } = require('./llm');
 const { UNITS, COURSES, courseOfText } = require('./courses');
+const { REWRITE_RULES, validQuery } = require('./queryRewriter');
 
 const COURSE_LIST = Object.entries(COURSES).map(([id, c]) => `- "${id}": ${c.name} (${UNITS[c.unit].name})`).join('\n');
 
@@ -8,7 +9,7 @@ Cursos possíveis:
 ${COURSE_LIST}
 
 Responda só com JSON no formato:
-{"course": "<id do curso ou null>", "entryYear": <ano de ingresso com 4 dígitos ou null>, "ambiguousCourse": <"si"|"mat"|null>, "hasQuestion": <true|false>, "needsCourse": <true|false>, "prospective": <true|false>, "offTopic": <true|false>, "declined": <true|false>}
+{"course": "<id do curso ou null>", "entryYear": <ano de ingresso com 4 dígitos ou null>, "ambiguousCourse": <"si"|"mat"|null>, "hasQuestion": <true|false>, "needsCourse": <true|false>, "prospective": <true|false>, "offTopic": <true|false>, "declined": <true|false>, "searchQuery": "<pergunta completa ou null>"}
 
 - course: só preencha se o estudante disser o curso. "BCC", "CC" e "computação" = "bcc"; "BIA" e "IA" = "bia";
   "estatística", "ciência de dados" e "CDE" = "estat"; "matemática EaD" ou "matemática a distância" = "mat-ead".
@@ -29,6 +30,8 @@ Responda só com JSON no formato:
   false para dúvidas sobre normas, cursos, disciplinas, estágio, TCC, documentos, prazos e procedimentos da UFU, da FACOM ou do IME,
   e também para cumprimentos, agradecimentos, respostas sobre curso e ano e perguntas sobre o próprio Grizz.
 - declined: true se o estudante se recusa a informar ou diz que não sabe (ex.: "prefiro não dizer", "tanto faz, só responde").
+- searchQuery: null se hasQuestion for false. Senão, siga estas regras:
+${REWRITE_RULES}
 
 Use o histórico da conversa para interpretar respostas curtas: se o Grizz perguntou o campus de
 Sistemas de Informação e o estudante respondeu "Santa Mônica", o curso é "bsi"; se respondeu "Monte Carmelo", é "bsi-mc".
@@ -65,10 +68,11 @@ async function extractProfile(message, history = []) {
             prospective: data.prospective === true,
             offTopic: data.offTopic === true,
             declined: data.declined === true,
+            searchQuery: validQuery(data.searchQuery),
         };
     } catch (err) {
         console.error(`extração do perfil falhou: ${err.message}`);
-        return { course: null, entryYear: null, ambiguousCourse: null, hasQuestion: true, needsCourse: false, prospective: false, offTopic: false, declined: false };
+        return { course: null, entryYear: null, ambiguousCourse: null, hasQuestion: true, needsCourse: false, prospective: false, offTopic: false, declined: false, searchQuery: null };
     }
 }
 

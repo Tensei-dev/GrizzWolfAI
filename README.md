@@ -115,7 +115,9 @@ Abra **http://localhost:3000**.
 | `GEMINI_API_KEY` | sim | Chave da API do Gemini, usada para gerar os embeddings. |
 | `GROQ_API_KEY` | sim | Chave da API da Groq, usada para gerar as respostas e fazer o rerank. |
 | `GROQ_MODEL` | não | Modelo das respostas. Padrão: `openai/gpt-oss-120b`. |
-| `GROQ_RERANK_MODEL` | não | Modelo do rerank e da leitura do perfil do aluno. Padrão: `openai/gpt-oss-20b`. |
+| `GROQ_RERANK_MODEL` | não | Modelo do rerank, da leitura do perfil do aluno e da reescrita das perguntas. Padrão: `openai/gpt-oss-20b`. |
+| `GROQ_GRAPH_MODEL` | não | Modelo que lê os documentos para montar o grafo. Padrão: `qwen/qwen3.8-27b`. Use um modelo diferente dos do chat: cada modelo tem a sua cota diária na Groq, e a montagem do grafo gasta muitos tokens. |
+| `GRAPH_MAX_DOCS` | não | Quantos documentos o modelo lê por rodada de `npm run graph`. Padrão: `80`. |
 | `EMBED_TEXTS_PER_MINUTE` | não | Limite de requisições por minuto (RPM) do seu plano no Gemini. Padrão: `100`. |
 | `EMBED_TOKENS_PER_MINUTE` | não | Limite de tokens por minuto (TPM) do seu plano no Gemini. Padrão: `30000`. |
 | `IME_IP` | não | O mesmo que `FACOM_IP`, para o site do IME (`ime.ufu.br`). |
@@ -135,7 +137,7 @@ Abra **http://localhost:3000**.
 | `npm run sync` | Importa os documentos novos da aba Documentos dos sites da FACOM e do IME. |
 | `npm run sync:facom` / `npm run sync:ime` | Importa só de uma unidade. |
 | `npm run sync -- --dry-run` | Só lista o que seria importado, sem gravar nada. |
-| `npm run graph` | Mapeia no grafo os documentos que ainda não foram lidos pelo modelo. Sem `GROQ_API_KEY`, ou com `-- --rules-only`, usa só as regras. Com `-- --rebuild`, refaz o grafo inteiro. |
+| `npm run graph` | Mapeia no grafo os documentos que ainda não foram lidos pelo modelo. Lê até 80 por rodada (`-- --limit=N` para mudar) e para quando a cota diária do modelo acaba. Sem `GROQ_API_KEY`, ou com `-- --rules-only`, usa só as regras. Com `-- --rebuild`, refaz o grafo inteiro. |
 | `npm run ingest -- data/sources.json` | Importa documentos de outros sites a partir de uma lista. Veja [Adicionando outros documentos](#adicionando-outros-documentos). |
 | `npm run dedupe` | Marca como duplicados os documentos com texto idêntico a outro. Use `-- --dry-run` para só listar. |
 
@@ -251,7 +253,7 @@ npm run ingest -- data/sources.json
 - **Cobertura:** o Grizz só conhece o que foi importado. Normas da PROGRAD (matrícula, trancamento, calendário) ainda não entram automaticamente e precisam ser adicionadas pelo `npm run ingest`.
 - **Tabela de currículos:** a relação entre ano de ingresso e currículo, em [`services/courses.js`](services/courses.js), foi montada a partir dos títulos dos projetos pedagógicos. No IME, os anos de início das turmas da Matemática EaD são aproximados, tirados das datas dos projetos pedagógicos de cada turma. Vale confirmar com as coordenações.
 - **Grafo:** as ligações lidas pelo modelo podem errar, e um documento ligado ao curso errado deixa de aparecer para os alunos do curso certo. As ligações ficam em `kg_edges` para conferência e podem ser refeitas com `npm run graph -- --rebuild`.
-- **Perguntas de continuação:** a busca usa só a pergunta atual. Continuações muito curtas, como "e o prazo?", podem buscar pior.
+- **Perguntas de continuação:** antes de buscar, um modelo da Groq reescreve a mensagem como uma pergunta completa usando as últimas mensagens ("e o prazo?" vira "Qual o prazo do relatório de estágio?"). Se a reescrita falhar, a busca usa a pergunta atual junto com a mensagem anterior do aluno, e continuações muito curtas podem buscar pior.
 - **Histórico:** fica só no navegador. Ele não sincroniza entre dispositivos e some se os dados do navegador forem limpos.
 
 ## Licença

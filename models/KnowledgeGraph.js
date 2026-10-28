@@ -42,8 +42,8 @@ async function replaceEdgesFrom(sourceId, edges) {
 async function findDocuments({ onlyPending = true } = {}) {
     const { rows } = await pool.query(
         `SELECT d.id, d.title, d.subject, d.doc_type, d.issuer, d.number, d.status, d.published_at, d.graph_built_at,
-                (SELECT c.slug FROM categories c JOIN document_categories dc ON dc.category_id = c.id
-                 WHERE dc.document_id = d.id ORDER BY c.id LIMIT 1) AS unit
+                ARRAY(SELECT c.slug FROM categories c JOIN document_categories dc ON dc.category_id = c.id
+                      WHERE dc.document_id = d.id ORDER BY c.id) AS units
          FROM documents d
          WHERE d.status <> 'duplicado' AND ($1 = false OR d.graph_built_at IS NULL)
          ORDER BY d.id`,

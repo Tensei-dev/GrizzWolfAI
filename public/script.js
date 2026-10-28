@@ -199,7 +199,6 @@ async function sendQuestion(question) {
             body: JSON.stringify({
                 question,
                 history: (current?.messages || []).slice(-HISTORY_SENT).map((m) => ({ role: m.role, content: m.content })),
-                userMessages: (current?.messages || []).filter((m) => m.role === 'user').map((m) => m.content),
                 profile: current?.profile,
             }),
         });

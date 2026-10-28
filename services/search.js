@@ -66,8 +66,9 @@ async function withGraph(chunks, searchText, embedding) {
     return kept.map((c) => ({ ...c, graph: info.get(c.document_id) || null }));
 }
 
-async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank = true, profile = null, previousMessages = [] } = {}) {
-    const searchText = [...previousMessages, question].join('\n');
+// question é a pergunta completa (reescrita); originalQuestion, o que o estudante digitou, só ajuda o rerank.
+async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank = true, profile = null, originalQuestion = null } = {}) {
+    const searchText = question;
     const profileText = profile?.text || null;
     const [embedding, scope] = await Promise.all([
         embed(profileText ? `${searchText}\nEstudante do ${profileText}` : searchText),
@@ -79,7 +80,7 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
         if (scoped && scope.focusIds.length) lists.push(...await searchBoth(searchText, embedding, { categoryIds, onlyIds: scope.focusIds }));
         const fused = await withGraph(reciprocalRankFusion(lists).slice(0, CANDIDATES_TO_RERANK), searchText, embedding);
         if (!useRerank) return fused.slice(0, topK);
-        return rerank(question, fused, { topK, profileText, previousMessages });
+        return rerank(question, fused, { topK, profileText, originalQuestion });
     };
 
     if (!scope) return run(false);

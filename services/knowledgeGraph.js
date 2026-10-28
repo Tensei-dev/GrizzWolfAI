@@ -1,5 +1,5 @@
 const Graph = require('../models/KnowledgeGraph');
-const { complete, RERANK_MODEL } = require('./llm');
+const { complete, GRAPH_MODEL, DailyLimitError } = require('./llm');
 const { UNITS, COURSES, courseOfText } = require('./courses');
 
 // O grafo liga cada documento às unidades, cursos, currículos e assuntos a que ele se aplica, e às normas que
@@ -164,9 +164,16 @@ async function extractWithLlm(doc, excerpt) {
                     + `Título: ${doc.title}${doc.number ? `\nNúmero: ${doc.number}` : ''}${doc.subject ? `\nEmenta: ${doc.subject}` : ''}\n\nInício do texto:\n${excerpt}`,
             },
         ],
-        { model: RERANK_MODEL, temperature: 0, json: true, reasoningEffort: 'low', maxAttempts: 6, maxRetryDelayMs: 90000 }
+        {
+            model: GRAPH_MODEL,
+            temperature: 0,
+            json: true,
+            reasoningEffort: GRAPH_MODEL.startsWith('openai/gpt-oss') ? 'low' : null,
+            maxAttempts: 6,
+            maxRetryDelayMs: 90000,
+        }
     );
-    const data = JSON.parse(raw);
+    const data = JSON.parse(raw.replace(/<think>[\s\S]*?<\/think>/g, ''));
     const list = (value) => (Array.isArray(value) ? value.map(String) : []);
     const refs = (value, relation) => (Array.isArray(value) ? value : [])
         .map((r) => ({ number: normalizeNumber(r?.number ?? r), context: typeof r?.issuer === 'string' ? r.issuer : null, relation }));
@@ -201,13 +208,14 @@ async function buildDocument(doc, { taxonomy, docsByNumber, useLlm }) {
         try {
             llm = await extractWithLlm(doc, text.slice(0, MAX_EXCERPT_CHARS));
         } catch (err) {
+            if (err instanceof DailyLimitError) throw err;
             console.error(`  leitura pelo LLM falhou, usando só as regras: ${err.message}`);
         }
     }
 
     const edges = [];
     const add = (relation, targetId, origin) => { if (targetId) edges.push({ relation, targetId, origin }); };
-    if (doc.unit) add('emitido_por', taxonomy.unidade[doc.unit], 'regra');
+    for (const unit of doc.units) add('emitido_por', taxonomy.unidade[unit], 'regra');
 
     // A quem o documento se aplica: currículos específicos, cursos, a unidade inteira ou a UFU toda.
     const source = llm?.scope ? llm : rules;
@@ -216,8 +224,10 @@ async function buildDocument(doc, { taxonomy, docsByNumber, useLlm }) {
     for (const key of source.curricula) add('aplica_a', taxonomy.curriculo[key], origin);
     const courses = source.scope === 'curso' ? (source.courses.length ? source.courses : rules.courses) : [];
     for (const id of courses) if (!coursesWithCurriculum.has(id)) add('aplica_a', taxonomy.curso[id], origin);
+    // Publicado pelas duas unidades, uma norma "da unidade" vale para as duas.
     if (!edges.some((e) => e.relation === 'aplica_a')) {
-        add('aplica_a', taxonomy.unidade[source.scope === UFU ? UFU : doc.unit] || taxonomy.unidade[UFU], origin);
+        const units = source.scope === UFU || doc.units.length === 0 ? [UFU] : doc.units;
+        for (const unit of units) add('aplica_a', taxonomy.unidade[unit], origin);
     }
 
     for (const key of new Set([...rules.topics, ...(llm?.topics || [])])) {

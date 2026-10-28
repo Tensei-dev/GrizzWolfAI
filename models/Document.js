@@ -20,8 +20,21 @@ async function findByHash(fileHash) {
 }
 
 async function findBySourceUrl(sourceUrl) {
-    const { rows } = await pool.query('SELECT * FROM documents WHERE source_url = $1 LIMIT 1', [sourceUrl]);
+    const { rows } = await pool.query(
+        `SELECT d.* FROM documents d
+         WHERE d.source_url = $1
+            OR d.id = (SELECT document_id FROM document_sources WHERE url = $1)
+         LIMIT 1`,
+        [sourceUrl]
+    );
     return rows[0] || null;
+}
+
+async function addSource(documentId, url) {
+    await pool.query(
+        'INSERT INTO document_sources (url, document_id) VALUES ($1, $2) ON CONFLICT (url) DO NOTHING',
+        [url, documentId]
+    );
 }
 
 async function findByNumber(issuer, number) {
@@ -54,6 +67,10 @@ async function markReplaced(oldId, newId) {
     return rows[0] || null;
 }
 
+async function resetGraph(id) {
+    await pool.query('UPDATE documents SET graph_built_at = NULL WHERE id = $1', [id]);
+}
+
 async function remove(id) {
     await pool.query('DELETE FROM documents WHERE id = $1', [id]);
 }
@@ -83,6 +100,6 @@ async function getCategories(documentId) {
 }
 
 module.exports = {
-    create, findById, findByHash, findBySourceUrl, findByNumber, findAll, markReplaced, remove,
+    create, findById, findByHash, findBySourceUrl, addSource, findByNumber, findAll, markReplaced, resetGraph, remove,
     addCategory, removeCategory, getCategories,
 };

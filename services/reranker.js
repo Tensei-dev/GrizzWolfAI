@@ -9,11 +9,11 @@ Dê a cada trecho uma nota de 0 a 10:
 Se o perfil do estudante for informado, trechos de normas específicas de OUTRO curso valem no máximo 1.
 O curso de cada norma aparece em "Vale para", quando informado, ou na ementa, depois do título (ex.: "Aprova as Normas de Estágio ... do curso de ...").Responda só com JSON no formato {"scores": [{"id": 1, "score": 7}, ...]}, com uma entrada para cada trecho.`;
 
-async function rerank(question, candidates, { topK = 5, profileText = null, previousMessages = [] } = {}) {
+async function rerank(question, candidates, { topK = 5, profileText = null, originalQuestion = null } = {}) {
     if (candidates.length === 0) return [];
 
-    const context = previousMessages.length
-        ? `Mensagens anteriores do estudante nesta conversa (contexto):\n${previousMessages.map((m) => `- ${m}`).join('\n')}\n\n`
+    const typed = originalQuestion && originalQuestion !== question
+        ? `Mensagem do estudante, como ele escreveu: ${originalQuestion}\n`
         : '';
 
     const passages = candidates
@@ -31,7 +31,7 @@ async function rerank(question, candidates, { topK = 5, profileText = null, prev
                 { role: 'system', content: SYSTEM_PROMPT },
                 {
                     role: 'user',
-                    content: `${profileText ? `Perfil do estudante: ${profileText}\n` : ''}${context}Pergunta atual (avalie a relevância para ela): ${question}\n\nTrechos:\n\n${passages}`,
+                    content: `${profileText ? `Perfil do estudante: ${profileText}\n` : ''}${typed}Pergunta completa (avalie a relevância para ela): ${question}\n\nTrechos:\n\n${passages}`,
                 },
             ],
             { model: RERANK_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }
