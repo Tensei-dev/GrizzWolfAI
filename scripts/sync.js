@@ -1,6 +1,6 @@
 const pool = require('../db/pool');
 const Document = require('../models/Document');
-const { UNITS, crawl, shouldSkip, toEntry } = require('../services/unitCrawler');
+const { UNITS, crawl, shouldSkip, toEntry, priorityOf } = require('../services/unitCrawler');
 const { ensureCategories, ingestDocument } = require('../services/ingestion');
 const { DailyQuotaError } = require('../services/embeddings');
 
@@ -18,6 +18,7 @@ async function syncUnit(unitId, { dryRun }) {
         seen.add(item.fileUrl);
         pending.push(toEntry(unitId, item, titleCount[item.title]));
     }
+    pending.sort((a, b) => priorityOf(unitId, a) - priorityOf(unitId, b));
     console.log(`[${unitId}] ${items.length} arquivos na listagem, ${skipped} ignorados pelos filtros, ${pending.length} novos`);
 
     if (dryRun) {

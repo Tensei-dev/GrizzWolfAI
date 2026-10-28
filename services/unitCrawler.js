@@ -48,6 +48,11 @@ const UNITS = {
         ],
         skipFiles: [/revista|jornal|gazeta|portal de not[ií]cias/i, /levantamento_areas_docentes/i, /carga hor[aá]ria did[aá]tica/i],
         issuer: (text) => text.match(/\b(CONIME|CONFAMAT|COLCOCMA|CONGRAD|CONSEX|COPOA|COCMA|DIRIME)\b/i)?.[1].toUpperCase() || 'IME',
+        // Importados primeiro, na ordem da lista: a cota diária do Gemini nem sempre dá para tudo.
+        priority: [
+            /\btcc\b|trabalho de conclus[aã]o/i,
+            /fichas? de disciplina|^(bacharelado|licenciatura) - (\d|opt)/i,
+        ],
         // No IME o título costuma ser só a seção ("Monitorias", "Bacharelado"); o nome do arquivo diz o que é.
         fileInTitle: (item, siblings, label) => siblings > 1 || !item.title.toLowerCase().includes(label.toLowerCase()),
     },
@@ -147,6 +152,13 @@ function fileLabel(fileName) {
     return label.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+// Posição do item na lista de prioridades da unidade; o que não casa com nenhuma vai para o fim.
+function priorityOf(unitId, entry) {
+    const rules = getUnit(unitId).priority || [];
+    const index = rules.findIndex((r) => r.test(entry.title));
+    return index === -1 ? rules.length : index;
+}
+
 function toEntry(unitId, item, siblings) {
     const unit = getUnit(unitId);
     const label = fileLabel(item.fileName);
@@ -167,4 +179,4 @@ function toEntry(unitId, item, siblings) {
     };
 }
 
-module.exports = { UNITS, crawl, shouldSkip, toEntry };
+module.exports = { UNITS, crawl, shouldSkip, toEntry, priorityOf };
