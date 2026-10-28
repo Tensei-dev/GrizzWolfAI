@@ -1,4 +1,5 @@
 const Graph = require('../models/KnowledgeGraph');
+const Document = require('../models/Document');
 const { complete, GRAPH_MODEL, DailyLimitError } = require('./llm');
 const { UNITS, COURSES, courseOfText } = require('./courses');
 
@@ -96,10 +97,22 @@ const ISSUER_FAMILIES = [
 ];
 const issuerFamily = (text) => ISSUER_FAMILIES.find(([, pattern]) => pattern.test(text || ''))?.[0] || null;
 
+// Devolve os documentos que a referência aponta: um só, ou todas as versões da mesma norma (original,
+// republicação, texto consolidado), que têm o mesmo número, órgão e tipo. Se for ambíguo, nenhum.
 function resolveReference(doc, { number, kind, context }, docsByNumber) {
-    let candidates = (docsByNumber.get(number) || []).filter((d) => d.id !== doc.id);
+    const familyOf = (d) => issuerFamily(`${d.issuer} ${d.title}`);
+    const typed = (d) => /^(resolu|portaria|edital)/.test(d.doc_type);
+    let candidates = (docsByNumber.get(number) || []).filter((d) => d.id !== doc.id)
+        // A "Resolução nº 5/2023" citada não é o "Edital nº 5/2023".
+        .filter((d) => !kind || !typed(d) || d.doc_type.startsWith(kind.slice(0, 5)))
+        // A norma de outra unidade com o mesmo número só vale se for de um órgão da UFU toda (CONGRAD, CONSUN...).
+        .filter((d) => !doc.unit || !d.unit || d.unit === doc.unit || familyOf(d) === 'universidade');
     const family = issuerFamily(context);
-    if (family) candidates = candidates.filter((d) => [family, null].includes(issuerFamily(`${d.issuer} ${d.title}`)));
+    if (family) {
+        candidates = candidates.filter((d) => [family, null].includes(familyOf(d)));
+        const sameFamily = candidates.filter((d) => familyOf(d) === family);
+        if (sameFamily.length) candidates = sameFamily;
+    }
     if (candidates.length > 1) {
         const sameUnit = candidates.filter((d) => d.unit === doc.unit);
         if (sameUnit.length) candidates = sameUnit;
@@ -112,13 +125,17 @@ function resolveReference(doc, { number, kind, context }, docsByNumber) {
         const sameKind = candidates.filter((d) => d.doc_type.startsWith(kind.slice(0, 5)));
         if (sameKind.length) candidates = sameKind;
     }
-    return candidates.length === 1 ? candidates[0] : null;
+    const sameNorm = candidates.every((d) => d.issuer === candidates[0].issuer && d.doc_type === candidates[0].doc_type);
+    return sameNorm ? candidates : [];
 }
+
+// "Resolução CONFACOM Nº 1, de 08 de fevereiro de 2021": o número sem a barra, com a data por extenso.
+const REFERENCE_WITH_DATE = /\b(resolu[cç][aã]o|portaria|edital)\b([^\n;]{0,60}?)n[º°o.]\.?\s*(\d{1,3}),?\s+de\s+\d{1,2}º?\s+de\s+[a-zç]+\s+de\s+((?:19|20)\d{2})\b/gi;
 
 function findReferences(doc, text) {
     const own = normalizeNumber(doc.number);
     const refs = [];
-    for (const m of text.matchAll(REFERENCE)) {
+    for (const m of [...text.matchAll(REFERENCE), ...text.matchAll(REFERENCE_WITH_DATE)]) {
         const number = normalizeNumber(`${m[3]}/${m[4]}`);
         if (number === own) continue;
         const after = text.slice(m.index + m[0].length, m.index + m[0].length + 80).split(/[.;\n]/)[0];
@@ -143,7 +160,8 @@ Recebe um documento publicado por uma unidade acadêmica e responde só com JSON
 - topics: de 1 a 3 assuntos principais do documento, da lista. Não liste assuntos citados só de passagem.
 - alters / revokes: normas que este documento altera ou revoga expressamente, com o número (ex.: "3/2022") e o órgão
   que as emitiu, como aparece no texto (ex.: "Conselho da Faculdade de Computação", "Colegiado do Curso de ...", "CONGRAD").
-  Não inclua o próprio documento nem normas só citadas.`;
+  Não inclua o próprio documento nem normas só citadas. Se o título disser que ESTE documento foi revogado ou alterado
+  por outro (ex.: "Revogada pela Resolução nº 17/2024"), isso não entra em alters nem em revokes.`;
 
 const MAX_EXCERPT_CHARS = 2500;
 
@@ -234,27 +252,71 @@ async function buildDocument(doc, { taxonomy, docsByNumber, useLlm }) {
         add('trata_de', taxonomy.assunto[key], rules.topics.includes(key) ? 'regra' : 'llm');
     }
 
-    // Normas alteradas, revogadas ou citadas que estão no acervo.
-    const references = [
-        ...findReferences(doc, text).map((r) => ({ ...r, origin: 'regra' })),
-        ...(llm?.references || []).map((r) => ({ ...r, origin: 'llm' })),
-    ];
-    const strength = { cita: 0, altera: 1, revoga: 2 };
-    const byTarget = new Map();
-    for (const ref of references) {
-        const target = resolveReference(doc, ref, docsByNumber);
-        if (!target) continue;
-        const current = byTarget.get(target.id);
-        if (!current || strength[ref.relation] > strength[current.relation]) byTarget.set(target.id, { ...ref, target });
-    }
-    for (const { target, relation, origin: refOrigin } of byTarget.values()) {
-        const targetNode = await Graph.upsertNode({ type: 'documento', key: String(target.id), label: target.title.slice(0, 300), documentId: target.id });
-        add(relation, targetNode, refOrigin);
-    }
+    const references = await referenceEdges(doc, findReferences(doc, text), llm?.references || [], docsByNumber);
+    edges.push(...references.edges);
 
     await Graph.replaceEdgesFrom(nodeId, edges);
     if (llm) await Graph.markBuilt(doc.id);
-    return { edges: edges.length, llm: Boolean(llm), references: byTarget.size };
+    const revoked = await applyRevocations(doc, references.confirmedRevocations);
+    return { edges: edges.length, llm: Boolean(llm), references: references.edges.length, revoked };
+}
+
+// Normas alteradas, revogadas ou citadas que estão no acervo. Para cada uma vale a relação mais forte
+// (revoga > altera > cita), e a revogação é "confirmada" quando as regras e o LLM a encontram.
+async function referenceEdges(doc, ruleRefs, llmRefs, docsByNumber) {
+    const strength = { cita: 0, altera: 1, revoga: 2 };
+    const byTarget = new Map();
+    for (const [origin, refs] of [['regra', ruleRefs], ['llm', llmRefs]]) {
+        for (const ref of refs) {
+            for (const target of resolveReference(doc, ref, docsByNumber)) {
+                // Uma norma não altera nem revoga outra mais nova: é o título "revogada pela nº X" lido ao contrário.
+                const relation = isNewer(target, doc) ? 'cita' : ref.relation;
+                const entry = byTarget.get(target.id) || { target, relation: 'cita', origin, revokedBy: new Set() };
+                if (strength[relation] > strength[entry.relation]) Object.assign(entry, { relation, origin });
+                if (relation === 'revoga') entry.revokedBy.add(origin);
+                byTarget.set(target.id, entry);
+            }
+        }
+    }
+
+    const edges = [];
+    const confirmedRevocations = [];
+    for (const { target, relation, origin, revokedBy } of byTarget.values()) {
+        const targetNode = await Graph.upsertNode({ type: 'documento', key: String(target.id), label: target.title.slice(0, 300), documentId: target.id });
+        edges.push({ relation, targetId: targetNode, origin });
+        if (revokedBy.size === 2) confirmedRevocations.push(target);
+    }
+    return { edges, confirmedRevocations };
+}
+
+// O ano do número ("18/2024") é a data da norma; a data de publicação no site pode ser bem posterior.
+function isNewer(a, b) {
+    const year = (d) => Number(normalizeNumber(d.number)?.split('/')[1]) || null;
+    if (year(a) && year(b)) return year(a) > year(b);
+    return Boolean(a.published_at && b.published_at && new Date(a.published_at) > new Date(b.published_at));
+}
+
+// Revogação confirmada pelas regras e pelo LLM vira status no banco: a norma revogada sai das respostas
+// e aponta para a que a revogou. Uma norma vigente nunca é revogada por uma mais antiga.
+async function applyRevocations(doc, targets) {
+    if (doc.status !== 'vigente') return [];
+    const revoked = [];
+    for (const target of targets) {
+        if (target.status !== 'vigente') continue;
+        if (isNewer(target, doc)) continue;
+        await Document.markReplaced(target.id, doc.id);
+        target.status = 'revogado';
+        revoked.push(target);
+    }
+    return revoked;
+}
+
+// Refaz só as referências vindas das regras (altera, revoga, cita), sem chamar o LLM nem mexer no resto.
+async function rebuildRuleReferences(doc, { docsByNumber }) {
+    const nodeId = await Graph.upsertNode({ type: 'documento', key: String(doc.id), label: doc.title.slice(0, 300), documentId: doc.id });
+    const { edges } = await referenceEdges(doc, findReferences(doc, await Graph.documentText(doc.id)), [], docsByNumber);
+    await Graph.replaceRuleReferences(nodeId, edges);
+    return edges.length;
 }
 
 // ---------- Consulta na hora da busca ----------
@@ -309,5 +371,5 @@ async function describeDocuments(documentIds) {
 }
 
 module.exports = {
-    TOPICS, detectTopics, ensureTaxonomy, buildDocument, normalizeNumber, scopeFor, describeDocuments,
+    TOPICS, detectTopics, ensureTaxonomy, buildDocument, rebuildRuleReferences, normalizeNumber, scopeFor, describeDocuments,
 };

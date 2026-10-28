@@ -39,6 +39,31 @@ async function replaceEdgesFrom(sourceId, edges) {
     }
 }
 
+// Troca só as referências que vieram das regras; as lidas pelo LLM e as outras relações ficam.
+async function replaceRuleReferences(sourceId, edges) {
+    const client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        await client.query(
+            `DELETE FROM kg_edges WHERE source_id = $1 AND origin = 'regra' AND relation IN ('altera', 'revoga', 'cita')`,
+            [sourceId]
+        );
+        for (const e of edges) {
+            await client.query(
+                `INSERT INTO kg_edges (source_id, relation, target_id, origin) VALUES ($1, $2, $3, $4)
+                 ON CONFLICT DO NOTHING`,
+                [sourceId, e.relation, e.targetId, e.origin]
+            );
+        }
+        await client.query('COMMIT');
+    } catch (err) {
+        await client.query('ROLLBACK');
+        throw err;
+    } finally {
+        client.release();
+    }
+}
+
 async function findDocuments({ onlyPending = true } = {}) {
     const { rows } = await pool.query(
         `SELECT d.id, d.title, d.subject, d.doc_type, d.issuer, d.number, d.status, d.published_at, d.graph_built_at,
@@ -118,6 +143,6 @@ async function edgesOfDocuments(documentIds) {
 }
 
 module.exports = {
-    upsertNode, addEdge, replaceEdgesFrom, findDocuments, documentText, markBuilt, nodeIds,
+    upsertNode, addEdge, replaceEdgesFrom, replaceRuleReferences, findDocuments, documentText, markBuilt, nodeIds,
     documentsOutside, documentsAbout, edgesOfDocuments,
 };

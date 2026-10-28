@@ -1,6 +1,6 @@
 const pool = require('../db/pool');
 const Graph = require('../models/KnowledgeGraph');
-const { ensureTaxonomy, buildDocument, normalizeNumber } = require('../services/knowledgeGraph');
+const { ensureTaxonomy, buildDocument, rebuildRuleReferences, normalizeNumber } = require('../services/knowledgeGraph');
 const { GRAPH_MODEL, DailyLimitError } = require('../services/llm');
 const { UNITS } = require('../services/courses');
 
@@ -30,6 +30,8 @@ async function main() {
         if (n) docsByNumber.set(n, [...(docsByNumber.get(n) || []), d]);
     }
 
+    if (process.argv.includes('--references')) return rebuildReferences(all, docsByNumber);
+
     const candidates = rebuild ? all : all.filter((d) => !d.graph_built_at);
     const pending = useLlm ? candidates.slice(0, readLimit()) : candidates;
     console.log(`${all.length} documentos no acervo, ${candidates.length} para mapear, ${pending.length} nesta rodada`);
@@ -39,6 +41,7 @@ async function main() {
         try {
             const r = await buildDocument(doc, { taxonomy, docsByNumber, useLlm });
             console.log(`ok    #${doc.id} ${doc.title.slice(0, 90)}: ${r.edges} ligações, ${r.references} normas relacionadas${r.llm ? '' : ' (só regras)'}`);
+            for (const t of r.revoked) console.log(`      revogou #${t.id} ${t.title.slice(0, 90)} (confirmado pelas regras e pelo LLM)`);
         } catch (err) {
             failures++;
             console.error(`falha #${doc.id} ${doc.title}: ${err.message}`);
@@ -46,6 +49,21 @@ async function main() {
         }
     }
     if (failures) process.exitCode = 1;
+}
+
+// --references: refaz as referências entre normas de todos os documentos só pelas regras, sem gastar cota do LLM.
+async function rebuildReferences(all, docsByNumber) {
+    console.log(`refazendo as referências entre normas de ${all.length} documentos (só regras)`);
+    let total = 0;
+    for (const doc of all) {
+        try {
+            total += await rebuildRuleReferences(doc, { docsByNumber });
+        } catch (err) {
+            process.exitCode = 1;
+            console.error(`falha #${doc.id} ${doc.title}: ${err.message}`);
+        }
+    }
+    console.log(`${total} referências entre normas`);
 }
 
 main()
