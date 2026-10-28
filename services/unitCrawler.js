@@ -1,5 +1,6 @@
 require('./hostOverrides');
 const cheerio = require('cheerio');
+const { NetworkError, fetchWithTimeout } = require('./network');
 
 const UNITS = {
     facom: {
@@ -77,6 +78,7 @@ const DELAY_MS = 1500;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const NETWORK_ATTEMPTS = 3;
+const PAGE_TIMEOUT_MS = 30000;
 
 function getUnit(id) {
     const unit = UNITS[id];
@@ -87,17 +89,18 @@ function getUnit(id) {
 async function fetchPage(unit, url) {
     for (let attempt = 1; ; attempt++) {
         let res;
+        let html;
         try {
-            res = await fetch(url, { headers: HEADERS });
+            res = await fetchWithTimeout(url, { headers: HEADERS }, { timeoutMs: PAGE_TIMEOUT_MS, label: `o ${unit.siteName}` });
+            if (res.ok) html = await res.text();
         } catch (err) {
             if (attempt < NETWORK_ATTEMPTS) {
                 await sleep(10000 * attempt);
                 continue;
             }
-            const cause = err.cause?.code || err.cause?.message || err.message;
-            throw new Error(`não consegui acessar o ${unit.siteName} (${cause}); ele pode estar fora do ar, tente mais tarde`);
+            throw new NetworkError(`${err.message}; ele pode estar fora do ar, tente mais tarde`);
         }
-        if (res.ok) return res.text();
+        if (res.ok) return html;
         if ([403, 429, 503].includes(res.status) && attempt < 4) {
             await sleep(30000 * attempt);
             continue;

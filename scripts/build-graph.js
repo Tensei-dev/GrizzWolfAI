@@ -3,6 +3,7 @@ const Graph = require('../models/KnowledgeGraph');
 const { ensureTaxonomy, buildDocument, rebuildRuleReferences, normalizeNumber } = require('../services/knowledgeGraph');
 const { GRAPH_MODEL, DailyLimitError } = require('../services/llm');
 const { UNITS } = require('../services/courses');
+const { networkGuard } = require('../services/network');
 
 // Documentos lidos pelo modelo por rodada; o resto fica para a próxima. Mude com --limit N ou GRAPH_MAX_DOCS.
 const DEFAULT_LIMIT = 80;
@@ -36,31 +37,50 @@ async function main() {
     const pending = useLlm ? candidates.slice(0, readLimit()) : candidates;
     console.log(`${all.length} documentos no acervo, ${candidates.length} para mapear, ${pending.length} nesta rodada`);
 
+    const guard = networkGuard({ probe: () => pool.query('SELECT 1') });
     let failures = 0;
+    let mapped = 0;
     for (const doc of pending) {
         try {
             const r = await buildDocument(doc, { taxonomy, docsByNumber, useLlm });
             console.log(`ok    #${doc.id} ${doc.title.slice(0, 90)}: ${r.edges} ligações, ${r.references} normas relacionadas${r.llm ? '' : ' (só regras)'}`);
             for (const t of r.revoked) console.log(`      revogou #${t.id} ${t.title.slice(0, 90)} (confirmado pelas regras e pelo LLM)`);
+            mapped++;
+            guard.ok();
         } catch (err) {
             failures++;
             console.error(`falha #${doc.id} ${doc.title}: ${err.message}`);
             if (err instanceof DailyLimitError) break;
+            if (await stopOnNetwork(guard, err, `${mapped} de ${pending.length} documentos mapeados`)) break;
         }
     }
     if (failures) process.exitCode = 1;
 }
 
+// Depois de algumas falhas de rede seguidas, espera e testa o banco; se ele não voltou, a rodada para.
+async function stopOnNetwork(guard, err, progress) {
+    try {
+        await guard.failed(err);
+        return false;
+    } catch (networkErr) {
+        console.error(`${networkErr.message}; ${progress}, rode de novo para continuar`);
+        return true;
+    }
+}
+
 // --references: refaz as referências entre normas de todos os documentos só pelas regras, sem gastar cota do LLM.
 async function rebuildReferences(all, docsByNumber) {
     console.log(`refazendo as referências entre normas de ${all.length} documentos (só regras)`);
+    const guard = networkGuard({ probe: () => pool.query('SELECT 1') });
     let total = 0;
-    for (const doc of all) {
+    for (const [i, doc] of all.entries()) {
         try {
             total += await rebuildRuleReferences(doc, { docsByNumber });
+            guard.ok();
         } catch (err) {
             process.exitCode = 1;
             console.error(`falha #${doc.id} ${doc.title}: ${err.message}`);
+            if (await stopOnNetwork(guard, err, `${i} de ${all.length} documentos processados`)) break;
         }
     }
     console.log(`${total} referências entre normas`);

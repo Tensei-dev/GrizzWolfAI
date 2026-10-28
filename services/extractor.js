@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const cheerio = require('cheerio');
 const { PDFParse } = require('pdf-parse');
 const { ocrPdf } = require('./ocr');
+const { NetworkError, fetchWithTimeout } = require('./network');
 
 const MIN_CHARS_PER_PAGE = 50;
 
@@ -37,18 +38,28 @@ function fromHtml(html) {
     return { pages: [{ num: null, text }], hash: sha256(normalize(text)) };
 }
 
+const DOWNLOAD_TIMEOUT_MS = 60000;
+
+// O tempo limite do fetch também corta a leitura do corpo; aqui o erro vira NetworkError com o nome do arquivo.
+async function readBody(res, source, isPdf) {
+    try {
+        return isPdf ? Buffer.from(await res.arrayBuffer()) : await res.text();
+    } catch (err) {
+        throw new NetworkError(`o download de ${source} foi interrompido (${err.name === 'TimeoutError' ? 'tempo esgotado' : err.message})`);
+    }
+}
+
 async function extract(source) {
     if (/^https?:\/\//i.test(source)) {
-        const res = await fetch(source, { headers: { 'User-Agent': 'GrizzWolfAI/1.0 (+https://github.com/Tensei-dev/GrizzWolfAI)' } })
-            .catch((err) => {
-                throw new Error(`não consegui baixar ${source} (${err.cause?.code || err.message})`);
-            });
+        const res = await fetchWithTimeout(
+            source,
+            { headers: { 'User-Agent': 'GrizzWolfAI/1.0 (+https://github.com/Tensei-dev/GrizzWolfAI)' } },
+            { timeoutMs: DOWNLOAD_TIMEOUT_MS }
+        );
         if (!res.ok) throw new Error(`HTTP ${res.status} ao baixar ${source}`);
         const type = res.headers.get('content-type') || '';
-        if (type.includes('pdf') || /\.pdf($|\?)/i.test(source)) {
-            return fromPdfBuffer(Buffer.from(await res.arrayBuffer()));
-        }
-        return fromHtml(await res.text());
+        const body = await readBody(res, source, type.includes('pdf') || /\.pdf($|\?)/i.test(source));
+        return Buffer.isBuffer(body) ? fromPdfBuffer(body) : fromHtml(body);
     }
 
     const buffer = await fs.readFile(source);

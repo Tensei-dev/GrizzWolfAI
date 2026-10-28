@@ -1,4 +1,7 @@
 require('dotenv').config();
+const { fetchWithTimeout } = require('./network');
+
+const TIMEOUT_MS = 30000;
 
 const MODEL = 'gemini-embedding-001';
 const DIMENSIONS = 768;
@@ -66,11 +69,11 @@ async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infin
     const tokens = texts.reduce((sum, text) => sum + estimateTokens(text), 0);
     for (let attempt = 1; ; attempt++) {
         await throttle(texts.length, tokens);
-        const res = await fetch(URL, {
+        const res = await fetchWithTimeout(URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
             body: JSON.stringify(body),
-        });
+        }, { timeoutMs: TIMEOUT_MS, label: 'o Gemini' });
         if (res.ok) return (await res.json()).embeddings.map((e) => e.values);
 
         const text = await res.text();

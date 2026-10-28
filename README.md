@@ -162,6 +162,8 @@ Depois disso, cada push na `main` publica uma nova versão automaticamente. Se m
 
 O workflow [`.github/workflows/sync-documents.yml`](.github/workflows/sync-documents.yml) roda todo dia por volta das 6h17 (horário de Brasília). O GitHub pode atrasar tarefas agendadas em alguns minutos ou horas quando está com muita demanda. Ele aplica as migrations, importa os documentos novos das duas unidades, marca os duplicados e atualiza o grafo de conhecimento. Também dá para rodá-lo na mão pela aba **Actions**, em **Run workflow**.
 
+Se a rede cair no meio, a importação e o grafo não insistem documento por documento: depois de 3 falhas de rede seguidas, esperam 1 minuto e testam a conexão com o site e com o banco. Se ela voltou, continuam; se não, param avisando quantos documentos já foram processados. Um site de unidade fora do ar não impede a sincronização da outra. Todas as chamadas externas têm tempo limite (60 s para baixar um documento, 45 s para a Groq, 30 s para o Gemini e as páginas dos sites, 15 s para conectar no banco), e o que já foi importado é pulado na próxima rodada.
+
 Para ele funcionar, cadastre em **Settings → Secrets and variables → Actions** os segredos `DATABASE_URL`, `GEMINI_API_KEY` e `GROQ_API_KEY`. O último é usado pelo grafo; sem ele, o grafo é montado só com as regras.
 
 ### Filtros da importação
