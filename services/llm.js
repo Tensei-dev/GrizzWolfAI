@@ -33,7 +33,14 @@ async function complete(messages, {
                 ...(reasoningEffort && { reasoning_effort: reasoningEffort }),
             }),
         }, { timeoutMs: TIMEOUT_MS, label: 'a Groq' });
-        if (res.ok) return (await res.json()).choices[0].message.content;
+        if (res.ok) {
+            // Os gpt-oss às vezes gastam todos os tokens raciocinando e devolvem o conteúdo vazio: tenta de novo.
+            const choice = (await res.json()).choices?.[0];
+            const content = choice?.message?.content;
+            if (content?.trim()) return content;
+            if (attempt < maxAttempts) continue;
+            throw new Error(`a Groq devolveu uma resposta vazia (${model}, finish_reason: ${choice?.finish_reason || 'desconhecido'})`);
+        }
 
         const text = await res.text();
         const delay = retryDelayMs(text) ?? 1500 * attempt;

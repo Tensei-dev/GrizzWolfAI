@@ -2,17 +2,18 @@ const pool = require('../db/pool');
 
 const toVector = (embedding) => `[${embedding.join(',')}]`;
 
-async function createMany(documentId, chunks) {
+// heading: título e ementa do documento, indexados junto com cada trecho na busca por palavras-chave.
+async function createMany(documentId, chunks, heading = null) {
     const client = await pool.connect();
     try {
         await client.query('BEGIN');
         const created = [];
         for (const [i, chunk] of chunks.entries()) {
             const { rows } = await client.query(
-                `INSERT INTO chunks (document_id, chunk_index, content, page, token_count, embedding)
-                 VALUES ($1, $2, $3, $4, $5, $6)
+                `INSERT INTO chunks (document_id, chunk_index, content, page, token_count, embedding, heading)
+                 VALUES ($1, $2, $3, $4, $5, $6, $7)
                  RETURNING id, document_id, chunk_index, content, page, token_count`,
-                [documentId, i, chunk.content, chunk.page ?? null, chunk.tokenCount ?? null, toVector(chunk.embedding)]
+                [documentId, i, chunk.content, chunk.page ?? null, chunk.tokenCount ?? null, toVector(chunk.embedding), heading]
             );
             created.push(rows[0]);
         }

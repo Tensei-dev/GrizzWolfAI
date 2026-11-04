@@ -55,7 +55,8 @@ async function ingestDocument(entry, categoriesBySlug = {}) {
     });
     try {
         if (sourceUrl) await Document.addSource(doc.id, sourceUrl);
-        await Chunk.createMany(doc.id, chunks.map((c, i) => ({ ...c, embedding: embeddings[i] })));
+        const heading = [doc.title, doc.subject].filter(Boolean).join(' ');
+        await Chunk.createMany(doc.id, chunks.map((c, i) => ({ ...c, embedding: embeddings[i] })), heading);
         for (const slug of entry.categories || []) {
             if (!categoriesBySlug[slug]) throw new Error(`categoria não declarada: ${slug}`);
             await Document.addCategory(doc.id, categoriesBySlug[slug].id);
