@@ -323,6 +323,8 @@ async function rebuildRuleReferences(doc, { docsByNumber }) {
 
 // Escopo do estudante no grafo: documentos de outros cursos (ou de outra unidade) ficam de fora,
 // e os documentos do curso dele sobre o assunto da pergunta entram como candidatos extras.
+// Se o currículo dele não é conhecido (sem ano de ingresso, ou ano que cai entre dois currículos), curriculumDocs
+// traz, para cada currículo possível, os documentos que valem só para ele: a busca garante um trecho de cada.
 async function scopeFor(profile, question) {
     if (!profile?.courseId) return null;
     try {
@@ -332,11 +334,16 @@ async function scopeFor(profile, question) {
         const specific = [ids.curso[profile.courseId], ...curricula.map((name) => ids.curriculo[curriculumKey(profile.courseId, name)])].filter(Boolean);
         const allowed = [...specific, ids.unidade[course.unit], ids.unidade[UFU]].filter(Boolean);
         const topics = detectTopics(question);
-        const [excludeIds, focusIds] = await Promise.all([
+        const curriculumNodes = curricula.length > 1
+            ? curricula.map((name) => ids.curriculo[curriculumKey(profile.courseId, name)]).filter(Boolean)
+            : [];
+        const [excludeIds, focusIds, byCurriculum] = await Promise.all([
             Graph.documentsOutside(allowed),
             topics.length ? Graph.documentsAbout(topics, [...specific, ids.unidade[course.unit]].filter(Boolean)) : [],
+            curriculumNodes.length ? Graph.documentsApplyingTo(curriculumNodes) : [],
         ]);
-        return { excludeIds, focusIds, topics };
+        const curriculumDocs = byCurriculum.length > 1 ? byCurriculum.map((r) => r.document_ids) : [];
+        return { excludeIds, focusIds, topics, curriculumDocs };
     } catch (err) {
         console.error(`grafo de conhecimento indisponível, buscando sem ele: ${err.message}`);
         return null;

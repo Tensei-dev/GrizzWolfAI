@@ -1,7 +1,7 @@
 const { hybridSearch } = require('./search');
 const { complete, CHAT_MODEL } = require('./llm');
 const { extractProfile, askForCourse, hasCompetingVersions } = require('./profile');
-const { describeProfile, hasMultipleCurricula } = require('./courses');
+const { describeProfile, hasMultipleCurricula, describeCatalog } = require('./courses');
 const { rewriteQuestion } = require('./queryRewriter');
 
 const HISTORY_MESSAGES = 6;
@@ -26,8 +26,14 @@ Como você trabalha:
 - Antes de cada resposta, você mesmo consultou o acervo de documentos oficiais da FACOM (Faculdade de Computação) e do IME (Instituto de Matemática e Estatística) da UFU. O resultado dessa consulta aparece no fim destas instruções, em "Documentos consultados". O estudante não vê esses documentos e não os enviou.
 - Fale como quem pesquisou: "Pela Resolução nº 19/2024…", "Nas normas de estágio do seu curso…", "Não encontrei isso nos documentos que tenho…". Nunca use expressões como "os trechos", "os documentos fornecidos", "os documentos apresentados" ou "o que você enviou".
 
+Cursos que você atende (o seu cadastro, não é um documento oficial):
+${describeCatalog()}
+- Use esta lista para perguntas sobre quais unidades, cursos e currículos você atende (ex.: "quais cursos o IME tem?"). Ela não tem número de citação: não cite [n] para ela.
+- Apresente a lista como os cursos de graduação que você atende (ex.: "Os cursos de graduação do IME que eu atendo são…"). Não diga que são todos os cursos da unidade, que é a oferta oficial dela ou que estão em algum documento: a unidade pode ter outros cursos, como os de pós-graduação.
+- Para regras, cargas horárias, disciplinas e prazos, a lista não serve: use só os documentos consultados.
+
 Regras:
-- Responda SOMENTE com o que está nos documentos consultados. Não use conhecimento próprio sobre a UFU.
+- Responda SOMENTE com o que está nos documentos consultados e na lista de cursos que você atende. Não use conhecimento próprio sobre a UFU.
 - Responda direto à pergunta. Ignore os documentos consultados que não têm a ver com ela: não os descreva nem os resuma.
 - Cite a fonte de cada afirmação com o número do documento entre colchetes simples, ex.: [1] ou [2][3]. Não use outro formato de citação.
 - Cite só os documentos que sustentam o que você afirmou. Ao dizer que não encontrou uma informação, não cite nenhum documento.
@@ -103,7 +109,8 @@ async function resolveProfile(profile, message, history) {
         prospective: profile.prospective || extracted.prospective,
     };
     if (extracted.offTopic) return { profile, offTopic: true };
-    if (extracted.declined) profile.profilePrompts = MAX_PROFILE_PROMPTS;
+    // Quem recusou informar o perfil não é perguntado de novo: nem o curso, nem o ano de ingresso.
+    if (extracted.declined) profile = { ...profile, profilePrompts: MAX_PROFILE_PROMPTS, yearAsked: true };
 
     const pending = Boolean(profile.pendingQuestion);
     const missingCourse = (extracted.needsCourse || pending) && !profile.course;
@@ -120,9 +127,10 @@ async function resolveProfile(profile, message, history) {
     return { profile, question: profile.pendingQuestion, searchQuery: profile.pendingQuestion };
 }
 
+// O ano de ingresso só escolhe o currículo de um curso conhecido: sem o curso, perguntar o ano não resolve nada.
 function shouldAskEntryYear(profile) {
     if (profile.entryYear || profile.prospective || profile.yearAsked) return false;
-    return !profile.course || hasMultipleCurricula(profile.course);
+    return Boolean(profile.course) && hasMultipleCurricula(profile.course);
 }
 
 async function answer({ message, history = [], profile = {} }) {

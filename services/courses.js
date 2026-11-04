@@ -129,4 +129,14 @@ function describeProfile(courseId, entryYear, { prospective = false } = {}) {
     return { courseId, courseName: course.name, unit: course.unit, unitName: unit.name, entryYear, prospective, curricula, text };
 }
 
-module.exports = { UNITS, COURSES, courseOfText, curriculumFor, hasMultipleCurricula, describeProfile };
+// Unidades, cursos e currículos que o Grizz atende, em texto para o prompt do agente.
+function describeCatalog() {
+    return Object.entries(UNITS).map(([unitId, unit]) => {
+        const courses = Object.values(COURSES)
+            .filter((c) => c.unit === unitId)
+            .map((c) => `  - ${c.name}: ${c.curricula.length > 1 ? 'currículos' : 'currículo'} ${c.curricula.map((cur) => cur.name).join(', ')}`);
+        return `- ${unit.name} (${unit.fullName}):\n${courses.join('\n')}`;
+    }).join('\n');
+}
+
+module.exports = { UNITS, COURSES, courseOfText, curriculumFor, hasMultipleCurricula, describeProfile, describeCatalog };

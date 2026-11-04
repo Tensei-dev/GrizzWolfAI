@@ -124,6 +124,20 @@ async function documentsAbout(topicKeys, appliesToNodeIds, limit = 8) {
     return rows.map((r) => r.document_id);
 }
 
+// Documentos vigentes que valem para cada um dos nós (currículos), agrupados por nó.
+async function documentsApplyingTo(nodeIds) {
+    const { rows } = await pool.query(
+        `SELECT e.target_id, array_agg(DISTINCT n.document_id) AS document_ids
+         FROM kg_edges e
+         JOIN kg_nodes n ON n.id = e.source_id AND n.type = 'documento'
+         JOIN documents d ON d.id = n.document_id AND d.status = 'vigente'
+         WHERE e.relation = 'aplica_a' AND e.target_id = ANY($1)
+         GROUP BY e.target_id`,
+        [nodeIds]
+    );
+    return rows;
+}
+
 // Todas as arestas que saem dos documentos ou chegam neles, com os dois lados já resolvidos.
 async function edgesOfDocuments(documentIds) {
     const { rows } = await pool.query(
@@ -144,5 +158,5 @@ async function edgesOfDocuments(documentIds) {
 
 module.exports = {
     upsertNode, addEdge, replaceEdgesFrom, replaceRuleReferences, findDocuments, documentText, markBuilt, nodeIds,
-    documentsOutside, documentsAbout, edgesOfDocuments,
+    documentsOutside, documentsAbout, documentsApplyingTo, edgesOfDocuments,
 };

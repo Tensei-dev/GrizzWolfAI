@@ -36,6 +36,25 @@ function searchBoth(searchText, embedding, filters) {
     ]);
 }
 
+// Os trechos mais relevantes para a pergunta dentro de um conjunto de documentos, do melhor para o pior.
+async function rankWithin(documentIds, searchText, embedding) {
+    return reciprocalRankFusion(await searchBoth(searchText, embedding, { onlyIds: documentIds }));
+}
+
+// Sem saber o currículo do estudante, cada currículo possível precisa aparecer na lista: se a busca só trouxe
+// a grade 2023-1, o Grizz não teria como mostrar a diferença para a 2010-2. Entra o melhor trecho de cada um que faltou.
+async function coverCurricula(chunks, curriculumDocs, searchText, embedding) {
+    const present = new Set(chunks.map((c) => c.document_id));
+    const missing = curriculumDocs.filter((ids) => !ids.some((id) => present.has(id)));
+    const extra = [];
+    for (const ids of missing) {
+        const [best] = await rankWithin(ids, searchText, embedding);
+        if (best) extra.push(best);
+    }
+    // Logo depois do primeiro: o rerank reordena tudo, mas se ele falhar a busca fica com os primeiros da lista.
+    return [...chunks.slice(0, 1), ...extra, ...chunks.slice(1)];
+}
+
 // Anota cada trecho com o que o grafo sabe do documento. Trechos de normas revogadas saem, e as normas
 // que alteraram ou revogaram um documento encontrado entram na lista, para o Grizz usar a versão mais nova.
 async function withGraph(chunks, searchText, embedding) {
@@ -54,9 +73,8 @@ async function withGraph(chunks, searchText, embedding) {
         .slice(0, MAX_NEWER_VERSIONS);
 
     if (newer.length) {
-        const [vector, keyword] = await searchBoth(searchText, embedding, { onlyIds: newer });
         const seen = new Set();
-        for (const c of reciprocalRankFusion([vector, keyword])) {
+        for (const c of await rankWithin(newer, searchText, embedding)) {
             if (seen.has(c.document_id)) continue;
             seen.add(c.document_id);
             kept.push(c);
@@ -78,7 +96,9 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
     const run = async (scoped) => {
         const lists = await searchBoth(searchText, embedding, { categoryIds, excludeIds: scoped ? scope.excludeIds : null });
         if (scoped && scope.focusIds.length) lists.push(...await searchBoth(searchText, embedding, { categoryIds, onlyIds: scope.focusIds }));
-        const fused = await withGraph(reciprocalRankFusion(lists).slice(0, CANDIDATES_TO_RERANK), searchText, embedding);
+        let candidates = reciprocalRankFusion(lists).slice(0, CANDIDATES_TO_RERANK);
+        if (scoped && scope.curriculumDocs.length) candidates = await coverCurricula(candidates, scope.curriculumDocs, searchText, embedding);
+        const fused = await withGraph(candidates, searchText, embedding);
         if (!useRerank) return fused.slice(0, topK);
         return rerank(question, fused, { topK, profileText, originalQuestion });
     };

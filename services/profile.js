@@ -96,7 +96,7 @@ com normas de estágio do mesmo curso; a grade de um currículo antigo e a de um
 needsEntryYear = false se só um documento trata do assunto da pergunta, se os documentos são de cursos diferentes,
 se tratam de assuntos diferentes, ou se são o mesmo documento (ex.: texto original e texto consolidado da mesma resolução).
 Também é false se um documento foi "Alterado por" outro da lista: a alteração vale para todos, não depende da turma.
-Se o curso do estudante for informado, ignore os documentos de outros cursos.`;
+Ignore os documentos de outros cursos que não o do estudante.`;
 
 const MAX_SNIPPET_CHARS = 300;
 
@@ -112,21 +112,15 @@ function normKey(chunk) {
     return chunk.number ? `${chunk.number}|${chunk.issuer || ''}|${chunk.doc_type}` : `doc-${chunk.document_id}`;
 }
 
-async function hasCompetingVersions(question, chunks, { courseId = null, courseName = null } = {}) {
+// Só é chamada com o curso do estudante conhecido: é ele que diz quais documentos concorrem entre si.
+async function hasCompetingVersions(question, chunks, { courseId, courseName = null }) {
     const documents = new Map();
     for (const c of chunks) {
         const key = normKey(c);
         if (!documents.has(key)) documents.set(key, { ...c, course: documentCourse(c) });
     }
 
-    let candidates = [...documents.values()];
-    if (courseId) {
-        candidates = candidates.filter((d) => d.course === courseId);
-    } else {
-        const perCourse = {};
-        for (const d of candidates) if (d.course) perCourse[d.course] = (perCourse[d.course] || 0) + 1;
-        candidates = candidates.filter((d) => d.course && perCourse[d.course] >= 2);
-    }
+    const candidates = [...documents.values()].filter((d) => d.course === courseId);
     if (candidates.length < 2) return false;
 
     const list = candidates
