@@ -81,6 +81,16 @@ function chunkMarkdown(markdown, title) {
         current += (current && !current.endsWith('\n') ? '\n' : '') + line;
     }
     flush(false);
+    // Página só de títulos ("Núcleos" → "## Núcleo de Estatística", ...): a lista dos títulos é o conteúdo. Sem isso,
+    // ela não gerava nenhum trecho e ficava pendente na importação para sempre.
+    if (!chunks.length) {
+        const titles = lines
+            .map((l) => l.match(HEADING))
+            .filter((h) => h && h[1].length > 1)
+            .map((h) => h[2].replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').trim())
+            .filter(Boolean);
+        if (titles.length) chunks.push({ content: titles.map((t) => `- ${t}`).join('\n'), heading: title });
+    }
     return chunks;
 }
 

@@ -90,3 +90,8 @@ test('áreas de pesquisa: o campo próprio ou os temas do resumo de formação, 
     assert.equal(researchAreas('**Cargo:** Professor'), null);
     assert.equal(personEmail('[Lattes](http://x)\n\n[RaLopes@ufu.br](mailto:RaLopes@ufu.br)'), 'ralopes@ufu.br');
 });
+
+test('página só de títulos vira um trecho com a lista deles', () => {
+    const md = '# Núcleos\n\n## [Núcleo de Estatística](../unidades/nucleo/nucleo-de-estatistica.md)\n\n## [Núcleo de Matemática](../unidades/nucleo/nucleo-de-matematica.md)';
+    assert.deepEqual(chunkMarkdown(md, 'Núcleos'), [{ content: '- Núcleo de Estatística\n- Núcleo de Matemática', heading: 'Núcleos' }]);
+});
