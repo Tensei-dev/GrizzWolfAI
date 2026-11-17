@@ -36,11 +36,28 @@ function detectTopics(text) {
 }
 
 const curriculumKey = (courseId, name) => `${courseId}:${name}`;
+const EXTINCT = 'anteriores';
+
+// Ano do currículo citado no título ou na ementa ("Currículo 10/97" → 1997, "currículo 2004" → 2004).
+function curriculumYear(text) {
+    const m = text.match(/curr[ií]culos?\s*(?:de\s*|n?[ºo°]\s*)?(\d{1,2})\/(\d{2,4})\b|curr[ií]culos?\s*(?:de\s*)?((?:19|20)\d{2})\b/i);
+    if (!m) return null;
+    if (m[3]) return Number(m[3]);
+    const y = Number(m[2]);
+    return y < 100 ? y + (y > 50 ? 1900 : 2000) : y;
+}
+
+// Norma de um currículo mais antigo que todos os do cadastro (ex.: estágio do BCC "Currículo 10/97"): sem um nó
+// para ele, o LLM a ligava ao curso inteiro, e ela aparecia para quem é do currículo 2023-1.
+function isExtinctCurriculum(header, courseId) {
+    const year = curriculumYear(header);
+    return Boolean(year) && year < Math.min(...COURSES[courseId].curricula.map((c) => c.startYear));
+}
 
 // ---------- Taxonomia: unidades, cursos, currículos e assuntos ----------
 
 async function ensureTaxonomy() {
-    const ids = { unidade: {}, curso: {}, curriculo: {}, assunto: {} };
+    const ids = { unidade: {}, curso: {}, curriculo: {}, assunto: {}, extinto: {} };
     for (const [key, label] of Object.entries(ALL_UNITS)) {
         ids.unidade[key] = await Graph.upsertNode({ type: 'unidade', key, label });
     }
@@ -52,6 +69,10 @@ async function ensureTaxonomy() {
             ids.curriculo[key] = await Graph.upsertNode({ type: 'curriculo', key, label: `${course.name}, currículo ${c.name}` });
             await Graph.addEdge(ids.curriculo[key], 'pertence_a', ids.curso[courseId]);
         }
+        // currículos anteriores aos do cadastro: nenhum estudante de hoje é deles, então o escopo nunca os inclui
+        const key = curriculumKey(courseId, EXTINCT);
+        ids.extinto[courseId] = await Graph.upsertNode({ type: 'curriculo', key, label: `${course.name}, currículos anteriores ao ${course.curricula[0].name} (extintos)` });
+        await Graph.addEdge(ids.extinto[courseId], 'pertence_a', ids.curso[courseId]);
     }
     for (const [key, [label]] of Object.entries(TOPICS)) {
         ids.assunto[key] = await Graph.upsertNode({ type: 'assunto', key, label });
@@ -242,7 +263,12 @@ async function buildDocument(doc, { taxonomy, docsByNumber, useLlm }) {
     const coursesWithCurriculum = new Set(source.curricula.map((key) => key.split(':')[0]));
     for (const key of source.curricula) add('aplica_a', taxonomy.curriculo[key], origin);
     const courses = source.scope === 'curso' ? (source.courses.length ? source.courses : rules.courses) : [];
-    for (const id of courses) if (!coursesWithCurriculum.has(id)) add('aplica_a', taxonomy.curso[id], origin);
+    const header = `${doc.title} ${doc.subject || ''}`;
+    for (const id of courses) {
+        if (coursesWithCurriculum.has(id)) continue;
+        if (taxonomy.extinto?.[id] && isExtinctCurriculum(header, id)) add('aplica_a', taxonomy.extinto[id], 'regra');
+        else add('aplica_a', taxonomy.curso[id], origin);
+    }
     // Publicado pelas duas unidades, uma norma "da unidade" vale para as duas.
     if (!edges.some((e) => e.relation === 'aplica_a')) {
         const units = source.scope === UFU || doc.units.length === 0 ? [UFU] : doc.units;
