@@ -8,7 +8,7 @@ async function main() {
             SELECT d.id, d.title, d.number,
                    md5(string_agg(c.content, E'\\n' ORDER BY c.chunk_index)) AS text_hash
             FROM documents d JOIN chunks c ON c.document_id = d.id
-            WHERE d.status <> 'duplicado'
+            WHERE d.status <> 'duplicado' AND d.kind = 'norma'
             GROUP BY d.id
         )
         SELECT json_agg(json_build_object('id', id, 'title', title, 'number', number) ORDER BY id) AS docs

@@ -1,4 +1,5 @@
 const pool = require('../db/pool');
+const Chunk = require('./Chunk');
 
 async function create({ title, docType, issuer = null, number = null, sourceUrl = null, publishedAt = null, status = 'vigente', subject = null, fileHash }) {
     const { rows } = await pool.query(
@@ -99,7 +100,66 @@ async function getCategories(documentId) {
     return rows;
 }
 
+// ---------- Páginas dos sites (pacote OKF) ----------
+
+async function listPages() {
+    const { rows } = await pool.query(
+        `SELECT id, source_url, status, content_hash FROM documents WHERE kind <> 'norma' ORDER BY id`
+    );
+    return rows;
+}
+
+// Grava uma página e os trechos dela numa transação: página nova vira documento; página alterada atualiza o
+// mesmo documento (mesmo id, trechos trocados) e volta para a fila do grafo. Identidade pelo endereço.
+async function savePage(page, chunks, categoryId) {
+    const client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        const values = [page.title, page.docType, page.kind, page.issuer, page.sourceUrl, page.publishedAt, page.subject, page.contentHash, page.okfPath];
+        const { rows: [existing] } = await client.query(
+            `SELECT id FROM documents WHERE kind <> 'norma' AND source_url = $1`, [page.sourceUrl]
+        );
+        let id;
+        if (existing) {
+            id = existing.id;
+            await client.query(
+                `UPDATE documents SET title = $1, doc_type = $2, kind = $3, issuer = $4, source_url = $5, published_at = $6,
+                        subject = $7, content_hash = $8, okf_path = $9, status = 'vigente', graph_built_at = NULL, updated_at = now()
+                 WHERE id = $10`,
+                [...values, id]
+            );
+            await client.query('DELETE FROM chunks WHERE document_id = $1', [id]);
+        } else {
+            // file_hash é único e as páginas podem ter conteúdo idêntico (a biblioteca de cada curso): usa o endereço
+            const { rows } = await client.query(
+                `INSERT INTO documents (title, doc_type, kind, issuer, source_url, published_at, subject, content_hash, okf_path, file_hash)
+                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id`,
+                [...values, `okf:${page.sourceUrl}`]
+            );
+            id = rows[0].id;
+        }
+        await Chunk.insertMany(client, id, chunks);
+        if (categoryId) {
+            await client.query(
+                'INSERT INTO document_categories (document_id, category_id) VALUES ($1, $2) ON CONFLICT DO NOTHING', [id, categoryId]
+            );
+        }
+        await client.query('COMMIT');
+        return { id, created: !existing };
+    } catch (err) {
+        await client.query('ROLLBACK');
+        throw err;
+    } finally {
+        client.release();
+    }
+}
+
+async function markPagesRemoved(ids) {
+    if (!ids.length) return;
+    await pool.query(`UPDATE documents SET status = 'removido', updated_at = now() WHERE id = ANY($1) AND kind <> 'norma'`, [ids]);
+}
+
 module.exports = {
     create, findById, findByHash, findBySourceUrl, addSource, findByNumber, findAll, markReplaced, resetGraph, remove,
-    addCategory, removeCategory, getCategories,
+    addCategory, removeCategory, getCategories, listPages, savePage, markPagesRemoved,
 };

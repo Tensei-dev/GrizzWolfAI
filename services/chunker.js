@@ -46,4 +46,42 @@ function splitLong(paragraphs) {
     return out;
 }
 
-module.exports = { chunk };
+// Páginas dos sites (Markdown do pacote OKF): o corte é nos títulos de seção, não nos artigos. Cada trecho
+// leva no heading o título da página e o caminho de seções ("Perguntas frequentes › O que é ENADE?"),
+// que entra na busca por palavras-chave com peso maior.
+const HEADING = /^(#{1,6})\s+(.*)$/;
+
+function chunkMarkdown(markdown, title) {
+    const chunks = [];
+    const trail = [];
+    let current = '';
+    const heading = () => [title, ...trail.filter(Boolean)].join(' › ');
+    let currentHeading = heading();
+
+    const flush = (keepOverlap) => {
+        if (current.trim()) chunks.push({ content: current.trim(), heading: currentHeading });
+        current = keepOverlap && current.length > OVERLAP_CHARS ? current.slice(-OVERLAP_CHARS).replace(/^\S*\s/, '') : '';
+    };
+
+    const lines = markdown
+        .replace(/\[([^\]]*)\]\([^)\s]+\.md\)/g, '$1') // links internos do pacote: só o texto
+        .split('\n');
+    for (const line of splitLong(lines)) {
+        const h = line.match(HEADING);
+        if (h) {
+            if (h[1].length === 1) continue; // o "# título" da página já está no heading
+            flush(false);
+            trail.length = h[1].length - 2;
+            trail.push(h[2].replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').trim());
+            currentHeading = heading();
+            continue;
+        }
+        if (!line.trim()) { if (current && !current.endsWith('\n\n')) current += '\n'; continue; }
+        if (current.length + line.length > MAX_CHARS) flush(true);
+        current += (current && !current.endsWith('\n') ? '\n' : '') + line;
+    }
+    flush(false);
+    return chunks;
+}
+
+module.exports = { chunk, chunkMarkdown };

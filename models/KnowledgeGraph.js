@@ -70,7 +70,7 @@ async function findDocuments({ onlyPending = true } = {}) {
                 ARRAY(SELECT c.slug FROM categories c JOIN document_categories dc ON dc.category_id = c.id
                       WHERE dc.document_id = d.id ORDER BY c.id) AS units
          FROM documents d
-         WHERE d.status <> 'duplicado' AND ($1 = false OR d.graph_built_at IS NULL)
+         WHERE d.status <> 'duplicado' AND d.kind = 'norma' AND ($1 = false OR d.graph_built_at IS NULL)
          ORDER BY d.id`,
         [onlyPending]
     );

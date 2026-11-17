@@ -3,20 +3,27 @@ const pool = require('../db/pool');
 const toVector = (embedding) => `[${embedding.join(',')}]`;
 
 // heading: título e ementa do documento, indexados junto com cada trecho na busca por palavras-chave.
+// Um trecho pode trazer o próprio heading (páginas: título da página e da seção).
+// Recebe uma conexão com transação aberta (quem chama faz BEGIN/COMMIT).
+async function insertMany(client, documentId, chunks, heading = null) {
+    const created = [];
+    for (const [i, chunk] of chunks.entries()) {
+        const { rows } = await client.query(
+            `INSERT INTO chunks (document_id, chunk_index, content, page, token_count, embedding, heading)
+             VALUES ($1, $2, $3, $4, $5, $6, $7)
+             RETURNING id, document_id, chunk_index, content, page, token_count`,
+            [documentId, i, chunk.content, chunk.page ?? null, chunk.tokenCount ?? null, toVector(chunk.embedding), chunk.heading ?? heading]
+        );
+        created.push(rows[0]);
+    }
+    return created;
+}
+
 async function createMany(documentId, chunks, heading = null) {
     const client = await pool.connect();
     try {
         await client.query('BEGIN');
-        const created = [];
-        for (const [i, chunk] of chunks.entries()) {
-            const { rows } = await client.query(
-                `INSERT INTO chunks (document_id, chunk_index, content, page, token_count, embedding, heading)
-                 VALUES ($1, $2, $3, $4, $5, $6, $7)
-                 RETURNING id, document_id, chunk_index, content, page, token_count`,
-                [documentId, i, chunk.content, chunk.page ?? null, chunk.tokenCount ?? null, toVector(chunk.embedding), heading]
-            );
-            created.push(rows[0]);
-        }
+        const created = await insertMany(client, documentId, chunks, heading);
         await client.query('COMMIT');
         return created;
     } catch (err) {
@@ -46,6 +53,7 @@ const SEARCH_COLUMNS = `
 
 const SEARCH_FILTER = `
     d.status = 'vigente'
+    AND d.kind = 'norma' -- as páginas dos sites (OKF) entram na busca na etapa 3, com a regra de que a norma prevalece
     AND ($3::int[] IS NULL OR EXISTS (
         SELECT 1 FROM document_categories dc
         WHERE dc.document_id = d.id AND dc.category_id = ANY($3)))
@@ -77,4 +85,4 @@ async function searchKeyword(text, { limit = 20, categoryIds = null, excludeIds 
     return rows;
 }
 
-module.exports = { createMany, findByDocument, removeByDocument, searchVector, searchKeyword };
+module.exports = { insertMany, createMany, findByDocument, removeByDocument, searchVector, searchKeyword };

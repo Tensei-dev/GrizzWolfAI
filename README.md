@@ -139,6 +139,7 @@ Abra **http://localhost:3000**.
 | `npm run sync -- --dry-run` | Só lista o que seria importado, sem gravar nada. |
 | `npm run graph` | Mapeia no grafo os documentos que ainda não foram lidos pelo modelo. Lê até 80 por rodada (`-- --limit=N` para mudar) e para quando a cota diária do modelo acaba. Sem `GROQ_API_KEY`, ou com `-- --rules-only`, usa só as regras. Com `-- --rebuild`, refaz o grafo inteiro. Com `-- --references`, refaz só as referências entre normas (altera, revoga, cita) de todos os documentos, pelas regras e sem gastar cota do modelo. |
 | `npm run okf` | Atualiza o pacote OKF das páginas dos sites em `conhecimento/` (veja [Páginas dos sites](#páginas-dos-sites-pacote-okf)). `-- facom` ou `-- ime` faz uma unidade só, `-- --dry-run` só lista, `-- --limit=N` baixa no máximo N páginas e `-- --paginas=telefones,servicos` força o download dessas páginas (sem a barra inicial). |
+| `npm run okf:import` | Importa para o banco as páginas e os perfis novos ou alterados do pacote OKF (veja [Importação](#importação-para-o-banco-npm-run-okfimport)). `-- --dry-run` só lista, `-- --limit=N` importa no máximo N páginas. |
 | `npm run ingest -- data/sources.json` | Importa documentos de outros sites a partir de uma lista. Veja [Adicionando outros documentos](#adicionando-outros-documentos). |
 | `npm run dedupe` | Marca como duplicados os documentos com texto idêntico a outro. Use `-- --dry-run` para só listar. |
 
@@ -183,7 +184,16 @@ Além dos PDFs, as páginas dos sites (graduação, institucional, Mais FACOM/IM
 - **Atualização:** uma página só é baixada de novo quando a data dela no sitemap muda (ou a cada 7 dias, se ela não tem data), e o arquivo só é reescrito quando o conteúdo muda. Assim, o `git diff` da pasta mostra exatamente o que mudou nos sites. Páginas que saem do sitemap e notícias com mais de 90 dias saem do pacote.
 - **Estado:** `conhecimento/.estado.json` guarda quando cada página foi conferida e quais foram descartadas (vazias, 404, notícias antigas).
 
-Por enquanto o pacote é só gerado: o Grizz ainda responde só com os PDFs. A importação das páginas para a busca e o uso no prompt são as próximas etapas.
+### Importação para o banco (`npm run okf:import`)
+
+O [`scripts/import-okf.js`](scripts/import-okf.js) lê o pacote e grava no banco só o que é novo ou mudou, comparando o `hash` do cabeçalho de cada arquivo com o guardado no banco:
+
+- **Páginas, notícias e editais** viram documentos com `kind` `pagina`, `noticia` ou `edital` (as normas em PDF ficam com `kind = 'norma'`). A identidade é o endereço da página: uma página alterada atualiza o mesmo documento e troca os trechos dele. Os trechos são cortados pelas seções do Markdown (`##`…), com o título da página e da seção no `heading`. No grafo, cada página é ligada por regra (unidade, cursos e assuntos), sem gastar o LLM.
+- **Perfis de pessoas** vão para a tabela `pessoas` (nome, cargo, função, lotação, contato, resumo), buscada só por palavra-chave (`Person.search`), sem vetores. Telefone e ramal vêm da página de telefones de cada unidade.
+- **O que sai do pacote** fica com status `removido` (documentos e pessoas), em vez de ser apagado.
+- `-- --dry-run` só lista o que mudaria; `-- --limit=N` importa no máximo N páginas (cada trecho gasta uma chamada de vetor do Gemini). Se a cota diária acabar, rode de novo no dia seguinte: o que já entrou é pulado.
+
+Por enquanto as páginas ficam **fora da busca do chat** (a busca, o grafo do LLM e o `dedupe` filtram `kind = 'norma'`): o Grizz ainda responde só com os PDFs. A busca nas páginas, com a regra de que a norma prevalece, é a próxima etapa.
 
 ## Adicionando outros documentos
 

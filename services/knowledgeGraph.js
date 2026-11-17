@@ -67,6 +67,7 @@ function taxonomyIds() {
         ids.curso = await Graph.nodeIds('curso', Object.keys(COURSES));
         ids.curriculo = await Graph.nodeIds('curriculo', Object.entries(COURSES)
             .flatMap(([id, c]) => c.curricula.map((cur) => curriculumKey(id, cur.name))));
+        ids.assunto = await Graph.nodeIds('assunto', Object.keys(TOPICS));
         if (!Object.keys(ids.curso).length) throw new Error('grafo vazio; rode npm run graph');
         return ids;
     })().catch((err) => { taxonomyCache = null; throw err; });
@@ -377,6 +378,24 @@ async function describeDocuments(documentIds) {
     return info;
 }
 
+// Páginas dos sites (pacote OKF): o cabeçalho já diz a unidade e os cursos, então as ligações saem sem LLM.
+// Página de curso vale para o curso; o resto vale para todos os cursos da unidade.
+async function linkPage({ documentId, title, description, unidade, cursos = [] }) {
+    const ids = await taxonomyIds();
+    const nodeId = await Graph.upsertNode({ type: 'documento', key: String(documentId), label: title.slice(0, 300), documentId });
+    const edges = [];
+    const add = (relation, targetId) => { if (targetId) edges.push({ relation, targetId, origin: 'regra' }); };
+    add('emitido_por', ids.unidade[unidade]);
+    const courseNodes = cursos.map((c) => ids.curso[c]).filter(Boolean);
+    if (courseNodes.length) courseNodes.forEach((n) => add('aplica_a', n));
+    else add('aplica_a', ids.unidade[unidade]);
+    for (const topic of detectTopics(`${title} ${description || ''}`)) add('trata_de', ids.assunto[topic]);
+    await Graph.replaceEdgesFrom(nodeId, edges);
+    await Graph.markBuilt(documentId);
+    return edges.length;
+}
+
 module.exports = {
     TOPICS, detectTopics, ensureTaxonomy, buildDocument, rebuildRuleReferences, normalizeNumber, scopeFor, describeDocuments,
+    linkPage,
 };
