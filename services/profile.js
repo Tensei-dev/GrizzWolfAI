@@ -23,11 +23,12 @@ Responda só com JSON no formato:
 - needsCourse: true se a resposta muda conforme o curso do estudante e o curso ainda não está claro na conversa
   (ex.: estágio, TCC, grade, disciplinas, horários, atividades complementares, monitoria do curso).
   false se a dúvida já cita o curso, se vale igual para toda a unidade ou para a UFU (ligas acadêmicas, eleições, extensão em geral,
-  pós-graduação, quem procurar para algo) ou se a mensagem não tem dúvida.
+  pós-graduação, quem procurar para algo, contato, telefone ou sala de um professor ou servidor) ou se a mensagem não tem dúvida.
 - prospective: true se o estudante diz que ainda não entrou na UFU, que vai prestar ou que está pensando em cursar.
 - offTopic: true se a mensagem pede algo fora da vida acadêmica na UFU (ex.: receitas, futebol, política,
   piadas, fazer o exercício ou o código do estudante, perguntas gerais de conhecimento, de programação ou de matemática).
   false para dúvidas sobre normas, cursos, disciplinas, estágio, TCC, documentos, prazos e procedimentos da UFU, da FACOM ou do IME,
+  para perguntas sobre professores e servidores da FACOM ou do IME (quem é, contato, sala, telefone),
   e também para cumprimentos, agradecimentos, respostas sobre curso e ano e perguntas sobre o próprio Grizz.
 - declined: true se o estudante se recusa a informar ou diz que não sabe (ex.: "prefiro não dizer", "tanto faz, só responde").
 - searchQuery: null se hasQuestion for false. Senão, siga estas regras:

@@ -2,12 +2,15 @@ const { complete, RERANK_MODEL } = require('./llm');
 
 const MAX_PASSAGE_CHARS = 500;
 const MIN_SCORE = 2;
+const KIND_LABELS = { pagina: 'Página do site', noticia: 'Notícia do site', edital: 'Edital do site' };
 
-const SYSTEM_PROMPT = `Você avalia a relevância de trechos de documentos oficiais da UFU para a pergunta de um estudante.
+const SYSTEM_PROMPT = `Você avalia a relevância de trechos de documentos oficiais da UFU (normas e páginas dos sites da FACOM e do IME) para a pergunta de um estudante.
 Dê a cada trecho uma nota de 0 a 10:
 10 = responde diretamente a pergunta; 5 = relacionado, mas não responde; 0 = irrelevante.
-Se o perfil do estudante for informado, trechos de normas específicas de OUTRO curso valem no máximo 1.
-O curso de cada norma aparece em "Vale para", quando informado, ou na ementa, depois do título (ex.: "Aprova as Normas de Estágio ... do curso de ...").Responda só com JSON no formato {"scores": [{"id": 1, "score": 7}, ...]}, com uma entrada para cada trecho.`;
+Se o perfil do estudante for informado, trechos de normas ou páginas específicas de OUTRO curso valem no máximo 1.
+Avalie páginas e notícias pelo mesmo critério das normas: uma página que responde a pergunta (ex.: contato, procedimento, prazo de um edital) vale tanto quanto uma norma.
+O curso de cada norma aparece em "Vale para", quando informado, ou na ementa, depois do título (ex.: "Aprova as Normas de Estágio ... do curso de ...").
+Responda só com JSON no formato {"scores": [{"id": 1, "score": 7}, ...]}, com uma entrada para cada trecho.`;
 
 async function rerank(question, candidates, { topK = 5, profileText = null, originalQuestion = null } = {}) {
     if (candidates.length === 0) return [];
@@ -18,7 +21,8 @@ async function rerank(question, candidates, { topK = 5, profileText = null, orig
 
     const passages = candidates
         .map((c, i) => {
-            const header = [c.title, c.subject].filter(Boolean).join(' — ');
+            const kind = KIND_LABELS[c.kind] ? `${KIND_LABELS[c.kind]}: ` : '';
+            const header = kind + [c.title, c.subject].filter(Boolean).join(' — ');
             const appliesTo = c.graph?.appliesTo.length ? `\nVale para: ${c.graph.appliesTo.join('; ')}` : '';
             return `[${i + 1}] (${header})${appliesTo}\n${c.content.slice(0, MAX_PASSAGE_CHARS)}`;
         })

@@ -6,6 +6,8 @@ const { scopeFor, describeDocuments } = require('./knowledgeGraph');
 const CANDIDATES_PER_SEARCH = 20;
 const CANDIDATES_TO_RERANK = 12;
 const MAX_NEWER_VERSIONS = 3;
+const PAGE_CANDIDATES = 4; // trechos de páginas dos sites que vão ao rerank junto com os das normas
+const MAX_PAGES = 2; // trechos de páginas na resposta, no máximo
 const RRF_K = 60;
 
 function reciprocalRankFusion(lists) {
@@ -84,6 +86,21 @@ async function withGraph(chunks, searchText, embedding) {
     return kept.map((c) => ({ ...c, graph: info.get(c.document_id) || null }));
 }
 
+// Os melhores trechos na ordem do rerank, com no máximo MAX_PAGES de páginas dos sites: a resposta continua
+// apoiada nas normas, e as páginas completam com contatos, procedimentos e avisos.
+function pick(ranked, topK) {
+    const chosen = [];
+    let pages = 0;
+    for (const c of ranked) {
+        if (chosen.length >= topK) break;
+        const isPage = c.kind && c.kind !== 'norma';
+        if (isPage && pages >= MAX_PAGES) continue;
+        if (isPage) pages++;
+        chosen.push(c);
+    }
+    return chosen;
+}
+
 // question é a pergunta completa (reescrita); originalQuestion, o que o estudante digitou, só ajuda o rerank.
 async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank = true, profile = null, originalQuestion = null } = {}) {
     const searchText = question;
@@ -94,13 +111,19 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
     ]);
 
     const run = async (scoped) => {
-        const lists = await searchBoth(searchText, embedding, { categoryIds, excludeIds: scoped ? scope.excludeIds : null });
+        const excludeIds = scoped ? scope.excludeIds : null;
+        const [lists, pageLists] = await Promise.all([
+            searchBoth(searchText, embedding, { categoryIds, excludeIds }),
+            // as páginas dos sites têm lista e cota próprias, para não tirarem as normas do rerank
+            searchBoth(searchText, embedding, { categoryIds, excludeIds, kinds: Chunk.PAGES }),
+        ]);
         if (scoped && scope.focusIds.length) lists.push(...await searchBoth(searchText, embedding, { categoryIds, onlyIds: scope.focusIds }));
         let candidates = reciprocalRankFusion(lists).slice(0, CANDIDATES_TO_RERANK);
         if (scoped && scope.curriculumDocs.length) candidates = await coverCurricula(candidates, scope.curriculumDocs, searchText, embedding);
-        const fused = await withGraph(candidates, searchText, embedding);
-        if (!useRerank) return fused.slice(0, topK);
-        return rerank(question, fused, { topK, profileText, originalQuestion });
+        const pages = reciprocalRankFusion(pageLists).slice(0, PAGE_CANDIDATES);
+        const fused = await withGraph([...candidates, ...pages], searchText, embedding);
+        const ranked = useRerank ? await rerank(question, fused, { topK: Infinity, profileText, originalQuestion }) : fused;
+        return pick(ranked, topK);
     };
 
     if (!scope) return run(false);

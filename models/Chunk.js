@@ -47,32 +47,35 @@ async function removeByDocument(documentId) {
     await pool.query('DELETE FROM chunks WHERE document_id = $1', [documentId]);
 }
 
+const NORMS = ['norma'];
+const PAGES = ['pagina', 'noticia', 'edital'];
+
 const SEARCH_COLUMNS = `
     c.id, c.document_id, c.chunk_index, c.content, c.page,
-    d.title, d.subject, d.doc_type, d.number, d.issuer, d.source_url`;
+    d.title, d.subject, d.doc_type, d.number, d.issuer, d.source_url, d.kind, d.published_at`;
 
 const SEARCH_FILTER = `
     d.status = 'vigente'
-    AND d.kind = 'norma' -- as páginas dos sites (OKF) entram na busca na etapa 3, com a regra de que a norma prevalece
+    AND d.kind = ANY($6) -- normas e páginas dos sites (OKF) são buscadas em listas separadas
     AND ($3::int[] IS NULL OR EXISTS (
         SELECT 1 FROM document_categories dc
         WHERE dc.document_id = d.id AND dc.category_id = ANY($3)))
     AND ($4::int[] IS NULL OR NOT (d.id = ANY($4)))
     AND ($5::int[] IS NULL OR d.id = ANY($5))`;
 
-async function searchVector(embedding, { limit = 20, categoryIds = null, excludeIds = null, onlyIds = null } = {}) {
+async function searchVector(embedding, { limit = 20, categoryIds = null, excludeIds = null, onlyIds = null, kinds = NORMS } = {}) {
     const { rows } = await pool.query(
         `SELECT ${SEARCH_COLUMNS}, 1 - (c.embedding <=> $1) AS score
          FROM chunks c JOIN documents d ON d.id = c.document_id
          WHERE ${SEARCH_FILTER}
          ORDER BY c.embedding <=> $1
          LIMIT $2`,
-        [toVector(embedding), limit, categoryIds, excludeIds, onlyIds]
+        [toVector(embedding), limit, categoryIds, excludeIds, onlyIds, kinds]
     );
     return rows;
 }
 
-async function searchKeyword(text, { limit = 20, categoryIds = null, excludeIds = null, onlyIds = null } = {}) {
+async function searchKeyword(text, { limit = 20, categoryIds = null, excludeIds = null, onlyIds = null, kinds = NORMS } = {}) {
     const { rows } = await pool.query(
         `SELECT ${SEARCH_COLUMNS}, ts_rank_cd(c.tsv, query.q) AS score
          FROM chunks c JOIN documents d ON d.id = c.document_id
@@ -80,9 +83,9 @@ async function searchKeyword(text, { limit = 20, categoryIds = null, excludeIds 
          WHERE c.tsv @@ query.q AND ${SEARCH_FILTER}
          ORDER BY score DESC
          LIMIT $2`,
-        [text, limit, categoryIds, excludeIds, onlyIds]
+        [text, limit, categoryIds, excludeIds, onlyIds, kinds]
     );
     return rows;
 }
 
-module.exports = { insertMany, createMany, findByDocument, removeByDocument, searchVector, searchKeyword };
+module.exports = { NORMS, PAGES, insertMany, createMany, findByDocument, removeByDocument, searchVector, searchKeyword };

@@ -189,11 +189,13 @@ Além dos PDFs, as páginas dos sites (graduação, institucional, Mais FACOM/IM
 O [`scripts/import-okf.js`](scripts/import-okf.js) lê o pacote e grava no banco só o que é novo ou mudou, comparando o `hash` do cabeçalho de cada arquivo com o guardado no banco:
 
 - **Páginas, notícias e editais** viram documentos com `kind` `pagina`, `noticia` ou `edital` (as normas em PDF ficam com `kind = 'norma'`). A identidade é o endereço da página: uma página alterada atualiza o mesmo documento e troca os trechos dele. Os trechos são cortados pelas seções do Markdown (`##`…), com o título da página e da seção no `heading`. No grafo, cada página é ligada por regra (unidade, cursos e assuntos), sem gastar o LLM.
-- **Perfis de pessoas** vão para a tabela `pessoas` (nome, cargo, função, lotação, contato, resumo), buscada só por palavra-chave (`Person.search`), sem vetores. Telefone e ramal vêm da página de telefones de cada unidade.
+- **Perfis de pessoas** vão para a tabela `pessoas` (nome, cargo, função, lotação, contato, resumo), buscada só por palavra-chave (`Person.search`), sem vetores. Telefone e ramal vêm da página de telefones de cada unidade. No chat, quando a pergunta cita alguém pelo nome, o [`services/people.js`](services/people.js) acha a pessoa pelos nomes do cadastro (sem LLM) e o perfil entra no contexto com link para a página dela; um nome comum ("professor Marcelo") traz os candidatos e o Grizz pergunta qual.
 - **O que sai do pacote** fica com status `removido` (documentos e pessoas), em vez de ser apagado.
 - `-- --dry-run` só lista o que mudaria; `-- --limit=N` importa no máximo N páginas (cada trecho gasta uma chamada de vetor do Gemini). Se a cota diária acabar, rode de novo no dia seguinte: o que já entrou é pulado.
 
-Por enquanto as páginas ficam **fora da busca do chat** (a busca, o grafo do LLM e o `dedupe` filtram `kind = 'norma'`): o Grizz ainda responde só com os PDFs. A busca nas páginas, com a regra de que a norma prevalece, é a próxima etapa.
+### No chat
+
+As páginas entram na busca numa **lista separada da das normas**: as normas continuam com os 12 candidatos de sempre para o rerank, e as páginas mandam os 4 melhores trechos delas. Na resposta entram no máximo 2 trechos de páginas, marcados para o modelo como "(página do site da FACOM)", "(notícia do site…, publicada em…)" ou "(edital…)". O prompt diz que **a norma prevalece**: as páginas servem para contatos, procedimentos, eventos e oportunidades, e uma página diferente de uma norma é apontada como divergente. Se o rerank falhar, a resposta usa só as normas, como antes. O grafo do LLM e o `dedupe` continuam só com normas.
 
 ## Adicionando outros documentos
 

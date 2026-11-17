@@ -3,6 +3,7 @@ const { complete, CHAT_MODEL } = require('./llm');
 const { extractProfile, askForCourse, hasCompetingVersions } = require('./profile');
 const { describeProfile, hasMultipleCurricula, describeCatalog } = require('./courses');
 const { rewriteQuestion } = require('./queryRewriter');
+const people = require('./people');
 
 const HISTORY_MESSAGES = 6;
 const MAX_PROFILE_PROMPTS = 2;
@@ -31,6 +32,19 @@ ${describeCatalog()}
 - Use esta lista para perguntas sobre quais unidades, cursos e currículos você atende (ex.: "quais cursos o IME tem?"). Ela não tem número de citação: não cite [n] para ela.
 - Apresente a lista como os cursos de graduação que você atende (ex.: "Os cursos de graduação do IME que eu atendo são…"). Não diga que são todos os cursos da unidade, que é a oferta oficial dela ou que estão em algum documento: a unidade pode ter outros cursos, como os de pós-graduação.
 - Para regras, cargas horárias, disciplinas e prazos, a lista não serve: use só os documentos consultados.
+
+Normas e páginas dos sites:
+- Os documentos consultados são de dois tipos: normas (resoluções, regulamentos, PPCs, fichas) e páginas, notícias e editais dos sites da FACOM e do IME, marcados como "(página do site…)", "(notícia do site…)" ou "(edital…)".
+- As páginas servem para informações práticas: contatos, secretarias, coordenação, atendimento, formulários, procedimentos, eventos e oportunidades.
+- Em regras (cargas horárias, prazos, requisitos, aproveitamento), vale a norma. Se uma página disser algo diferente de uma norma consultada, siga a norma e avise que a página do site está diferente. Se só uma página trouxer a regra, use-a dizendo que é o que informa o site da unidade.
+- Ao usar uma notícia ou edital, diga a data da publicação; prazos e eventos valem para aquela publicação.
+- Não complete um procedimento com passos "gerais" ou "comuns" que não estão nos documentos (ex.: etapas de seleção, documentos a entregar). Diga o que a página informa e, para o resto, indique o contato que ela traz.
+
+Pessoas (professores e servidores):
+- Quando a pergunta cita alguém pelo nome, os perfis dessa pessoa no site da FACOM ou do IME aparecem entre os documentos consultados, marcados como "Perfil de…". Use-os para dizer quem é a pessoa, o cargo, a titulação, a sala e o telefone, citando o número do perfil.
+- Se o perfil diz que a pessoa não está mais em atividade (ex-docente, aposentado), diga isso antes de passar o contato.
+- Se vierem vários perfis marcados como "candidatos", a pergunta não deixou claro de quem se trata: liste os nomes e pergunte de qual pessoa o estudante está falando.
+- Um perfil não é norma: não tire dele regras, prazos ou quem coordena um curso. Não invente e-mail, telefone ou sala que não estejam no perfil.
 
 Regras:
 - Responda SOMENTE com o que está nos documentos consultados e na lista de cursos que você atende. Não use conhecimento próprio sobre a UFU.
@@ -79,23 +93,46 @@ function graphLines(graph, numberOf) {
     ].filter(Boolean).map((line) => `\n${line}`).join('');
 }
 
-function formatSources(chunks) {
-    if (chunks.length === 0) return 'A consulta não encontrou nenhum documento relevante para esta pergunta.';
+// Diz ao modelo o que é cada fonte: as normas mandam; páginas e notícias dos sites completam.
+function kindLabel(c) {
+    const unit = c.issuer ? ` da ${c.issuer}` : '';
+    const date = c.published_at ? new Date(c.published_at).toLocaleDateString('pt-BR') : null;
+    if (c.kind === 'pagina') return ` (página do site${unit})`;
+    if (c.kind === 'noticia') return ` (notícia do site${unit}${date ? `, publicada em ${date}` : ''})`;
+    if (c.kind === 'edital') return ` (edital no site${unit}${date ? `, publicado em ${date}` : ''})`;
+    return '';
+}
+
+// Os perfis das pessoas citadas vêm antes dos trechos e ficam com os primeiros números: a pergunta é sobre elas,
+// e o modelo tende a citar [1] (sobretudo quando o histórico já citou [1]).
+function formatPeople(found) {
+    if (!found.people.length) return '';
+    const note = found.ambiguous ? ' (candidatos: a pergunta não deixa claro de qual pessoa se trata)' : '';
+    return `Perfis de pessoas${note}:\n\n` + found.people
+        .map((p, i) => `[${i + 1}] ${people.describe(p)}`)
+        .join('\n\n');
+}
+
+function formatSources(chunks, found = { people: [] }) {
+    const offset = found.people.length;
+    const profiles = formatPeople(found);
+    if (chunks.length === 0) return profiles || 'A consulta não encontrou nenhum documento relevante para esta pergunta.';
     const numberOf = new Map();
-    chunks.forEach((c, i) => { if (!numberOf.has(c.document_id)) numberOf.set(c.document_id, i + 1); });
-    return chunks
+    chunks.forEach((c, i) => { if (!numberOf.has(c.document_id)) numberOf.set(c.document_id, offset + i + 1); });
+    const excerpts = chunks
         .map((c, i) => {
-            const ref = [c.title, c.page && `p. ${c.page}`].filter(Boolean).join(', ');
-            return `[${i + 1}] ${ref}${c.subject ? `\nEmenta do documento: ${c.subject}` : ''}${graphLines(c.graph, numberOf)}\n${c.content}`;
+            const ref = [c.title, c.page && `p. ${c.page}`].filter(Boolean).join(', ') + kindLabel(c);
+            return `[${offset + i + 1}] ${ref}${c.subject ? `\nEmenta do documento: ${c.subject}` : ''}${graphLines(c.graph, numberOf)}\n${c.content}`;
         })
         .join('\n\n');
+    return profiles ? `${profiles}\n\nDocumentos:\n\n${excerpts}` : excerpts;
 }
 
 function reply(content, profile) {
     return { answer: content, sources: [], profile, model: null };
 }
 
-async function resolveProfile(profile, message, history) {
+async function resolveProfile(profile, message, history, { mentionsPerson = false } = {}) {
     if (profile.course && !profile.pendingQuestion) return { profile, question: message };
 
     const extracted = await extractProfile(message, history);
@@ -113,7 +150,8 @@ async function resolveProfile(profile, message, history) {
     if (extracted.declined) profile = { ...profile, profilePrompts: MAX_PROFILE_PROMPTS, yearAsked: true };
 
     const pending = Boolean(profile.pendingQuestion);
-    const missingCourse = (extracted.needsCourse || pending) && !profile.course;
+    // Contato e perfil de uma pessoa não dependem do curso do estudante.
+    const missingCourse = (extracted.needsCourse || pending) && !profile.course && !mentionsPerson;
     const canAsk = profile.profilePrompts === 0 || (learned && profile.profilePrompts < MAX_PROFILE_PROMPTS);
     if (missingCourse && canAsk) {
         if (!pending && extracted.hasQuestion) profile.pendingQuestion = extracted.searchQuery || message;
@@ -127,6 +165,16 @@ async function resolveProfile(profile, message, history) {
     return { profile, question: profile.pendingQuestion, searchQuery: profile.pendingQuestion };
 }
 
+// A busca de pessoas não pode derrubar a resposta: sem o cadastro, o Grizz responde só com os documentos.
+async function findPeople(...texts) {
+    try {
+        return await people.findMentioned(...texts);
+    } catch (err) {
+        console.error(`busca de pessoas indisponível: ${err.message}`);
+        return { people: [], ambiguous: false };
+    }
+}
+
 // O ano de ingresso só escolhe o currículo de um curso conhecido: sem o curso, perguntar o ano não resolve nada.
 function shouldAskEntryYear(profile) {
     if (profile.entryYear || profile.prospective || profile.yearAsked) return false;
@@ -135,7 +183,8 @@ function shouldAskEntryYear(profile) {
 
 async function answer({ message, history = [], profile = {} }) {
     history = history.slice(-HISTORY_MESSAGES);
-    const resolved = await resolveProfile({ ...EMPTY_PROFILE, ...profile }, message, history);
+    const named = await findPeople(message);
+    const resolved = await resolveProfile({ ...EMPTY_PROFILE, ...profile }, message, history, { mentionsPerson: named.people.length > 0 });
     if (resolved.offTopic) return reply(OFF_TOPIC_REPLY, resolved.profile);
     if (resolved.ask) return reply(resolved.ask, resolved.profile);
 
@@ -150,10 +199,14 @@ async function answer({ message, history = [], profile = {} }) {
     }
 
     const searchQuery = resolved.searchQuery || await rewriteQuestion(question, history);
-    const chunks = await hybridSearch(searchQuery, { profile: described, originalQuestion: question });
+    const [chunks, found] = await Promise.all([
+        hybridSearch(searchQuery, { profile: described, originalQuestion: question }),
+        // a versão reescrita resolve "e o ramal dele?" para o nome citado antes na conversa
+        named.people.length && question === message ? named : findPeople(question, searchQuery),
+    ]);
 
     const competing = shouldAskEntryYear(profile)
-        && await hasCompetingVersions(searchQuery, chunks, { courseId: profile.course, courseName: described?.courseName });
+        && await hasCompetingVersions(searchQuery, chunks.filter((c) => c.kind === 'norma'), { courseId: profile.course, courseName: described?.courseName });
     if (competing) {
         profile = { ...profile, pendingQuestion: searchQuery, yearAsked: true };
         return reply(ASK_ENTRY_YEAR, profile);
@@ -163,7 +216,7 @@ async function answer({ message, history = [], profile = {} }) {
     const raw = await complete([
         {
             role: 'system',
-            content: `${SYSTEM_PROMPT}\n\n${profileInstructions(described)}\n\nDocumentos consultados:\n\n${formatSources(chunks)}`,
+            content: `${SYSTEM_PROMPT}\n\n${profileInstructions(described)}\n\nDocumentos consultados:\n\n${formatSources(chunks, found)}`,
         },
         ...history.map((m) => ({ role: m.role, content: m.content })),
         { role: 'user', content: question },
@@ -176,15 +229,23 @@ async function answer({ message, history = [], profile = {} }) {
         question,
         model: CHAT_MODEL,
         profile,
-        sources: chunks
-            .map((c, i) => ({
+        sources: found.people
+            .map((p, i) => ({
                 n: i + 1,
+                chunkId: null,
+                title: `Perfil: ${p.nome} (${p.unidade.toUpperCase()})`,
+                number: null,
+                page: null,
+                sourceUrl: p.source_url,
+            }))
+            .concat(chunks.map((c, i) => ({
+                n: found.people.length + i + 1,
                 chunkId: c.id,
                 title: c.title,
                 number: c.number,
                 page: c.page,
                 sourceUrl: c.source_url,
-            }))
+            })))
             .filter((s) => cited.has(s.n)),
     };
 }
