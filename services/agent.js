@@ -184,7 +184,9 @@ async function resolveProfile(profile, message, history, { mentionsPerson = fals
         entryYear: profile.entryYear || extracted.entryYear,
         prospective: profile.prospective || extracted.prospective,
     };
-    if (extracted.offTopic) return { profile, offTopic: true };
+    // "quem é Renato Aquino?" parecia conhecimento geral para o leitor de perfil; se o nome é de alguém do cadastro
+    // da FACOM ou do IME, a pergunta é do território do Grizz.
+    if (extracted.offTopic && !mentionsPerson) return { profile, offTopic: true };
     // Quem recusou informar o perfil não é perguntado de novo: nem o curso, nem o ano de ingresso.
     if (extracted.declined) profile = { ...profile, profilePrompts: MAX_PROFILE_PROMPTS, yearAsked: true };
 
