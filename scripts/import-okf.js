@@ -3,6 +3,8 @@
 //   npm run okf:import                  importa páginas e perfis
 //   npm run okf:import -- --dry-run     só mostra o que mudaria, sem gerar vetores nem gravar
 //   npm run okf:import -- --limit=20    importa no máximo 20 páginas (os vetores gastam cota do Gemini)
+//   npm run okf:import -- --max-trechos=300   para antes de passar de 300 trechos (vetores) na rodada: a cota diária
+//                                       do Gemini é a mesma das buscas do chat, e a Action deixa sobra para elas
 // Páginas viram documentos (kind pagina/noticia/edital) com trechos por seção; perfis vão para a tabela pessoas,
 // buscada só por palavra-chave. O que saiu do pacote fica com status "removido".
 const fs = require('fs/promises');
@@ -95,7 +97,7 @@ async function importPeople(entries, phones, { dryRun }) {
     return count;
 }
 
-async function importPages(entries, { dryRun, limit }) {
+async function importPages(entries, { dryRun, limit, maxChunks = Infinity }) {
     const pages = entries.filter((e) => KINDS[e.data.type]);
     const inDb = new Map((await Document.listPages()).map((d) => [d.source_url, d]));
     const changed = pages.filter((e) => {
@@ -120,6 +122,10 @@ async function importPages(entries, { dryRun, limit }) {
     for (const [i, e] of batch.entries()) {
         const chunks = chunkMarkdown(e.body, e.data.title);
         if (!chunks.length) continue;
+        if (count.trechos + chunks.length > maxChunks) {
+            console.log(`  limite de ${maxChunks} trechos desta rodada atingido; o resto entra na próxima`);
+            break;
+        }
         try {
             // o vetor de cada trecho leva o título da página e da seção: o trecho sozinho perde o contexto
             const embeddings = await embedDocuments(chunks.map((c) => `${c.heading}\n\n${c.content}`));
@@ -161,7 +167,7 @@ async function main() {
     const people = await importPeople(entries, phones, { dryRun });
     console.log(`pessoas: ${people.novos} novas, ${people.alterados} alteradas, ${people.iguais} iguais, ${people.removidos} removidas`
         + ` · ${phones.size} telefones encontrados nas páginas de telefones`);
-    const pages = await importPages(entries, { dryRun, limit });
+    const pages = await importPages(entries, { dryRun, limit, maxChunks: option('max-trechos', Infinity) });
     if (!dryRun) {
         console.log(`páginas: ${pages.novas} novas, ${pages.alteradas} alteradas, ${pages.removidas} removidas, `
             + `${pages.trechos} trechos com vetor, ${pages.falhas} falhas`);

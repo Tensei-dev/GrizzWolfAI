@@ -47,3 +47,6 @@ public/vendor/
 
 # registro local das decisões do projeto
 decisions.md
+
+# estado do gerador OKF: muda a cada conferência; na Action fica em cache (actions/cache)
+conhecimento/.estado.json

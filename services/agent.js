@@ -4,6 +4,18 @@ const { extractProfile, askForCourse, hasCompetingVersions } = require('./profil
 const { describeProfile, hasMultipleCurricula, describeCatalog } = require('./courses');
 const { rewriteQuestion } = require('./queryRewriter');
 const people = require('./people');
+const { COURSES, UNITS, courseOfText } = require('./courses');
+
+const CONTACT_WORDS = /coorden|secretari|contato|e-?mail|telefone|whatsapp|hor[aá]rio de atendimento|atendimento|endere[cç]o|onde fica|sala d/i;
+
+// Contatos dos cursos e das unidades, gerados das páginas dos sites pelo `npm run okf` (services/okfFacts.js).
+const FACTS = (() => {
+    try {
+        return require('../conhecimento/fatos.json');
+    } catch {
+        return null;
+    }
+})();
 
 const HISTORY_MESSAGES = 6;
 const MAX_PROFILE_PROMPTS = 2;
@@ -33,6 +45,11 @@ ${describeCatalog()}
 - Apresente a lista como os cursos de graduação que você atende (ex.: "Os cursos de graduação do IME que eu atendo são…"). Não diga que são todos os cursos da unidade, que é a oferta oficial dela ou que estão em algum documento: a unidade pode ter outros cursos, como os de pós-graduação.
 - Para regras, cargas horárias, disciplinas e prazos, a lista não serve: use só os documentos consultados.
 
+Contatos:
+- Em "Contatos", no fim destas instruções, estão a coordenação, a secretaria, o horário de atendimento, o e-mail, o telefone e o endereço dos cursos e das unidades, tirados das páginas dos sites. Eles não têm número de citação: não cite [n] para eles; diga que é o que informa o site do curso ou da unidade e, se ajudar, dê o link da página.
+- Use-os para perguntas como "quem coordena o curso?", "qual o e-mail da secretaria?" ou "onde fica a coordenação?", e para dizer a quem procurar (com o contato) quando os documentos não responderem.
+- Para regras, a lista de contatos não serve.
+
 Normas e páginas dos sites:
 - Os documentos consultados são de dois tipos: normas (resoluções, regulamentos, PPCs, fichas) e páginas, notícias e editais dos sites da FACOM e do IME, marcados como "(página do site…)", "(notícia do site…)" ou "(edital…)".
 - As páginas servem para informações práticas: contatos, secretarias, coordenação, atendimento, formulários, procedimentos, eventos e oportunidades.
@@ -47,7 +64,7 @@ Pessoas (professores e servidores):
 - Um perfil não é norma: não tire dele regras, prazos ou quem coordena um curso. Não invente e-mail, telefone ou sala que não estejam no perfil.
 
 Regras:
-- Responda SOMENTE com o que está nos documentos consultados e na lista de cursos que você atende. Não use conhecimento próprio sobre a UFU.
+- Responda SOMENTE com o que está nos documentos consultados, na lista de cursos que você atende e nos contatos. Não use conhecimento próprio sobre a UFU.
 - Responda direto à pergunta. Ignore os documentos consultados que não têm a ver com ela: não os descreva nem os resuma.
 - Cite a fonte de cada afirmação com o número do documento entre colchetes simples, ex.: [1] ou [2][3]. Não use outro formato de citação.
 - Cite só os documentos que sustentam o que você afirmou. Ao dizer que não encontrou uma informação, não cite nenhum documento.
@@ -56,7 +73,7 @@ Regras:
 - Entre normas do MESMO curso e do mesmo assunto que se contradizem, vale a mais recente (veja o ano no número da resolução, ex.: 18/2024 é mais nova que 3/2022). Use a mais recente e mencione isso.
 - Se um documento traz "Alterado por", a parte alterada vale como está no documento mais novo: use a regra do documento que alterou e mencione a alteração. Se o documento que alterou não estiver entre os consultados, avise que a norma foi alterada e diga por qual documento.
 - A linha "Menciona" lista outros documentos do acervo que a norma cita. Se a resposta depender de um deles e ele não estiver entre os consultados, diga qual é.
-- Se os documentos consultados não respondem a pergunta, diga isso em uma ou duas frases e oriente procurar a coordenação do curso ou a secretaria da unidade (FACOM ou IME). Não sugira outros sites, portais ou sistemas, e não diga onde a informação "normalmente" fica.
+- Se os documentos consultados não respondem a pergunta, diga isso em uma ou duas frases e oriente procurar a coordenação do curso ou a secretaria da unidade (FACOM ou IME), com o contato que aparece em "Contatos". Fora as páginas dos contatos, não sugira outros sites, portais ou sistemas, e não diga onde a informação "normalmente" fica.
 - Nunca invente prazos, números de resolução, cargas horárias ou regras.
 - Não precisa cumprimentar em toda resposta. Chame o estudante de "calouro" só se ele entrou neste ano.
 - Seja objetivo: vá direto ao ponto e use listas quando houver passos ou requisitos.
@@ -79,6 +96,28 @@ function profileInstructions(profile) {
 - O currículo depende do semestre em que ele entrou; se isso mudar a resposta, explique as duas situações.` : ''}${profile.curricula.length === 0 ? `
 - O ano de ingresso não foi informado: se a resposta mudar conforme o currículo, mostre as diferenças entre os currículos.` : ''}${profile.prospective ? `
 - Ele ainda não é aluno: use o currículo mais recente e as normas atuais, e fale com ele como um futuro calouro.` : ''}`;
+}
+
+const pageBlock = (p) => `${p.title} (${p.source}):\n${p.fields.map((f) => `- ${f.label}: ${f.value}`).join('\n')}`;
+const COORDINATION = /^(coordenador|presidente)/i;
+
+// Com o curso do estudante, vão os contatos completos do curso e da unidade dele; sem o curso, as secretarias das
+// unidades e só a coordenação de cada curso, para o prompt não crescer à toa.
+function describeContacts(courseId) {
+    if (!FACTS) return '';
+    const course = courseId && COURSES[courseId];
+    const units = course ? [course.unit] : Object.keys(UNITS);
+    const parts = units.map((u) => `Unidade ${UNITS[u].name}:\n${(FACTS.unidades[u] || []).map(pageBlock).join('\n')}`);
+    if (course) {
+        parts.push(`Curso do estudante (${course.name}):\n${(FACTS.cursos[courseId] || []).map(pageBlock).join('\n')}`);
+    } else {
+        const lines = Object.entries(FACTS.cursos).map(([id, pages]) => {
+            const found = pages.flatMap((p) => p.fields.filter((f) => COORDINATION.test(f.label)).map((f) => `${f.label}: ${f.value} (${p.source})`));
+            return found.length ? `- ${COURSES[id].name}: ${found.join('; ')}` : null;
+        }).filter(Boolean);
+        parts.push(`Coordenação de cada curso:\n${lines.join('\n')}`);
+    }
+    return `\n\nContatos (das páginas dos sites da FACOM e do IME):\n\n${parts.join('\n\n')}`;
 }
 
 // Linhas que o grafo de conhecimento acrescenta a cada documento consultado.
@@ -150,8 +189,10 @@ async function resolveProfile(profile, message, history, { mentionsPerson = fals
     if (extracted.declined) profile = { ...profile, profilePrompts: MAX_PROFILE_PROMPTS, yearAsked: true };
 
     const pending = Boolean(profile.pendingQuestion);
-    // Contato e perfil de uma pessoa não dependem do curso do estudante.
-    const missingCourse = (extracted.needsCourse || pending) && !profile.course && !mentionsPerson;
+    // Contato e perfil de uma pessoa não dependem do curso do estudante, nem o contato de um curso que a pergunta já cita
+    // ("quem coordena SI de Monte Carmelo?").
+    const asksCourseContact = !pending && CONTACT_WORDS.test(message) && Boolean(courseOfText(message));
+    const missingCourse = (extracted.needsCourse || pending) && !profile.course && !mentionsPerson && !asksCourseContact;
     const canAsk = profile.profilePrompts === 0 || (learned && profile.profilePrompts < MAX_PROFILE_PROMPTS);
     if (missingCourse && canAsk) {
         if (!pending && extracted.hasQuestion) profile.pendingQuestion = extracted.searchQuery || message;
@@ -216,7 +257,7 @@ async function answer({ message, history = [], profile = {} }) {
     const raw = await complete([
         {
             role: 'system',
-            content: `${SYSTEM_PROMPT}\n\n${profileInstructions(described)}\n\nDocumentos consultados:\n\n${formatSources(chunks, found)}`,
+            content: `${SYSTEM_PROMPT}\n\n${profileInstructions(described)}${describeContacts(profile.course)}\n\nDocumentos consultados:\n\n${formatSources(chunks, found)}`,
         },
         ...history.map((m) => ({ role: m.role, content: m.content })),
         { role: 'user', content: question },

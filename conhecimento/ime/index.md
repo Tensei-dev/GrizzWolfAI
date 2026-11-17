@@ -108,9 +108,8 @@ source: "https://ime.ufu.br"
 
 - [Mural de Gestores](mural-de-diretores.md) — Mural de Diretores 2024 Bacharel em Matemática pela Universidade Estadual de Campinas (UNICAMP) (2001) , Mestre em Matemática pela Universidade Estadual de Campinas (UNICAMP) (2004) e Doutor em…
 
-## node (2)
+## node (1)
 
-- [Teste Lucas Apagar](node/1423.md) — Professor Adjunto IV - Doutorado - Dedicação Exclusiva Matemática Currículo Lattes adilson@ufu.br +55 34 3230-9461 R:9461 Professor Associado IV - Doutorado - Dedicação Exclusiva Matemática Currículo…
 - [Grupos de Pesquisa](node/950.md) — Tópicos: conteúdo modelo
 
 ## numeros (1)

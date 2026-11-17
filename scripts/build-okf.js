@@ -8,6 +8,7 @@
 //                                    (sem a barra inicial: o Git Bash do Windows transforma "/x" em caminho de disco)
 const fs = require('fs/promises');
 const path = require('path');
+const { writeFacts } = require('../services/okfFacts');
 const okf = require('../services/okf');
 const { politeFetch, isAllowed, robotsFor } = require('../services/politeFetch');
 const { networkGuard, NetworkError } = require('../services/network');
@@ -135,6 +136,15 @@ async function syncUnit(unitId, { limit, dryRun, revisitDays, state, forced }) {
     const guard = networkGuard({ probe: () => politeFetch(`${unit.baseUrl}/robots.txt`, { method: 'HEAD' }, { timeoutMs: 15000 }) });
     const cutoff = okf.cutoffDate();
 
+    // Já no pacote, sem baixar de novo: páginas de teste e editais soltos (/node/) que venceram saem.
+    for (const [file, data] of [...existing]) {
+        const stale = isLoose(data.secao, data.title) && okf.staleReason(data, cutoff);
+        if (!stale || !data.source) continue;
+        const key = `${unitId}${new URL(data.source).pathname.replace(/\/+$/, '')}`;
+        state[key] = { ...state[key], descartada: true };
+        await remove(file, stale);
+    }
+
     for (const [i, page] of batch.entries()) {
         const file = urlToFile.get(page.path);
         const key = `${unitId}${page.path}`;
@@ -160,6 +170,13 @@ async function syncUnit(unitId, { limit, dryRun, revisitDays, state, forced }) {
                 await remove(file, 'mais de 90 dias');
                 continue;
             }
+            const stale = isLoose(page.section, extracted.title)
+                && okf.staleReason({ title: extracted.title, secao: page.section, type: okf.typeOf(page.section, extracted.title), publicado: extracted.published }, cutoff);
+            if (stale) {
+                state[key].descartada = true;
+                await remove(file, stale);
+                continue;
+            }
             if (extracted.body.length < MIN_BODY_CHARS) {
                 state[key].descartada = true;
                 await remove(file, 'página sem conteúdo');
@@ -174,7 +191,7 @@ async function syncUnit(unitId, { limit, dryRun, revisitDays, state, forced }) {
 
             const cursos = okf.coursesOf(unitId, page.path);
             const data = {
-                type: okf.typeOf(page.section),
+                type: okf.typeOf(page.section, extracted.title),
                 title: extracted.title,
                 description: okf.firstSentence(body),
                 unidade: unitId,
@@ -226,6 +243,11 @@ async function repairLinks(existing, urlToFile, baseUrl) {
 }
 
 // index.md da unidade: as páginas por seção, com título e descrição (a porta de entrada do pacote).
+// Páginas soltas do portal e de teste: as únicas que a regra do título (okf.staleReason) olha fora de notícias e editais.
+function isLoose(section, title = '') {
+    return section === 'node' || /^teste/i.test(title);
+}
+
 async function writeIndex(unitId, existing) {
     const bySection = {};
     for (const [file, data] of existing) (bySection[data.secao || 'outros'] ||= []).push({ file, data });
@@ -271,6 +293,9 @@ async function main() {
     if (!dryRun) {
         const sorted = Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b)));
         await writeFile(STATE_FILE, `${JSON.stringify(sorted, null, 1)}\n`);
+        const facts = await writeFacts();
+        console.log(`fatos fixos: ${Object.keys(facts.cursos).length} cursos e ${Object.keys(facts.unidades).length} unidades em conhecimento/fatos.json`);
+        if (facts.faltando.length) console.error(`páginas de contato que sumiram do pacote: ${facts.faltando.join(', ')}`);
     }
     if (failures) process.exitCode = 1;
 }

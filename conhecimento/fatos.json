@@ -1,0 +1,319 @@
+{
+  "cursos": {
+    "bcc": [
+      {
+        "title": "Curso de Bacharelado em Ciência da Computação",
+        "source": "https://facom.ufu.br/graduacao/ciencia-da-computacao/conheca",
+        "atualizado": "2026-04-24",
+        "fields": [
+          {
+            "label": "Horário de atendimento",
+            "value": "Atendimento PRESENCIAL: Segunda, Terça, Quinta e Sexta Feira: das 8hs às 12hs e das 13hs às 17hs . Atendimento ON-LINE (e-mail, Whatsapp e Teams): Quarta Feira: das das 8hs às 12hs e das 13hs às 17hs. (E-mail e chat do Teams: cocom@ufu.br - Whatsapp Bussines: 3239-4218)"
+          },
+          {
+            "label": "Coordenador",
+            "value": "Renato de Aquino Lopes · cocom@ufu.br · +55 34 3239-4218 ramal 4218"
+          },
+          {
+            "label": "Secretaria - Whatsapp",
+            "value": "3239-4218 · Inácio Castilho Neto"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Bloco 1B - Sala 1B 120 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+          }
+        ]
+      }
+    ],
+    "bsi": [
+      {
+        "title": "Curso de Bacharelado em Sistemas de Informação - Campus Santa Mônica",
+        "source": "https://facom.ufu.br/graduacao/sistemas-de-informacao-campus-santa-monica/conheca",
+        "atualizado": "2026-04-01",
+        "fields": [
+          {
+            "label": "Horário de atendimento",
+            "value": "Horário de atendimento na secretaria: de segunda à sexta-feira das 13:30 às 18:00 e, mediante agendamento, das 19:00 às 21:00 (telefone para agendamento: 34 3239-4334- WhatsApp). Sala: 1B120 (Bloco 1B, Campus Santa Mônica)."
+          },
+          {
+            "label": "Coordenador",
+            "value": "Ronaldo Castro de Oliveira · bsiudi@ufu.br · +55 34 3239-4334 ramal 4334"
+          },
+          {
+            "label": "Secretaria",
+            "value": "Esther Faria Rodrigues"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Bloco 1B - Sala 1B120 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38400-902"
+          }
+        ]
+      },
+      {
+        "title": "Secretaria do Curso de Sistemas de Informação - Campus Santa Mônica",
+        "source": "https://facom.ufu.br/graduacao/bsi-santamonica/secretaria",
+        "atualizado": "2023-10-27",
+        "fields": [
+          {
+            "label": "Horário de atendimento",
+            "value": "Segunda à sexta de 12:00 às 18:00 e das 19:00 às 21:00"
+          },
+          {
+            "label": "Secretário",
+            "value": "Esther Faria Rodrigues · bsiudi@ufu.br · +55 34 3239-4334 ramal 4334"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Bloco 1A - Sala 1A230 · Av. João Nanes de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+          }
+        ]
+      }
+    ],
+    "bsi-mc": [
+      {
+        "title": "Secretaria do Curso de Sistemas de Informação - Campus Monte Carmelo",
+        "source": "https://facom.ufu.br/graduacao/bsi-montecarmelo/secretaria",
+        "atualizado": "2026-11-16",
+        "fields": [
+          {
+            "label": "Secretário",
+            "value": "Edilamar Marcelina Cruvinel · bsimc@ufu.br · +55 34 3810-1044"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Monte Carmelo · Monte Carmelo - MG"
+          }
+        ]
+      },
+      {
+        "title": "Mural de Coordenadores",
+        "source": "https://facom.ufu.br/mural-de-coordenadores",
+        "fields": [
+          {
+            "label": "Coordenador(a)",
+            "value": "Diego Nunes Molinos (mandato 2025 até 2027)"
+          }
+        ]
+      }
+    ],
+    "bia": [
+      {
+        "title": "Curso de Bacharelado em Inteligência Artificial",
+        "source": "https://facom.ufu.br/graduacao/inteligencia-artificial/conheca",
+        "atualizado": "2026-10-08",
+        "fields": [
+          {
+            "label": "Horário de atendimento",
+            "value": "Atendimento PRESENCIAL: Segunda à Sexta-feira, das 8h às 12h e das 14h às 17h Atendimento ON-LINE (e-mail, Whatsapp e Teams): Segunda à Sexta-feira, das 8h às 12h e das 14h às 17h. (E-mail e chat do Teams: cobia@facom.ufu.br - Whatsapp Bussines: +55 34 3239-4469)"
+          },
+          {
+            "label": "Coordenador",
+            "value": "Luiz Gustavo Almeida Martins · cobia@facom.ufu.br · +55 34 3239-4469 ramal 4469"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Bloco 1B - Sala 119 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+          }
+        ]
+      }
+    ],
+    "mat-bach": [
+      {
+        "title": "Curso de Graduação Matemática",
+        "source": "https://ime.ufu.br/unidades/curso/curso-de-graduacao-matematica",
+        "atualizado": "2025-03-13",
+        "fields": [
+          {
+            "label": "Coordenador(a)",
+            "value": "Ana Cláudia Molina Zaqueu Xavier · cocma@ime.ufu.br · +55 34 3239-4115"
+          },
+          {
+            "label": "Secretaria do Curso de Graduação Matemática",
+            "value": "Karla Muniz de Oliveira"
+          },
+          {
+            "label": "Horário de atendimento",
+            "value": "Das 10:00 às 12:00 e das 13:00 às 19:00. Segunda e Terça-Feira o atendimento é realizado exclusivamente através do WhatsApp Business: 34 3239-4115."
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Bloco 1F - Sala 1F156 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+          }
+        ]
+      }
+    ],
+    "mat-lic": [
+      {
+        "title": "Curso de Graduação Matemática",
+        "source": "https://ime.ufu.br/unidades/curso/curso-de-graduacao-matematica",
+        "atualizado": "2025-03-13",
+        "fields": [
+          {
+            "label": "Coordenador(a)",
+            "value": "Ana Cláudia Molina Zaqueu Xavier · cocma@ime.ufu.br · +55 34 3239-4115"
+          },
+          {
+            "label": "Secretaria do Curso de Graduação Matemática",
+            "value": "Karla Muniz de Oliveira"
+          },
+          {
+            "label": "Horário de atendimento",
+            "value": "Das 10:00 às 12:00 e das 13:00 às 19:00. Segunda e Terça-Feira o atendimento é realizado exclusivamente através do WhatsApp Business: 34 3239-4115."
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Bloco 1F - Sala 1F156 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+          }
+        ]
+      }
+    ],
+    "mat-ead": [
+      {
+        "title": "Secretaria do Curso Matemática EaD",
+        "source": "https://ime.ufu.br/unidades/secretaria-de-curso/secretaria-do-curso-matematica-ead",
+        "atualizado": "2026-10-01",
+        "fields": [
+          {
+            "label": "Coordenador(a)",
+            "value": "Jair Rocha do Prado · matead@ime.ufu.br · +55 34 3239-4114 ramal 4114"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Sala 1B203B · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+          }
+        ]
+      }
+    ],
+    "estat": [
+      {
+        "title": "Secretaria do Curso Estatística",
+        "source": "https://ime.ufu.br/unidades/secretaria-de-curso/secretaria-do-curso-estatistica",
+        "atualizado": "2026-09-01",
+        "fields": [
+          {
+            "label": "Horário de atendimento",
+            "value": "Segunda, Terça e Quarta-Feira atendimento presencial - 1F156 | Quinta e Sexta-Feira o atendimento é realizado exclusivamente através do WhatsApp Business: 34 3239-4114. | Horário de Atendimento: 10:00 às 12h00 e 13h00 às 19h00 cocest@ime.ufu.br"
+          },
+          {
+            "label": "Secretário(a)",
+            "value": "Sandreana Poliana Silva · +55 34 3239-4114 ramal 4114"
+          }
+        ]
+      },
+      {
+        "title": "Colegiado do Curso de Ciência de Dados e Estatística",
+        "source": "https://ime.ufu.br/unidades/colegiado/colegiado-do-curso-de-ciencia-de-dados-e-estatistica",
+        "atualizado": "2026-10-16",
+        "fields": [
+          {
+            "label": "Presidente do colegiado do curso",
+            "value": "Aurélia Aparecida de Araújo Rodrigues"
+          },
+          {
+            "label": "Secretário(a)",
+            "value": "Sandreana Poliana Silva"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica"
+          }
+        ]
+      }
+    ]
+  },
+  "unidades": {
+    "facom": [
+      {
+        "title": "Secretaria da Faculdade de Computação",
+        "source": "https://facom.ufu.br/secretaria",
+        "atualizado": "2025-07-09",
+        "fields": [
+          {
+            "label": "Horário de atendimento",
+            "value": "08h-17h"
+          },
+          {
+            "label": "Secretário",
+            "value": "Gabriel Firme da Fonseca · facom@ufu.br · +55 34 3239-4393 ramal 4393"
+          }
+        ]
+      },
+      {
+        "title": "Faculdade de Computação",
+        "source": "https://facom.ufu.br/unidades/unidade-academica/faculdade-de-computacao",
+        "atualizado": "2026-04-01",
+        "fields": [
+          {
+            "label": "WhatsApp para atendimento de demandas",
+            "value": "(34) 3239-4393"
+          },
+          {
+            "label": "Horário de atendimento",
+            "value": "Segunda à sexta-feira das 08:00 às 17:00"
+          },
+          {
+            "label": "Diretor",
+            "value": "Rodrigo Sanches Miani · facom@ufu.br · +55 34 3239-4393 ramal 4393"
+          },
+          {
+            "label": "Secretaria",
+            "value": "Gabriel Firme da Fonseca"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Bloco 1B - Sala 1B116 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38400-902"
+          }
+        ]
+      }
+    ],
+    "ime": [
+      {
+        "title": "Secretaria do Instituto de Matemática e Estatística",
+        "source": "https://ime.ufu.br/unidades/diretoria/secretaria-do-instituto-de-matematica-e-estatistica",
+        "atualizado": "2026-11-16",
+        "fields": [
+          {
+            "label": "Horário de atendimento",
+            "value": "Horário de atendimento da Secretaria da Diretoria Segunda a Sexta-Feira Manhã: 08h00 ás 11h30 Tarde: 13h00 ás 17h30 Atendimento remoto da Secretária Adélia: Segundas, Terças e Sextas-Feiras. Atendimento através do WhatsApp Business: (34) 3239-4156 / E-mail: ime@ufu.br Atendimento remoto da Secretária Sandra: Quartas, Quintas e Sextas-Feiras. Atendimento através do WhatsApp Business: (34) 3239-4394"
+          },
+          {
+            "label": "Secretário(a)",
+            "value": "Adélia Gonçalves Soares"
+          },
+          {
+            "label": "Secretário(a)",
+            "value": "Sandra Valéria Denardi"
+          },
+          {
+            "label": "Secretário(a)",
+            "value": "Lincon Souza Pacífico · ime@ufu.br · +55 34 3239-4156 ramal 4156"
+          }
+        ]
+      },
+      {
+        "title": "Instituto de Matemática e Estatística",
+        "source": "https://ime.ufu.br/unidades/unidade-academica/instituto-de-matematica-e-estatistica",
+        "atualizado": "2026-11-16",
+        "fields": [
+          {
+            "label": "Horário de atendimento",
+            "value": "Segunda a Sexta-Feira Manhã: 07h30 ás 11h30 Tarde: 13h30 ás 17h30"
+          },
+          {
+            "label": "Diretor(a)",
+            "value": "Guilherme Chaud Tizziotti · guilhermect@ufu.br · ime@ufu.br · +55 34 3239-4126 ramal 4126 · +55 34 3239-4156 ramal 4156 · +55 34 3230-9441 ramal 9441"
+          },
+          {
+            "label": "Secretaria da Instituto de Matemática e Estatística",
+            "value": "Adélia Gonçalves Soares · Sandra Valéria Denardi · Lincon Souza Pacífico"
+          },
+          {
+            "label": "Endereço",
+            "value": "Campus Santa Mônica - Bloco 1F - Sala 1F120 · Av. João Naves de Avila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38400-902"
+          }
+        ]
+      }
+    ]
+  },
+  "faltando": []
+}

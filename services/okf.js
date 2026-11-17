@@ -116,11 +116,27 @@ function coursesOf(unitId, pagePath) {
     return Object.entries(UNITS[unitId].courses).filter(([, slugs]) => slugs.includes(slug)).map(([id]) => id);
 }
 
-function typeOf(section) {
+// As páginas soltas do portal (/node/123) são quase todas editais e resultados antigos (monitoria, eleições,
+// concursos): pelo título, viram edital e seguem a regra dos 90 dias. Páginas de teste do portal saem.
+const NODE_EDITAL = /\b(edital|resultado|homologa[cç][aã]o|processo seletivo|sele[cç][aã]o de|concurso|elei[cç][oõ]es|monitoria|vagas remanescentes|professor(\(a\))? (substitut|visitante)|prof\. substituto|reabertura|visiting professor)/i;
+// evento ou aviso com o ano no título ("AWC 2019"): dá para saber que passou
+const pastYearIn = (title, now = new Date()) => (title.match(/\b20\d{2}\b/g) || []).some((y) => Number(y) < now.getFullYear());
+const TEST_PAGE = /^teste\b/i;
+
+function typeOf(section, title = '') {
     if (section === 'acontece') return 'noticia';
     if (section === 'editais') return 'edital';
+    if (section === 'node' && (NODE_EDITAL.test(title) || pastYearIn(title))) return 'edital';
     if (section === 'pessoas') return 'pessoa';
     return 'pagina';
+}
+
+// Por que uma página já baixada não deve ficar no pacote (sem baixá-la de novo): teste do portal ou edital vencido.
+function staleReason(data, cutoff = cutoffDate()) {
+    if (TEST_PAGE.test(data.title || '')) return 'página de teste do portal';
+    const type = data.secao === 'node' ? typeOf('node', data.title) : data.type;
+    if (['noticia', 'edital'].includes(type) && data.publicado && data.publicado < cutoff) return 'notícia ou edital com mais de 90 dias';
+    return null;
 }
 
 // Caminho do arquivo dentro do pacote: conhecimento/<unidade>/<caminho da página>.md
@@ -290,5 +306,5 @@ const hashOf = (text) => crypto.createHash('sha256').update(text).digest('hex').
 
 module.exports = {
     ROOT, UNITS, NEWS_DAYS, NEWS_LISTINGS, MAX_LISTING_PAGES, parseSitemap, parseListing, selectPage, coursesOf, typeOf, sectionOf, filePathFor, extractPage,
-    linkInternal, toFrontmatter, parseFrontmatter, firstSentence, hashOf, cutoffDate, dateFromPath,
+    linkInternal, toFrontmatter, parseFrontmatter, firstSentence, hashOf, cutoffDate, dateFromPath, staleReason,
 };

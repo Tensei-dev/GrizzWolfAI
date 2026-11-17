@@ -5,11 +5,22 @@ on:
     - cron: '17 9 * * *'
   workflow_dispatch:
 
+# o pacote OKF (conhecimento/) atualizado volta para o repositório num commit
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-documents
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 24
@@ -24,6 +35,54 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FACOM_IP: ${{ secrets.FACOM_IP }}
           IME_IP: ${{ secrets.IME_IP }}
+
+      # ---------- Páginas dos sites (pacote OKF) ----------
+      # O estado do gerador (quando cada página foi conferida e quais foram descartadas) fica em cache, fora do git.
+      - name: Restaurar o estado do pacote OKF
+        id: okf-state
+        uses: actions/cache/restore@v4
+        with:
+          path: conhecimento/.estado.json
+          key: okf-estado-${{ github.run_id }}
+          restore-keys: okf-estado-
+      # Sem cache (primeira vez, ou cache vencido): usa a última versão que esteve no git, para não baixar tudo de novo.
+      - name: Recuperar o estado do histórico do git
+        if: steps.okf-state.outputs.cache-matched-key == ''
+        run: |
+          c=$(git log -1 --format=%H -- conhecimento/.estado.json)
+          if [ -n "$c" ]; then git show "$c^:conhecimento/.estado.json" > conhecimento/.estado.json || rm -f conhecimento/.estado.json; fi
+      - name: Atualizar o pacote OKF
+        id: okf
+        if: always()
+        run: npm run okf
+        env:
+          FACOM_IP: ${{ secrets.FACOM_IP }}
+          IME_IP: ${{ secrets.IME_IP }}
+      - name: Guardar o estado do pacote OKF
+        if: always() && hashFiles('conhecimento/.estado.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: conhecimento/.estado.json
+          key: okf-estado-${{ github.run_id }}
+      # Só o que mudou nos sites vira commit; o git diff de conhecimento/ mostra exatamente o quê.
+      - name: Publicar o pacote OKF no repositório
+        if: always() && steps.okf.outcome != 'skipped'
+        run: |
+          git add -A conhecimento
+          if git diff --cached --quiet; then echo "pacote OKF sem mudanças"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Atualiza o pacote OKF das páginas dos sites"
+          git pull -q --rebase origin main
+          git push -q origin HEAD:main
+      # A cota diária do Gemini é a mesma das buscas do chat: no máximo 300 vetores por dia para as páginas.
+      - name: Importar o pacote OKF para o banco
+        if: always()
+        run: npm run okf:import -- --max-trechos=300
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
       - run: npm run dedupe
         if: always()
         env:
