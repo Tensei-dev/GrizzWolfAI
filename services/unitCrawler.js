@@ -1,6 +1,7 @@
 require('./hostOverrides');
 const cheerio = require('cheerio');
-const { NetworkError, fetchWithTimeout } = require('./network');
+const { NetworkError } = require('./network');
+const { politeFetch } = require('./politeFetch');
 
 const UNITS = {
     facom: {
@@ -72,8 +73,6 @@ const DOC_TYPES = [
 
 const NUMBER = /(?:n[º°o.]\.?\s*|resolu[cç][aã]o\s+(?:[a-z]+\s+)?)([\d.]+\/\d{4})/i;
 
-const HEADERS = { 'User-Agent': 'GrizzWolfAI/1.0 (+https://github.com/Tensei-dev/GrizzWolfAI)' };
-const DELAY_MS = 1500;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -91,7 +90,7 @@ async function fetchPage(unit, url) {
         let res;
         let html;
         try {
-            res = await fetchWithTimeout(url, { headers: HEADERS }, { timeoutMs: PAGE_TIMEOUT_MS, label: `o ${unit.siteName}` });
+            res = await politeFetch(url, {}, { timeoutMs: PAGE_TIMEOUT_MS, label: `o ${unit.siteName}` });
             if (res.ok) html = await res.text();
         } catch (err) {
             if (attempt < NETWORK_ATTEMPTS) {
@@ -137,7 +136,6 @@ async function crawl(unitId) {
         const items = await fetchListingPage(unit, page);
         if (items.length === 0) break;
         all.push(...items);
-        await sleep(DELAY_MS);
     }
     return all;
 }

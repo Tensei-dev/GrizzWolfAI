@@ -138,6 +138,7 @@ Abra **http://localhost:3000**.
 | `npm run sync:facom` / `npm run sync:ime` | Importa só de uma unidade. |
 | `npm run sync -- --dry-run` | Só lista o que seria importado, sem gravar nada. |
 | `npm run graph` | Mapeia no grafo os documentos que ainda não foram lidos pelo modelo. Lê até 80 por rodada (`-- --limit=N` para mudar) e para quando a cota diária do modelo acaba. Sem `GROQ_API_KEY`, ou com `-- --rules-only`, usa só as regras. Com `-- --rebuild`, refaz o grafo inteiro. Com `-- --references`, refaz só as referências entre normas (altera, revoga, cita) de todos os documentos, pelas regras e sem gastar cota do modelo. |
+| `npm run okf` | Atualiza o pacote OKF das páginas dos sites em `conhecimento/` (veja [Páginas dos sites](#páginas-dos-sites-pacote-okf)). `-- facom` ou `-- ime` faz uma unidade só, `-- --dry-run` só lista, `-- --limit=N` baixa no máximo N páginas e `-- --paginas=telefones,servicos` força o download dessas páginas (sem a barra inicial). |
 | `npm run ingest -- data/sources.json` | Importa documentos de outros sites a partir de uma lista. Veja [Adicionando outros documentos](#adicionando-outros-documentos). |
 | `npm run dedupe` | Marca como duplicados os documentos com texto idêntico a outro. Use `-- --dry-run` para só listar. |
 
@@ -171,6 +172,18 @@ Para ele funcionar, cadastre em **Settings → Secrets and variables → Actions
 Nem tudo o que as unidades publicam interessa aos alunos. Os filtros de cada unidade ficam em `skipTitles` e `skipFiles`, no arquivo [`services/unitCrawler.js`](services/unitCrawler.js). Hoje ficam de fora arquivos que não são PDF e documentos sobre a vida funcional dos professores, concursos, eleições e eventos. No IME também ficam de fora o material didático, as reportagens sobre a profissão e as chamadas de parcerias.
 
 Para incluir outra unidade da UFU com o mesmo modelo de site, basta acrescentá-la em `UNITS`, no [`services/unitCrawler.js`](services/unitCrawler.js), e cadastrar os cursos dela no [`services/courses.js`](services/courses.js).
+
+Todas as requisições aos sites respeitam o `robots.txt` de cada um ([`services/politeFetch.js`](services/politeFetch.js)): os sites da FACOM e do IME pedem 10 segundos entre requisições (`Crawl-delay: 10`), e caminhos bloqueados não são acessados. Por isso a leitura da listagem de documentos leva uns 5 minutos por unidade.
+
+## Páginas dos sites (pacote OKF)
+
+Além dos PDFs, as páginas dos sites (graduação, institucional, Mais FACOM/IME, extensão, perfis de pessoas e notícias dos últimos 90 dias) são guardadas em [`conhecimento/`](conhecimento/) no formato **OKF** (*Open Knowledge Format*): um arquivo Markdown por página, com cabeçalho YAML (tipo, título, descrição, unidade, seção, cursos, endereço de origem, datas e hash do conteúdo) e links relativos entre os arquivos. Cada unidade tem um `index.md` com as páginas por seção.
+
+- **Descoberta:** pelo `sitemap.xml` de cada site, mais as listagens `/acontece` e `/editais` para as notícias recentes, que o sitemap não traz. As seções que entram ficam em `UNITS`, no [`services/okf.js`](services/okf.js).
+- **Atualização:** uma página só é baixada de novo quando a data dela no sitemap muda (ou a cada 7 dias, se ela não tem data), e o arquivo só é reescrito quando o conteúdo muda. Assim, o `git diff` da pasta mostra exatamente o que mudou nos sites. Páginas que saem do sitemap e notícias com mais de 90 dias saem do pacote.
+- **Estado:** `conhecimento/.estado.json` guarda quando cada página foi conferida e quais foram descartadas (vazias, 404, notícias antigas).
+
+Por enquanto o pacote é só gerado: o Grizz ainda responde só com os PDFs. A importação das páginas para a busca e o uso no prompt são as próximas etapas.
 
 ## Adicionando outros documentos
 
@@ -227,8 +240,11 @@ npm run ingest -- data/sources.json
 │   ├── ocr.js                # OCR de PDFs escaneados
 │   ├── chunker.js            # divisão do texto em trechos por artigo
 │   ├── ingestion.js          # importação de um documento
-│   └── unitCrawler.js        # leitura da aba Documentos dos sites da FACOM e do IME
+│   ├── unitCrawler.js        # leitura da aba Documentos dos sites da FACOM e do IME
+│   ├── okf.js                # páginas dos sites → Markdown OKF (seleção, extração, cabeçalho)
+│   └── politeFetch.js        # requisições que respeitam o robots.txt (Crawl-delay e Disallow)
 ├── scripts/                  # comandos de importação e manutenção
+├── conhecimento/             # pacote OKF gerado das páginas dos sites (npm run okf)
 ├── data/sources.json         # lista de documentos extras para importar
 └── public/                   # front: HTML, CSS, JS e imagens
 ```

@@ -1,0 +1,2 @@
+# O pacote OKF é gerado com quebras de linha LF; sem isto, o autocrlf faria todo arquivo parecer alterado.
+conhecimento/** text eol=lf

@@ -18,6 +18,9 @@ data/pdfs/
 # configurações locais do Claude Code
 .claude/settings.local.json
 
+# guia de estudos local: manual técnico, servidor de perguntas ao Claude e notas pessoais
+estudos/
+
 # logs
 *.log
 npm-debug.log*
@@ -41,3 +44,6 @@ desktop.ini
 
 # cópias de node_modules geradas pelo postinstall
 public/vendor/
+
+# registro local das decisões do projeto
+decisions.md

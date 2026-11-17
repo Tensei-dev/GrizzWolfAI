@@ -4,7 +4,8 @@ const crypto = require('crypto');
 const cheerio = require('cheerio');
 const { PDFParse } = require('pdf-parse');
 const { ocrPdf } = require('./ocr');
-const { NetworkError, fetchWithTimeout } = require('./network');
+const { NetworkError } = require('./network');
+const { politeFetch } = require('./politeFetch');
 
 const MIN_CHARS_PER_PAGE = 50;
 
@@ -51,11 +52,8 @@ async function readBody(res, source, isPdf) {
 
 async function extract(source) {
     if (/^https?:\/\//i.test(source)) {
-        const res = await fetchWithTimeout(
-            source,
-            { headers: { 'User-Agent': 'GrizzWolfAI/1.0 (+https://github.com/Tensei-dev/GrizzWolfAI)' } },
-            { timeoutMs: DOWNLOAD_TIMEOUT_MS }
-        );
+        // politeFetch respeita o Crawl-delay do site (10 s na FACOM e no IME) entre um download e outro
+        const res = await politeFetch(source, {}, { timeoutMs: DOWNLOAD_TIMEOUT_MS });
         if (!res.ok) throw new Error(`HTTP ${res.status} ao baixar ${source}`);
         const type = res.headers.get('content-type') || '';
         const body = await readBody(res, source, type.includes('pdf') || /\.pdf($|\?)/i.test(source));
