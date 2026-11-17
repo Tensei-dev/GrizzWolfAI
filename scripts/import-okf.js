@@ -20,6 +20,7 @@ const { linkPage } = require('../services/knowledgeGraph');
 const { UNITS } = require('../services/unitCrawler');
 const { networkGuard } = require('../services/network');
 const usage = require('../services/usage');
+const { phonesFrom, emailsFrom } = require('../services/okfContacts');
 
 const KINDS = { pagina: ['pagina', 'página'], noticia: ['noticia', 'notícia'], edital: ['edital', 'edital'] };
 
@@ -42,29 +43,15 @@ async function readBundle(dir = okf.ROOT, out = []) {
 
 const bodyWithoutTitle = (body) => body.replace(/^\s*# .*\n+/, '').trim();
 
-// A página de telefones de cada unidade lista "Nome — telefone · Ramal": vira telefone e ramal no perfil.
-function phonesFrom(entries) {
-    const bySource = new Map(entries.map((e) => [e.file, e.data.source]));
-    const phones = new Map();
-    for (const e of entries.filter((x) => x.data.secao === 'telefones')) {
-        for (const line of e.body.split('\n')) {
-            const m = line.match(/\[[^\]]+\]\(([^)]+)\)\s*—\s*([+\d][\d\s()+-]{6,}\d)(?:.*?Ramal:\*\*\s*(\d+))?/);
-            if (!m) continue;
-            const target = /^https?:/.test(m[1]) ? m[1] : bySource.get(path.resolve(path.dirname(e.file), m[1]));
-            if (target) phones.set(target, { telefone: m[2].trim(), ramal: m[3] || null });
-        }
-    }
-    return phones;
-}
-
-async function importPeople(entries, phones, { dryRun }) {
+async function importPeople(entries, { phones, emails }, { dryRun }) {
     const people = entries.filter((e) => e.data.type === 'pessoa');
     const inDb = new Map((await Person.findAll()).map((p) => [p.source_url, p]));
     const count = { novos: 0, alterados: 0, iguais: 0, removidos: 0 };
     for (const e of people) {
         const phone = phones.get(e.data.source) || {};
-        // o telefone vem de outro arquivo (telefones.md): entra no hash para uma mudança dele também contar
-        const contentHash = `${e.data.hash}|${phone.telefone || ''}|${phone.ramal || ''}`;
+        const email = (e.data.pessoa || {}).email || emails.get(e.data.source) || null;
+        // telefone e e-mail vêm de outros arquivos (telefones, listas de docentes): entram no hash para uma mudança deles também contar
+        const contentHash = `${e.data.hash}|${phone.telefone || ''}|${phone.ramal || ''}|${email || ''}`;
         const before = inDb.get(e.data.source);
         if (before && before.content_hash === contentHash && before.status === 'ativo') { count.iguais++; continue; }
         count[before ? 'alterados' : 'novos']++;
@@ -83,7 +70,7 @@ async function importPeople(entries, phones, { dryRun }) {
             regime: p.regime,
             lotacao: p.unidade_organizacional,
             endereco: p.endereco,
-            email: p.email,
+            email,
             telefone: phone.telefone || p.telefone,
             ramal: phone.ramal,
             resumo: bodyWithoutTitle(e.body),
@@ -165,9 +152,10 @@ async function main() {
 
     const entries = await readBundle();
     const phones = phonesFrom(entries);
-    const people = await importPeople(entries, phones, { dryRun });
+    const emails = emailsFrom(entries);
+    const people = await importPeople(entries, { phones, emails }, { dryRun });
     console.log(`pessoas: ${people.novos} novas, ${people.alterados} alteradas, ${people.iguais} iguais, ${people.removidos} removidas`
-        + ` · ${phones.size} telefones encontrados nas páginas de telefones`);
+        + ` · ${phones.size} telefones e ${emails.size} e-mails encontrados nas páginas de contato`);
     const pages = await importPages(entries, { dryRun, limit, maxChunks: option('max-trechos', Infinity) });
     if (!dryRun) {
         console.log(`páginas: ${pages.novas} novas, ${pages.alteradas} alteradas, ${pages.removidas} removidas, `

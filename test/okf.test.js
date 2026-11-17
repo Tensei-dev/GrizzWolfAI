@@ -61,3 +61,22 @@ test('corte por seções: cada trecho leva o caminho de títulos e fica sem os l
     assert.match(docs.content, /Veja o modelo/);
     assert.doesNotMatch(docs.content, /\.md\)/);
 });
+
+test('e-mail das pessoas: só nas listas em que cada uma tem o próprio título; e-mail de setor não vai para ninguém', () => {
+    const { emailsFrom } = require('../services/okfContacts');
+    const path = require('path');
+    const dir = path.join(__dirname, 'pacote');
+    const pessoa = (slug) => ({ file: path.join(dir, 'pessoas', `${slug}.md`), data: { type: 'pessoa', source: `https://ime.ufu.br/pessoas/${slug}` }, body: '' });
+    const pagina = (name, body) => ({ file: path.join(dir, `${name}.md`), data: { type: 'pagina', source: `https://ime.ufu.br/${name}` }, body });
+    const entries = [
+        pessoa('ana'), pessoa('marisa'), pessoa('augusto'), pessoa('bruno'),
+        pagina('corpo-docente', '### [Ana](pessoas/ana.md)\n\nProfessora\n\n[ana@ufu.br](mailto:ana@ufu.br)\n\n### [Marisa](pessoas/marisa.md)\n\nProfessora'),
+        // comissão: o e-mail depois do último membro é o da comissão
+        pagina('comissao', '**Presidente:** [Ana](https://ime.ufu.br/pessoas/ana)\n\n**Membro:** [Marisa](https://ime.ufu.br/pessoas/marisa)\n\n[comissao@ufu.br](mailto:comissao@ufu.br)'),
+        pagina('tecnicos', '### [Augusto](pessoas/augusto.md)\n\n[ime@ufu.br](mailto:ime@ufu.br)\n\n### [Bruno](pessoas/bruno.md)\n\n[ime@ufu.br](mailto:ime@ufu.br)'),
+    ];
+    const emails = emailsFrom(entries);
+    assert.equal(emails.get('https://ime.ufu.br/pessoas/ana'), 'ana@ufu.br');
+    assert.equal(emails.has('https://ime.ufu.br/pessoas/marisa'), false);
+    assert.equal(emails.has('https://ime.ufu.br/pessoas/augusto'), false);
+});
