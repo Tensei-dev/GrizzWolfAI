@@ -4,6 +4,7 @@ const { extractProfile, askForCourse, hasCompetingVersions } = require('./profil
 const { describeProfile, hasMultipleCurricula, describeCatalog } = require('./courses');
 const { rewriteQuestion } = require('./queryRewriter');
 const people = require('./people');
+const Turma = require('../models/Turma');
 const { COURSES, UNITS, courseOfText } = require('./courses');
 
 const CONTACT_WORDS = /coorden|secretari|contato|e-?mail|telefone|whatsapp|hor[aá]rio de atendimento|atendimento|endere[cç]o|onde fica|sala d/i;
@@ -62,6 +63,13 @@ Pessoas (professores e servidores):
 - Se o perfil diz que a pessoa não está mais em atividade (ex-docente, aposentado), diga isso antes de passar o contato.
 - Se vierem vários perfis marcados como "candidatos", a pergunta não deixou claro de quem se trata: liste os nomes e pergunte de qual pessoa o estudante está falando.
 - Um perfil não é norma: não tire dele regras, prazos ou quem coordena um curso. Não invente e-mail, telefone ou sala que não estejam no perfil.
+
+Turmas e disciplinas:
+- "Disciplinas em <semestre>" no perfil e o bloco "Turmas nos horários de aula" vêm dos horários de aula publicados pelos cursos. Use-os para dizer quem dá uma disciplina, a turma, o horário e a sala, sempre dizendo o semestre (ex.: "No horário de 2026/2, …") e citando o número da fonte.
+- Um docente com só o primeiro nome (ex.: "Jair") é como está no horário: não complete o nome. Se a disciplina tem várias turmas ou é dada em vários cursos, mostre as do curso do estudante, ou liste as opções se o curso não for conhecido.
+- Se o semestre do horário não for o atual, avise que é o último horário publicado.
+- Para saber quem dá a disciplina agora, vale o horário mais recente. Planos de ensino de semestres anteriores não dizem isso: não os liste, a não ser que o estudante pergunte por um semestre passado.
+- Copie e-mails e telefones exatamente como aparecem nos perfis, nos contatos ou nos documentos. Nunca monte um e-mail a partir do nome da pessoa.
 
 Regras:
 - Responda SOMENTE com o que está nos documentos consultados, na lista de cursos que você atende e nos contatos. Não use conhecimento próprio sobre a UFU.
@@ -142,19 +150,41 @@ function kindLabel(c) {
     return '';
 }
 
-// Os perfis das pessoas citadas vêm antes dos trechos e ficam com os primeiros números: a pergunta é sobre elas,
-// e o modelo tende a citar [1] (sobretudo quando o histórico já citou [1]).
-function formatPeople(found) {
-    if (!found.people.length) return '';
-    const note = found.ambiguous ? ' (candidatos: a pergunta não deixa claro de qual pessoa se trata)' : '';
-    return `Perfis de pessoas${note}:\n\n` + found.people
-        .map((p, i) => `[${i + 1}] ${people.describe(p)}`)
-        .join('\n\n');
+// Fontes que vêm antes dos trechos e ficam com os primeiros números: os perfis das pessoas citadas e as turmas da
+// disciplina perguntada. A pergunta é sobre elas, e o modelo tende a citar [1] (sobretudo quando o histórico já citou [1]).
+// Cada uma: { title, sourceUrl, text }.
+function leadingSources(found, classes) {
+    const profiles = found.people.map((p) => ({
+        title: `Perfil: ${p.nome} (${p.unidade.toUpperCase()})`,
+        sourceUrl: p.source_url,
+        text: people.describe(p),
+        section: `Perfis de pessoas${found.ambiguous ? ' (candidatos: a pergunta não deixa claro de qual pessoa se trata)' : ''}`,
+    }));
+    const byDocument = new Map();
+    for (const c of classes) (byDocument.get(c.document_id) || byDocument.set(c.document_id, []).get(c.document_id)).push(c);
+    const timetables = [...byDocument.values()].map((rows) => ({
+        title: `Horário de aulas ${rows[0].semestre}: ${COURSES[rows[0].curso]?.name || rows[0].curso}`,
+        sourceUrl: rows[0].source_url,
+        text: `Turmas de ${rows[0].semestre} no horário de aulas de ${COURSES[rows[0].curso]?.name || rows[0].curso} (${rows[0].documento}):\n`
+            + rows.map((r) => `- ${r.codigo} ${r.disciplina}${r.turma ? `, turma ${r.turma}` : ''}: ${r.docente || 'sem docente no horário'}`
+                + `${r.horarios.length ? ` · ${r.horarios.join('; ')}` : ''}`).join('\n'),
+        section: 'Turmas nos horários de aula',
+    }));
+    return [...profiles, ...timetables];
 }
 
-function formatSources(chunks, found = { people: [] }) {
-    const offset = found.people.length;
-    const profiles = formatPeople(found);
+function formatLeads(leads) {
+    let section = null;
+    return leads.map((l, i) => {
+        const header = l.section !== section ? `${l.section}:\n\n` : '';
+        section = l.section;
+        return `${header}[${i + 1}] ${l.text}`;
+    }).join('\n\n');
+}
+
+function formatSources(chunks, leads = []) {
+    const offset = leads.length;
+    const profiles = formatLeads(leads);
     if (chunks.length === 0) return profiles || 'A consulta não encontrou nenhum documento relevante para esta pergunta.';
     const numberOf = new Map();
     chunks.forEach((c, i) => { if (!numberOf.has(c.document_id)) numberOf.set(c.document_id, offset + i + 1); });
@@ -208,6 +238,34 @@ async function resolveProfile(profile, message, history, { mentionsPerson = fals
     return { profile, question: profile.pendingQuestion, searchQuery: profile.pendingQuestion };
 }
 
+// "Quem dá aula de Banco de Dados?", "qual o horário de Cálculo I?", "em que sala é Sistemas Digitais?"
+const CLASS_WORDS = /\b(d[aá]|deu|dar[aá]|ministra|leciona|ensina)\s+(a\s+)?(aula|disciplina|mat[eé]ria)|\bquem\s+(d[aá]|ministra|leciona|ensina)\b|\bprofessor(a|es)?\s+d[aeo]s?\b|\bdocentes?\s+d[aeo]s?\b|\bhor[aá]rios?\s+d[aeo]s?\b|\bsala\s+d[aeo]s?\b|\bturmas?\s+d[aeo]s?\b/i;
+
+// Turmas da disciplina perguntada, dos horários de aula. Só para perguntas desse tipo: "estágio" bateria com
+// "Estágio Supervisionado" numa pergunta sobre a norma de estágio.
+async function findClasses(question, searchQuery, course) {
+    if (!CLASS_WORDS.test(question) && !CLASS_WORDS.test(searchQuery || '')) return [];
+    if (/hor[aá]rio de atendimento/i.test(question)) return [];
+    try {
+        return await Turma.search(searchQuery || question, { curso: course });
+    } catch (err) {
+        console.error(`busca nas turmas indisponível: ${err.message}`);
+        return [];
+    }
+}
+
+// As disciplinas de cada pessoa citada, para o perfil dizer o que ela dá no semestre.
+async function withClasses(found) {
+    if (!found.people.length) return found;
+    try {
+        const rows = await Turma.forPeople(found.people.map((p) => p.id));
+        return { ...found, people: found.people.map((p) => ({ ...p, disciplinas: rows.filter((r) => r.pessoa_id === p.id) })) };
+    } catch (err) {
+        console.error(`turmas indisponíveis: ${err.message}`);
+        return found;
+    }
+}
+
 // A busca de pessoas não pode derrubar a resposta: sem o cadastro, o Grizz responde só com os documentos.
 async function findPeople(...texts) {
     try {
@@ -242,11 +300,13 @@ async function answer({ message, history = [], profile = {} }) {
     }
 
     const searchQuery = resolved.searchQuery || await rewriteQuestion(question, history);
-    const [chunks, found] = await Promise.all([
+    const [chunks, found, classes] = await Promise.all([
         hybridSearch(searchQuery, { profile: described, originalQuestion: question }),
         // a versão reescrita resolve "e o ramal dele?" para o nome citado antes na conversa
-        named.people.length && question === message ? named : findPeople(question, searchQuery),
+        (named.people.length && question === message ? Promise.resolve(named) : findPeople(question, searchQuery)).then(withClasses),
+        findClasses(question, searchQuery, profile.course),
     ]);
+    const leads = leadingSources(found, classes);
 
     const competing = shouldAskEntryYear(profile)
         && await hasCompetingVersions(searchQuery, chunks.filter((c) => c.kind === 'norma'), { courseId: profile.course, courseName: described?.courseName });
@@ -259,7 +319,7 @@ async function answer({ message, history = [], profile = {} }) {
     const raw = await complete([
         {
             role: 'system',
-            content: `${SYSTEM_PROMPT}\n\n${profileInstructions(described)}${describeContacts(profile.course)}\n\nDocumentos consultados:\n\n${formatSources(chunks, found)}`,
+            content: `${SYSTEM_PROMPT}\n\n${profileInstructions(described)}${describeContacts(profile.course)}\n\nDocumentos consultados:\n\n${formatSources(chunks, leads)}`,
         },
         ...history.map((m) => ({ role: m.role, content: m.content })),
         { role: 'user', content: question },
@@ -272,17 +332,10 @@ async function answer({ message, history = [], profile = {} }) {
         question,
         model: CHAT_MODEL,
         profile,
-        sources: found.people
-            .map((p, i) => ({
-                n: i + 1,
-                chunkId: null,
-                title: `Perfil: ${p.nome} (${p.unidade.toUpperCase()})`,
-                number: null,
-                page: null,
-                sourceUrl: p.source_url,
-            }))
+        sources: leads
+            .map((l, i) => ({ n: i + 1, chunkId: null, title: l.title, number: null, page: null, sourceUrl: l.sourceUrl }))
             .concat(chunks.map((c, i) => ({
-                n: found.people.length + i + 1,
+                n: leads.length + i + 1,
                 chunkId: c.id,
                 title: c.title,
                 number: c.number,

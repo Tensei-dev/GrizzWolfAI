@@ -13,6 +13,7 @@
     "graph": "node scripts/build-graph.js",
     "okf": "node scripts/build-okf.js",
     "okf:import": "node scripts/import-okf.js",
+    "teaching": "node scripts/build-teaching.js",
     "start": "node server.js",
     "dev": "nodemon server.js",
     "dedupe": "node scripts/dedupe-documents.js",

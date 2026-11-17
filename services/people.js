@@ -77,7 +77,21 @@ function describe(p) {
         p.endereco && `Endereço/sala: ${p.endereco}`,
         p.telefone && `Telefone: ${p.telefone}${p.ramal ? ` (ramal ${p.ramal})` : ''}`,
         p.email && `E-mail: ${p.email}`,
+        ...describeClasses(p.disciplinas || []),
     ].filter(Boolean).join('\n');
+}
+
+// "Disciplinas em 2026/2 (horários de aula publicados): Projeto de Graduação (FACOM31806, Ciência da Computação, turma PG) …"
+function describeClasses(rows) {
+    if (!rows.length) return [];
+    const { COURSES } = require('./courses');
+    const bySemester = new Map();
+    for (const r of rows) {
+        const where = [r.codigo, COURSES[r.curso]?.name || r.curso, r.turma && `turma ${r.turma}`].filter(Boolean).join(', ');
+        const line = `${r.disciplina} (${where})${r.horarios?.length ? `: ${r.horarios.join('; ')}` : ''}`;
+        (bySemester.get(r.semestre) || bySemester.set(r.semestre, []).get(r.semestre)).push(line);
+    }
+    return [...bySemester].map(([semestre, lines]) => `Disciplinas em ${semestre} (pelos horários de aula publicados):\n- ${lines.join('\n- ')}`);
 }
 
 module.exports = { findMentioned, describe, words, match, mentioned };

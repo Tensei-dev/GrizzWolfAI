@@ -147,6 +147,7 @@ O limite fica no banco (tabela `rate_limits`), porque na Vercel cada requisiçã
 | `npm run graph` | Mapeia no grafo os documentos que ainda não foram lidos pelo modelo. Lê até 80 por rodada (`-- --limit=N` para mudar) e para quando a cota diária do modelo acaba. Sem `GROQ_API_KEY`, ou com `-- --rules-only`, usa só as regras. Com `-- --rebuild`, refaz o grafo inteiro. Com `-- --references`, refaz só as referências entre normas (altera, revoga, cita) de todos os documentos, pelas regras e sem gastar cota do modelo. |
 | `npm run okf` | Atualiza o pacote OKF das páginas dos sites em `conhecimento/` (veja [Páginas dos sites](#páginas-dos-sites-pacote-okf)). `-- facom` ou `-- ime` faz uma unidade só, `-- --dry-run` só lista, `-- --limit=N` baixa no máximo N páginas e `-- --paginas=telefones,servicos` força o download dessas páginas (sem a barra inicial). |
 | `npm run okf:import` | Importa para o banco as páginas e os perfis novos ou alterados do pacote OKF (veja [Importação](#importação-para-o-banco-npm-run-okfimport)). `-- --dry-run` só lista, `-- --limit=N` importa no máximo N páginas, `-- --max-trechos=N` para antes de N vetores. |
+| `npm run teaching` | Monta a tabela `turmas` (quem dá cada disciplina, com turma, horário e sala) a partir dos horários de aula já importados, sem LLM nem vetores. `-- --dry-run` só mostra o resumo. Roda na Action depois do grafo. |
 | `npm test` | Roda os testes (`test/`) das regras de busca, pessoas, grafo e pacote OKF, sem rede nem banco. A Action roda os testes antes de sincronizar e para se algum falhar. |
 | `npm run ingest -- data/sources.json` | Importa documentos de outros sites a partir de uma lista. Veja [Adicionando outros documentos](#adicionando-outros-documentos). |
 | `npm run dedupe` | Marca como duplicados os documentos com texto idêntico a outro. Use `-- --dry-run` para só listar. |
@@ -202,6 +203,12 @@ O [`scripts/import-okf.js`](scripts/import-okf.js) lê o pacote e grava no banco
 - **Perfis de pessoas** vão para a tabela `pessoas` (nome, cargo, função, lotação, contato, resumo), buscada só por palavra-chave (`Person.search`), sem vetores. Telefone e ramal vêm da página de telefones de cada unidade. No chat, quando a pergunta cita alguém pelo nome, o [`services/people.js`](services/people.js) acha a pessoa pelos nomes do cadastro (sem LLM) e o perfil entra no contexto com link para a página dela; um nome comum ("professor Marcelo") traz os candidatos e o Grizz pergunta qual.
 - **O que sai do pacote** fica com status `removido` (documentos e pessoas), em vez de ser apagado.
 - `-- --dry-run` só lista o que mudaria; `-- --limit=N` importa no máximo N páginas (cada trecho gasta uma chamada de vetor do Gemini). Se a cota diária acabar, rode de novo no dia seguinte: o que já entrou é pulado.
+
+### Quem dá cada disciplina (`npm run teaching`)
+
+O [`services/teaching.js`](services/teaching.js) lê os horários de aula que os cursos publicam (já importados como documentos) e grava na tabela `turmas` o código, a disciplina, a turma, o docente, os horários e a sala, por semestre. Cada curso publica num formato (SIGAA no BCC, na IA e na Estatística; grade com legenda na Matemática e no BSI Monte Carmelo), e há uma regra para cada um. O docente é ligado ao cadastro de pessoas: nome completo em qualquer unidade; primeiro nome só na unidade da disciplina (pelo prefixo do código) e, no empate, pelo campus do curso. Nome que não está no cadastro, ou que pode ser de mais de uma pessoa, fica como está na grade. BSI Santa Mônica e Matemática EaD não publicam horários com os docentes.
+
+No chat, o perfil de um professor citado traz as disciplinas dele no semestre mais recente com dados, e perguntas como "quem dá aula de Banco de Dados?" ou "qual a sala de Sistemas Digitais?" trazem as turmas da disciplina, com o semestre e o link do horário.
 
 ### No chat
 

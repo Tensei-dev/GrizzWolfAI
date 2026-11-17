@@ -110,3 +110,8 @@ jobs:
         if: always()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      # quem dá cada disciplina, lido dos horários de aula (sem LLM nem vetores); depois do grafo, que diz o curso de cada horário
+      - run: npm run teaching
+        if: always()
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
