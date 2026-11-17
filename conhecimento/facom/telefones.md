@@ -1,0 +1,167 @@
+---
+type: "pagina"
+title: "Telefones"
+description: "Adriano Barbosa Silva — +55 34 3239-4576 Ramal: 4576 Adriano Mendonça Rocha — +55 34 3810-1053 Ramal: 1053 Alessandra Aparecida Paulino — +55 34 3810-1047 Ramal: 1047 Alessandro Gonçalves da Silva —…"
+unidade: "facom"
+secao: "telefones"
+tags: ["facom","telefones"]
+source: "https://facom.ufu.br/telefones"
+hash: "9b19f19f745f27d2"
+---
+
+# Telefones
+
+-   [Adriano Barbosa Silva](pessoas/docentes/adriano-barbosa-silva.md) — +55 34 3239-4576 **Ramal:** 4576
+-   [Adriano Mendonça Rocha](pessoas/docentes/adriano-mendonca-rocha.md) — +55 34 3810-1053 **Ramal:** 1053
+-   [Alessandra Aparecida Paulino](pessoas/docentes/alessandra-aparecida-paulino.md) — +55 34 3810-1047 **Ramal:** 1047
+-   [Alessandro Gonçalves da Silva](pessoas/tecnico-administrativos/alessandro-goncalves-da-silva.md) — +55 34 3291-6365
+-   [Alexsandro Santos Soares](pessoas/docentes/alexsandro-santos-soares.md) — +55 34 3239-4478
+-   [Amanda Cristina Davi Resende](pessoas/docentes/amanda-cristina-davi-resende.md) — +55 34 3239-4211 **Ramal:** 4211
+-   [Ana Cláudia Martinez](pessoas/docentes/ana-claudia-martinez.md) — +55 34 3239-4499
+-   [Anderson Rodrigues dos Santos](pessoas/docentes/anderson-rodrigues-dos-santos.md) — +55 34 3239-4287
+-   [André Luis de Almeida](pessoas/tecnico-administrativos/andre-luis-de-almeida.md) — +55 34 3239-4263
+-   [André Moura do Nascimento](pessoas/tecnico-administrativos/andre-moura-do-nascimento.md) — +55 34 3239-4108
+-   [André Ricardo Backes](pessoas/docentes/andre-ricardo-backes.md) — +55 34 3239-4499
+-   [Anilton Joaquim da Silva](pessoas/docentes/anilton-joaquim-da-silva.md) — +55 34 3239-4180
+-   [Autran Macedo](pessoas/docentes/autran-macedo.md) — +55 34 3239-4211
+-   [Bruno Augusto Nassif Travençolo](pessoas/docentes/bruno-augusto-nassif-travencolo.md) — +55 34 3239-4576
+-   [Caio Augusto Rodrigues dos Santos](pessoas/docentes/caio-augusto-rodrigues-dos-santos.md) — +55 34 3810-1044
+-   [Carlos Cesar Mansur Tuma](pessoas/docentes/carlos-cesar-mansur-tuma.md) — +55 34 3810-1081 **Ramal:** 1081
+-   [Carlos Roberto Lopes](pessoas/docentes/carlos-roberto-lopes.md) — +55 34 3239-4171 **Ramal:** 4171
+-   [Caroline Félix de Oliveira](pessoas/tecnico-administrativos/caroline-felix-de-oliveira.md) — +55 34 3239-4470 **Ramal:** 4470
+-   [Christiane Regina Soares Brasil](pessoas/docentes/christiane-regina-soares-brasil.md) — +55 34 3239-4180
+-   [Claudiney Ramos Tinoco](pessoas/docentes/claudiney-ramos-tinoco.md) — +55 34 3810-1044
+-   [Cláudio Camargo Rodrigues](pessoas/docentes/claudio-camargo-rodrigues.md) — +55 34 3239-4180
+-   [Colegiado - Ciência da Computação](https://facom.ufu.br/graduacao/bcc/colegiado) — +55 34 3239-4218 **Ramal:** 4218
+-   [Colegiado do Curso Sistemas de Informação - campus Monte Carmelo](https://facom.ufu.br/graduacao/bsi-montecarmelo/colegiado) — +55 34 3810-1044
+-   [Comissão de acompanhamento e supervisão dos cursos de pós-graduação lato sensu](https://facom.ufu.br/unidades/comissao/comissao-de-acompanhamento-e-supervisao-dos-cursos-de-pos-graduacao-lato-sensu) — +55 34 3239-4393 **Ramal:** 4393
+-   [Comissão de avaliação docentes](https://facom.ufu.br/unidades/comissao/comissao-de-avaliacao-docentes) — +55 34 3239-4393 **Ramal:** 4393
+-   [Comissão de distribuição de disciplinas](https://facom.ufu.br/unidades/comissao/comissao-de-distribuicao-de-disciplinas) — +55 34 3239-4393 **Ramal:** 4393
+-   [Comissão de espaço físico](https://facom.ufu.br/unidades/comissao/comissao-de-espaco-fisico) — +55 34 3239-4393 **Ramal:** 4393
+-   [Comissão de informática](https://facom.ufu.br/unidades/comissao/comissao-de-informatica) — +55 34 3239-4393 **Ramal:** 4393
+-   [Coordenação de Extensão](unidades/coordenacao-de-extensao/coordenacao-de-extensao.md) — +55 34 3239-4334 **Ramal:** 4334
+-   [Curso de Bacharelado em Ciência da Computação](graduacao/ciencia-da-computacao/conheca.md) — +55 34 3239-4218 **Ramal:** 4218
+-   [Curso de Bacharelado em Inteligência Artificial](graduacao/inteligencia-artificial/conheca.md) — +55 34 3239-4469 **Ramal:** 4469
+-   [Curso de Bacharelado em Sistemas de Informação - Campus Santa Mônica](graduacao/sistemas-de-informacao-campus-santa-monica/conheca.md) — +55 34 3239-4334 **Ramal:** 4334
+-   [Daniel Antônio Furtado](pessoas/docentes/daniel-antonio-furtado.md) — +55 34 3239-4287
+-   [Daniel Duarte Abdala](pessoas/docentes/daniel-duarte-abdala.md) — +55 34 3239-4531
+-   [Daniel Samesina](pessoas/tecnico-administrativos/daniel-samesina.md) — +55 34 3239-4220 **Ramal:** 4220
+-   [Daniel Stefany Duarte Caetano](pessoas/docentes/daniel-stefany-duarte-caetano.md) — +55 34 3810-1053 **Ramal:** 1053
+-   [Daniela Justiniano de Sousa Pereira](https://facom.ufu.br/pessoas/docentes/daniela-justiniano-de-sousa-pereira) — +55 34 3810-1044 **Ramal:** 1044
+-   [Daniele Carvalho Oliveira](pessoas/docentes/daniele-carvalho-oliveira.md) — +55 34 3810-1050
+-   [Debora Garcia](https://facom.ufu.br/pessoas/tecnico-administrativos/debora-garcia) — +55 34 3239-4469 **Ramal:** 4469
+-   [Diego Nunes Molinos](pessoas/docentes/diego-nunes-molinos.md) — **Ramal:** 1024
+-   [Dino Rogério Coinete Franklin](pessoas/docentes/dino-rogerio-coinete-franklin.md) — +55 34 3239-4305
+-   [Diogo Aparecido Cavalcante de Lima](https://facom.ufu.br/pessoas/docentes/diogo-aparecido-cavalcante-de-lima) — +55 34 3810-1044 **Ramal:** 1044
+-   [Edilamar Marcelina Cruvinel](pessoas/tecnico-administrativos/edilamar-marcelina-cruvinel.md) — +55 34 3810-1044
+-   [Eduardo Alves Cunha](pessoas/tecnico-administrativos/eduardo-alves-cunha.md) — +55 34 3810-1066 **Ramal:** 1066
+-   [Eduardo Cassiano da Silva](pessoas/docentes/eduardo-cassiano-da-silva.md) — +55 34 3810-1044
+-   [Eggle Jeanne Urzedo Queiroz Fernandes](pessoas/tecnico-administrativos/eggle-jeanne-urzedo-queiroz-fernandes.md) — +55 34 3225-8016
+-   [Elaine Ribeiro de Faria Paiva](pessoas/docentes/elaine-ribeiro-de-faria-paiva.md) — +55 34 3239-4575
+-   [Eliana Pantaleão](pessoas/docentes/eliana-pantaleao.md) — +55 34 3823-1917 **Ramal:** 219
+-   [Empresa Júnior da Faculdade de Computação - TechMob](empresas-juniores/techmob.md) — +55 34 3239-4054
+-   [Eric Ribeiro Madureira](pessoas/tecnico-administrativos/eric-ribeiro-madureira.md) — +55 34 3239-4393 **Ramal:** 4393
+-   [Erisvaldo Araújo Fialho](pessoas/tecnico-administrativos/erisvaldo-araujo-fialho-0.md) — +55 34 3239-4470
+-   [Erisvaldo Araújo Fialho](pessoas/tecnico-administrativos/erisvaldo-araujo-fialho.md) — +55 34 3239-4470
+-   [Esther Faria Rodrigues](https://facom.ufu.br/pessoas/tecnico-administrativos/esther-faria-rodrigues)  — +55 34 3239-4334 **Ramal:** 4334
+-   [Eustáquio São José de Faria](pessoas/docentes/eustaquio-sao-jose-de-faria.md) — +55 34 3291-5964 **Ramal:** 5964
+-   [Fabiano Azevedo Dorça](pessoas/docentes/fabiano-azevedo-dorca.md) — +55 34 3239-4306
+-   [Fabíola Souza Fernandes Pereira](pessoas/docentes/fabiola-souza-fernandes-pereira.md) — +55 34 3810-1050
+-   [Faculdade de Computação](unidades/unidade-academica/faculdade-de-computacao.md) — +55 34 3239-4393 **Ramal:** 4393
+-   [Fernanda Maria da Cunha Santos](pessoas/docentes/fernanda-maria-da-cunha-santos.md) — +55 34 3810-1047 **Ramal:** 1047
+-   [Flávio de Oliveira Silva](pessoas/docentes/flavio-de-oliveira-silva.md) — +55 34 3239-4302 **Ramal:** 4302
+-   [Francis Eckerson Galvão](pessoas/tecnico-administrativos/francis-eckerson-galvao.md) — +55 34 3239-4334 **Ramal:** 4334
+-   [Gabriel Firme da Fonseca](pessoas/tecnico-administrativos/gabriel-firme-da-fonseca.md) — +55 34 3239-4393
+-   [Gilberto Medeiros Nakamura](pessoas/docentes/gilberto-medeiros-nakamura.md) — +55 34 3239-4470 **Ramal:** 4470
+-   [Gina Maira Barbosa de Oliveira](pessoas/docentes/gina-maira-barbosa-de-oliveira.md) — +55 34 3239-4497
+-   [Giovanna Caroline Braga](pessoas/tecnico-administrativos/giovanna-caroline-braga.md) — +55 34 3239-4144 **Ramal:** 4144
+-   [Giullia Rodrigues de Menezes](https://facom.ufu.br/pessoas/docentes/giullia-rodrigues-de-menezes) — +55 34 3239-4393 **Ramal:** 4393
+-   [Henrique Coelho Fernandes](https://facom.ufu.br/pessoas/docentes/henrique-coelho-fernandes) — +55 34 3239-4211
+-   [Humberto Luiz Razente](pessoas/docentes/humberto-luiz-razente.md) — +55 34 3239-4496
+-   [Igor da Penha Natal](pessoas/docentes/igor-da-penha-natal.md) — +55 34 3810-1044 **Ramal:** 1044
+-   [Ilmério Reis da Silva](pessoas/docentes/ilmerio-reis-da-silva.md) — +55 34 3239-4479
+-   [Inácio Castilho Neto](pessoas/tecnico-administrativos/inacio-castilho-neto.md) — +55 34 3239-4218 **Ramal:** 4218
+-   [Ivan da Silva Sendin](pessoas/docentes/ivan-da-silva-sendin.md) — +55 34 3239-4305
+-   [Jamil Salem Barbar](pessoas/docentes/jamil-salem-barbar.md) — +55 34 3239-4496
+-   [Jefferson Rodrigo de Souza](pessoas/docentes/jefferson-rodrigo-de-souza.md) — +55 34 3239-4566 **Ramal:** 4566
+-   [Jessika Alves](pessoas/tecnico-administrativos/jessika-alves.md) — +55 34 3239-4470 **Ramal:** 4470
+-   [João Batista Simão](pessoas/docentes/joao-batista-simao.md) — +55 34 3810-1049
+-   [João Henrique de Souza Pereira](pessoas/docentes/joao-henrique-de-souza-pereira.md) — +55 34 3239-4295
+-   [João Victor da Silva Alves](pessoas/tecnico-administrativos/joao-victor-da-silva-alves.md) — +55 34 3239-4220 **Ramal:** 4220
+-   [Jordana Souza Paula](pessoas/tecnico-administrativos/jordana-souza-paula.md) — +55 34 3239-4263 **Ramal:** 4263
+-   [José de Melo Júnior](pessoas/tecnico-administrativos/jose-de-melo-junior.md) — +55 34 3239-4220 **Ramal:** 4220
+-   [José Gustavo de Souza Paiva](pessoas/docentes/jose-gustavo-de-souza-paiva.md) — +55 34 3239-4576
+-   [José Humberto do Nascimento](pessoas/tecnico-administrativos/jose-humberto-do-nascimento.md) — +55 34 3810-1044
+-   [José Humberto do Nascimento](pessoas/tecnico-administrativos/jose-humberto-do-nascimento-0.md) — +55 34 3810-1044
+-   [Júlio César de Sousa e Amaral](pessoas/tecnico-administrativos/julio-cesar-de-sousa-e-amaral.md) — +55 34 3810-1066
+-   [Julio Cesar de Sousa e Amaral](pessoas/tecnico-administrativos/julio-cesar-de-sousa-e-amaral-0.md) — +55 34 3810-1066 **Ramal:** 1066
+-   [Kifayat Ullah](pessoas/docentes/kifayat-ullah.md) — +55 34 3239-4211
+-   [Laboratórios FACOM/UFU - Bloco 1B: campus Santa Mônica](https://facom.ufu.br/unidades/laboratorio/laboratorios-facomufu-bloco-1b-campus-santa-monica) — +55 34 3239-4220 **Ramal:** 4220
+-   [Lásaro Jonas Camargos](pessoas/docentes/lasaro-jonas-camargos.md) — +55 34 3239-4530
+-   [Laurence Rodrigues do Amaral](pessoas/docentes/laurence-rodrigues-do-amaral.md) — +55 34 3823-3714
+-   [Leandro Nogueira Couto](pessoas/docentes/leandro-nogueira-couto.md) — +55 34 3239-4566
+-   [Leonardo Muttoni](pessoas/docentes/leonardo-muttoni.md) — +55 34 3810-1044 **Ramal:** 1044
+-   [Leonardo Pereira Vida](pessoas/tecnico-administrativos/leonardo-pereira-vida.md) — +55 34 3810-1066 **Ramal:** 1066
+-   [Luís Fernando Faina](pessoas/docentes/luis-fernando-faina.md) — +55 34 3239-4477
+-   [Luiz Cláudio Theodoro](pessoas/docentes/luiz-claudio-theodoro.md) — +55 34 3239-4295
+-   [Luiz Gustavo Almeida Martins](pessoas/docentes/luiz-gustavo-almeida-martins.md) — +55 34 3239-4479
+-   [Marcelo de Almeida Maia](pessoas/docentes/marcelo-de-almeida-maia.md) — +55 34 3239-4306
+-   [Marcelo Keese Albertini](pessoas/docentes/marcelo-keese-albertini.md) — +55 34 3239-4510
+-   [Marcelo Zanchetta do Nascimento](pessoas/docentes/marcelo-zanchetta-do-nascimento.md) — +55 34 3239-4531
+-   [Márcia Aparecida Fernandes](pessoas/docentes/marcia-aparecida-fernandes.md) — +55 34 3239-4498
+-   [Maria Adriana Vidigal de Lima](pessoas/docentes/maria-adriana-vidigal-de-lima.md) — +55 34 3239-4392
+-   [Maria Camila Nardini Barioni](pessoas/docentes/maria-camila-nardini-barioni.md) — +55 34 3239-4575
+-   [Maria Célia Caixeta](pessoas/tecnico-administrativos/maria-celia-caixeta.md) — +55 34 3239-4393 **Ramal:** 4393
+-   [Maria Eduarda Naves Saravy](pessoas/tecnico-administrativos/maria-eduarda-naves-saravy.md) — **Ramal:** 4334
+-   [Maria Eduarda Soares de Oliveira](https://facom.ufu.br/pessoas/tecnico-administrativos/maria-eduarda-soares-de-oliveira) — +55 34 3239-4334
+-   [Mauricio Cunha Escarpinati](pessoas/docentes/mauricio-cunha-escarpinati.md) — +55 34 3239-4393
+-   [Mirella Silva Junqueira](pessoas/docentes/mirella-silva-junqueira.md) — +55 34 3810-1051
+-   [Murillo Guimarães Carneiro](pessoas/docentes/murillo-guimaraes-carneiro.md) — +55 34 3239-4530
+-   [Núcleo Docente Estruturante - Inteligência Artificial](graduacao/inteligencia-artificial/nucleo-docente-estruturante-inteligencia-artificial.md) — +55 34 3239-4334 **Ramal:** 4334
+-   [Núcleo Docente Estruturante - Sistemas de Informação - campus Monte Carmelo](https://facom.ufu.br/graduacao/bsi-montecarmelo/nde) — +55 34 3810-1044
+-   [Paulo Henrique Ribeiro Gabriel](pessoas/docentes/paulo-henrique-ribeiro-gabriel.md) — +55 34 3239-4392
+-   [Paulo Júnior Duarte Reis](pessoas/tecnico-administrativos/paulo-junior-duarte-reis-0.md) — +55 34 3810-1066
+-   [Paulo Junior Duarte Reis](pessoas/tecnico-administrativos/paulo-junior-duarte-reis.md) — +55 34 3810-1066
+-   [Paulo Rodolfo da Silva Leite Coelho](pessoas/docentes/paulo-rodolfo-da-silva-leite-coelho.md) — +55 34 3239-4530
+-   [Pedro Frosi Rosa](pessoas/docentes/pedro-frosi-rosa.md) — +55 34 3239-4295 **Ramal:** 4295
+-   [PET Ciência da Computação](pet/comppet.md) — +55 34 3239-4528 **Ramal:** 4528
+-   [PET Sistemas de Informacão](pet/petsi.md) — +55 34 3239-4334 **Ramal:** 4334
+-   [Rafael Dias Araújo](pessoas/docentes/rafael-dias-araujo.md) — +55 34 3239-4211
+-   [Rafael Pasquini](pessoas/docentes/rafael-pasquini.md) — +55 34 3239-4477
+-   [Raiane Erlen Pereira Guedes](pessoas/tecnico-administrativos/raiane-erlen-pereira-guedes.md) — +55 34 3239-4470 **Ramal:** 4470
+-   [Renan Gonçalves Cattelan](pessoas/docentes/renan-goncalves-cattelan.md) — +55 34 3239-4528
+-   [Renata de Freitas Silva](https://facom.ufu.br/pessoas/tecnico-administrativos/renata-de-freitas-silva) — +55 34 3239-4529
+-   [Renato Alves Pereira Terceiro](pessoas/tecnico-administrativos/renato-alves-pereira-terceiro.md) — +55 34 3225-8016
+-   [Renato Aparecido Pimentel da Silva](pessoas/docentes/renato-aparecido-pimentel-da-silva.md) — +55 34 3239-4498
+-   [Renato Bernardo da Silva](pessoas/tecnico-administrativos/renato-bernardo-da-silva.md) — +55 34 3239-4437
+-   [Renato de Aquino Lopes](pessoas/docentes/renato-de-aquino-lopes.md) — +55 34 3239-4499
+-   [Rita Maria da Silva Julia](pessoas/docentes/rita-maria-da-silva-julia.md) — +55 34 3239-4497
+-   [Rivalino Matias Júnior](pessoas/docentes/rivalino-matias-junior.md) — +55 34 3239-4528
+-   [Roberto Júnio Silva Caetano](pessoas/docentes/roberto-junio-silva-caetano.md) — +55 34 3239-4393 **Ramal:** 4393
+-   [Rodrigo Sanches Miani](pessoas/docentes/rodrigo-sanches-miani.md) — +55 34 3239-4392
+-   [Rogério Anastácio](https://facom.ufu.br/pessoas/docentes/rogerio-anastacio) — +55 34 3810-1044 **Ramal:** 1044
+-   [Ronaldo Castro de Oliveira](pessoas/docentes/ronaldo-castro-de-oliveira.md) — +55 34 3239-4302
+-   [Rosane Paula Araújo](pessoas/tecnico-administrativos/rosane-paula-araujo.md) — +55 34 3239-4108
+-   [Sara Luzia de Melo](pessoas/docentes/sara-luzia-de-melo.md) — +55 34 3810-1043
+-   [Sarah Souto dos Santos](https://facom.ufu.br/pessoas/docentes/sarah-souto-dos-santos) — +55 34 3810-1044 **Ramal:** 1044
+-   [Secretaria da Faculdade de Computação](secretaria.md) — +55 34 3239-4393 **Ramal:** 4393
+-   [Secretaria do Curso de Ciência da Computação](https://facom.ufu.br/graduacao/bcc/secretaria) — +55 34 3239-4218 **Ramal:** 4218
+-   [Secretaria do Curso de Sistemas de Informação - Campus Monte Carmelo](graduacao/bsi-montecarmelo/secretaria.md) — +55 34 3810-1044
+-   [Secretaria do Curso de Sistemas de Informação - Campus Santa Mônica](graduacao/bsi-santamonica/secretaria.md) — +55 34 3239-4334 **Ramal:** 4334
+-   [Shigueo Nomura](pessoas/docentes/shigueo-nomura.md) — +55 34 3239-4478
+-   [Sidney Ribeiro da Silveira](https://facom.ufu.br/pessoas/docentes/sidney-ribeiro-da-silveira-0) — +55 34 3239-4392
+-   [Silvio Bacala Júnior](pessoas/docentes/silvio-bacala-junior.md) — +55 34 3239-4302
+-   [Sônia Maria Miguel](pessoas/tecnico-administrativos/sonia-maria-miguel.md) — +55 34 3239-4220 **Ramal:** 4220
+-   [Stéphane Julia](pessoas/docentes/stephane-julia.md) — +55 34 3239-4171 **Ramal:** 4171
+-   [Thiago Fialho de Queiroz Lafeta](pessoas/docentes/thiago-fialho-de-queiroz-lafeta.md) — +55 34 3239-4576 **Ramal:** 4576
+-   [Thiago Henrique Pereira Silva](pessoas/docentes/thiago-henrique-pereira-silva.md) — +55 34 3810-1044 **Ramal:** 1049
+-   [Thiago Pirola Ribeiro](pessoas/docentes/thiago-pirola-ribeiro.md) — +55 34 3239-4478 **Ramal:** 4478
+-   [Victor Marques Oliveira](pessoas/tecnico-administrativos/victor-marques-oliveira-0.md) — +55 34 3239-4334
+-   [Victor Sobreira](pessoas/docentes/victor-sobreira.md) — +55 34 3810-1051
+-   [Vinícius Soares Oliveira de Sousa Gervásio](pessoas/tecnico-administrativos/vinicius-soares-oliveira-de-sousa-gervasio.md) — +55 34 3239-4393 **Ramal:** 4393
+-   [Vinícius Soares Oliveira de Sousa Gervásio](pessoas/tecnico-administrativos/vinicius-soares-oliveira-de-sousa-gervasio-0.md) — +55 34 3239-4393
+-   [Wanderson Acássio Gomes](pessoas/tecnico-administrativos/wanderson-acassio-gomes.md) — +55 34 3239-4220 **Ramal:** 4220
+-   [Wendel Alexandre Xavier de Melo](pessoas/docentes/wendel-alexandre-xavier-de-melo.md) — +55 34 3239-4510 **Ramal:** 4510
+-   [William Chaves de Souza Carvalho](pessoas/docentes/william-chaves-de-souza-carvalho.md) — +55 34 3239-4392
+
+Voltar para o topo

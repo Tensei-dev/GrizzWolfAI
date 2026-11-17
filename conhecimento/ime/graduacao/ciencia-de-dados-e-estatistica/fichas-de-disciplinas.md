@@ -1,0 +1,100 @@
+---
+type: "pagina"
+title: "Fichas de disciplinas"
+description: "Abaixo apresentamos as fichas de disciplinas obrigatórias e optativas do curso de acordo com as versões do Projeto Pedagógico do Curso (PPC) de 2016.1 (Curso de Estatística) e 2026.1 (Curso de…"
+unidade: "ime"
+secao: "graduacao"
+cursos: ["estat"]
+tags: ["ime","graduacao","estat"]
+source: "https://ime.ufu.br/graduacao/ciencia-de-dados-e-estatistica/fichas-de-disciplinas"
+publicado: "2019-10-08"
+atualizado: "2026-04-01"
+hash: "a9e40101dad1ceba"
+---
+
+# Fichas de disciplinas
+
+Abaixo apresentamos as fichas de disciplinas obrigatórias e optativas do curso de acordo com as versões do Projeto Pedagógico do Curso (PPC) de 2016.1 (Curso de Estatística) e 2026.1 (Curso de Ciência de Dados e Estatística) . Os discentes que ingressarem a partir do semestre letivo de 2023/1 serão enquadrados na versão 2026.1.
+
+-   #### **Fichas PPC  2016.1**
+
+    —
+
+    #### **Fichas PPC 2026.1**
+
+-   [1 - Cálculo Diferencial e Integral 1](https://ime.ufu.br/system/files/conteudo/ges002.pdf "1 - Cálculo Diferencial e Integral 1") — [1-CALCULO DIFERENCIAL E INTEGRAL I - IMEMA34101](https://ime.ufu.br/system/files/conteudo/1imema34101_c1.pdf "1-CALCULO DIFERENCIAL E INTEGRAL I - IMEMA34101")
+-   [1 - Fundamentos de Lógica e Conjuntos](https://ime.ufu.br/system/files/conteudo/ges001.pdf "1 - Fundamentos de Lógica e Conjuntos") — [1-ESTATISTICA I - IMEMA34102](https://ime.ufu.br/system/files/conteudo/1imema34102_estatistica1.pdf "1-ESTATISTICA I - IMEMA34102")
+-   [1 - Geometria Analítica](https://ime.ufu.br/system/files/conteudo/ges003.pdf "1 - Geometria Analítica") — [1-FUNDAMENTOS MATEMATICOS - IMEMA34103](https://ime.ufu.br/system/files/conteudo/1imema34103_fm.pdf "1-FUNDAMENTOS MATEMATICOS - IMEMA34103")
+-   [1 - Introdução à Estatística 1](https://ime.ufu.br/system/files/conteudo/ges004.pdf "1 - Introdução à Estatística 1") — [1-GEOMETRIA ANALITICA - IMEMA34104](https://ime.ufu.br/system/files/conteudo/1imema34104_ga_0.pdf "1-GEOMETRIA ANALITICA - IMEMA34104")
+-   [2 - Álgebra Linear](https://ime.ufu.br/system/files/conteudo/ges007.pdf "2 - Álgebra Linear") — [1-PORTUGUES INSTRUMENTAL - ILEEL39101](https://ime.ufu.br/system/files/conteudo/1ileel39101_portugues.pdf "1-PORTUGUES INSTRUMENTAL - ILEEL39101")
+-   [2 - Cálculo Diferencial e Integral 2](https://ime.ufu.br/system/files/conteudo/ges006.pdf "2 - Cálculo Diferencial e Integral 2") — [2-CALCULO DIFERENCIAL E INTEGRAL II - IMEMA34201](https://ime.ufu.br/system/files/conteudo/2imema34201_c2.pdf "2-CALCULO DIFERENCIAL E INTEGRAL II - IMEMA34201")
+-   [2 - Introdução à Computação 1](https://ime.ufu.br/system/files/conteudo/ges005.pdf "2 - Introdução à Computação 1") — [2-ESTATISTICA II - IMEMA34202](https://ime.ufu.br/system/files/conteudo/2imema34202_est2.pdf "2-ESTATISTICA II - IMEMA34202")
+-   [2 - Introdução à Estatística 2](https://ime.ufu.br/system/files/conteudo/ges008.pdf "2 - Introdução à Estatística 2") — [2-PROBABILIDADE I - IMEMA34203](https://ime.ufu.br/system/files/conteudo/2imema34203prob1.pdf "2-PROBABILIDADE I - IMEMA34203")
+-   [3 - Cálculo Diferencial e Integral 3](https://ime.ufu.br/system/files/conteudo/ges010.pdf "3 - Cálculo Diferencial e Integral 3") — [2-INTRODUCAO A COMPUTACAO - FACOM39204](https://ime.ufu.br/system/files/conteudo/2facom39204_intcomp.pdf "2-INTRODUCAO A COMPUTACAO - FACOM39204")
+-   [3 - Estatística Geral](https://ime.ufu.br/system/files/conteudo/ges012.pdf "3 - Estatística Geral") — [2-INGLES PARA FINS ACADEMICOS E PROFISSIONAIS (EAD) - ILEEL39200](https://ime.ufu.br/system/files/conteudo/2ileel39200_ingles.pdf "2-INGLES PARA FINS ACADEMICOS E PROFISSIONAIS (EAD) - ILEEL39200")
+-   [3 - Introdução à Computação 2](https://ime.ufu.br/system/files/conteudo/ges009.pdf "3 - Introdução à Computação 2") — [3-CALCULO DIFERENCIAL E INTEGRAL III - IMEMA34301](https://ime.ufu.br/system/files/conteudo/3imema34301_c3.pdf "3-CALCULO DIFERENCIAL E INTEGRAL III - IMEMA34301")
+-   [3 - Probabilidade 1](https://ime.ufu.br/system/files/conteudo/ges011.pdf "3 - Probabilidade 1") — [3-ESTATISTICA COMPUTACIONAL - IMEMA34302](https://ime.ufu.br/system/files/conteudo/3imema34302_estcomp.pdf "3-ESTATISTICA COMPUTACIONAL - IMEMA34302")
+-   [4 - Cálculo Numérico](https://ime.ufu.br/system/files/conteudo/ges014.pdf "4 - Cálculo Numérico") — [3-INTRODUCAO A CIENCIA DE DADOS - IMEMA34303](https://ime.ufu.br/system/files/conteudo/3imema34303_icd.pdf "3-INTRODUCAO A CIENCIA DE DADOS - IMEMA34303")
+-   [4 - Língua Inglesa - Leitura Instrumenta](https://ime.ufu.br/system/files/conteudo/ges016.pdf "4 - Língua Inglesa - Leitura Instrumental") — [3-PROBABILIDADE II - IMEMA34304](https://ime.ufu.br/system/files/conteudo/3imema34304_prob2.pdf "3-PROBABILIDADE II - IMEMA34304")
+-   [l](https://ime.ufu.br/system/files/conteudo/ges016.pdf "4 - Língua Inglesa - Leitura Instrumental")[4 - Probabilidade 2](https://ime.ufu.br/system/files/conteudo/ges015.pdf "4 - Probabilidade 2") — [3-PROGRAMACAO AVANCADA - FACOM39303](https://ime.ufu.br/system/files/conteudo/3facom39303_progavan.pdf "3-PROGRAMACAO AVANCADA - FACOM39303")
+-   [4 - Sistema de Banco de Dados](https://ime.ufu.br/system/files/conteudo/ges013.pdf "4 - Sistema de Banco de Dados") — [4-ALGEBRA LINEAR - IMEMA34401](https://ime.ufu.br/system/files/conteudo/4imema34401_algebralinear.pdf "4-ALGEBRA LINEAR - IMEMA34401")
+-   [5 - Análise de Regressão](https://ime.ufu.br/system/files/conteudo/ges020.pdf "5 - Análise de Regressão") — [4-CALCULO NUMERICO - IMEMA34402](https://ime.ufu.br/system/files/conteudo/4imema34402_cn.pdf "4-CALCULO NUMERICO - IMEMA34402")
+-   [5 - Controle Estatístico de Qualidade](https://ime.ufu.br/system/files/conteudo/ges019.pdf "5 - Controle Estatístico de Qualidade") — [4-CONTROLE ESTATISTICO DE QUALIDADE - IMEMA34403](https://ime.ufu.br/system/files/conteudo/4imema34403_cq.pdf "4-CONTROLE ESTATISTICO DE QUALIDADE - IMEMA34403")
+-   [5 - Estatística Computacional](https://ime.ufu.br/system/files/conteudo/ges017.pdf "5 - Estatística Computacional") — [4-PROBABILIDADE III - IMEMA34404](https://ime.ufu.br/system/files/conteudo/4imema34404_prob3.pdf "4-PROBABILIDADE III - IMEMA34404")
+-   [5 - Inferência Estatística 1](https://ime.ufu.br/system/files/conteudo/ges018.pdf "5 - Inferência Estatística 1") — [4-SISTEMA DE BANCO DE DADOS - FACOM39402](https://ime.ufu.br/system/files/conteudo/4facom39402_sbd.pdf "4-SISTEMA DE BANCO DE DADOS - FACOM39402")
+-   [6 - Inferência Estatística 2](https://ime.ufu.br/system/files/conteudo/ges022.pdf "6 - Inferência Estatística 2") — [5-ATIVIDADES CURRICULARES DE EXTENSAO I - IMEMA34501](https://ime.ufu.br/system/files/conteudo/5imema34501_ace1.pdf "5-ATIVIDADES CURRICULARES DE EXTENSAO I - IMEMA34501")
+-   [6 - Pesquisa Operacional 1](https://ime.ufu.br/system/files/conteudo/ges024.pdf "6 - Pesquisa Operacional 1") — [5-AMOSTRAGEM EM CIENCIA DE DADOS - IMEMA34502](https://ime.ufu.br/system/files/conteudo/5imema34502_amostragem.pdf "5-AMOSTRAGEM EM CIENCIA DE DADOS - IMEMA34502")
+-   [6 - Planejamento e Análise de Experimentos](https://ime.ufu.br/system/files/conteudo/ges021.pdf "6 - Planejamento e Análise de Experimentos") — [5-ANALISE DE REGRESSAO - IMEMA34503](https://ime.ufu.br/system/files/conteudo/5imema34503_reg.pdf "5-ANALISE DE REGRESSAO - IMEMA34503")
+-   [6 - Português Instrumental](https://ime.ufu.br/system/files/conteudo/ges023.pdf "6 - Português Instrumental") — [5-INTRODUCAO AOS PROCESSOS ESTOCASTICOS - IMEMA34504](https://ime.ufu.br/system/files/conteudo/5imema34504_ipe.pdf "5-INTRODUCAO AOS PROCESSOS ESTOCASTICOS - IMEMA34504")
+-   [7 - Amostragem](https://ime.ufu.br/system/files/conteudo/ges026.pdf "7 - Amostragem") — [5-INFERENCIA ESTATISTICA - IMEMA34505](https://ime.ufu.br/system/files/conteudo/5imema34505_inf.pdf "5-INFERENCIA ESTATISTICA - IMEMA34505")
+-   [7 - Estatística Multivariada](https://ime.ufu.br/system/files/conteudo/ges025.pdf "7 - Estatística Multivariada") — [5-PROGRAMACAO LINEAR - IMEMA34506](https://ime.ufu.br/system/files/conteudo/5imema34506_proglinear.pdf "5-PROGRAMACAO LINEAR - IMEMA34506")
+-   [7 - Pesquisa Operacional 2](https://ime.ufu.br/system/files/conteudo/ges028.pdf "7 - Pesquisa Operacional 2") — [6-ATIVIDADES CURRICULARES DE EXTENSAO II - IMEMA34601](https://ime.ufu.br/system/files/conteudo/6imema34601_ace2.pdf "6-ATIVIDADES CURRICULARES DE EXTENSAO II - IMEMA34601")
+-   [7 - Processos Estocásticos](https://ime.ufu.br/system/files/conteudo/ges027.pdf "7 - Processos Estocásticos") — [6-ANALISE DE DADOS CATEGORIZADOS - IMEMA34602](https://ime.ufu.br/system/files/conteudo/6imema34602_adc.pdf "6-ANALISE DE DADOS CATEGORIZADOS - IMEMA34602")
+-   [8 - Bioestatística](https://ime.ufu.br/system/files/conteudo/ges029.pdf "8 - Bioestatística") — [6-ESTATISTICA MULTIVARIADA E MINERACAO DE DADOS - IMEMA34603](https://ime.ufu.br/system/files/conteudo/6imema34603_mult.pdf "6-ESTATISTICA MULTIVARIADA E MINERACAO DE DADOS - IMEMA34603")
+-   [8 - Inferência Bayesiana](https://ime.ufu.br/system/files/conteudo/ges030.pdf "8 - Inferência Bayesiana") — [6-INFERENCIA NAO PARAMETRICA - IMEMA34604](https://ime.ufu.br/system/files/conteudo/6imema34604_infnpar.pdf "6-INFERENCIA NAO PARAMETRICA - IMEMA34604")
+-   [8 - Modelos Lineares Generalizados](https://ime.ufu.br/system/files/conteudo/ges031.pdf "8 - Modelos Lineares Generalizados") — [6-PROGRAMACAO NAO LINEAR - IMEMA34605](https://ime.ufu.br/system/files/conteudo/6imema34605_prognlinear.pdf "6-PROGRAMACAO NAO LINEAR - IMEMA34605")
+-   [9 - Análise de Séries Temporais](https://ime.ufu.br/system/files/conteudo/ges033.pdf "9 - Análise de Séries Temporais") — [7-INFERENCIA BAYESIANA - IMEMA34701](https://ime.ufu.br/system/files/conteudo/7imema34701_infbayes.pdf "7-INFERENCIA BAYESIANA - IMEMA34701")
+-   [9 - Trabalho de Conclusão de Curso 1](https://ime.ufu.br/system/files/conteudo/ges032.pdf "9 - Trabalho de Conclusão de Curso 1") — [7-MODELOS LINEARES GENERALIZADOS - IMEMA34702](https://ime.ufu.br/system/files/conteudo/7imema34702_mlg.pdf "7-MODELOS LINEARES GENERALIZADOS - IMEMA34702")
+-   [10 - Estatística Aplicada](https://ime.ufu.br/system/files/conteudo/ges036.pdf "10 - Estatística Aplicada") — [7-PLANEJAMENTO E ANALISE DE EXPERIMENTOS I - IMEMA34703](https://ime.ufu.br/system/files/conteudo/7imema34703_pae1.pdf "7-PLANEJAMENTO E ANALISE DE EXPERIMENTOS I - IMEMA34703")
+-   [10 - Profissão e Mercado de Trabalho](https://ime.ufu.br/system/files/conteudo/ges035.pdf "10 - Profissão e Mercado de Trabalho") — [7-TRABALHO DE CONCLUSAO DE CURSO I - IMEMA34704](https://ime.ufu.br/system/files/conteudo/7imema34704_tcc1.pdf "7-TRABALHO DE CONCLUSAO DE CURSO I - IMEMA34704")
+-   [10 - Trabalho de Conclusão de Curso 2](https://ime.ufu.br/system/files/conteudo/ges034.pdf "10 - Trabalho de Conclusão de Curso 2") — [8-ANALISE DE SERIES TEMPORAIS - IMEMA34801](https://ime.ufu.br/system/files/conteudo/8imema34801_seriestemp.pdf "8-ANALISE DE SERIES TEMPORAIS - IMEMA34801")
+-   **Optativas v.2016.1** — [8-ATIVIDADES CURRICULARES DE EXTENSAO III - IMEMA34802](https://ime.ufu.br/system/files/conteudo/8imema34802_ace3.pdf "8-ATIVIDADES CURRICULARES DE EXTENSAO III - IMEMA34802")
+-   [Opt - Administração de Patrimônio e Estoques](https://ime.ufu.br/system/files/conteudo/ges050.pdf "Optativa - Administração de Patrimônio e Estoques") — [8-TRABALHO DE CONCLUSAO DE CURSO II - IMEMA34803](https://ime.ufu.br/system/files/conteudo/8imema34803_tcc2.pdf "8-TRABALHO DE CONCLUSAO DE CURSO II - IMEMA34803")
+-   [Opt - Análise de Sobrevivência](https://ime.ufu.br/system/files/conteudo/ges039.pdf "Optativa - Análise de Sobrevivência") — **OPTATIVAS V.2026.1**
+-   [Opt - Atuária](https://ime.ufu.br/system/files/conteudo/ges042.pdf "Optativa - Atuária") — [OPT-TOPICOS ESPECIAIS DE INTELIGENCIA ARTIFICIAL - FACOM39065](https://ime.ufu.br/system/files/conteudo/opt_facom_39065_opt_topespia.pdf "OPT-TOPICOS ESPECIAIS DE INTELIGENCIA ARTIFICIAL - FACOM39065")
+-   [Opt - Confiabilidade](https://ime.ufu.br/system/files/conteudo/ges040.pdf "Optativa - Confiabilidade") — [OPT-BANCO DE DADOS II - FACOM32304](https://ime.ufu.br/system/files/conteudo/opt_facom32304_opt_bancodados2.pdf "OPT-BANCO DE DADOS II - FACOM32304")
+-   [Opt - Criação e Desenvolvimento de Novos Negócios](https://ime.ufu.br/system/files/conteudo/ges054.pdf "Optativa - Criação e Desenvolvimento de Novos Negócios") — [OPT-CIENCIA DE DADOS I - FACOM32602](https://ime.ufu.br/system/files/conteudo/opt_facom32602_opt_cdados1.pdf "OPT-CIENCIA DE DADOS I - FACOM32602")
+-   [Opt - Custos de Produção](https://ime.ufu.br/system/files/conteudo/ges052.pdf "Optativa - Custos de Produção") — [OPT-ORGANIZACAO E RECUPERACAO DA INFORMACAO - FACOM32605](https://ime.ufu.br/system/files/conteudo/opt_facom32605_opt_orgrinformacao.pdf "OPT-ORGANIZACAO E RECUPERACAO DA INFORMACAO - FACOM32605")
+-   [Opt - Demografia](https://ime.ufu.br/system/files/conteudo/ges043.pdf "Optativa - Demografia") — [OPT-CIENCIA DE DADOS II - FACOM32701](https://ime.ufu.br/system/files/conteudo/opt_facom32701_opt_cdados2.pdf "OPT-CIENCIA DE DADOS II - FACOM32701")
+-   [Opt - Economia de Empresas](https://ime.ufu.br/system/files/conteudo/ges048.pdf "Optativa - Economia de Empresas") — [OPT-TOPICOS ESPECIAIS DE BANCO DE DADOS -FACOM39023](https://ime.ufu.br/system/files/conteudo/opt_facom39023_topespbancodados.pdf "OPT-TOPICOS ESPECIAIS DE BANCO DE DADOS -FACOM39023")
+-   [Opt - Economia Monetária e Financeira](https://ime.ufu.br/system/files/conteudo/ges049.pdf "Optativa - Economia Monetária e Financeira") — [OPT-INTELIGENCIA ARTIFICIAL - FACOM39050](https://ime.ufu.br/system/files/conteudo/opt_facom39050_opt_ia.pdf "OPT-INTELIGENCIA ARTIFICIAL - FACOM39050")
+-   [Opt - Geoestatística](https://ime.ufu.br/system/files/conteudo/ges038.pdf "Optativa - Geoestatística") — [OPT-INTELIGENCIA ARTIFICIAL APLICADA A NEGOCIOS - FACOM39062](https://ime.ufu.br/system/files/conteudo/opt_facom39062_opt_ianegocios.pdf "OPT-INTELIGENCIA ARTIFICIAL APLICADA A NEGOCIOS - FACOM39062")
+-   [Opt - Libras](https://ime.ufu.br/system/files/conteudo/libras01.pdf "Optativa - Libras") — [OPT-GERENCIAMENTO DE BANCO DE DADOS - FACOM39063](https://ime.ufu.br/system/files/conteudo/opt_facom39063_opt_gerbancodados.pdf "OPT-GERENCIAMENTO DE BANCO DE DADOS - FACOM39063")
+-   [Opt - Matemática Financeira e Análise de Investimentos](https://ime.ufu.br/system/files/conteudo/ges051.pdf "Optativa - Matemática Financeira e Análise de Investimentos") — [OPT-MINERACAO DE DADOS - FACOM39064](https://ime.ufu.br/system/files/conteudo/opt_facom39064_opt_mineracaodados.pdf "OPT-MINERACAO DE DADOS - FACOM39064")
+-   [Opt - Métodos Matemáticos](https://ime.ufu.br/system/files/conteudo/ges044.pdf "Optativa - Métodos Matemáticos") — [OPT-ALGEBRA DE MATRIZES - IMEMA39001](https://ime.ufu.br/system/files/conteudo/opt_imema39001_opt_algmatriz.pdf "OPT-ALGEBRA DE MATRIZES - IMEMA39001")
+-   [Opt - Modelagem Matemática](https://ime.ufu.br/system/files/conteudo/ges045.pdf "Optativa - Modelagem Matemática") — [OPT-ALGEBRA LINEAR II - IMEMA39002](https://ime.ufu.br/system/files/conteudo/opt_imema39002_opt_algebralinear2.pdf "OPT-ALGEBRA LINEAR II - IMEMA39002")
+-   [Opt - Pesquisa e Análise de Mercado](https://ime.ufu.br/system/files/conteudo/ges037.pdf "Optativa - Pesquisa e Análise de Mercado") — [OPT-ANALISE DE SOBREVIVENCIA - IMEMA39003](https://ime.ufu.br/system/files/conteudo/opt_imema39003_opt_anlsobre.pdf "OPT-ANALISE DE SOBREVIVENCIA - IMEMA39003")
+-   [Opt - Pesquisa Mercadológica](https://ime.ufu.br/system/files/conteudo/ges053.pdf "Optativa - Pesquisa Mercadológica") — [OPT-ATUARIA - IMEMA39004](https://ime.ufu.br/system/files/conteudo/opt_imema39004_opt_atuaria.pdf "OPT-ATUARIA - IMEMA39004")
+-   [Opt - Pesquisa Operacional 3](https://ime.ufu.br/system/files/conteudo/ges041.pdf "Optativa - Pesquisa Operacional 3") — [OPT-BIOESTATISTICA - IMEMA39005](https://ime.ufu.br/system/files/conteudo/opt_imema39005_opt_bioest.pdf "OPT-BIOESTATISTICA - IMEMA39005")
+-   [Opt - Teoria Microeconômica](https://ime.ufu.br/system/files/conteudo/ges047.pdf "Optativa - Teoria Microeconômica") — [OPT-DEMOGRAFIA - IMEMA39006](https://ime.ufu.br/system/files/conteudo/opt_imema39006_opt_demografia.pdf "OPT-DEMOGRAFIA - IMEMA39006")
+-   [Opt - Tópicos Especiais de Matemática Aplicada](https://ime.ufu.br/system/files/conteudo/topicos_especiais_de_matematica_aplicada_novo_0.pdf "Optativa - Tópicos Especiais de Matemática Aplicada") — [OPT-GEOESTATISTICA - IMEMA39007](https://ime.ufu.br/system/files/conteudo/opt_imema39007_opt_geoest.pdf "OPT-GEOESTATISTICA - IMEMA39007")
+-   [Opt - Educação Ambiental](https://ime.ufu.br/system/files/conteudo/inbio31101.pdf "Optativa - Educação Ambiental") — [OPT-MATEMATICA FINANCEIRA - IMEMA39008](https://ime.ufu.br/system/files/conteudo/opt_imema39008_opt_matfinanceira.pdf "OPT-MATEMATICA FINANCEIRA - IMEMA39008")
+-   [OPT-METODOS BOOTSTRAP - IMEMA39009](https://ime.ufu.br/system/files/conteudo/opt_imema39009_opt_mboots.pdf "OPT-METODOS BOOTSTRAP - IMEMA39009")
+-   [OPT-MODELAGEM E OTIMIZACAO DE EXPERIMENTOS INDUSTRIAIS - IMEMA39010](https://ime.ufu.br/system/files/conteudo/opt_imema39010_opt_modotimiza.pdf "OPT-MODELAGEM E OTIMIZACAO DE EXPERIMENTOS INDUSTRIAIS - IMEMA39010")
+-   [OPT-MODELOS DINAMICOS BAYESIANOS - IMEMA39011](https://ime.ufu.br/system/files/conteudo/opt_imema39011_opt_moddinambaye.pdf "OPT-MODELOS DINAMICOS BAYESIANOS - IMEMA39011")
+-   [OPT-PESQUISA E ANALISE DE MERCADO - IMEMA39012](https://ime.ufu.br/system/files/conteudo/opt_imema39012_opt_pesqanalmercado.pdf "OPT-PESQUISA E ANALISE DE MERCADO - IMEMA39012")
+-   [OPT-PLANEJAMENTO E ANALISE DE EXPERIMENTOS II - IMEMA39013](https://ime.ufu.br/system/files/conteudo/opt_imema39013_opt_pae2.pdf "OPT-PLANEJAMENTO E ANALISE DE EXPERIMENTOS II - IMEMA39013")
+-   [OPT-PROFISSAO E MERCADO DE TRABALHO - IMEMA39014](https://ime.ufu.br/system/files/conteudo/opt_imema39014_opt_profmercado.pdf "OPT-PROFISSAO E MERCADO DE TRABALHO - IMEMA39014")
+-   [OPT-TEORIA DA DESCISAO BAYESIANA - IMEMA39015](https://ime.ufu.br/system/files/conteudo/opt_imema39015_opt_teordecibayes.pdf "OPT-TEORIA DA DESCISAO BAYESIANA - IMEMA39015")
+-   [OPT-TOPICOS EM PESQUISA OPERACIONAL - IMEMA39016](https://ime.ufu.br/system/files/conteudo/opt_imema39016_opt_toppo.pdf "OPT-TOPICOS EM PESQUISA OPERACIONAL - IMEMA39016")
+-   [OPT-TOPICOS ESPECIAIS EM ESTATISTICA I - IMEMA39017](https://ime.ufu.br/system/files/conteudo/opt_imema39017_opt_topest1.pdf "OPT-TOPICOS ESPECIAIS EM ESTATISTICA I - IMEMA39017")
+-   [OPT-TOPICOS ESPECIAIS EM ESTATISTICA II - IMEMA39018](https://ime.ufu.br/system/files/conteudo/opt_imema39018_opt_topestatistica2.pdf "OPT-TOPICOS ESPECIAIS EM ESTATISTICA II - IMEMA39018")
+-   [OPT-TOPICOS ESPECIAIS EM INFERENCIA - IMEMA39019](https://ime.ufu.br/system/files/conteudo/opt_imema39019_opt_topespinf.pdf "OPT-TOPICOS ESPECIAIS EM INFERENCIA - IMEMA39019")
+-   [OPT-TOPICOS ESPECIAIS EM PROBABILIDADE I - IMEMA39020](https://ime.ufu.br/system/files/conteudo/opt_imema39020_opt_topespprob1.pdf "OPT-TOPICOS ESPECIAIS EM PROBABILIDADE I - IMEMA39020")
+-   [OPT-TOPICOS ESPECIAIS EM PROBABILIDADE II - IMEMA39021](https://ime.ufu.br/system/files/conteudo/opt_imema39021_opt_topespprob2.pdf "OPT-TOPICOS ESPECIAIS EM PROBABILIDADE II - IMEMA39021")
+-   [OPT-TOPICOS ESPECIAIS EM PROCESSOS ESTOCASTICOS - IMEMA39022](https://ime.ufu.br/system/files/conteudo/opt_imema39022_opt_topesppe.pdf "OPT-TOPICOS ESPECIAIS EM PROCESSOS ESTOCASTICOS - IMEMA39022")
+-   [OPT-UMA INTRODUCAO A SIMULACAO ESTOCASTICA - IMEMA39023](https://ime.ufu.br/system/files/conteudo/opt_imema39023_opt_intsimulacao.pdf "OPT-UMA INTRODUCAO A SIMULACAO ESTOCASTICA - IMEMA39023")
+-   [OPT-EDUCACAO AMBIENTAL - INBIO39508](https://ime.ufu.br/system/files/conteudo/opt_inbio39508_opt_edambiental.pdf "OPT-EDUCACAO AMBIENTAL - INBIO39508")
+-   [OPT-LINGUA BRASILEIRA DE SINAIS - LIBRAS I - LIBRAS01](https://ime.ufu.br/system/files/conteudo/opt_libras01_opt_libras.pdf "OPT-LINGUA BRASILEIRA DE SINAIS - LIBRAS I - LIBRAS01")
+
+**Tópicos:** [Estatística](https://ime.ufu.br/tags/estatistica)

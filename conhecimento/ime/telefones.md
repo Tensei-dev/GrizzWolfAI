@@ -1,0 +1,147 @@
+---
+type: "pagina"
+title: "Telefones"
+description: "Adélia Gonçalves Soares — +55 34 3239-4156 Ramal: 4156 Adilson Lopes dos Santos — +55 34 3230-9461 Ramal: 9461 Adriana Rodrigues da Silva — +55 34 3230-9463 Ramal: 9463 Aldicio José Miranda — +55 34…"
+unidade: "ime"
+secao: "telefones"
+tags: ["ime","telefones"]
+source: "https://ime.ufu.br/telefones"
+hash: "4869a675a393ce79"
+---
+
+# Telefones
+
+-   [Adélia Gonçalves Soares](pessoas/tecnico-administrativos/adelia-goncalves-soares.md) — +55 34 3239-4156 **Ramal:** 4156
+-   [Adilson Lopes dos Santos](pessoas/docentes/adilson-lopes-dos-santos.md) — +55 34 3230-9461 **Ramal:** 9461
+-   [Adriana Rodrigues da Silva](pessoas/docentes/adriana-rodrigues-da-silva.md) — +55 34 3230-9463 **Ramal:** 9463
+-   [Aldicio José Miranda](pessoas/docentes/aldicio-jose-miranda.md) — +55 34 3230-9459 **Ramal:** 9459
+-   [Alessandro Alves Santana](pessoas/docentes/alessandro-alves-santana.md) — +55 34 3230-9462 **Ramal:** 9462
+-   [Alonso Sepúlveda Castellanos](pessoas/docentes/alonso-sepulveda-castellanos-0.md) — +55 34 3230-9443 **Ramal:** 9443
+-   [Ana Carla Piantella](pessoas/docentes/ana-carla-piantella.md) — +55 34 3239-4154 **Ramal:** 4154
+-   [Ana Cláudia Molina Zaqueu Xavier](pessoas/docentes/ana-claudia-molina-zaqueu-xavier.md) — +55 34 3230-9455 **Ramal:** 9455
+-   [Ana Paula Tremura Galves](pessoas/docentes/ana-paula-tremura-galves.md) — +55 34 3230-9447 **Ramal:** 9447
+-   [Antonio Carlos Nogueira](pessoas/docentes/antonio-carlos-nogueira.md) — +55 34 3239-4235 **Ramal:** 4235
+-   [Ariosvaldo Marques Jatobá](pessoas/docentes/ariosvaldo-marques-jatoba.md) — +55 34 3230-9460 **Ramal:** 9460
+-   [Arlindo José de Souza Junior](pessoas/docentes/arlindo-jose-de-souza-junior.md) — +55 34 3230-9456 **Ramal:** 9456
+-   [Aurélia Aparecida de Araújo Rodrigues](pessoas/docentes/aurelia-aparecida-de-araujo-rodrigues.md) — +55 34 3230-9458 **Ramal:** 9458
+-   [Bárbara Amorim Capparelli Menzes](pessoas/tecnico-administrativos/barbara-amorim-capparelli-menzes.md) — +55 34 3239-4158 **Ramal:** 4158
+-   [Camila Mariana Ruiz](pessoas/docentes/camila-mariana-ruiz.md) — +55 34 3230-9457 **Ramal:** 9457
+-   [Catiana Casonatto](pessoas/docentes/catiana-casonatto.md) — +55 34 3230-9449 **Ramal:** 9449
+-   [Cecília Carolina Simeão de Freitas](pessoas/tecnico-administrativos/cecilia-carolina-simeao-de-freitas-0.md)
+-   [Cesar Guilherme De Almeida](pessoas/docentes/cesar-guilherme-de-almeida.md) — +55 34 3230-9462 **Ramal:** 9462
+-   [Cicero Fernandes De Carvalho](pessoas/docentes/cicero-fernandes-de-carvalho.md) — +55 34 3230-9454 **Ramal:** 9454
+-   [Clair do Nascimento](pessoas/docentes/clair-do-nascimento.md) — +55 34 3230-9442 **Ramal:** 9442
+-   [Colegiado de Extensão](extensao/unidade/colegiado/colegiado-de-extensao.md) — +55 34 3239-4156 **Ramal:** 4156
+-   [Colegiado do Curso de Ciência de Dados e Estatística](unidades/colegiado/colegiado-do-curso-de-ciencia-de-dados-e-estatistica.md) — +55 34 3239-4114 **Ramal:** 4114
+-   [Colegiado do Curso Matemática](unidades/colegiado/colegiado-do-curso-matematica.md) — +55 34 3239-4115
+-   [Comissão Interna de Avaliação de Desempenho Docente](unidades/comissao/comissao-interna-de-avaliacao-de-desempenho-docente.md) — +55 34 3239-4154 **Ramal:** 4154
+-   [Comissão para análise de pedidos e relatórios relacionados a afastamentos](unidades/comissao/comissao-para-analise-de-pedidos-e-relatorios-relacionados-a-afastamentos.md) — **Ramal:** 4234
+-   [Comissões de Estágio Probatório](unidades/comissao/comissoes-de-estagio-probatorio.md) — +55 34 3239-4156
+-   [Conselho do Instituto de Matemática e Estatística](unidades/conselho/conselho-do-instituto-de-matematica-e-estatistica.md) — +55 34 3239-4156 **Ramal:** 4156
+-   [Coordenação de Extensão](extensao/unidades/coordenacao-de-extensao.md) — +55 34 3239-4156 **Ramal:** 4156
+-   [Curso de Graduação em Estatística](https://ime.ufu.br/graduacao/modelo-a/conheca) — +55 34 3239-4114
+-   [Curso de Graduação Matemática](unidades/curso/curso-de-graduacao-matematica.md) — +55 34 3239-4115
+-   [Curso de Licenciatura em Matemática a distância](https://ime.ufu.br/graduacao/modelo-c/conheca) — +55 34 3239-4114 **Ramal:** 4114
+-   [Daniel Cariello](pessoas/docentes/daniel-cariello.md) — +55 34 3291-8392 **Ramal:** 8392
+-   [Designation of Main Name](https://ime.ufu.br/en/unidades/unidade-academica/designation-of-main-name) — +55 34 9999-9999 **Ramal:** 1234
+-   [Douglas Marin](pessoas/docentes/douglas-marin.md) — +55 34 3230-9456 **Ramal:** 9456
+-   [Dulce Mary de Almeida](pessoas/docentes/dulce-mary-de-almeida.md) — +55 34 3230-9451 **Ramal:** 9451
+-   [Dylene Agda Souza De Barros](pessoas/docentes/dylene-agda-souza-de-barros.md) — +55 34 3230-9461 **Ramal:** 9461
+-   [Edmilson Rodrigues Pinto](pessoas/docentes/edmilson-rodrigues-pinto.md) — +55 34 3230-9458 **Ramal:** 9458
+-   [Ednaldo Carvalho Guimarães](pessoas/docentes/ednaldo-carvalho-guimaraes.md) — +55 34 3239-4360 **Ramal:** 4360
+-   [Edson Agustini](pessoas/docentes/edson-agustini.md) — +55 34 3230-9445 **Ramal:** 9445
+-   [Eduardo Machado Silva](pessoas/docentes/eduardo-machado-silva.md) — +55 34 3230-9459 **Ramal:** 9459
+-   [Elisa Regina dos Santos](pessoas/docentes/elisa-regina-dos-santos.md) — +55 34 3230-9449 **Ramal:** 9449
+-   [Empresa Júnior](unidades/empresa-junior/empresa-junior.md)
+-   [Érika Maria Chioca Lopes](pessoas/docentes/erika-maria-chioca-lopes.md) — +55 34 3230-9454 **Ramal:** 9454
+-   [Fabiana Fiorezi de Marco Matos](pessoas/docentes/fabiana-fiorezi-de-marco-matos.md) — +55 34 3230-9455 **Ramal:** 9455
+-   [Fábio José Bertoloto](pessoas/docentes/fabio-jose-bertoloto.md) — +55 34 3230-9445 **Ramal:** 9445
+-   [Fernando Rodrigo Rafaeli](pessoas/docentes/fernando-rodrigo-rafaeli.md) — +55 34 3230-9457 **Ramal:** 9457
+-   [Francielle Rodrigues de Castro Coelho](pessoas/docentes/francielle-rodrigues-de-castro-coelho.md) — +55 34 3230-9447 **Ramal:** 9447
+-   [Frankllin Rodrigo Rodrigues](pessoas/tecnico-administrativos/frankllin-rodrigo-rodrigues.md) — +55 34 3239-4474 **Ramal:** 4474
+-   [Geraldo Marcio De Azevedo Botelho](pessoas/docentes/geraldo-marcio-de-azevedo-botelho.md) — +55 34 3230-9441 **Ramal:** 9441
+-   [Germano Abud de Rezende](pessoas/docentes/germano-abud-de-rezende.md) — +55 34 3291-8392 **Ramal:** 8392
+-   [Guilherme Chaud Tizziotti](pessoas/docentes/guilherme-chaud-tizziotti.md) — +55 34 3230-9443 **Ramal:** 9443
+-   [Gustavo de Lima Prado](pessoas/docentes/gustavo-de-lima-prado.md) — +55 34 3810-1055 **Ramal:** 1055
+-   [Hernán Roberto Montúfar López](pessoas/docentes/hernan-roberto-montufar-lopez.md) — +55 34 3230-9459 **Ramal:** 9459
+-   [Instituto de Matemática e Estatística](unidades/unidade-academica/instituto-de-matematica-e-estatistica.md) — +55 34 3239-4126 **Ramal:** 4126
+-   [Jacqueline Paula da Silva](pessoas/tecnico-administrativos/jacqueline-paula-da-silva.md) — +55 34 3239-4209 **Ramal:** 4209
+-   [Janser Moura Pereira](pessoas/docentes/janser-moura-pereira.md) — +55 34 3239-4234 **Ramal:** 4234
+-   [Jean Venato Santos](pessoas/docentes/jean-venato-santos.md) — +55 34 3230-9448 **Ramal:** 9448
+-   [Jocelino Sato](pessoas/docentes/jocelino-sato.md) — +55 34 3230-9452 **Ramal:** 9452
+-   [José Fausto de Morais](pessoas/docentes/jose-fausto-de-morais.md) — +55 34 3239-4474 **Ramal:** 4474
+-   [José Waldemar da Silva](pessoas/docentes/jose-waldemar-da-silva.md) — +55 34 3239-4234 **Ramal:** 4334
+-   [Josimar Joao Ramirez Aguirre](pessoas/docentes/josimar-joao-ramirez-aguirre.md) — +55 34 3291-8392 **Ramal:** 8392
+-   [Josuel Kruppa Rogenski](pessoas/docentes/josuel-kruppa-rogenski.md) — +55 34 3239-4153 **Ramal:** 4153
+-   [Juliano Gonçalves Oler](pessoas/docentes/juliano-goncalves-oler.md) — +55 34 3230-9448 **Ramal:** 9448
+-   [Karine de Almeida Santos](pessoas/docentes/karine-de-almeida-santos.md) — +55 34 3239-4156 **Ramal:** 4156
+-   [Karla Muniz de Oliveira](pessoas/tecnico-administrativos/karla-muniz-de-oliveira.md) — +55 34 3239-4115 **Ramal:** 4115
+-   [Kuo Po Ling](pessoas/docentes/kuo-po-ling.md) — +55 34 3230-9442 **Ramal:** 9442
+-   [Laboratório de Cálculo Numérico e Simbólico](unidades/laboratorio/laboratorio-de-calculo-numerico-e-simbolico.md) — +55 34 3239-4153 **Ramal:** 4153
+-   [Laboratório de Ensino de Estatística e Matemática de Monte Carmelo](unidades/laboratorio/laboratorio-de-ensino-de-estatistica-e-matematica-de-monte-carmelo.md) — +55 34 3810-4016 **Ramal:** 4016
+-   [Laboratório de Ensino de Matemática](unidades/laboratorio/laboratorio-de-ensino-de-matematica.md) — +55 34 3230-9454 **Ramal:** 9454
+-   [Laboratório de Estatística](unidades/laboratorio/laboratorio-de-estatistica.md) — +55 34 3230-9412 **Ramal:** 9412
+-   [Laís Bássame Rodrigues](pessoas/docentes/lais-bassame-rodrigues.md) — +55 34 3230-9461 **Ramal:** 9461
+-   [Leandro Alves Pereira](pessoas/docentes/leandro-alves-pereira.md) — +55 34 3239-4464 **Ramal:** 4464
+-   [Ligia Laís Fêmina](pessoas/docentes/ligia-lais-femina.md) — +55 34 3230-9447 **Ramal:** 9447
+-   [Lincon Souza Pacífico](pessoas/tecnico-administrativos/lincon-souza-pacifico.md) — +55 34 3239-4126 **Ramal:** 4126
+-   [Lúcia Resende Pereira](pessoas/docentes/lucia-resende-pereira.md) — +55 34 3230-9446 **Ramal:** 9446
+-   [Luciana Aparecida Alves](pessoas/docentes/luciana-aparecida-alves.md) — +55 34 3230-9451 **Ramal:** 9451
+-   [Lúcio Borges de Araújo](pessoas/docentes/lucio-borges-de-araujo.md) — +55 34 3230-9433 **Ramal:** 9433
+-   [Luis Renato Gonçalves Dias](pessoas/docentes/luis-renato-goncalves-dias.md) — +55 34 3239-4333 **Ramal:** 4333
+-   [Marcelo Tavares](pessoas/docentes/marcelo-tavares.md) — +55 34 3239-4360 **Ramal:** 4360
+-   [Marcio Colombo Fenille](pessoas/docentes/marcio-colombo-fenille-0.md) — +55 34 3239-4333 **Ramal:** 4333
+-   [Marcos Antônio da Câmara](pessoas/docentes/marcos-antonio-da-camara.md) — +55 34 3230-9444 **Ramal:** 94447
+-   [Marcus Augusto Bronzi](pessoas/docentes/marcus-augusto-bronzi.md) — +55 34 3230-9448 **Ramal:** 9448
+-   [Maria Imaculada de Sousa Silva](pessoas/docentes/maria-imaculada-de-sousa-silva.md) — +55 34 3230-9412 **Ramal:** 9412
+-   [Marina Benzaquen Habib Santos](pessoas/tecnico-administrativos/marina-benzaquen-habib-santos.md) — +55 34 3239-4114 **Ramal:** 4114
+-   [Mario Henrique de Castro](pessoas/docentes/mario-henrique-de-castro.md) — +55 34 3230-9440 **Ramal:** 9440
+-   [Marisa de Souza Costa](pessoas/docentes/marisa-de-souza-costa.md) — +55 34 3230-9449 **Ramal:** 9449
+-   [Matemática](https://ime.ufu.br/en/unidades/curso/matematica) — +55 34 3230-9455 **Ramal:** 9455
+-   [Matemática EaD](https://ime.ufu.br/en/unidades/curso/matematica-ead) — +55 34 3123-4567 **Ramal:** 1234
+-   [Matheus Bartolo Guerrero](pessoas/docentes/matheus-bartolo-guerrero.md) — +55 34 3239-4107 **Ramal:** 4107
+-   [Mirian Fernandes Carvalho Araújo](pessoas/docentes/mirian-fernandes-carvalho-araujo.md) — +55 34 3230-9433 **Ramal:** 9433
+-   [Mohsen Amiri](pessoas/docentes/mohsen-amiri.md) — +55 34 3230-9465 **Ramal:** 9465
+-   [Nadia Giaretta Biase](pessoas/docentes/nadia-giaretta-biase.md) — +55 34 3230-9412 **Ramal:** 9412
+-   [Neiton Pereira da Silva](pessoas/docentes/neiton-pereira-da-silva.md) — +55 34 3230-9460 **Ramal:** 9460
+-   [Núcleo de Educação Matemática](unidades/nucleo/nucleo-de-educacao-matematica.md) — +55 34 3291-9454 **Ramal:** 9454
+-   [Núcleo de Estatística](unidades/nucleo/nucleo-de-estatistica.md) — +55 34 3239-4464 **Ramal:** 4464
+-   [Núcleo de Matemática](unidades/nucleo/nucleo-de-matematica.md) — +55 34 3230-9460 **Ramal:** 9460
+-   [Núcleo de Matemática Aplicada](unidades/nucleo/nucleo-de-matematica-aplicada.md) — +55 34 3230-9462 **Ramal:** 9462
+-   [Otoniel Nogueira da Silva](pessoas/docentes/otoniel-nogueira-da-silva.md) — +55 34 3230-9465 **Ramal:** 9465
+-   [Patrícia Ferreira Paranaíba](pessoas/docentes/patricia-ferreira-paranaiba.md) — +55 34 3239-4500 **Ramal:** 4500
+-   [Patrícia Viana da Silva](pessoas/docentes/patricia-viana-da-silva.md) — +55 34 3239-4107 **Ramal:** 4107
+-   [Pedro Franklin Cardoso Silva](pessoas/docentes/pedro-franklin-cardoso-silva.md) — +55 34 3239-4107 **Ramal:** 4107
+-   [PET Estatística](unidades/pet/pet-estatistica.md) — +55 34 3232-1234 **Ramal:** 5678
+-   [PET Matemática](unidades/pet/pet-matematica.md) — +55 34 3230-9510 **Ramal:** 9510
+-   [Priscila Neves Faria](pessoas/docentes/priscila-neves-faria.md) — +55 34 3230-9433 **Ramal:** 9433
+-   [Quintiliano Siqueira Schroden Nomelini](pessoas/docentes/quintiliano-siqueira-schroden-nomelini.md) — +55 34 3239-4234 **Ramal:** 4234
+-   [Rafael Alves Figueiredo](pessoas/docentes/rafael-alves-figueiredo.md) — +55 34 3239-4153 **Ramal:** 4153
+-   [Rafael Antônio Rossato](pessoas/docentes/rafael-antonio-rossato.md) — +55 34 3230-9464 **Ramal:** 9464
+-   [Raquel Romes Linhares](pessoas/docentes/raquel-romes-linhares.md) — +55 34 3230-9412 **Ramal:** 9412
+-   [Rodolfo Collegari](pessoas/docentes/rodolfo-collegari.md) — +55 34 3230-9464 **Ramal:** 9464
+-   [Rogério De Melo Costa Pinto](pessoas/docentes/rogerio-de-melo-costa-pinto.md) — +55 34 3239-4464 **Ramal:** 4464
+-   [Rosana Sueli Da Motta Jafelice](pessoas/docentes/rosana-sueli-da-motta-jafelice.md) — **Ramal:** 4154
+-   [Sandra Valéria Denardi](pessoas/tecnico-administrativos/sandra-valeria-denardi.md) — +55 34 3239-4394 **Ramal:** 4394
+-   [Sandreana Poliana Silva](pessoas/tecnico-administrativos/sandreana-poliana-silva.md) — +55 34 3239-4114 **Ramal:** 4114
+-   [Santos Alberto Enriquez Remigio](pessoas/docentes/santos-alberto-enriquez-remigio.md) — +55 34 3230-9467 **Ramal:** 9467
+-   [Sarah Faria Monteiro Mazzini Costa](pessoas/docentes/sarah-faria-monteiro-mazzini-costa.md) — +55 34 3230-9457 **Ramal:** 9457
+-   [Secretaria do Curso Estatística](unidades/secretaria-de-curso/secretaria-do-curso-estatistica.md) — +55 34 3239-4114 **Ramal:** 4114
+-   [Secretaria do Curso Matemática](unidades/secretaria-de-curso/secretaria-do-curso-matematica.md) — +55 34 3239-4115 **Ramal:** 4115
+-   [Secretaria do Curso Matemática EaD](unidades/secretaria-de-curso/secretaria-do-curso-matematica-ead.md) — +55 34 3239-4114 **Ramal:** 4114
+-   [Secretaria do Curso Modelo D](unidades/secretaria-de-curso/secretaria-do-curso-modelo-d.md) — +55 55 5555-5555 **Ramal:** 5555
+-   [Secretaria do Curso Modelo E](unidades/secretaria-de-curso/secretaria-do-curso-modelo-e.md) — +55 66 6666-6666 **Ramal:** 6666
+-   [Secretaria do Curso Modelo F](unidades/secretaria-de-curso/secretaria-do-curso-modelo-f.md) — +55 77 7777-7777 **Ramal:** 7777
+-   [Secretaria do Instituto de Matemática e Estatística](unidades/diretoria/secretaria-do-instituto-de-matematica-e-estatistica.md) — +55 34 3239-4156 **Ramal:** 4156
+-   [Sônia Sarita Berrios Yana](pessoas/docentes/sonia-sarita-berrios-yana.md) — +55 34 3239-4153 **Ramal:** 4153
+-   [Taciana Oliveira Souza](pessoas/docentes/taciana-oliveira-souza.md) — +55 34 3239-4153 **Ramal:** 4153
+-   [Thiago Aparecido Catalan](pessoas/docentes/thiago-aparecido-catalan.md) — +55 34 3230-9442 **Ramal:** 9442
+-   [Thiago Rodrigo Alves](pessoas/docentes/thiago-rodrigo-alves.md) — +55 34 3230-9459 **Ramal:** 9459
+-   [Valdair Bonfim](pessoas/docentes/valdair-bonfim.md) — +55 34 3230-9467 **Ramal:** 9467
+-   [Vanessa Bertoni](pessoas/docentes/vanessa-bertoni.md) — +55 34 3230-9446 **Ramal:** 9446
+-   [Victor Gonzalo Lopez Neumann](pessoas/docentes/victor-gonzalo-lopez-neumann.md) — +55 34 3230-9454 **Ramal:** 9454
+-   [Vinícius Vieira Fávaro](pessoas/docentes/vinicius-vieira-favaro.md) — +55 34 3230-9441 **Ramal:** 9441
+-   [Walter dos Santos Motta Junior](pessoas/docentes/walter-dos-santos-motta-junior.md) — +55 34 3230-9452 **Ramal:** 9452
+-   [Zhang Cunhong](pessoas/docentes/zhang-cunhong.md) — +55 34 3230-9444 **Ramal:** 9444
+
+Voltar para o topo
