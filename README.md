@@ -120,6 +120,8 @@ Abra **http://localhost:3000**.
 | `GRAPH_MAX_DOCS` | não | Quantos documentos o modelo lê por rodada de `npm run graph`. Padrão: `80`. |
 | `EMBED_TEXTS_PER_MINUTE` | não | Limite de requisições por minuto (RPM) do seu plano no Gemini. Padrão: `100`. |
 | `EMBED_TOKENS_PER_MINUTE` | não | Limite de tokens por minuto (TPM) do seu plano no Gemini. Padrão: `30000`. |
+| `EMBED_TEXTS_PER_DAY` | não | Cota diária de textos (vetores) do seu plano no Gemini. Padrão: `1000`. |
+| `EMBED_CHAT_RESERVE` | não | Quantos vetores do dia as importações (sync dos PDFs e pacote OKF) deixam para as buscas do chat. Padrão: `200`. O uso de cada dia fica na tabela `api_usage`, por origem, e o `npm run okf:import` mostra o total no fim. |
 | `IME_IP` | não | O mesmo que `FACOM_IP`, para o site do IME (`ime.ufu.br`). |
 | `FACOM_IP` | não | IP do servidor do site da FACOM. Só use se o DNS de `facom.ufu.br` falhar: a importação passa a acessar o site direto por esse IP. Para descobrir o IP, abra o site no navegador e veja **Remote Address** nas ferramentas de desenvolvedor (F12 → Network). Remova quando o DNS voltar a funcionar. |
 | `PORT` | não | Porta do servidor. Padrão: `3000`. |
@@ -144,7 +146,8 @@ O limite fica no banco (tabela `rate_limits`), porque na Vercel cada requisiçã
 | `npm run sync -- --dry-run` | Só lista o que seria importado, sem gravar nada. |
 | `npm run graph` | Mapeia no grafo os documentos que ainda não foram lidos pelo modelo. Lê até 80 por rodada (`-- --limit=N` para mudar) e para quando a cota diária do modelo acaba. Sem `GROQ_API_KEY`, ou com `-- --rules-only`, usa só as regras. Com `-- --rebuild`, refaz o grafo inteiro. Com `-- --references`, refaz só as referências entre normas (altera, revoga, cita) de todos os documentos, pelas regras e sem gastar cota do modelo. |
 | `npm run okf` | Atualiza o pacote OKF das páginas dos sites em `conhecimento/` (veja [Páginas dos sites](#páginas-dos-sites-pacote-okf)). `-- facom` ou `-- ime` faz uma unidade só, `-- --dry-run` só lista, `-- --limit=N` baixa no máximo N páginas e `-- --paginas=telefones,servicos` força o download dessas páginas (sem a barra inicial). |
-| `npm run okf:import` | Importa para o banco as páginas e os perfis novos ou alterados do pacote OKF (veja [Importação](#importação-para-o-banco-npm-run-okfimport)). `-- --dry-run` só lista, `-- --limit=N` importa no máximo N páginas. |
+| `npm run okf:import` | Importa para o banco as páginas e os perfis novos ou alterados do pacote OKF (veja [Importação](#importação-para-o-banco-npm-run-okfimport)). `-- --dry-run` só lista, `-- --limit=N` importa no máximo N páginas, `-- --max-trechos=N` para antes de N vetores. |
+| `npm test` | Roda os testes (`test/`) das regras de busca, pessoas, grafo e pacote OKF, sem rede nem banco. A Action roda os testes antes de sincronizar e para se algum falhar. |
 | `npm run ingest -- data/sources.json` | Importa documentos de outros sites a partir de uma lista. Veja [Adicionando outros documentos](#adicionando-outros-documentos). |
 | `npm run dedupe` | Marca como duplicados os documentos com texto idêntico a outro. Use `-- --dry-run` para só listar. |
 

@@ -48,13 +48,18 @@ function match(text, { people, frequency }) {
 
 // Quem foi citado na pergunta (ou na versão reescrita dela): fica só quem bate melhor, para "Adriano Barbosa Silva"
 // não trazer também outros Adrianos e Silvas. Retorna { people, ambiguous }.
-async function findMentioned(...texts) {
-    const text = texts.filter(Boolean).join(' ');
+function mentioned(text, registry) {
     if (!text.trim()) return { people: [], ambiguous: false };
-    const found = match(text, await load());
+    const found = match(text, registry);
     const sure = found.filter((p) => !p.ambiguous);
     if (sure.length) return { people: sure.filter((p) => p.hits === sure[0].hits).slice(0, MAX_PEOPLE), ambiguous: false };
     return { people: found.slice(0, AMBIGUOUS), ambiguous: found.length > 1 };
+}
+
+async function findMentioned(...texts) {
+    const text = texts.filter(Boolean).join(' ');
+    if (!text.trim()) return { people: [], ambiguous: false };
+    return mentioned(text, await load());
 }
 
 function describe(p) {
@@ -75,4 +80,4 @@ function describe(p) {
     ].filter(Boolean).join('\n');
 }
 
-module.exports = { findMentioned, describe, words };
+module.exports = { findMentioned, describe, words, match, mentioned };

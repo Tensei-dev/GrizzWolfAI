@@ -151,4 +151,4 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
     return fallback(scoped);
 }
 
-module.exports = { hybridSearch, reciprocalRankFusion };
+module.exports = { hybridSearch, reciprocalRankFusion, pick };

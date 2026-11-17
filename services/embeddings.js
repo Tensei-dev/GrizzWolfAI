@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { fetchWithTimeout } = require('./network');
+const usage = require('./usage');
 
 const TIMEOUT_MS = 30000;
 
@@ -13,6 +14,11 @@ const TOKENS_PER_MINUTE = Math.floor((Number(process.env.EMBED_TOKENS_PER_MINUTE
 const BATCH_SIZE = Math.min(100, TEXTS_PER_MINUTE);
 const BATCH_TOKENS = Math.floor(TOKENS_PER_MINUTE / 2);
 const CHARS_PER_TOKEN = 3;
+
+// Cota diária de textos do plano gratuito e quanto dela as importações deixam para as buscas do chat.
+const DAILY_TEXTS = Number(process.env.EMBED_TEXTS_PER_DAY) || 1000;
+const CHAT_RESERVE = Number.isFinite(Number(process.env.EMBED_CHAT_RESERVE)) && process.env.EMBED_CHAT_RESERVE !== undefined
+    ? Number(process.env.EMBED_CHAT_RESERVE) : 200;
 
 const estimateTokens = (text) => Math.ceil(text.length / CHARS_PER_TOKEN);
 
@@ -56,7 +62,7 @@ function splitIntoBatches(texts) {
     return batches;
 }
 
-async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infinity } = {}) {
+async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infinity, source } = {}) {
     const body = {
         requests: texts.map((text) => ({
             model: `models/${MODEL}`,
@@ -74,7 +80,11 @@ async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infin
             headers: { 'Content-Type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
             body: JSON.stringify(body),
         }, { timeoutMs: TIMEOUT_MS, label: 'o Gemini' });
-        if (res.ok) return (await res.json()).embeddings.map((e) => e.values);
+        if (res.ok) {
+            const vectors = (await res.json()).embeddings.map((e) => e.values);
+            await usage.record('gemini', source, texts.length);
+            return vectors;
+        }
 
         const text = await res.text();
         if (res.status === 429 && /PerDay/i.test(text)) {
@@ -91,16 +101,22 @@ async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infin
     }
 }
 
-async function embedDocuments(texts) {
+// Importações (sync dos PDFs, pacote OKF): param antes de entrar na reserva do chat. A contagem é a deste banco;
+// uso da mesma chave em outro lugar não aparece nela, e a cota real continua valendo (DailyQuotaError no 429).
+async function embedDocuments(texts, { source = usage.defaultSource() } = {}) {
     const vectors = [];
     for (const batch of splitIntoBatches(texts)) {
-        vectors.push(...await embedBatch(batch, 'RETRIEVAL_DOCUMENT'));
+        const { total } = await usage.today('gemini');
+        if (total + batch.length > DAILY_TEXTS - CHAT_RESERVE) {
+            throw new DailyQuotaError(`${total} de ${DAILY_TEXTS} vetores do Gemini usados hoje; o resto fica para as buscas do chat (reserva de ${CHAT_RESERVE}). Rode de novo amanhã`);
+        }
+        vectors.push(...await embedBatch(batch, 'RETRIEVAL_DOCUMENT', { source }));
     }
     return vectors;
 }
 
 async function embedQuery(text) {
-    const [vector] = await embedBatch([text], 'RETRIEVAL_QUERY', { maxAttempts: 2, maxDelayMs: 5000 });
+    const [vector] = await embedBatch([text], 'RETRIEVAL_QUERY', { maxAttempts: 2, maxDelayMs: 5000, source: 'chat' });
     return vector;
 }
 

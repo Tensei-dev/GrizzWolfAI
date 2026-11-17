@@ -19,6 +19,7 @@ const { ensureCategories } = require('../services/ingestion');
 const { linkPage } = require('../services/knowledgeGraph');
 const { UNITS } = require('../services/unitCrawler');
 const { networkGuard } = require('../services/network');
+const usage = require('../services/usage');
 
 const KINDS = { pagina: ['pagina', 'página'], noticia: ['noticia', 'notícia'], edital: ['edital', 'edital'] };
 
@@ -172,6 +173,8 @@ async function main() {
         console.log(`páginas: ${pages.novas} novas, ${pages.alteradas} alteradas, ${pages.removidas} removidas, `
             + `${pages.trechos} trechos com vetor, ${pages.falhas} falhas`);
     }
+    const used = await usage.today('gemini');
+    console.log(`gemini hoje: ${used.total} vetores (${Object.entries(used.bySource).map(([s, n]) => `${s} ${n}`).join(', ') || 'nenhum'})`);
     if (pages.falhas) process.exitCode = 1;
 }
 

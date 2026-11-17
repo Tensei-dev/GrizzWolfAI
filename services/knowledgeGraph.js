@@ -423,5 +423,5 @@ async function linkPage({ documentId, title, description, unidade, cursos = [] }
 
 module.exports = {
     TOPICS, detectTopics, ensureTaxonomy, buildDocument, rebuildRuleReferences, normalizeNumber, scopeFor, describeDocuments,
-    linkPage,
+    linkPage, curriculumYear, isExtinctCurriculum,
 };
