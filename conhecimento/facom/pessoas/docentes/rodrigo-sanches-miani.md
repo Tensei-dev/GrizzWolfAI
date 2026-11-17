@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/rodrigo-sanches-miani"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148","email":"miani@ufu.br","areas":"Problemas relacionados a Cibersegurança (*Cybersecurity*) como sistemas de detecção de intrusão, modelos de quantificação de segurança da informação e aspectos humanos de ciberataques."}
 hash: "a932ce7767d5851d"
 ---
 

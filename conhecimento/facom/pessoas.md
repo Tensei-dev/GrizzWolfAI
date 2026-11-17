@@ -7,7 +7,7 @@ secao: "pessoas"
 tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas"
 atualizado: "2025-02-10"
-pessoa: {"funcao":"Professor Adjunto - Nível I - Mestrado - Dedicação Exclusiva"}
+pessoa: {"funcao":"Professor Adjunto - Nível I - Mestrado - Dedicação Exclusiva","email":"adriano.rocha@ufu.br"}
 hash: "757954198bb70b3c"
 ---
 

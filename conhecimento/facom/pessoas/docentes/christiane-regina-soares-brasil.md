@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/christiane-regina-soares-brasil"
 publicado: "2018-09-27"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 150"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 150","email":"christiane@ufu.br","areas":"Tem dedicado sua pesquisa às técnicas de otimização computacional e algoritmos bioinspirados."}
 hash: "ccaffa3091d0beff"
 ---
 

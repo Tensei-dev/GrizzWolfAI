@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/elaine-ribeiro-de-faria-paiva"
 publicado: "2018-05-07"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 137"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 137","email":"elaine@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Aprendizado de Máquina e dados de fluxo contínuo."}
 hash: "249d3ac0e55755c1"
 ---
 

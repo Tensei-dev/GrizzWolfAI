@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/fabiola-souza-fernandes-pereira"
 publicado: "2021-10-07"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","email":"fabiola.pereira@ufu.br"}
 hash: "f381e21034edae27"
 ---
 

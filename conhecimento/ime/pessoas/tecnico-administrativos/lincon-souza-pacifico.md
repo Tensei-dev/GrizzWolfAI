@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/tecnico-administrativos/lincon-souza-pacifico"
 publicado: "2020-02-07"
 atualizado: "2025-03-13"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Recepcionista","cargo":"Recepcionista","situacao":"Em exercício","unidade_organizacional":"Instituto de Matemática e Estatística"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Recepcionista","cargo":"Recepcionista","situacao":"Em exercício","unidade_organizacional":"Instituto de Matemática e Estatística","email":"lincon.pacifico@ufu.br"}
 hash: "3e0308ce7483f39f"
 ---
 

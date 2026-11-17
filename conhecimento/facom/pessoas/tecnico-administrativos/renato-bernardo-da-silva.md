@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/renato-bernardo-da-silva"
 publicado: "2018-10-11"
 atualizado: "2023-12-08"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","unidade_organizacional":"Secretaria da Faculdade de Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","unidade_organizacional":"Secretaria da Faculdade de Computação","email":"renato@ufu.br"}
 hash: "6c3d847b93bd3ac6"
 ---
 

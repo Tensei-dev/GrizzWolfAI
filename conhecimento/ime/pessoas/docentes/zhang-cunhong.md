@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/zhang-cunhong"
 publicado: "2020-01-21"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"zch@ufu.br","areas":"Matemática (ênfase em Geometria e Topologia); Geometria Diferencial, Grupos de Lie, Grupos Algébricos, Semigrupos"}
 hash: "fca9855311afe2e2"
 ---
 

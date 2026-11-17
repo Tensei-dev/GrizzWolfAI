@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/giselle-moraes-resende-pereira"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"gisellemoraes@ufu.br","areas":"Matemática e de Educação (ênfase em Educação Matemática); ensino e aprendizagem do Cálculo Diferencial e Integral, modelagem matemática, educação superior, educação a distância e análise funcional"}
 hash: "c931826d7bb20a66"
 ---
 

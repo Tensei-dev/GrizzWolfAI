@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/anilton-joaquim-da-silva"
 publicado: "2018-09-27"
 atualizado: "2025-02-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Aposentado","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 133"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Aposentado","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 133","areas":"Matemática (ênfase em Matemática Aplicada)"}
 hash: "5104ccd5105011c6"
 ---
 

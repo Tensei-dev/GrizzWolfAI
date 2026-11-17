@@ -21,6 +21,7 @@ const { UNITS } = require('../services/unitCrawler');
 const { networkGuard } = require('../services/network');
 const usage = require('../services/usage');
 const { phonesFrom, emailsFrom } = require('../services/okfContacts');
+const { fieldText } = require('../services/okfPeople');
 
 const KINDS = { pagina: ['pagina', 'página'], noticia: ['noticia', 'notícia'], edital: ['edital', 'edital'] };
 
@@ -50,8 +51,9 @@ async function importPeople(entries, { phones, emails }, { dryRun }) {
     for (const e of people) {
         const phone = phones.get(e.data.source) || {};
         const email = (e.data.pessoa || {}).email || emails.get(e.data.source) || null;
-        // telefone e e-mail vêm de outros arquivos (telefones, listas de docentes): entram no hash para uma mudança deles também contar
-        const contentHash = `${e.data.hash}|${phone.telefone || ''}|${phone.ramal || ''}|${email || ''}`;
+        const areas = (e.data.pessoa || {}).areas || null;
+        // telefone, e-mail e áreas vêm de fora do conteúdo baixado (outras páginas, enriquecimento): entram no hash
+        const contentHash = `${e.data.hash}|${phone.telefone || ''}|${phone.ramal || ''}|${email || ''}|${areas || ''}`;
         const before = inDb.get(e.data.source);
         if (before && before.content_hash === contentHash && before.status === 'ativo') { count.iguais++; continue; }
         count[before ? 'alterados' : 'novos']++;
@@ -74,6 +76,7 @@ async function importPeople(entries, { phones, emails }, { dryRun }) {
             telefone: phone.telefone || p.telefone,
             ramal: phone.ramal,
             resumo: bodyWithoutTitle(e.body),
+            areas,
             atualizado: e.data.atualizado,
             content_hash: contentHash,
         });
@@ -83,6 +86,32 @@ async function importPeople(entries, { phones, emails }, { dryRun }) {
     count.removidos = gone.length;
     if (!dryRun) await Person.markRemoved(gone.map((p) => p.id));
     return count;
+}
+
+// Texto do vetor de cada docente: nome, áreas de pesquisa e o resumo de formação (que traz os temas mesmo sem o campo).
+function areaText(p) {
+    const formation = fieldText(p.resumo || '', /^\*\*Formação:\*\*/) || '';
+    return [p.nome, p.areas && `Áreas de pesquisa: ${p.areas}`, formation.slice(0, 800)].filter(Boolean).join('\n');
+}
+
+// Vetores dos docentes em exercício cujo texto mudou (ou que ainda não têm). Gastam a cota do Gemini como as páginas,
+// então respeitam o mesmo limite da rodada e param na reserva do chat.
+async function embedPeople({ dryRun, maxChunks }) {
+    const pending = (await Person.needingEmbedding())
+        .map((p) => ({ ...p, text: areaText(p) }))
+        .map((p) => ({ ...p, hash: okf.hashOf(p.text) }))
+        .filter((p) => p.hash !== p.embedding_hash);
+    const batch = Number.isFinite(maxChunks) ? pending.slice(0, Math.max(maxChunks, 0)) : pending;
+    if (dryRun || !batch.length) return { pendentes: pending.length, gerados: 0 };
+    try {
+        const vectors = await embedDocuments(batch.map((p) => p.text));
+        for (const [i, p] of batch.entries()) await Person.setEmbedding(p.id, vectors[i], p.hash);
+        return { pendentes: pending.length, gerados: batch.length };
+    } catch (err) {
+        if (!(err instanceof DailyQuotaError)) throw err;
+        console.error(`  vetores dos docentes: ${err.message}`);
+        return { pendentes: pending.length, gerados: 0 };
+    }
 }
 
 async function importPages(entries, { dryRun, limit, maxChunks = Infinity }) {
@@ -156,7 +185,10 @@ async function main() {
     const people = await importPeople(entries, { phones, emails }, { dryRun });
     console.log(`pessoas: ${people.novos} novas, ${people.alterados} alteradas, ${people.iguais} iguais, ${people.removidos} removidas`
         + ` · ${phones.size} telefones e ${emails.size} e-mails encontrados nas páginas de contato`);
-    const pages = await importPages(entries, { dryRun, limit, maxChunks: option('max-trechos', Infinity) });
+    const maxChunks = option('max-trechos', Infinity);
+    const vectors = await embedPeople({ dryRun, maxChunks });
+    console.log(`docentes: ${vectors.gerados} vetores de área gerados, ${vectors.pendentes - vectors.gerados} pendentes`);
+    const pages = await importPages(entries, { dryRun, limit, maxChunks: maxChunks - vectors.gerados });
     if (!dryRun) {
         console.log(`páginas: ${pages.novas} novas, ${pages.alteradas} alteradas, ${pages.removidas} removidas, `
             + `${pages.trechos} trechos com vetor, ${pages.falhas} falhas`);

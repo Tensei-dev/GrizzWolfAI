@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/marcelo-tavares"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mtavares@ufu.br","areas":"Probabilidade e Estatística (ênfase em Probabilidade e Estatística Aplicadas, atuando principalmente nos seguintes temas: modelagem estatística, estatística, amostragem, estatística multivariada e estatística aplicada a gestão de custos e contabilidade); modelagem estatística, estatística, amostragem, estatística multivariada e estatística aplicada a gestão de custos e contabilidade"}
 hash: "f0c38b0b40076cf0"
 ---
 

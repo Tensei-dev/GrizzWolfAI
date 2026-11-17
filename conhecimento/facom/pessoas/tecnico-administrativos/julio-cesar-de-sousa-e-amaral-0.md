@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/julio-cesar-de-sousa-e-amaral-0"
 publicado: "2023-01-16"
 atualizado: "2023-04-25"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","email":"julio.amaral@ufu.br"}
 hash: "5d57464f8f0a163d"
 ---
 

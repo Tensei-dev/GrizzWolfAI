@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/tecnico-administrativos/frankllin-rodrigo-rodrigues"
 publicado: "2019-11-11"
 atualizado: "2025-03-13"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de laboratório","cargo":"Técnico(a) de laboratório","situacao":"Em exercício"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de laboratório","cargo":"Técnico(a) de laboratório","situacao":"Em exercício","email":"frankllin.rodrigues@ufu.br"}
 hash: "a890365a5602b158"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/daniel-stefany-duarte-caetano"
 publicado: "2023-08-16"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Bacharelado em Sistemas de Informação - Campus Monte Carmelo","endereco":"Campus Monte Carmelo - Bloco 1A - Sala 404"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Bacharelado em Sistemas de Informação - Campus Monte Carmelo","endereco":"Campus Monte Carmelo - Bloco 1A - Sala 404","email":"daniel.caetano@ufu.br","areas":"Tem experiência na área de Engenharia da Computação no desenvolvimento de Software, Hardware e Tecnologias Assistivas atuando em pesquisas nas seguintes áreas: Reabilitação, IoT, Inteligência Artificial, Realidade Virtual/Aumentada aplicada em Reabilitação, Processamento Digital de Sinais. Trabalhando atualmente como Professor e Pesquisador UFU/RNP."}
 hash: "800bf2db41764c84"
 ---
 

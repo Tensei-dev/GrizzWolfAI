@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/rafael-alves-figueiredo"
 publicado: "2019-11-11"
 atualizado: "2026-06-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"rafigueiredo@ufu.br","areas":"simulação numérica de escoamentos viscoelásticos e escoamentos multifásicos ou com superfícies livres, métodos de diferenças finitas, métodos numéricos para equações diferencias ordinárias"}
 hash: "a2d176a75ee5adc4"
 ---
 

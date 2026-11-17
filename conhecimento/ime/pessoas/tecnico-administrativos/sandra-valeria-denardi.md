@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/tecnico-administrativos/sandra-valeria-denardi"
 publicado: "2020-01-21"
 atualizado: "2025-03-13"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","unidade_organizacional":"Instituto de Matemática e Estatística"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","unidade_organizacional":"Instituto de Matemática e Estatística","email":"sandradenardi@ufu.br"}
 hash: "3df0dfb2a300d9dd"
 ---
 

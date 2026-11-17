@@ -5,6 +5,7 @@ const { scopeFor, describeDocuments } = require('./knowledgeGraph');
 
 const CANDIDATES_PER_SEARCH = 20;
 const CANDIDATES_TO_RERANK = 12;
+const MAX_PER_DOCUMENT = 4; // trechos do mesmo documento entre os candidatos ao rerank
 const MAX_NEWER_VERSIONS = 3;
 const PAGE_CANDIDATES = 4; // trechos de páginas dos sites que vão ao rerank junto com os das normas
 const MAX_PAGES = 2; // trechos de páginas na resposta, no máximo
@@ -87,6 +88,22 @@ async function withGraph(chunks, searchText, embedding) {
     return kept.map((c) => ({ ...c, graph: info.get(c.document_id) || null }));
 }
 
+// Os candidatos ao rerank na ordem da fusão, com no máximo MAX_PER_DOCUMENT trechos de cada documento. Sem o limite,
+// "como funciona o estágio? qual a carga horária?" enchia as 12 vagas com trechos das duas resoluções de estágio, e a
+// ficha da disciplina (com as 160 h do currículo 2023-1) nunca chegava ao rerank.
+function diversify(fused, limit) {
+    const perDocument = new Map();
+    const chosen = [];
+    for (const c of fused) {
+        if (chosen.length >= limit) break;
+        const n = perDocument.get(c.document_id) || 0;
+        if (n >= MAX_PER_DOCUMENT) continue;
+        perDocument.set(c.document_id, n + 1);
+        chosen.push(c);
+    }
+    return chosen;
+}
+
 // Os melhores trechos na ordem do rerank, com no máximo MAX_PAGES de páginas dos sites: a resposta continua
 // apoiada nas normas, e as páginas completam com contatos, procedimentos e avisos.
 // Um trecho por página: duas vagas para a mesma página (a da ASCII) deixavam outra igualmente boa (a da TechMob) de fora.
@@ -120,7 +137,7 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
             searchBoth(searchText, embedding, { categoryIds, excludeIds, kinds: Chunk.PAGES }),
         ]);
         if (scoped && scope.focusIds.length) lists.push(...await searchBoth(searchText, embedding, { categoryIds, onlyIds: scope.focusIds }));
-        let candidates = reciprocalRankFusion(lists).slice(0, CANDIDATES_TO_RERANK);
+        let candidates = diversify(reciprocalRankFusion(lists), CANDIDATES_TO_RERANK);
         if (scoped && scope.curriculumDocs.length) candidates = await coverCurricula(candidates, scope.curriculumDocs, searchText, embedding);
         const pages = reciprocalRankFusion(pageLists).slice(0, PAGE_CANDIDATES);
         const fused = await withGraph([...candidates, ...pages], searchText, embedding);
@@ -151,4 +168,4 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
     return fallback(scoped);
 }
 
-module.exports = { hybridSearch, reciprocalRankFusion, pick };
+module.exports = { hybridSearch, reciprocalRankFusion, pick, diversify };

@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/tecnico-administrativos/barbara-amorim-capparelli-menzes"
 publicado: "2020-01-21"
 atualizado: "2025-03-13"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","email":"barbara.capparelli@ufu.br"}
 hash: "6010124470543af4"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/eduardo-alves-cunha"
 publicado: "2018-10-11"
 atualizado: "2024-12-13"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","email":"eduardoacunha@ufu.br"}
 hash: "4a9cc817f47393e1"
 ---
 

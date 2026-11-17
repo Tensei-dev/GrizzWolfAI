@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/patricia-viana-da-silva"
 publicado: "2019-11-11"
 atualizado: "2026-09-04"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"patriciaviana@ufu.br","areas":"Probabilidade e Estatística (ênfase em Estatística, atuando principalmente nos seguintes temas: full bayesian significance test - fbst, inferência bayesiana, modelos lineares, inferência paramétrica, propensity score e tabelas de contingência); full bayesian significance test - fbst, inferência bayesiana, modelos lineares, inferência paramétrica, propensity score e tabelas de contingência"}
 hash: "0579fe1fb41218c1"
 ---
 

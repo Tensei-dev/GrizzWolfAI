@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/jose-gustavo-de-souza-paiva"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 131"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 131","email":"gustavo@ufu.br","areas":"Possui experiência nas áreas de Visualização de Informação, Analítica Visual, Aprendizado de Máquina e Inteligência Artificial Explicável. Atua no desenvolvimento de técnicas e sistemas de análise visual para auxilio na tomada de decisão em diversas áreas de aplicação."}
 hash: "62786c77ab4720bf"
 ---
 

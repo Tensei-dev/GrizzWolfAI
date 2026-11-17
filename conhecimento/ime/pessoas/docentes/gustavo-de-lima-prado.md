@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/gustavo-de-lima-prado"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"glprado@ufu.br"}
 hash: "4e89452da4390c5c"
 ---
 

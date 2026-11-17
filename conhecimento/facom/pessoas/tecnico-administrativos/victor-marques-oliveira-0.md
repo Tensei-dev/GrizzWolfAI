@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/victor-marques-oliveira-0"
 publicado: "2023-02-15"
 atualizado: "2026-04-28"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","email":"victoroliveira@ufu.br"}
 hash: "ac9d748440b55854"
 ---
 

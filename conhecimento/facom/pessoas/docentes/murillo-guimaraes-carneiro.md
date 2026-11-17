@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/murillo-guimaraes-carneiro"
 publicado: "2018-10-10"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 410"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 410","email":"mgcarneiro@ufu.br","areas":"Suas áreas de interesse incluem tópicos das áreas de Inteligência Artificial e Computacional, tais como Aprendizado de Máquina, Ciência de Dados, Redes Complexas e Computação Bio-Inspirada. Atua no Programa de Pós-Graduação em Agricultura e Informações Geoespaciais / Programa de Pós-Graduação em Computação."}
 hash: "c4d57f413d95bca4"
 ---
 

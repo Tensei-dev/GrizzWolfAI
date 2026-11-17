@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/maria-camila-nardini-barioni"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 137"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 137","email":"camila.barioni@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Banco de Dados, atuando principalmente em temas relacionados com o gerenciamento e a análise de dados não-tradicionais ou complexos (como dados multimídia). Dentre seus interesses de pesquisa estão: Integração de Mineração de Dados com SGBD, Agrupamento de Dados e Agrupamento Semi-Supervisionado de Dados, Bancos de Dados Multimídia, Consultas por Similaridade e Técnicas de Indexação de Dados Complexos."}
 hash: "41a6a5a91fad44f1"
 ---
 

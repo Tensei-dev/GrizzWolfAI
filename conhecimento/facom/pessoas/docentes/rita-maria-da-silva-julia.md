@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/rita-maria-da-silva-julia"
 publicado: "2018-10-10"
 atualizado: "2026-06-11"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 143"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 143","email":"rita@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Inteligência Artificial, atuando principalmente nos seguintes temas: Aprendizado de Máquina, Agentes Inteligentes, Sistemas Baseados em Conhecimento (alicerçados sobre Lógica de Primeira Ordem, Lógica Fuzzy, Lógica Terminológica) , construção incremental de bases de conhecimento, Processamento de Linguagem Natural, Teoria dos Jogos, Método das Diferanças Temporais, Redes Neurais, Computação Evolutiva, Instrutores automáticos."}
 hash: "d31fea57b796c73d"
 ---
 

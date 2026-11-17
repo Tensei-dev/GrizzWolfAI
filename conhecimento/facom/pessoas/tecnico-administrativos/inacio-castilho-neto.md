@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/inacio-castilho-neto"
 publicado: "2022-07-23"
 atualizado: "2022-12-12"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","unidade_organizacional":"Secretaria do Curso de Ciência da Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","unidade_organizacional":"Secretaria do Curso de Ciência da Computação","email":"inacio@ufu.br"}
 hash: "3a20144bbfc7d663"
 ---
 

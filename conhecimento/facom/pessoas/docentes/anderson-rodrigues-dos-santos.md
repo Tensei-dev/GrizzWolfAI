@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/anderson-rodrigues-dos-santos"
 publicado: "2018-09-27"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 120"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 120","email":"santosardr@ufu.br","areas":"Pesquisa de Dados Genômicos; Proteômica; Redes Complexas de Proteínas."}
 hash: "2665976f45180722"
 ---
 

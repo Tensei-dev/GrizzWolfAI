@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/maria-imaculada-de-sousa-silva"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"maria@ufu.br","areas":"Probabilidade e Estatística (ênfase em Probabilidade e Estatística Aplicadas, atuando principalmente nos seguintes temas: estatística genética, mapeamento de QTL, inferência bayesiana, séries temporais); estatística genética, mapeamento de QTL, inferência bayesiana, séries temporais"}
 hash: "fa55c349799cade3"
 ---
 

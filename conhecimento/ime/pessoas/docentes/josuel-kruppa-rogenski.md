@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/josuel-kruppa-rogenski"
 publicado: "2020-09-18"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jkrogenski@ufu.br"}
 hash: "46869aa5b74e8b36"
 ---
 

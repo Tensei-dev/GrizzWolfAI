@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/flavio-de-oliveira-silva"
 publicado: "2018-10-05"
 atualizado: "2025-02-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 138"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 138","areas":"Experiência e formação nas seguintes áreas do conhecimento: Protocolos; XML; Web Services; Redes de Computadores; Engenharia de Software; Padrões de Projeto; Projeto e Desenvolvimento do software; Planejamento e Gerência de Projetos; CMMI; Banco de Dados; Sistemas Operacionais; Estrutura de Dados; Programação Orientada a Objetos; Programação Funcional; Computação Gráfica. Experiência como administrador e desenvolvedor utilizando os seguintes bancos de dados: MS Access; MS SqlServer; MySQL e Oracle. Utilização das seguintes tecnologias de acesso: ODBC; DAO e ADO; JDBC; Hibernate. Experiência em"}
 hash: "3ae31fd2e18db511"
 ---
 

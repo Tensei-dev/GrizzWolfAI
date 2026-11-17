@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/gilberto-medeiros-nakamura"
 publicado: "2026-02-23"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Visitante - Dedicação Exclusiva","cargo":"Professor Visitante","situacao":"Em exercício","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Docente","funcao":"Professor Visitante - Dedicação Exclusiva","cargo":"Professor Visitante","situacao":"Em exercício","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","email":"gilberto.nakamura@gmail.com"}
 hash: "43086a6e499bbc11"
 ---
 

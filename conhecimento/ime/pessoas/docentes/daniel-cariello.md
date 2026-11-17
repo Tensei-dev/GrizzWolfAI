@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/daniel-cariello"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"dcariello@ufu.br","areas":"Matemática (ênfase em Análise Funcional e Álgebra Multilinear)"}
 hash: "7d14a4c8c65cf9e7"
 ---
 

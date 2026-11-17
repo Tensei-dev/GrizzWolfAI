@@ -80,3 +80,13 @@ test('e-mail das pessoas: só nas listas em que cada uma tem o próprio título;
     assert.equal(emails.has('https://ime.ufu.br/pessoas/marisa'), false);
     assert.equal(emails.has('https://ime.ufu.br/pessoas/augusto'), false);
 });
+
+test('áreas de pesquisa: o campo próprio ou os temas do resumo de formação, sem a ênfase de um diploma', () => {
+    const { researchAreas, personEmail } = require('../services/okfPeople');
+    const comCampo = '**Formação:**\n\nTexto.\n\n**Áreas de pesquisa ou interesse:**\n\nJogos, Realidade Virtual.\n\n**Unidade Organizacional:** FACOM';
+    assert.equal(researchAreas(comCampo), 'Jogos, Realidade Virtual.');
+    const lattes = '**Formação:**\n\nMestre em Computação com ênfase em Inteligência Artificial (UFMG, 1999). Tem experiência na área de Inteligência Artificial, atuando principalmente nos seguintes temas: redes neurais, computação evolutiva.\n\n**Endereço:** x';
+    assert.equal(researchAreas(lattes), 'Inteligência Artificial; redes neurais, computação evolutiva');
+    assert.equal(researchAreas('**Cargo:** Professor'), null);
+    assert.equal(personEmail('[Lattes](http://x)\n\n[RaLopes@ufu.br](mailto:RaLopes@ufu.br)'), 'ralopes@ufu.br');
+});

@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/tecnico-administrativos/adelia-goncalves-soares"
 publicado: "2020-03-30"
 atualizado: "2025-03-18"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a) - Doutorado","cargo":"Secretário(a)","situacao":"Em exercício","titulacao":"Doutorado","unidade_organizacional":"Instituto de Matemática e Estatística"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a) - Doutorado","cargo":"Secretário(a)","situacao":"Em exercício","titulacao":"Doutorado","unidade_organizacional":"Instituto de Matemática e Estatística","email":"adelia@ufu.br"}
 hash: "b2fbc98c5b133177"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/renato-de-aquino-lopes"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 404"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 404","email":"ralopes@ufu.br","areas":"Jogos, Realidade Virtual, Realidade Aumentada, Engenharia de Software."}
 hash: "3cd2f57339486620"
 ---
 

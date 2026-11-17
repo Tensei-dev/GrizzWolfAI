@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/maria-adriana-vidigal-de-lima"
 publicado: "2018-10-10"
 atualizado: "2026-10-16"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148","email":"maria.adriana@ufu.br","areas":"Bancos de dados NoSQL, dados semi-estruturados e XML, restrições de integridade aplicadas à dados semi-estruturados."}
 hash: "d1db636c55a73d21"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/gina-maira-barbosa-de-oliveira"
 publicado: "2018-10-05"
 atualizado: "2024-12-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"In memoriam","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 143"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"In memoriam","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 143","areas":"Tem experiência na área de Ciência da Computação, atuando principalmente nos seguintes temas: algoritmos genéticos, autômatos celulares, computação evolutiva e inteligência artificial."}
 hash: "fac62ccebbfa5c5b"
 ---
 

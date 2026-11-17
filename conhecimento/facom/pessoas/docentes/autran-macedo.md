@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/autran-macedo"
 publicado: "2018-09-27"
 atualizado: "2025-02-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Aposentado","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 141"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Aposentado","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 141","areas":"Professor da Universidade Federal de Uberlândia, tem experiência na área de Ciência da Computação, com ênfase em Engenharia de Software, atuando principalmente nos seguintes temas: Workflow, Verificação de Modelos (Symbolic Model Checking), Software Livre. Também tem interesse em problemas de escalonamento (Scheduling) e Engenharia de Software: Verificação Formal de Programas em C."}
 hash: "8735c240c85d1a43"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/paulo-junior-duarte-reis-0"
 publicado: "2022-12-12"
 atualizado: "2023-01-19"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","email":"paulojuniordr@ufu.br"}
 hash: "7134f3f94f92b207"
 ---
 

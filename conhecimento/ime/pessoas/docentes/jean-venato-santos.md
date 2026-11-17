@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/jean-venato-santos"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jvenatos@ufu.br"}
 hash: "affbfdfa969d1c75"
 ---
 

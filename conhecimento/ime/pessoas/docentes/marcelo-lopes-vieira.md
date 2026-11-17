@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/marcelo-lopes-vieira"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva","email":"marcelolv@ufu.br"}
 hash: "c964be2fce79dfcb"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/claudiney-ramos-tinoco"
 publicado: "2022-08-18"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Inteligência Artificial, atuando principalmente nos seguintes temas: computação bio-inspirada, inteligência computacional, robótica de enxames, computação evolutiva, agentes inteligentes, modelagem e simulação."}
 hash: "7424398e1d278cd4"
 ---
 

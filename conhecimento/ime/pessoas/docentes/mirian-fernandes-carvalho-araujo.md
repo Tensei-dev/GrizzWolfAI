@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/mirian-fernandes-carvalho-araujo"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mirian@ufu.br","areas":"Matemática e Estatística (ênfase em Estatística Aplicada, atuando principalmente nos seguintes temas: Modelos AMMI, Componentes Principais e Análise de agrupamentos); Modelos AMMI, Componentes Principais e Análise de agrupamentos"}
 hash: "47739a0473634201"
 ---
 

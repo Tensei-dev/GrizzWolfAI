@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/humberto-luiz-razente"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 144"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 144","email":"humberto.razente@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em banco de dados, atuando principalmente em mineração visual de dados, redução de dimensionalidade, recuperação de imagens baseada em conteúdo e realimentação de relevância. Desenvolveu projeto com bolsa de pós-doutorado na Universidade Federal do ABC (UFABC)."}
 hash: "9ee102e45b6a733c"
 ---
 

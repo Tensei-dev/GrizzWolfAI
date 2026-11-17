@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/wendel-alexandre-xavier-de-melo"
 publicado: "2018-10-11"
 atualizado: "2024-11-18"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 116"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 116","areas":"Otimização Computacional, Programação Não Linear Inteira Mista, Otimização Combinatória, Otimização Global, Computação Científica, Inteligência Computacional, Metaheurísticas."}
 hash: "2f6ad902422997a4"
 ---
 

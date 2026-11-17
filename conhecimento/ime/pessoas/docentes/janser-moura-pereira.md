@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/janser-moura-pereira"
 publicado: "2019-10-10"
 atualizado: "2026-06-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"janser@ufu.br","areas":"Probabilidade e Estatística (ênfase em Inferência Bayesiana, atuando principalmente nos seguintes temas: modelos não-lineares, mineralização de nitrogênio, inferência bayesiana e mcmc); modelos não-lineares, mineralização de nitrogênio, inferência bayesiana e mcmc"}
 hash: "cffa31c8f1cc7f11"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/mauricio-cunha-escarpinati"
 publicado: "2018-05-02"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 125"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 125","email":"mauricio@ufu.br","areas":"Tem experiência como pesquisador na área de processamento digital de imagens médicas, bem como em instrumentação e controle de qualidade de equipamentos de radiodiagnóstico. Na área educacional, tem ministrado disciplinas em cursos de Engenharia e Ciência da Computação: Computação Gráfica, Processamento de Imagens, Linguagem de Programação e Pesquisa Operacional. Como pesquisador possui interesses na área de, Processamento Digital de Imagens, Computação Gráfica e Informática Médica."}
 hash: "3f2c5c69391e251c"
 ---
 

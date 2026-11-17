@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/denis-fernandes-da-silva"
 publicado: "2026-03-23"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente I","cargo":"Professor Assistente I","situacao":"Em exercício","endereco":"Campus Monte Carmelo"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente I","cargo":"Professor Assistente I","situacao":"Em exercício","endereco":"Campus Monte Carmelo","email":"denisfer@ufu.br"}
 hash: "8a3bb69fa7194b6c"
 ---
 

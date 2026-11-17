@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/neiton-pereira-da-silva"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"neiton@ufu.br"}
 hash: "cede67f4b1d4a0f6"
 ---
 

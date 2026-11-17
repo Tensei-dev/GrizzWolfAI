@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/tecnico-administrativos/marina-benzaquen-habib-santos"
 publicado: "2019-10-10"
 atualizado: "2020-02-28"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a)","cargo":"Secretário(a)","situacao":"Em exercício"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a)","cargo":"Secretário(a)","situacao":"Em exercício","email":"marinasantos@ufu.br"}
 hash: "508240bfbf40c205"
 ---
 

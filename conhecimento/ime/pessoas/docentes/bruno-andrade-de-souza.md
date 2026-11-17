@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/bruno-andrade-de-souza"
 publicado: "2019-11-11"
 atualizado: "2026-10-26"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto III - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto III - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"brunoandrade@ufu.br"}
 hash: "83062c1054788e8b"
 ---
 

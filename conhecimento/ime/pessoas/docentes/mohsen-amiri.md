@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/mohsen-amiri"
 publicado: "2025-04-10"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mohsen.amiri@ufu.br"}
 hash: "0ef3534a39f1109b"
 ---
 

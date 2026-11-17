@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/ana-claudia-molina-zaqueu-xavier"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"ana.zaqueu@ufu.br"}
 hash: "bea2ecf3fcafe66c"
 ---
 

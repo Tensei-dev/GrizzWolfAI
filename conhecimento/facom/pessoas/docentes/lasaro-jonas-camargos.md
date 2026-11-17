@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/lasaro-jonas-camargos"
 publicado: "2018-10-05"
 atualizado: "2023-05-13"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - 20 horas","cargo":"Professor Associado - Nível II","situacao":"Ex-docente","titulacao":"Doutorado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 149"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - 20 horas","cargo":"Professor Associado - Nível II","situacao":"Ex-docente","titulacao":"Doutorado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 149","areas":"Computação Distribuída"}
 hash: "4683e2c5919a3ecc"
 ---
 

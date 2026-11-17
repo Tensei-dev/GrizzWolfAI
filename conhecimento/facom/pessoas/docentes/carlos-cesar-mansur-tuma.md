@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/carlos-cesar-mansur-tuma"
 publicado: "2018-09-27"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1BMC - Sala 206"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1BMC - Sala 206","email":"carlos.tuma@ufu.br","areas":"Tem especial interesse em aprendizado de máquina, lógica nebulosa, otimização combinatorial e algoritmos de busca, subáreas de inteligência artificial."}
 hash: "31e3a6992f61fa66"
 ---
 

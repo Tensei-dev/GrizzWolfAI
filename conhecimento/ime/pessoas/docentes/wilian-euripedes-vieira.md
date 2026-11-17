@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/wilian-euripedes-vieira"
 publicado: "2020-01-21"
 atualizado: "2026-10-23"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"wilianvieira@ufu.br","areas":"Matemática"}
 hash: "2ed169944e9725db"
 ---
 

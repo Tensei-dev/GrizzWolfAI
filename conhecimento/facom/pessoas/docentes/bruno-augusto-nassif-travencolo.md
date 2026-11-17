@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/bruno-augusto-nassif-travencolo"
 publicado: "2018-09-27"
 atualizado: "2026-06-11"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 131"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 131","email":"travencolo@ufu.br","areas":"Tem experiência nas áreas de Processamento de Imagens, Visualização Computacional, Bioinformática e Redes Complexas, atuando principalmente no desenvolvimento de ferramentas para caracterização e análise de imagens biológicas."}
 hash: "42998e13d8e05ab1"
 ---
 

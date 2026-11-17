@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/marcelo-keese-albertini"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - 20 horas","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 150"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - 20 horas","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 150","email":"albertini@ufu.br","areas":"Ciência de Dados; Mineração de Dados; Processamento e Análise de Big Data; Processamento de Fluxos Contínuos de Dados (Data streams); Recuperação de Informação; Aprendizado de Máquina; Análise de Agrupamento de Dados; e Análise e Desenvolvimento de Algoritmos e Estruturas de Dados Avançados."}
 hash: "67293fbc20074c9f"
 ---
 

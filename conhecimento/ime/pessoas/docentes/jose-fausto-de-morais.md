@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/jose-fausto-de-morais"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jfmorais@ufu.br","areas":"Matemática Superior, Pesquisa Operacional, Metodologia Científica, Probabilidade, Estatística, Bioestatística, Psicometria e Educação Matemática/Estatística"}
 hash: "259ec81435898faa"
 ---
 

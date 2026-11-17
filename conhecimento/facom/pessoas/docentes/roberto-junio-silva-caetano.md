@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/roberto-junio-silva-caetano"
 publicado: "2025-10-14"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Substituto - Mestrado - 40 horas","cargo":"Professor Substituto","situacao":"Em exercício","titulacao":"Mestrado","regime":"40 horas"}
+pessoa: {"categoria":"Docente","funcao":"Professor Substituto - Mestrado - 40 horas","cargo":"Professor Substituto","situacao":"Em exercício","titulacao":"Mestrado","regime":"40 horas","email":"roberto.caetano@ufu.br"}
 hash: "485181b48d847a40"
 ---
 

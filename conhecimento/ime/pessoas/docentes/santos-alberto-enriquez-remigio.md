@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/santos-alberto-enriquez-remigio"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"santos.er@ufu.br","areas":"Matemática (ênfase em Análise Numérica, atuando principalmente nos seguintes temas: Modelagem Matemática de problemas de interação fluido-estrutura, Método da Fronteira Imersa, métodos de solução das equações de Navier-Stokes, métodos Pseudo-espectral Fourier); Modelagem Matemática de problemas de interação fluido-estrutura, Método da Fronteira Imersa, métodos de solução das equações de Navier-Stokes, métodos Pseudo-espectral Fourier"}
 hash: "2383b8d78ff5e830"
 ---
 

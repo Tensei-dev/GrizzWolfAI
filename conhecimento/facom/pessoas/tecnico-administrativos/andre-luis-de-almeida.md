@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/andre-luis-de-almeida"
 publicado: "2020-01-15"
 atualizado: "2024-10-10"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Tecnologia da Informação","cargo":"Técnico(a) de Tecnologia da Informação","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Tecnologia da Informação","cargo":"Técnico(a) de Tecnologia da Informação","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","email":"andre.almeida@ufu.br"}
 hash: "0a1adbdb11015ec1"
 ---
 

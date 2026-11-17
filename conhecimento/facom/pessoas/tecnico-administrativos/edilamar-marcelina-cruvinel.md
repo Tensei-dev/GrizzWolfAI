@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/edilamar-marcelina-cruvinel"
 publicado: "2023-03-21"
 atualizado: "2024-12-13"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a) do Curso de Sistemas de Informação - Campus Monte Carmelo","cargo":"Secretário(a) do Curso de Sistemas de Informação - Campus Monte Carmelo","situacao":"Em exercício"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a) do Curso de Sistemas de Informação - Campus Monte Carmelo","cargo":"Secretário(a) do Curso de Sistemas de Informação - Campus Monte Carmelo","situacao":"Em exercício","email":"edilamar@ufu.br"}
 hash: "fa41cc1d1ce64afb"
 ---
 

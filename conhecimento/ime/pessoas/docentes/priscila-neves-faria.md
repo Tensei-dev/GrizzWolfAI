@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/priscila-neves-faria"
 publicado: "2019-11-11"
 atualizado: "2024-02-29"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"priscilaneves@ufu.br","areas":"Modelos AMMI, Análise de agrupamentos, Análise de Componentes Principais, Análise Fatorial Exploratória"}
 hash: "971b716df5c7a1cf"
 ---
 

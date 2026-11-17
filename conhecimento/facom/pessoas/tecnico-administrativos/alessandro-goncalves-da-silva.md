@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/alessandro-goncalves-da-silva"
 publicado: "2018-10-11"
 atualizado: "2022-11-11"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Analista de Tecnologia da Informação","cargo":"Analista de Tecnologia da Informação","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Analista de Tecnologia da Informação","cargo":"Analista de Tecnologia da Informação","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","email":"alessandro@ufu.br"}
 hash: "d07d7f71486b2c1f"
 ---
 

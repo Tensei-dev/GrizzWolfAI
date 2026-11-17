@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/claudio-camargo-rodrigues"
 publicado: "2018-09-27"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 133"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 133","email":"claudio@ufu.br","areas":"Em breve!"}
 hash: "f4d29c7bcbc32a64"
 ---
 

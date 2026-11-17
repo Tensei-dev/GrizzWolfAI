@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/caio-augusto-rodrigues-dos-santos"
 publicado: "2023-09-29"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Curso de Bacharelado em Ciência da ComputaçãoCurso de Bacharelado em Sistemas de Informação - Campus Santa MônicaBacharelado em Sistemas de Informação - Campus Monte Carmelo"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Curso de Bacharelado em Ciência da ComputaçãoCurso de Bacharelado em Sistemas de Informação - Campus Santa MônicaBacharelado em Sistemas de Informação - Campus Monte Carmelo","email":"caioarsantos@ufu.br"}
 hash: "4c309ce9c50170e0"
 ---
 

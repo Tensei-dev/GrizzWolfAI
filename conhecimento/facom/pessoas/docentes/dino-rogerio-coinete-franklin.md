@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/dino-rogerio-coinete-franklin"
 publicado: "2018-09-28"
 atualizado: "2025-12-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 140"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 140","email":"dinofranklin@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfases em Inteligência Artificial, Computação Cientifica e Bioinformática."}
 hash: "49e9e70826b760e4"
 ---
 

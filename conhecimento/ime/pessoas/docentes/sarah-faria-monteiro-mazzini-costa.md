@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/sarah-faria-monteiro-mazzini-costa"
 publicado: "2022-06-10"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"sarahmazzini@ufu.br"}
 hash: "469135880fc28ad5"
 ---
 

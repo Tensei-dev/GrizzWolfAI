@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/fabiano-azevedo-dorca"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 142"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 142","email":"fabianodor@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Inteligência Artificial, atuando principalmente nos seguintes temas: sistemas tutores inteligentes, educação a distândia, modelagem do estudante, estilos de aprendizagem, avaliação de aprendizagem, objetos de aprendizagem, sistemas de hipermídia adaptativa e simulação."}
 hash: "5499a9de0ea6025b"
 ---
 

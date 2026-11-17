@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/wanderson-acassio-gomes"
 publicado: "2018-10-11"
 atualizado: "2023-01-18"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","email":"wanderson@ufu.br"}
 hash: "c1c1b50b32e686c0"
 ---
 

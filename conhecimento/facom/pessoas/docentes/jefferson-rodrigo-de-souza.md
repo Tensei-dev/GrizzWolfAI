@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/jefferson-rodrigo-de-souza"
 publicado: "2018-09-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Curso de Bacharelado em Sistemas de Informação - Campus Santa Mônica","endereco":"Campus Santa Mônica - Bloco 1B - Sala 136"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Curso de Bacharelado em Sistemas de Informação - Campus Santa Mônica","endereco":"Campus Santa Mônica - Bloco 1B - Sala 136","email":"jrsouza@ufu.br","areas":"As principais áreas de interesse em pesquisa incluem Robótica Móvel, Aprendizado de Máquina e Visão Computacional. Tem experiência em Processamento de Imagens, Veículos Autônomos e Veículos Aéreos Não Tripulados."}
 hash: "c43621338fc72221"
 ---
 

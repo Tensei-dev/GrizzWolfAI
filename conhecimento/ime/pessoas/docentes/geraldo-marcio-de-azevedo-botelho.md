@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/geraldo-marcio-de-azevedo-botelho"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"botelho@ufu.br","areas":"Matemática (ênfase em Análise Funcional, atuando principalmente nos seguintes temas: aplicações multilineares e polinômios homogêneos entre espaços de Banach, holomorfia em dimensão infinita, geometria dos espaços de Banach); aplicações multilineares e polinômios homogêneos entre espaços de Banach, holomorfia em dimensão infinita, geometria dos espaços de Banach"}
 hash: "8aa167deabafaa42"
 ---
 

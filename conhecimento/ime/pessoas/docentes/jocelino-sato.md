@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/jocelino-sato"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"sato@ufu.br","areas":"Matemática (ênfase em Geometria Diferencial, atuando principalmente nos seguintes temas: olimpíadas de matemática, o ensino de geometria, informática no ensino); olimpíadas de matemática, o ensino de geometria, informática no ensino (cabri géometrè, geogebra, maple, Wingeo, Winplot), geometria equivariante"}
 hash: "df7d9d0e49684bc0"
 ---
 

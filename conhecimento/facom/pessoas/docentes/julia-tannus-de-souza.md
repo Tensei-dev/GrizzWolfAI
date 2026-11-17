@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/julia-tannus-de-souza"
 publicado: "2022-08-13"
 atualizado: "2024-10-07"
-pessoa: {"categoria":"Docente","funcao":"Professor Substituto - Mestrado - 40 horas","cargo":"Professor Substituto","situacao":"Ex-docente","titulacao":"Mestrado","regime":"40 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148Av. João Naves de Ávila - 2121 - Bairro Santa MônicaUberlândia - MG - CEP 38400-902"}
+pessoa: {"categoria":"Docente","funcao":"Professor Substituto - Mestrado - 40 horas","cargo":"Professor Substituto","situacao":"Ex-docente","titulacao":"Mestrado","regime":"40 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148Av. João Naves de Ávila - 2121 - Bairro Santa MônicaUberlândia - MG - CEP 38400-902","areas":"Tem experiência nas áreas de Computação Gráfica, Engenharia de Reabilitação e Tecnologias Assistivas, em pesquisa aplicada, principalmente na área da saúde, desenvolvendo videogames e eletrônicos de forma generalista e os testando clinicamente."}
 hash: "48d9c47903b671a5"
 ---
 

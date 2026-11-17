@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/leandro-nogueira-couto"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 404"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 404","email":"leandronc@ufu.br","areas":"(em breve!)"}
 hash: "ea87d557729bbb2f"
 ---
 

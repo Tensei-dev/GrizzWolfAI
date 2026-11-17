@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/daniel-samesina"
 publicado: "2018-10-11"
 atualizado: "2023-01-31"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 216"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 216","email":"samesina@ufu.br"}
 hash: "1929cf1565e6e0ed"
 ---
 

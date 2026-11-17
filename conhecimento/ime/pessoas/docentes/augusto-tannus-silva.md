@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/augusto-tannus-silva"
 publicado: "2025-02-19"
 atualizado: "2026-04-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Substituto","cargo":"Professor Substituto","situacao":"Em exercício"}
+pessoa: {"categoria":"Docente","funcao":"Professor Substituto","cargo":"Professor Substituto","situacao":"Em exercício","email":"ime@ufu.br"}
 hash: "d09c1229f4b4d8e0"
 ---
 

@@ -9,6 +9,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 const { writeFacts } = require('../services/okfFacts');
+const { enrichBundle } = require('../services/okfPeople');
 const okf = require('../services/okf');
 const { politeFetch, isAllowed, robotsFor } = require('../services/politeFetch');
 const { networkGuard, NetworkError } = require('../services/network');
@@ -293,6 +294,9 @@ async function main() {
     if (!dryRun) {
         const sorted = Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b)));
         await writeFile(STATE_FILE, `${JSON.stringify(sorted, null, 1)}\n`);
+        // e-mail e áreas de pesquisa no cabeçalho dos perfis (sem rede): um perfil baixado de novo volta sem eles
+        const enriched = await enrichBundle();
+        console.log(`perfis: ${enriched.comEmail} com e-mail e ${enriched.comAreas} com áreas de pesquisa (${enriched.alterados} atualizados)`);
         const facts = await writeFacts();
         console.log(`fatos fixos: ${Object.keys(facts.cursos).length} cursos e ${Object.keys(facts.unidades).length} unidades em conhecimento/fatos.json`);
         if (facts.faltando.length) console.error(`páginas de contato que sumiram do pacote: ${facts.faltando.join(', ')}`);

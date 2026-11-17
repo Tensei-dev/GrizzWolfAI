@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/rafael-dias-araujo"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 410"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 410","email":"rafael.araujo@ufu.br","areas":"Pesquisador nas áreas de Sistemas Adaptativos Inteligentes, Interação Humano-Computador, Computação Ubíqua, Sistemas Web e Multimídia Interativos e Inteligência Artificial para Educação. Também trabalhou em empresas de desenvolvimento de software e possui experiência com arquitetura de soluções Web e distribuídas."}
 hash: "cab6105b0ef1b353"
 ---
 

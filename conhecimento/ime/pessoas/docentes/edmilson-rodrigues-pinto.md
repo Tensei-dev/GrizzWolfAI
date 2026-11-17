@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/edmilson-rodrigues-pinto"
 publicado: "2019-11-11"
 atualizado: "2026-07-17"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"edmilson.pinto@ufu.br","areas":"Probabilidade e Estatística (ênfase em Planejamento Ótimo de Experimentos e Modelos Lineares Generalizados, atuando principalmente nos seguintes temas: modelos conjuntos de locação e dispersão, planejamento de experimentos industriais, planejamento de experimentos com misturas e aplicações); modelos conjuntos de locação e dispersão, planejamento de experimentos industriais, planejamento de experimentos com misturas e aplicações"}
 hash: "d95ceb12ce854b27"
 ---
 

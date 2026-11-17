@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/tecnico-administrativos/karla-muniz-de-oliveira"
 publicado: "2019-10-10"
 atualizado: "2025-03-13"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a)","cargo":"Secretário(a)","situacao":"Em exercício","unidade_organizacional":"Curso de Graduação Matemática"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a)","cargo":"Secretário(a)","situacao":"Em exercício","unidade_organizacional":"Curso de Graduação Matemática","email":"karlamuniz@ufu.br"}
 hash: "64f1a12506e9db27"
 ---
 

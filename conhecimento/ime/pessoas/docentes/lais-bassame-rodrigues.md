@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/lais-bassame-rodrigues"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"lais@ufu.br","areas":"Matemática (ênfase em Geometria Diferencial)"}
 hash: "d6390099a44c4684"
 ---
 

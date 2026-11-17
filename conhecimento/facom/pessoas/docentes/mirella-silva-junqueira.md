@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/mirella-silva-junqueira"
 publicado: "2018-10-10"
 atualizado: "2026-03-03"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível III - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível III","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 411"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível III - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível III","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 411","email":"mirella@ufu.br","areas":"Tem experiência na área de Ciência da Computação com ênfase em Banco de Dados."}
 hash: "b0eca7d2a7989328"
 ---
 

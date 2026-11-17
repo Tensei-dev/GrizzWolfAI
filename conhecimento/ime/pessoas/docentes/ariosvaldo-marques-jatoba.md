@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/ariosvaldo-marques-jatoba"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"marquesjatoba@ufu.br","areas":"Matemática (ênfase em Análise Funcional, atuando principalmente nos seguintes temas: polinômios homogêneos entre espaços de Banach, holomorfia, funções inteiras nucleares e integrais de tipo limitado); polinômios homogêneos entre espaços de Banach, holomorfia, funções inteiras nucleares e integrais de tipo limitado"}
 hash: "a914c89c5fbd1fdb"
 ---
 

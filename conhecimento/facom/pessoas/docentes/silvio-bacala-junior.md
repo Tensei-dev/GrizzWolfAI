@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/silvio-bacala-junior"
 publicado: "2018-10-11"
 atualizado: "2025-02-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - 20 horas","cargo":"Professor Adjunto","situacao":"Aposentado","titulacao":"Mestrado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 138"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - 20 horas","cargo":"Professor Adjunto","situacao":"Aposentado","titulacao":"Mestrado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 138","areas":"Tem experiência na área de Ciência da Computação , com ênfase em Metodologia e Técnicas da Computação. Atuando principalmente nos seguintes temas: UML, Redes de Petri, Processo Unificado, Sistemas em Tempo Real, Sifão e Prevenção de bloqueio mortal."}
 hash: "1ca731c5726b460d"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/eduardo-cassiano-da-silva"
 publicado: "2025-12-11"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Substituto - 40 horas","cargo":"Professor Substituto","situacao":"Em exercício","regime":"40 horas","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Docente","funcao":"Professor Substituto - 40 horas","cargo":"Professor Substituto","situacao":"Em exercício","regime":"40 horas","unidade_organizacional":"Faculdade de Computação","email":"eduardocassiano@ufu.br"}
 hash: "10681cb296d679ea"
 ---
 

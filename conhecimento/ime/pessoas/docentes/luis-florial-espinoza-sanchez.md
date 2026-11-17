@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/luis-florial-espinoza-sanchez"
 publicado: "2020-01-21"
 atualizado: "2026-07-14"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","email":"luis.sanchez@ufu.br","areas":"Matemática (ênfase em Geometria Diferencial afim, Teoria das Singularidades e Teoria das Catástrofes)"}
 hash: "386df064d99171f1"
 ---
 

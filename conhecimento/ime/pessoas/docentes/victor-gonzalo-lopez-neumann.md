@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/victor-gonzalo-lopez-neumann"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"victor.neumann@ufu.br","areas":"Matemática (ênfase em Teoria dos Números, atuando principalmente nos seguintes temas: curvas de gênero 2, obstrução de Brauer-Manin e códigos de avaliação sobre variedades afins e projetivas); curvas de gênero 2, obstrução de Brauer-Manin e códigos de avaliação sobre variedades afins e projetivas"}
 hash: "22d299fcf97dd4bc"
 ---
 

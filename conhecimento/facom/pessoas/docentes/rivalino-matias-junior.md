@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/rivalino-matias-junior"
 publicado: "2018-10-10"
 atualizado: "2026-06-10"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 129"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 129","email":"rivalino@ufu.br","areas":"Dentre suas principais atividades, atualmente realiza pesquisas na área de engenharia de confiabilidade de software, com ênfase para confiabilidade de sistemas operacionais."}
 hash: "4c9e56402aa1352e"
 ---
 

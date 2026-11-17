@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/joao-batista-simao"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 409"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 409","email":"joaobatista@ufu.br","areas":"Tem experiência na área de Informática, principalmente em Administração de Dados/Banco de Dados e em Ciência da Informação com ênfase em Gestão da Informação e do Conhecimento, e atua nos seguintes temas: Sociedade da Informação, Governo Eletrônico, Informática na Administração Pública, Cidades Digitais, Administração de Dados, Processos de Desenvolvimento de Software, Informática na Educação e Educação a Distância."}
 hash: "be1a25cf5cf6cc13"
 ---
 

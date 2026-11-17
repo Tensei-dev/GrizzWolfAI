@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/laurence-rodrigues-do-amaral"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Patos de Minas - Bloco P - Sala MS"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Patos de Minas - Bloco P - Sala MS","email":"laurence@ufu.br","areas":"Suas áreas de interesse são: Inteligência Artificial, especialmente Algoritmos Genéticos, Aprendizado de Máquina, Data mining, Bioinformática e Robótica Evolutiva."}
 hash: "287ccb94df856429"
 ---
 

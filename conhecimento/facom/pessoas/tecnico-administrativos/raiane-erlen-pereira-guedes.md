@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/raiane-erlen-pereira-guedes"
 publicado: "2024-07-11"
 atualizado: "2024-07-12"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","email":"raiane.guedes@ufu.br"}
 hash: "173798af50e173c2"
 ---
 

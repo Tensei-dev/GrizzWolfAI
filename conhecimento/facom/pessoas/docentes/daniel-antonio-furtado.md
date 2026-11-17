@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/daniel-antonio-furtado"
 publicado: "2018-09-27"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 120"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 120","email":"furtado@ufu.br","areas":"Tem experiência como docente na Universidade Federal de Uberlândia e na Universidade de Uberaba, nas áreas de Ciência da Computação, Engenharias e Sistemas de Informação. Já atuou no desenvolvimento de sistemas de bancos de dados para a Internet e na mineração de dados aplicada a bancos de dados temporais. Atualmente, é professor Adjunto na Universidade Federal de Uberlândia e trabalha no desenvolvimento de métodos e algoritmos de visão computacional para rastreamento e reconstrução tridimensional do movimento humano em sistemas de captura de movimento ópticos (Optical Motion Capture Systems)."}
 hash: "3cd8ccbac7570048"
 ---
 

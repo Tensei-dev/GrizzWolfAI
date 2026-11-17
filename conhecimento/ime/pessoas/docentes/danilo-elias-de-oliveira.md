@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/danilo-elias-de-oliveira"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado III - Doutorado","cargo":"Professor Associado III","situacao":"Em exercício","titulacao":"Doutorado"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado III - Doutorado","cargo":"Professor Associado III","situacao":"Em exercício","titulacao":"Doutorado","email":"daniloelias@ufu.br","areas":"métodos de pontos interiores e programação semidefinida"}
 hash: "5e91569da6d2e0bd"
 ---
 

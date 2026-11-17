@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/matheus-bartolo-guerrero"
 publicado: "2026-03-20"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"matheusguerrero@ufu.br"}
 hash: "e6407a4fa44706b8"
 ---
 

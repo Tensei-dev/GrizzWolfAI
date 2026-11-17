@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/rafael-pasquini"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 149"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 149","email":"rafael.pasquini@ufu.br","areas":"Redes de Computadores, Protocolos de Roteamento, Computação em Nuvem, Aprendizado de Máquina, Redes Veiculares, Internet das Coisas."}
 hash: "5a61e9ff1e905d97"
 ---
 

@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/ana-paula-tremura-galves"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"ana.galves@ufu.br","areas":"Matemática (ênfase em Matemática Pura, atuando principalmente nos seguintes temas: spherical space forms, binary tetrahedral group, fundamental domain, contracting homotopy e reidemeister torsion); spherical space forms, binary tetrahedral group, fundamental domain, contracting homotopy e reidemeister torsion"}
 hash: "626ed3f5dbb38018"
 ---
 

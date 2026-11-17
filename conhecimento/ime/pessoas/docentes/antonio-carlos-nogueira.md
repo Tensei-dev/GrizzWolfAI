@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/antonio-carlos-nogueira"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"anogueira@ufu.br","areas":"Matemática (ênfase em Geometria e Topologia); dualidade, umbilicos, germes, classificação"}
 hash: "6fed2e949b5414e6"
 ---
 

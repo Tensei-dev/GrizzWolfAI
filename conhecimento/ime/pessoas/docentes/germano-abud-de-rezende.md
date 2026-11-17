@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/germano-abud-de-rezende"
 publicado: "2019-10-10"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"germano.abud@ufu.br"}
 hash: "f9489cae3b2b3456"
 ---
 

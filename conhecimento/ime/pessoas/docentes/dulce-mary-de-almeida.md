@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/dulce-mary-de-almeida"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"dulce.almeida@ufu.br","areas":"Matemática (ênfase em Geometria Diferencial, atuando principalmente nos seguintes temas: Distribuições de Engel, Geometria Sub-Riemanniana, Espaços Sub-Simétricos, Conexão Sub-Riemanniana e Álgebras de Lie Involutivas); Distribuições de Engel, Geometria Sub-Riemanniana, Espaços Sub-Simétricos, Conexão Sub-Riemanniana e Álgebras de Lie Involutivas"}
 hash: "b8adf440dc8c17d5"
 ---
 

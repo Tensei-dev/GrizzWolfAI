@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/alessandro-alves-santana"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"alessandro.santana@ufu.br","areas":"Matemática (ênfase em Análise Numérica, atuando principalmente nos seguintes temas: matemática aplicada, método de diferenças finitas, análise numérica, computação científica e método dos volumes finitos); matemática aplicada, método de diferenças finitas, análise numérica, computação científica e método dos volumes finitos"}
 hash: "56c36e21d62076ee"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/joao-victor-da-silva-alves"
 publicado: "2018-09-05"
 atualizado: "2023-01-31"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Analista de Tecnologia da Informação - Mestrado","cargo":"Analista de Tecnologia da Informação","situacao":"Em exercício","titulacao":"Mestrado","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 216"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Analista de Tecnologia da Informação - Mestrado","cargo":"Analista de Tecnologia da Informação","situacao":"Em exercício","titulacao":"Mestrado","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 216","email":"jvictor@ufu.br"}
 hash: "fe77034c37ab0dbf"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/shigueo-nomura"
 publicado: "2018-10-11"
 atualizado: "2026-06-11"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 123"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 123","email":"shigueonomura@ufu.br","areas":"Tem interesse na área de Ciência e Engenharia da Computação, com ênfase em Processamento de Imagens, Reconhecimento de Padrões, Metodologia e Técnicas da Neurocomputação, Interface Homem-Máquina e Sistemas Simbióticos."}
 hash: "4692e719a19ed195"
 ---
 

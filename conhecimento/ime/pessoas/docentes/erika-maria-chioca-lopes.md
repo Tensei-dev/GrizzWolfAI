@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/erika-maria-chioca-lopes"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"erikalopes@ufu.br"}
 hash: "caa6459a1866e3d5"
 ---
 

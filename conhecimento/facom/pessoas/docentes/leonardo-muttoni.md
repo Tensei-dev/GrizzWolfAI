@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/leonardo-muttoni"
 publicado: "2025-06-23"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte CarmeloMonte Carmelo - MG"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte CarmeloMonte Carmelo - MG","email":"muttoni@ufu.br"}
 hash: "fe9274e41a344fc0"
 ---
 

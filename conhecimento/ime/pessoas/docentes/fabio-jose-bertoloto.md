@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/fabio-jose-bertoloto"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"bertoloto@ufu.br","areas":"Matemática (ênfase em Análise Funcional, atuando principalmente nos seguintes temas: polinômios homogêneos entre espaços de Banach, holomorfia e funções inteiras nucleares); polinômios homogêneos entre espaços de Banach, holomorfia e funções inteiras nucleares"}
 hash: "1ba39311baabfcc5"
 ---
 

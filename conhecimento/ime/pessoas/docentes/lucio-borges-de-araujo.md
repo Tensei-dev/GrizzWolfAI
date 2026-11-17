@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/lucio-borges-de-araujo"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"lucio.araujo@ufu.br","areas":"Probabilidade e Estatística (ênfase em Probabilidade, Estatística Aplicadas e Análises Multivariadas, atuando principalmente nos seguintes temas: Modelos PARAFAC, Modelos TUCKER, Modelos AMMI, correção de autovalores); Modelos PARAFAC, Modelos TUCKER, Modelos AMMI, correção de autovalores"}
 hash: "70b3a9a38fabb973"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/paulo-henrique-ribeiro-gabriel"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148","email":"phrg@ufu.br","areas":"Otimização combinatória, otimização multiobjetivo, meta-heurísticas e biologia computacional."}
 hash: "fb0e2cc0fa4c0a3e"
 ---
 

@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/marcus-augusto-bronzi"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mbronzi@ufu.br","areas":"Matemática (ênfase em Sistemas Dinâmicos, atuando principalmente nos seguintes temas: Sistemas Dinâmicos Hiperbólicos, Medidas de SRB e Bifurcações Homoclínicas); Sistemas Dinâmicos Hiperbólicos, Medidas de SRB e Bifurcações Homoclínicas"}
 hash: "ad8c8673e9944f56"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/carlos-roberto-lopes"
 publicado: "2018-05-04"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 135"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 135","email":"crlopes@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Metodologia e Técnicas da Computação, atuando principalmente nos seguintes temas: Inteligência Aritificial, Planejamento e Robótica."}
 hash: "a7fa2b6d2cd52912"
 ---
 

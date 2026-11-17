@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/victor-sobreira"
 publicado: "2018-10-11"
 atualizado: "2026-06-11"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 411"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 411","email":"victor@ufu.br","areas":"Tem experiência na área de Computação, atuando principalmente nos seguintes temas: Engenharia, Manutenção, Compreensão e Desenvolvimento de Software; Análise, Projeto e Programação Orientada a Objetos."}
 hash: "cf77925b7b6f06ca"
 ---
 

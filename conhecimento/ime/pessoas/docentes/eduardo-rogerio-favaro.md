@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/eduardo-rogerio-favaro"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"eduardofavaro@ufu.br","areas":"teoria dos números algébricos, códigos corretores de erros, reticulados algébricos e ideais, mínimo euclidiano"}
 hash: "905b57e11907bbf4"
 ---
 

@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/alonso-sepulveda-castellanos-0"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"alonso.castellanos@ufu.br","areas":"Matemática (ênfase em Álgebra, atuando principalmente nos seguintes temas: Curvas Algébricas, Semigrupo de Weierstrass, Pesos Generalizados de Hamming, Criptografia, Códigos Algébrico-Geométricos, Semigrupos Numéricos e Polinômios de Permutação em Corpos Finitos); Curvas Algébricas, Semigrupo de Weierstrass, Pesos Generalizados de Hamming, Criptografia, Códigos Algébrico-Geométricos, Semigrupos Numéricos e Polinômios de Permutação em Corpos Finitos"}
 hash: "3ece193882f324b1"
 ---
 

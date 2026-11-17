@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/jair-rocha-do-prado"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jairrp@ufu.br"}
 hash: "60523677d33b8886"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/daniel-duarte-abdala"
 publicado: "2018-09-28"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 121"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 121","email":"abdala@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Processamento Digital de Imagens, Reconhecimento de Padrões, Métodos Numéricos e Visão Computacional. Atualmente é professor Adjunto da Faculdade de Computação da Universidade Federal de Uberlândia, *campus* Santa Mônica."}
 hash: "a918efcb8db07b5b"
 ---
 

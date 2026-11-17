@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/andre-ricardo-backes"
 publicado: "2018-09-27"
 atualizado: "2025-02-26"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 125"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 125","areas":"Tem experiência na área de Ciência da Computação , com ênfase em Metodologia e Técnicas da Computação. Atuando principalmente nos seguintes temas: Caminhada deterministica, complexidade, Dimensão Fractal, redes complexas, Análise de Imagem."}
 hash: "32d914165c80e3fe"
 ---
 

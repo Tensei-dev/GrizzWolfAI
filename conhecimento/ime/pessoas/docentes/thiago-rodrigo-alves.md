@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/thiago-rodrigo-alves"
 publicado: "2026-04-13"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","situacao":"Em exercício"}
+pessoa: {"categoria":"Docente","situacao":"Em exercício","email":"alves.thiago@ufu.br"}
 hash: "a9e48ddd86ec38c9"
 ---
 

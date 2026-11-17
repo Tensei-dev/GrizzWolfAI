@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/diego-nunes-molinos"
 publicado: "2023-08-16"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Bacharelado em Sistemas de Informação - Campus Monte Carmelo","endereco":"Campus Monte Carmelo - Bloco 1A - Sala 420Monte Carmelo - MG"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Bacharelado em Sistemas de Informação - Campus Monte Carmelo","endereco":"Campus Monte Carmelo - Bloco 1A - Sala 420Monte Carmelo - MG","email":"diego.molinos@ufu.br"}
 hash: "1fdbbfca58456ab3"
 ---
 

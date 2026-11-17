@@ -21,7 +21,7 @@ async function load() {
     if (cache && Date.now() - cache.at < CACHE_MS) return cache;
     const { rows } = await pool.query(
         `SELECT id, nome, unidade, categoria, cargo, funcao, situacao, titulacao, regime, lotacao, endereco, email,
-                telefone, ramal, source_url
+                telefone, ramal, source_url, areas
          FROM pessoas WHERE status = 'ativo'`
     );
     const frequency = new Map();
@@ -77,6 +77,7 @@ function describe(p) {
         p.endereco && `Endereço/sala: ${p.endereco}`,
         p.telefone && `Telefone: ${p.telefone}${p.ramal ? ` (ramal ${p.ramal})` : ''}`,
         p.email && `E-mail: ${p.email}`,
+        p.areas && `Áreas de pesquisa ou interesse: ${p.areas}`,
         ...describeClasses(p.disciplinas || []),
     ].filter(Boolean).join('\n');
 }

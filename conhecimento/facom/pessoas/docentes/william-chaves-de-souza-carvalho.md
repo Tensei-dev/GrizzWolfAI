@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/william-chaves-de-souza-carvalho"
 publicado: "2018-10-11"
 atualizado: "2026-03-03"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível I - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível I","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível I - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível I","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 148","email":"william.carvalho@ufu.br","areas":"Tem experiência na área de Ciência da Computação com ênfase em Metodologia e Técnicas da Computação, atuando principalmente nos seguintes temas: Processo de Desenvolvimento, Engenharia de Sotware, Produtividade, Paradigma Tradicional, Paradigma Ágil e Qualidade."}
 hash: "25182a15c4c27f1f"
 ---
 

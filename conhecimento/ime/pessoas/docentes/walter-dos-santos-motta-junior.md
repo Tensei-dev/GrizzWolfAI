@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/walter-dos-santos-motta-junior"
 publicado: "2019-10-10"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"wmotta@ufu.br","areas":"ensino e pesquisa em Matemática, tendo formação de pós-graduação com ênfase em Topologia das Variedades"}
 hash: "df0061b39dad334b"
 ---
 

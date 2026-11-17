@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/luiz-claudio-theodoro"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - 20 horas","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 116"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível IV - Doutorado - 20 horas","cargo":"Professor Adjunto - Nível IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 116","email":"luiz.theodoro@ufu.br","areas":"Tem experiência no desenvolvimento e implantação de projetos de inovação nas áreas de VoIP, IMS, Telefonia Celular, VideoStreaming, NGN - Next Generation Networks, LBS, Sistemas para dispositivos móveis, Redes de Computadores e Internet do Futuro."}
 hash: "b34cd993f9180883"
 ---
 

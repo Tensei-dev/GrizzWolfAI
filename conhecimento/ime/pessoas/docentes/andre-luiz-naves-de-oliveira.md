@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/andre-luiz-naves-de-oliveira"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"andrenaves@ufu.br","areas":"Física (ênfase em Relatividade e Gravitação, atuando principalmente nos seguintes temas: cálculo, scalar-tensor, cosmic string, cosmic strings e chiral); cálculo, scalar-tensor, cosmic string, cosmic strings e chiral"}
 hash: "d5c8487a1372417c"
 ---
 

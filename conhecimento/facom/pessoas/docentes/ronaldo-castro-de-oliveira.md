@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/ronaldo-castro-de-oliveira"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 138"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 138","email":"ronaldo.co@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Engenharia de Software, atuando principalmente nas seguintes áreas: desenvolvimento de software, gerenciamento de projetos, empreendedorismo, análise e projeto de sistemas, governança de TI e otimização de algoritmos. No projeto desenvolvido no doutorado investigou-se a construção de um Framework para validação de resultados de pesquisas de otimização baseadas em heurísticas aplicadas a problemas de scheduling."}
 hash: "1a4acd97680d7c95"
 ---
 

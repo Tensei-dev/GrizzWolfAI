@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/vania-de-fatima-lemes-de-miranda"
 publicado: "2019-11-11"
 atualizado: "2026-10-23"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","email":"vania@famat.ufu.br"}
 hash: "5ee8f4e21d835b40"
 ---
 

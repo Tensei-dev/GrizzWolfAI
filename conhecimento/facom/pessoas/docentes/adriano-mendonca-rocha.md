@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/adriano-mendonca-rocha"
 publicado: "2022-11-01"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1BRodovia LMG 746, Km 1Monte Carmelo - MG"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1BRodovia LMG 746, Km 1Monte Carmelo - MG","email":"adriano.rocha@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Engenharia de Software, Inteligência Artificial, Programação de Computadores, Banco de Dados e Redes de Computadores."}
 hash: "fb13307df3ed7e54"
 ---
 

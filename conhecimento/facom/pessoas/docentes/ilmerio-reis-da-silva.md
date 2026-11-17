@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/ilmerio-reis-da-silva"
 publicado: "2018-05-02"
 atualizado: "2026-10-16"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 145"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 145","email":"ilmerio@ufu.br","areas":"Tem experiência na área de Computação, com ênfase em Banco de Dados e Recuperação de Informação, atuando principalmente nos seguintes temas: modelos de recuperação de informação, bibliotecas digitais e sistemas de gerenciamento de banco de dados."}
 hash: "90f02d01eb4389b6"
 ---
 

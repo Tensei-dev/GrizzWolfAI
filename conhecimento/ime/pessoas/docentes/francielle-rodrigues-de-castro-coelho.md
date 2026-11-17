@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/francielle-rodrigues-de-castro-coelho"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"francielle@ufu.br","areas":"Matemática (ênfase em Topologia Algébrica, atuando principalmente nos seguintes temas: ação de grupos finitos e compactos de Lie, Teorema do Tipo Borsuk-Ulam, Aplicações G-equivariantes, dimensão topológica, gênus de um G-espaço); ação de grupos finitos e compactos de Lie, Teorema do Tipo Borsuk-Ulam, Aplicações G-equivariantes, dimensão topológica, gênus de um G-espaço"}
 hash: "de48096546e2064a"
 ---
 

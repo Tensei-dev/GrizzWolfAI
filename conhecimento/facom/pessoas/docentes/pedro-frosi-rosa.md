@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/pedro-frosi-rosa"
 publicado: "2018-10-10"
 atualizado: "2025-02-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Aposentado","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 136"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Aposentado","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 136","areas":"Tem experiência nas áreas de Ciência e Engenharia da Computação, com ênfase em Projeto e Validação de Protocolos para Computadores, atuando principalmente nos seguintes temas: Telecomunicação (VoIP e NGN), Segurança, Autômatos, Web Services, Protocolos, CMMI e Concurrent Engineering (CSCW)."}
 hash: "9e0cec659eaba9d4"
 ---
 

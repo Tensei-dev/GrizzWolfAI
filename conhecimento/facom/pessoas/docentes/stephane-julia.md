@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/stephane-julia"
 publicado: "2018-05-02"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 135"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 135","email":"stephane@ufu.br","areas":"Tem experiência na área de Ciência da Computação, com ênfase em Modelos Analíticos e de Simulação, atuando principalmente nos seguintes temas: Teoria e Aplicações das Redes de Petri, UML, Engenharia de Software, Escalonamento de Sistemas Tempo Real, Modelagem e Simulação de Sistemas de Gerenciamento de Workflow."}
 hash: "9f80fe031f70b778"
 ---
 

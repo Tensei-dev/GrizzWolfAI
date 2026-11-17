@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/paulo-rodolfo-da-silva-leite-coelho"
 publicado: "2018-10-10"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 149"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 149","email":"paulocoelho@ufu.br","areas":"Sistemas Distribuídos, replicação e tolerância a falhas, algoritmos de consenso, redes de computadores."}
 hash: "61a8ab30640e3770"
 ---
 

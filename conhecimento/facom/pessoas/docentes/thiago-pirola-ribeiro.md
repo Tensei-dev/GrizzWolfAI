@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/thiago-pirola-ribeiro"
 publicado: "2018-10-11"
 atualizado: "2026-10-16"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 123Uberlândia - MG"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 123Uberlândia - MG","email":"tpribeiro@ufu.br","areas":"Processamento Digital de Imagens, Texturas em Imagens, Linguagens de Programação, Software Livre, Redes de Computadores, Sistemas Operacionais, Dispositivos Móveis e Internet das Coisas (IoT)."}
 hash: "bd260eb3d3174045"
 ---
 

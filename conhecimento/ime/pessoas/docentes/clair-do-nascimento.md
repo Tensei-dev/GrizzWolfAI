@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/clair-do-nascimento"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"clair@ufu.br","areas":"Matemática (ênfase em Matemática, atuando principalmente nos seguintes temas: mecânica celeste, função perturbadora, análise matemática, equações diferenciais parciais, fluidos, equações de Navier-Stokes, sistema de Boussinesq); mecânica celeste, função perturbadora, análise matemática, equações diferenciais parciais, fluidos, equações de Navier-Stokes, sistema de Boussinesq"}
 hash: "f79842d9fb08156c"
 ---
 

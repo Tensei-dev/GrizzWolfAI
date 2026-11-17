@@ -204,6 +204,10 @@ O [`scripts/import-okf.js`](scripts/import-okf.js) lê o pacote e grava no banco
 - **O que sai do pacote** fica com status `removido` (documentos e pessoas), em vez de ser apagado.
 - `-- --dry-run` só lista o que mudaria; `-- --limit=N` importa no máximo N páginas (cada trecho gasta uma chamada de vetor do Gemini). Se a cota diária acabar, rode de novo no dia seguinte: o que já entrou é pulado.
 
+### E-mail e áreas de pesquisa dos docentes
+
+No fim de cada `npm run okf`, o [`services/okfPeople.js`](services/okfPeople.js) completa o cabeçalho dos perfis (`pessoa.email` e `pessoa.areas`), sem rede: o e-mail vem do próprio perfil ou das listas de docentes e técnicos; as áreas vêm do campo "Áreas de pesquisa ou interesse" ou dos temas do resumo de formação no estilo do Lattes ("tem experiência na área de…", "atuando principalmente nos seguintes temas…"). O `npm run okf:import` grava as áreas na tabela `pessoas` e gera, para cada docente em exercício, um vetor com o nome, as áreas e a formação (só quando esse texto muda). No chat, perguntas como "qual professor eu procuro para fazer IC com IA?" ou "com quem faço TCC em estatística bayesiana?" buscam os docentes pela área (vetor e palavra-chave), na unidade do estudante ou na citada.
+
 ### Quem dá cada disciplina (`npm run teaching`)
 
 O [`services/teaching.js`](services/teaching.js) lê os horários de aula que os cursos publicam (já importados como documentos) e grava na tabela `turmas` o código, a disciplina, a turma, o docente, os horários e a sala, por semestre. Cada curso publica num formato (SIGAA no BCC, na IA e na Estatística; grade com legenda na Matemática e no BSI Monte Carmelo), e há uma regra para cada um. O docente é ligado ao cadastro de pessoas: nome completo em qualquer unidade; primeiro nome só na unidade da disciplina (pelo prefixo do código) e, no empate, pelo campus do curso. Nome que não está no cadastro, ou que pode ser de mais de uma pessoa, fica como está na grade. BSI Santa Mônica e Matemática EaD não publicam horários com os docentes.

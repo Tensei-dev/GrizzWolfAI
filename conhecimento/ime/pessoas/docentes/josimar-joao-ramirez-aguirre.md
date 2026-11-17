@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/josimar-joao-ramirez-aguirre"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"josimar.mat@ufu.br","areas":"Teoria dos números, com ênfase no comportamento aritmético de funções transcendentes, comportamento assintótico de L-funções"}
 hash: "56adb127d2aac0b8"
 ---
 

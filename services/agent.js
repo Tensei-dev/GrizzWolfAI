@@ -5,6 +5,9 @@ const { describeProfile, hasMultipleCurricula, describeCatalog } = require('./co
 const { rewriteQuestion } = require('./queryRewriter');
 const people = require('./people');
 const Turma = require('../models/Turma');
+const Person = require('../models/Person');
+const { embedQuery } = require('./embeddings');
+const { withoutUnknownEmails } = require('./guards');
 const { COURSES, UNITS, courseOfText } = require('./courses');
 
 const CONTACT_WORDS = /coorden|secretari|contato|e-?mail|telefone|whatsapp|hor[aá]rio de atendimento|atendimento|endere[cç]o|onde fica|sala d/i;
@@ -63,6 +66,11 @@ Pessoas (professores e servidores):
 - Se o perfil diz que a pessoa não está mais em atividade (ex-docente, aposentado), diga isso antes de passar o contato.
 - Se vierem vários perfis marcados como "candidatos", a pergunta não deixou claro de quem se trata: liste os nomes e pergunte de qual pessoa o estudante está falando.
 - Um perfil não é norma: não tire dele regras, prazos ou quem coordena um curso. Não invente e-mail, telefone ou sala que não estejam no perfil.
+
+Docentes por área de pesquisa:
+- Para perguntas sobre com quem fazer iniciação científica (IC), TCC, projeto ou pesquisa em um tema, os perfis em "Docentes com pesquisa na área perguntada" estão em ordem de proximidade com o tema. Indique os que de fato trabalham com o tema, dizendo a área de cada um (como está no perfil), o e-mail e citando o número do perfil.
+- Os perfis dizem as áreas de pesquisa, não se o professor tem vaga ou bolsa de IC: diga que a disponibilidade de orientação se combina com o próprio professor.
+- Não indique quem não tem relação com o tema só para completar a lista.
 
 Turmas e disciplinas:
 - "Disciplinas em <semestre>" no perfil e o bloco "Turmas nos horários de aula" vêm dos horários de aula publicados pelos cursos. Use-os para dizer quem dá uma disciplina, a turma, o horário e a sala, sempre dizendo o semestre (ex.: "No horário de 2026/2, …") e citando o número da fonte.
@@ -153,9 +161,10 @@ function kindLabel(c) {
 // Fontes que vêm antes dos trechos e ficam com os primeiros números: os perfis das pessoas citadas e as turmas da
 // disciplina perguntada. A pergunta é sobre elas, e o modelo tende a citar [1] (sobretudo quando o histórico já citou [1]).
 // Cada uma: { title, sourceUrl, text }.
-function leadingSources(found, classes) {
+function leadingSources(found, classes, advisors = []) {
     const profiles = found.people.map((p) => ({
         title: `Perfil: ${p.nome} (${p.unidade.toUpperCase()})`,
+        name: p.nome,
         sourceUrl: p.source_url,
         text: people.describe(p),
         section: `Perfis de pessoas${found.ambiguous ? ' (candidatos: a pergunta não deixa claro de qual pessoa se trata)' : ''}`,
@@ -170,7 +179,15 @@ function leadingSources(found, classes) {
                 + `${r.horarios.length ? ` · ${r.horarios.join('; ')}` : ''}`).join('\n'),
         section: 'Turmas nos horários de aula',
     }));
-    return [...profiles, ...timetables];
+    const named = new Set(found.people.map((p) => p.id));
+    const byArea = advisors.filter((p) => !named.has(p.id)).map((p) => ({
+        title: `Perfil: ${p.nome} (${p.unidade.toUpperCase()})`,
+        name: p.nome,
+        sourceUrl: p.source_url,
+        text: people.describe({ ...p, resumo: undefined }),
+        section: 'Docentes com pesquisa na área perguntada (pelos perfis nos sites, do mais próximo ao menos próximo)',
+    }));
+    return [...profiles, ...timetables, ...byArea];
 }
 
 function formatLeads(leads) {
@@ -224,7 +241,9 @@ async function resolveProfile(profile, message, history, { mentionsPerson = fals
     // Contato e perfil de uma pessoa não dependem do curso do estudante, nem o contato de um curso que a pergunta já cita
     // ("quem coordena SI de Monte Carmelo?").
     const asksCourseContact = !pending && CONTACT_WORDS.test(message) && Boolean(courseOfText(message));
-    const missingCourse = (extracted.needsCourse || pending) && !profile.course && !mentionsPerson && !asksCourseContact;
+    // "com quem faço IC em IA?" busca docentes pela área, nas duas unidades se for preciso: não depende do curso
+    const asksAdvisor = !pending && ADVISOR_WORDS.test(message);
+    const missingCourse = (extracted.needsCourse || pending) && !profile.course && !mentionsPerson && !asksCourseContact && !asksAdvisor;
     const canAsk = profile.profilePrompts === 0 || (learned && profile.profilePrompts < MAX_PROFILE_PROMPTS);
     if (missingCourse && canAsk) {
         if (!pending && extracted.hasQuestion) profile.pendingQuestion = extracted.searchQuery || message;
@@ -250,6 +269,25 @@ async function findClasses(question, searchQuery, course) {
         return await Turma.search(searchQuery || question, { curso: course });
     } catch (err) {
         console.error(`busca nas turmas indisponível: ${err.message}`);
+        return [];
+    }
+}
+
+// "Qual professor eu procuro para fazer IC com IA?", "quem pesquisa visão computacional?", "orientador de TCC em banco de dados"
+const ADVISOR_WORDS = /inicia[cç][aã]o cient[ií]fica|\bIC\b|orienta[cç][aã]o|orientador|orientadora|orientar|\bpesquis(a|ar|as|ador|adora|adores)\b|quem (trabalha|estuda|pesquisa)|especialista|linha de pesquisa|[aá]rea de (pesquisa|atua[cç][aã]o|interesse)|\btcc (com|em|sobre|na [aá]rea)\b|\bmonografia\b/i;
+const UNIT_IN_TEXT = { facom: /\bfacom\b|computa[cç][aã]o|sistemas de informa[cç][aã]o|intelig[eê]ncia artificial/i, ime: /\bime\b|matem[aá]tica|estat[ií]stica|ci[eê]ncia de dados/i };
+
+// Docentes pela área de pesquisa. A unidade é a do curso do estudante ou a citada na pergunta; sem nenhuma, as duas.
+async function findAdvisors(question, searchQuery, course) {
+    const text = searchQuery || question;
+    if (!ADVISOR_WORDS.test(question) && !ADVISOR_WORDS.test(text)) return [];
+    const cited = Object.keys(UNIT_IN_TEXT).filter((u) => UNIT_IN_TEXT[u].test(question));
+    const unidade = COURSES[course]?.unit || (cited.length === 1 ? cited[0] : null);
+    try {
+        const embedding = await embedQuery(text).catch(() => null); // sem cota, fica só a palavra-chave
+        return await Person.searchByArea(text, embedding, { unidade });
+    } catch (err) {
+        console.error(`busca de docentes por área indisponível: ${err.message}`);
         return [];
     }
 }
@@ -300,13 +338,14 @@ async function answer({ message, history = [], profile = {} }) {
     }
 
     const searchQuery = resolved.searchQuery || await rewriteQuestion(question, history);
-    const [chunks, found, classes] = await Promise.all([
+    const [chunks, found, classes, advisors] = await Promise.all([
         hybridSearch(searchQuery, { profile: described, originalQuestion: question }),
         // a versão reescrita resolve "e o ramal dele?" para o nome citado antes na conversa
         (named.people.length && question === message ? Promise.resolve(named) : findPeople(question, searchQuery)).then(withClasses),
         findClasses(question, searchQuery, profile.course),
+        findAdvisors(question, searchQuery, profile.course),
     ]);
-    const leads = leadingSources(found, classes);
+    const leads = leadingSources(found, classes, advisors);
 
     const competing = shouldAskEntryYear(profile)
         && await hasCompetingVersions(searchQuery, chunks.filter((c) => c.kind === 'norma'), { courseId: profile.course, courseName: described?.courseName });
@@ -316,16 +355,20 @@ async function answer({ message, history = [], profile = {} }) {
     }
     profile = { ...profile, pendingQuestion: null };
 
+    const system = `${SYSTEM_PROMPT}\n\n${profileInstructions(described)}${describeContacts(profile.course)}\n\nDocumentos consultados:\n\n${formatSources(chunks, leads)}`;
     const raw = await complete([
-        {
-            role: 'system',
-            content: `${SYSTEM_PROMPT}\n\n${profileInstructions(described)}${describeContacts(profile.course)}\n\nDocumentos consultados:\n\n${formatSources(chunks, leads)}`,
-        },
+        { role: 'system', content: system },
         ...history.map((m) => ({ role: m.role, content: m.content })),
         { role: 'user', content: question },
     ]);
-    const content = raw.replace(/【(\d+)[^】]*】/g, '[$1]');
+    // 【3†fonte】 vira [3]; marcas sem número (【Curso do estudante】) saem
+    const content = withoutUnknownEmails(
+        raw.replace(/【(\d+)[^】]*】/g, '[$1]').replace(/\s*【[^】]*】/g, ''),
+        `${system}\n${history.map((m) => m.content).join('\n')}\n${question}`
+    );
     const cited = new Set([...content.matchAll(/\[(\d+)\]/g)].map((m) => Number(m[1])));
+    // perfil de quem a resposta cita pelo nome também é fonte, mesmo que o modelo esqueça o [n]
+    leads.forEach((l, i) => { if (l.name && content.includes(l.name)) cited.add(i + 1); });
 
     return {
         answer: content,

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/sara-luzia-de-melo"
 publicado: "2024-07-17"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Bacharelado em Sistemas de Informação - Campus Monte Carmelo"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Bacharelado em Sistemas de Informação - Campus Monte Carmelo","email":"sara.melo@ufu.br","areas":"Sua pesquisa concentra-se na Ciência da Computação, com especial interesse em Inteligência Artificial aplicada à Educação e Robótica Socialmente Assistiva."}
 hash: "62492190677cf3d1"
 ---
 

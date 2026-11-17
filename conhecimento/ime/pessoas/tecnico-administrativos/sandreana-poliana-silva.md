@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/tecnico-administrativos/sandreana-poliana-silva"
 publicado: "2025-05-13"
 atualizado: "2025-05-13"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a)","cargo":"Secretário(a)","situacao":"Em exercício"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a)","cargo":"Secretário(a)","situacao":"Em exercício","email":"cocest@ufu.br"}
 hash: "fb2218fe87962cf9"
 ---
 

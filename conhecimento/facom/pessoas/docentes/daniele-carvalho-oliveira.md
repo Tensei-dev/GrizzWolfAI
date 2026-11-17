@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/daniele-carvalho-oliveira"
 publicado: "2018-09-28"
 atualizado: "2026-06-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível II - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível II","situacao":"Ex-docente","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 410"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível II - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível II","situacao":"Ex-docente","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 410","areas":"Inteligência Artificial, Neurocomputação, Redes Neurais, Métodos Formais, Lógica Matemática e Programação Competitiva."}
 hash: "1dc715047d08cb14"
 ---
 

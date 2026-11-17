@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/cicero-fernandes-de-carvalho"
 publicado: "2019-11-11"
 atualizado: "2025-02-19"
-pessoa: {"categoria":"Docente","situacao":"Aposentado"}
+pessoa: {"categoria":"Docente","situacao":"Aposentado","areas":"Matemática (ênfase em Álgebra); Diferenciais holomorfas, Curvas de Gorenstein, Curvas singulares, Moduli de curvas, Pontos de Weierstrass e Morfismo pluricanônico"}
 hash: "793c7d59579f41f8"
 ---
 

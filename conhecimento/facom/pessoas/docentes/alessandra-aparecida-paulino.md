@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/alessandra-aparecida-paulino"
 publicado: "2018-10-18"
 atualizado: "2026-11-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1BMC - Sala PETBSI"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1BMC - Sala PETBSI","email":"alessandra@ufu.br","areas":"Ciência da Computação: Processamento de Imagens; Visão Computacional; Reconhecimento de Padrões e aplicações no Reconhecimento Biométrico."}
 hash: "d4796efb73668f41"
 ---
 

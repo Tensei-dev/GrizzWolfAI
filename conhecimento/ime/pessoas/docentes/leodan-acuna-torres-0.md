@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/leodan-acuna-torres-0"
 publicado: "2025-02-19"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Visitante","cargo":"Professor Visitante","situacao":"Em exercício"}
+pessoa: {"categoria":"Docente","funcao":"Professor Visitante","cargo":"Professor Visitante","situacao":"Em exercício","email":"ime@ufu.br"}
 hash: "2a0240cf295ff354"
 ---
 

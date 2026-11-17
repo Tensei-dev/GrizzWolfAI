@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/eduardo-machado-silva"
 publicado: "2025-11-13"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Assistente I - Dedicação Exclusiva","cargo":"Professor Assistente I","situacao":"Em exercício","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Assistente I - Dedicação Exclusiva","cargo":"Professor Assistente I","situacao":"Em exercício","regime":"Dedicação Exclusiva","email":"machado.silva@ufu.br"}
 hash: "0d56be5ccb51b419"
 ---
 

@@ -53,3 +53,19 @@ test('IP do visitante: fora da Vercel, x-forwarded-for do cliente não vale', ()
     assert.equal(clientIp({ headers: { 'x-vercel-forwarded-for': '5.6.7.8, 9.9.9.9' }, socket: {} }), '5.6.7.8');
     if (saved !== undefined) process.env.VERCEL = saved;
 });
+
+test('candidatos ao rerank: no máximo 4 trechos do mesmo documento', () => {
+    const { diversify } = require('../services/search');
+    // as duas resoluções de estágio enchiam as 12 vagas, e a ficha com as 160 h ficava de fora
+    const fused = [...Array(10)].map((_, i) => norma(i, 29)).concat([...Array(10)].map((_, i) => norma(100 + i, 37)), [norma(200, 66)]);
+    const chosen = diversify(fused, 12);
+    assert.equal(chosen.filter((c) => c.document_id === 29).length, 4);
+    assert.ok(chosen.some((c) => c.document_id === 66));
+});
+
+test('e-mail que não estava no contexto sai da resposta', () => {
+    const { withoutUnknownEmails } = require('../services/guards');
+    const context = 'Secretário: Gabriel Firme da Fonseca · facom@ufu.br\nE-mail: ralopes@ufu.br';
+    const answer = 'Fale com a secretaria (gabriel.firme@ufu.br ou facom@ufu.br) ou com RALOPES@ufu.br.';
+    assert.equal(withoutUnknownEmails(answer, context), 'Fale com a secretaria (e-mail não informado no site ou facom@ufu.br) ou com RALOPES@ufu.br.');
+});

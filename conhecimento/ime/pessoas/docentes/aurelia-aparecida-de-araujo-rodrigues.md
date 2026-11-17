@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/aurelia-aparecida-de-araujo-rodrigues"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"aurelia@ufu.br","areas":"Engenharia de Produção (ênfase em Controle Estatístico de Processos, atuando principalmente nos seguintes temas: gráficos de controle, controle de qualidade, epidemiologia, controle estatístico de processos e amostragem dupla); gráficos de controle, controle de qualidade, epidemiologia, controle estatístico de processos e amostragem dupla"}
 hash: "e077707801519f53"
 ---
 

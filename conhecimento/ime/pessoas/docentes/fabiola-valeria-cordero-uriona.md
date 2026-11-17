@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/fabiola-valeria-cordero-uriona"
 publicado: "2025-02-19"
 atualizado: "2025-02-19"
-pessoa: {"categoria":"Docente","funcao":"Professor Substituto","cargo":"Professor Substituto","situacao":"Em exercício"}
+pessoa: {"categoria":"Docente","funcao":"Professor Substituto","cargo":"Professor Substituto","situacao":"Em exercício","email":"ime@ufu.br"}
 hash: "63e1e8c0d3d4691b"
 ---
 

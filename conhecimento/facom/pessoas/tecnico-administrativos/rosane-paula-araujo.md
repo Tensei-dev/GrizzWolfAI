@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/rosane-paula-araujo"
 publicado: "2026-03-02"
 atualizado: "2026-03-02"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Administrador - Especialização","cargo":"Administrador","situacao":"Em exercício","titulacao":"Especialização","unidade_organizacional":"Laboratórios FACOM/UFU - Bloco 1B: campus Santa Mônica","endereco":"Campus Santa Mônica - Bloco 1B - Sala 116Av João Naves de Ávila - 2121 - Bloco 1B - Bairro Santa MônicaUberlândia - MG - CEP 38408-100"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Administrador - Especialização","cargo":"Administrador","situacao":"Em exercício","titulacao":"Especialização","unidade_organizacional":"Laboratórios FACOM/UFU - Bloco 1B: campus Santa Mônica","endereco":"Campus Santa Mônica - Bloco 1B - Sala 116Av João Naves de Ávila - 2121 - Bloco 1B - Bairro Santa MônicaUberlândia - MG - CEP 38408-100","email":"facom@ufu.br"}
 hash: "54996f33cfa3652f"
 ---
 

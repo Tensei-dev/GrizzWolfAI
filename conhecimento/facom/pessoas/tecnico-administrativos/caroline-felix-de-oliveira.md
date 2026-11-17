@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/caroline-felix-de-oliveira"
 publicado: "2025-10-09"
 atualizado: "2025-10-09"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","email":"carol.oliveira@ufu.br"}
 hash: "96e75fc7db2559b3"
 ---
 

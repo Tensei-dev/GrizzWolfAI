@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/lucia-resende-pereira"
 publicado: "2019-11-11"
 atualizado: "2026-06-09"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"luciapereira@ufu.br","areas":"Matemática (ênfase em Equações Diferenciais Parciais, atuando principalmente nos seguintes temas: estabilidade e equação de reação-difusão); estabilidade e equação de reação-difusão"}
 hash: "d603fae130c14ae0"
 ---
 

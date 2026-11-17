@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/eric-ribeiro-madureira"
 publicado: "2024-07-11"
 atualizado: "2025-11-04"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração - Mestrado","cargo":"Assistente em Administração","situacao":"Em exercício","titulacao":"Mestrado"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração - Mestrado","cargo":"Assistente em Administração","situacao":"Em exercício","titulacao":"Mestrado","email":"eric.rm@ufu.br"}
 hash: "d5c6630c8a6f8d29"
 ---
 

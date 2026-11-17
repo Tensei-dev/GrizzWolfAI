@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/marta-helena-de-oliveira"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","email":"marta@ufu.br"}
 hash: "6357d2f9e4f785b1"
 ---
 

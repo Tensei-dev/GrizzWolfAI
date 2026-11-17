@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/joao-antonio-camargo-neto"
 publicado: "2025-02-19"
 atualizado: "2025-02-19"
-pessoa: {"categoria":"Docente","funcao":"Professor Substituto","cargo":"Professor Substituto","situacao":"Em exercício"}
+pessoa: {"categoria":"Docente","funcao":"Professor Substituto","cargo":"Professor Substituto","situacao":"Em exercício","email":"ime@ufu.br"}
 hash: "cc2607a2fadb0be3"
 ---
 

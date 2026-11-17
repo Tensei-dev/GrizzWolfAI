@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/eliana-pantaleao"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Patos de Minas - Bloco P - Sala MS"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Patos de Minas - Bloco P - Sala MS","email":"epantaleao@ufu.br","areas":"Seus temas de interesse incluem classificação de imagens, processamento de imagens, reconhecimento de padrões, cartografia temática e seleção de atributos. Atualmente, é professora efetiva da Faculdade de Computação da Universidade Federal de Uberlândia, Campus Patos de Minas."}
 hash: "93b188bc3229f3ff"
 ---
 

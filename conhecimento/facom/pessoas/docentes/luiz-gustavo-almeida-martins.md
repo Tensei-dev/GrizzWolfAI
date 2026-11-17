@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/luiz-gustavo-almeida-martins"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 145"}
+pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 145","email":"lgamartins@ufu.br","areas":"Computação bio-inspirada, autômatos celulares, aprendizagem de máquina, otimização com muitos objetivos (many objective), robótica autônoma, exploração de sequências de otimização dos compiladores, detecção de eventos, reconhecimento de padrões e modelagem comportamental."}
 hash: "e53bc565669254b0"
 ---
 

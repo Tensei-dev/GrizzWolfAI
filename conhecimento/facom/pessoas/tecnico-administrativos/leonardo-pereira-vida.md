@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/leonardo-pereira-vida"
 publicado: "2021-06-03"
 atualizado: "2023-04-25"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte CarmeloRodovia LMG 746, Km 1Monte Carmelo - MG"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Técnico(a) de Laboratório - Informática","cargo":"Técnico(a) de Laboratório - Informática","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte CarmeloRodovia LMG 746, Km 1Monte Carmelo - MG","email":"leonardo.vida@ufu.br"}
 hash: "0ae78e923b5e6586"
 ---
 

@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/tecnico-administrativos/jose-humberto-do-nascimento-0"
 publicado: "2022-12-12"
 atualizado: "2023-01-19"
-pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação"}
+pessoa: {"categoria":"Técnico-Administrativo","funcao":"Assistente em Administração","cargo":"Assistente em Administração","situacao":"Em exercício","unidade_organizacional":"Faculdade de Computação","email":"josehumbertonascimento@ufu.br"}
 hash: "fac3150f95836872"
 ---
 

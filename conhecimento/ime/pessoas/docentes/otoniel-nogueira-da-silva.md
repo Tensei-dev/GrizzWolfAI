@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/otoniel-nogueira-da-silva"
 publicado: "2025-02-19"
 atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Pós-doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Pós-doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Pós-doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Pós-doutorado","regime":"Dedicação Exclusiva","email":"otoniel@ufu.br"}
 hash: "2fed869d13273265"
 ---
 

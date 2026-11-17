@@ -8,7 +8,7 @@ tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/camila-mariana-ruiz"
 publicado: "2022-06-10"
 atualizado: "2026-10-15"
-pessoa: {"categoria":"Docente","funcao":"Professor Adjunto I - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
+pessoa: {"categoria":"Docente","funcao":"Professor Adjunto I - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"camila.ruiz@ufu.br","areas":"Matemática (ênfase em Teoria das Singularidades, atuando principalmente nos temas: Singularidades de Morin, Teoria de Morse, Teoria de Morse para variedades com bordo, n-campos de vetores e topologia de singularidades); Singularidades de Morin, Teoria de Morse, Teoria de Morse para variedades com bordo, n-campos de vetores e topologia de singularidades"}
 hash: "88a0a58da6f3e21b"
 ---
 
