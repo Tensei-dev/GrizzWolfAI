@@ -4,6 +4,18 @@ const express = require('express');
 const Feedback = require('./models/Feedback');
 const { answer, EMPTY_PROFILE, MAX_PROFILE_PROMPTS } = require('./services/agent');
 const { COURSES } = require('./services/courses');
+const { rateLimit } = require('./services/rateLimit');
+
+// Por visitante: o plano gratuito da Groq aguenta umas 30 perguntas por dia no total.
+// 0 desliga a janela
+const limitNumber = (name, fallback) => {
+    const value = Number.parseInt(process.env[name], 10);
+    return Number.isInteger(value) && value >= 0 ? value : fallback;
+};
+const chatLimit = rateLimit('chat', { min: limitNumber('RATE_LIMIT_PER_MINUTE', 5), dia: limitNumber('RATE_LIMIT_PER_DAY', 25) }, ({ window, resetIn }) => (window === 'min'
+    ? `Calma, filhote! 🐺 Muitas perguntas em pouco tempo. Espere ${resetIn} segundos e mande de novo.`
+    : 'O lobo precisa descansar: você chegou ao limite de perguntas de hoje. Volte amanhã que eu continuo farejando!'));
+const feedbackLimit = rateLimit('feedback', { min: 20 }, () => 'Muitas avaliações em pouco tempo. Espere um minutinho.');
 
 const app = express();
 app.use(express.json({ limit: '64kb' }));
@@ -38,7 +50,7 @@ function readProfile(value) {
     };
 }
 
-app.post('/api/chat', async (req, res) => {
+app.post('/api/chat', chatLimit, async (req, res) => {
     const question = typeof req.body?.question === 'string' ? req.body.question.trim() : '';
     if (!question) return res.status(400).json({ error: 'Pergunta vazia.' });
     if (question.length > MAX_QUESTION_CHARS) {
@@ -52,7 +64,7 @@ app.post('/api/chat', async (req, res) => {
     }));
 });
 
-app.post('/api/feedback', async (req, res) => {
+app.post('/api/feedback', feedbackLimit, async (req, res) => {
     const body = req.body || {};
     const rating = Number(body.rating);
     const question = text(body.question, MAX_QUESTION_CHARS);

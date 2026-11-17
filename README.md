@@ -123,6 +123,11 @@ Abra **http://localhost:3000**.
 | `IME_IP` | não | O mesmo que `FACOM_IP`, para o site do IME (`ime.ufu.br`). |
 | `FACOM_IP` | não | IP do servidor do site da FACOM. Só use se o DNS de `facom.ufu.br` falhar: a importação passa a acessar o site direto por esse IP. Para descobrir o IP, abra o site no navegador e veja **Remote Address** nas ferramentas de desenvolvedor (F12 → Network). Remova quando o DNS voltar a funcionar. |
 | `PORT` | não | Porta do servidor. Padrão: `3000`. |
+| `RATE_LIMIT_PER_MINUTE` | não | Perguntas por minuto que cada visitante pode fazer em `/api/chat`. Padrão: `5`. `0` desliga. |
+| `RATE_LIMIT_PER_DAY` | não | Perguntas por dia que cada visitante pode fazer. Padrão: `25` (o plano gratuito da Groq aguenta umas 30 perguntas por dia no total). `0` desliga. |
+| `RATE_LIMIT_SALT` | não | Sal do hash que identifica o visitante (o IP não é gravado). Sem ele, o sal sai do `DATABASE_URL`. |
+
+O limite fica no banco (tabela `rate_limits`), porque na Vercel cada requisição pode cair numa instância diferente. Quem passa do limite recebe `429` com `Retry-After` e uma mensagem do Grizz. Se o banco falhar, a requisição passa.
 
 > [!NOTE]
 > A lista de modelos da Groq muda com frequência. Se um modelo deixar de existir, consulte os disponíveis em `GET https://api.groq.com/openai/v1/models` e defina `GROQ_MODEL` e `GROQ_RERANK_MODEL`.
