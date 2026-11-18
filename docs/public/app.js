@@ -580,10 +580,7 @@ async function verificarServidor() {
 
 desenharContexto();
 if (SO_LEITURA) {
-    const status = $('#status');
-    status.className = 'status';
-    status.textContent = 'versão online · só leitura';
-    status.title = 'Notas e perguntas ao Claude funcionam no modo local: cd docs && npm install && npm start';
+    $('#status').remove(); // online não há servidor para mostrar o estado
 } else {
     verificarServidor();
     // As notas inseridas depois do carregamento empurram o conteúdo: um link para "#p05" cairia no lugar errado.
