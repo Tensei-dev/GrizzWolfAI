@@ -1,0 +1,1422 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GrizzWolfAI — Manual Técnico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Barlow+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- Símbolos comuns a todos os desenhos: pontas de seta e hachura -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <marker id="ponta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#eaf4ff"/>
+        </marker>
+        <marker id="ponta-ciano" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#8fe3ff"/>
+        </marker>
+        <marker id="traco-cota" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+            <path d="M2 8 L8 2" stroke="#eaf4ff" stroke-width="1.4"/>
+        </marker>
+        <pattern id="hachura" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(234,244,255,0.35)" stroke-width="1.2"/>
+        </pattern>
+    </defs>
+</svg>
+
+<header class="barra">
+    <button class="botao so-movel" id="abrir-indice" aria-label="Abrir o índice de pranchas">☰</button>
+    <h1>GrizzWolfAI <small>· manual técnico</small></h1>
+    <span class="espaco"></span>
+    <span class="status" id="status">verificando servidor…</span>
+    <button class="botao caneta" id="abrir-caderno">Caderno de notas</button>
+    <button class="botao ciano" id="abrir-conversa">Perguntar ao Claude</button>
+</header>
+
+<nav class="indice" id="indice" aria-label="Pranchas">
+    <h2>Índice de pranchas</h2>
+    <ol id="lista-pranchas"></ol>
+    <div class="ferramentas">
+        <button class="botao pequeno caneta" id="exportar-notas">Exportar notas (.md)</button>
+    </div>
+</nav>
+
+<main id="manual">
+
+<!-- ===================================================================== 00 -->
+<section class="prancha" id="p00" data-titulo="Plano geral do modelo">
+    <header class="prancha-cabecalho">
+        <span class="numero">00</span>
+        <h2>Plano geral do modelo<small>O que o Grizz faz, em duas fases: preparar o acervo e responder uma pergunta</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>O <strong>GrizzWolfAI</strong> (o "Grizz") é um assistente de perguntas e respostas sobre as normas da graduação da <strong>FACOM</strong> (Faculdade de Computação) e do <strong>IME</strong> (Instituto de Matemática e Estatística) da UFU. Ele segue a arquitetura <strong>RAG</strong> (<em>Retrieval-Augmented Generation</em>): antes de responder, busca trechos dos documentos oficiais e só responde com base neles, citando cada fonte.</p>
+        <p>O modelo trabalha em duas fases independentes, que só se encontram no banco de dados:</p>
+        <ul>
+            <li><strong>A · Preparação do acervo</strong> (uma vez por dia, em lote): os documentos dos sites das duas unidades viram trechos de texto com um vetor cada, e um grafo registra a quem cada norma vale e quais normas ela altera ou revoga. Em paralelo, as <strong>páginas dos sites</strong> (graduação, institucional, pessoas, notícias) viram um pacote <strong>OKF</strong> de arquivos Markdown, que é importado para o banco: páginas em trechos, perfis de pessoas com áreas de pesquisa, turmas com o docente de cada disciplina e os contatos dos cursos (prancha 13).</li>
+            <li><strong>B · Resposta</strong> (a cada mensagem, em poucos segundos): o Grizz entende quem pergunta, completa a pergunta, busca os trechos certos (das normas e das páginas), junta as fontes do OKF que a pergunta pede (perfil de quem foi citado, turmas de uma disciplina, docentes de uma área, contatos do curso), escolhe os melhores e escreve a resposta citando as fontes.</li>
+        </ul>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 540" role="img" aria-label="Plano geral do modelo: fase de preparação do acervo e fase de resposta, ligadas pelo banco de dados">
+                <!-- Fase A -->
+                <text x="20" y="30" class="t-titulo">A · Preparação do acervo</text>
+                <text x="360" y="30" class="t-pequeno">todo dia, em lote · GitHub Actions</text>
+                <rect x="20" y="50" width="150" height="80" class="caixa"/>
+                <text x="32" y="68" class="t-pequeno">A1</text>
+                <text x="95" y="86" text-anchor="middle">Sites</text>
+                <text x="95" y="104" text-anchor="middle" class="t-pequeno">FACOM e IME</text>
+                <text x="95" y="118" text-anchor="middle" class="t-pequeno">aba Documentos</text>
+                <line class="seta" x1="170" y1="90" x2="198" y2="90"/>
+                <rect x="200" y="50" width="150" height="80" class="caixa"/>
+                <text x="212" y="68" class="t-pequeno">A2</text>
+                <text x="275" y="86" text-anchor="middle">Texto</text>
+                <text x="275" y="104" text-anchor="middle" class="t-pequeno">PDF → texto</text>
+                <text x="275" y="118" text-anchor="middle" class="t-pequeno">escaneado → OCR</text>
+                <line class="seta" x1="350" y1="90" x2="378" y2="90"/>
+                <rect x="380" y="50" width="150" height="80" class="caixa"/>
+                <text x="392" y="68" class="t-pequeno">A3</text>
+                <text x="455" y="86" text-anchor="middle">Trechos</text>
+                <text x="455" y="104" text-anchor="middle" class="t-pequeno">por artigo</text>
+                <text x="455" y="118" text-anchor="middle" class="t-pequeno">até 1200 caract.</text>
+                <line class="seta" x1="530" y1="90" x2="558" y2="90"/>
+                <rect x="560" y="50" width="150" height="80" class="caixa-ciano"/>
+                <text x="572" y="68" class="t-pequeno">A4</text>
+                <text x="635" y="86" text-anchor="middle">Vetores</text>
+                <text x="635" y="104" text-anchor="middle" class="t-pequeno">Gemini · 768</text>
+                <text x="635" y="118" text-anchor="middle" class="t-pequeno">números por trecho</text>
+                <line class="seta" x1="710" y1="90" x2="758" y2="90"/>
+
+                <!-- Banco -->
+                <path class="caixa-dupla" d="M760 60 v100 a110 20 0 0 0 220 0 v-100"/>
+                <ellipse cx="870" cy="60" rx="110" ry="20" class="caixa-dupla"/>
+                <text x="870" y="100" text-anchor="middle" class="t-titulo">Banco</text>
+                <text x="870" y="118" text-anchor="middle" class="t-pequeno">documentos · trechos · vetores</text>
+                <text x="870" y="134" text-anchor="middle" class="t-pequeno">índice de palavras</text>
+                <rect x="790" y="196" width="160" height="56" class="caixa-ciano"/>
+                <text x="802" y="212" class="t-pequeno">A5</text>
+                <text x="870" y="226" text-anchor="middle">Grafo</text>
+                <text x="870" y="242" text-anchor="middle" class="t-pequeno">regras + Qwen</text>
+                <line class="seta" x1="870" y1="196" x2="870" y2="184"/>
+                <text x="365" y="148" text-anchor="middle" class="t-pequeno">detalhes nas pranchas 03 · 04 · 05</text>
+
+                <!-- Faixa OKF: páginas dos sites -->
+                <text x="20" y="170" class="t-pequeno t-ciano">páginas dos sites · OKF · prancha 13</text>
+                <rect x="20" y="180" width="150" height="66" class="caixa"/>
+                <text x="32" y="196" class="t-pequeno">O1</text>
+                <text x="95" y="210" text-anchor="middle">Páginas</text>
+                <text x="95" y="226" text-anchor="middle" class="t-pequeno">graduação, pessoas,</text>
+                <text x="95" y="239" text-anchor="middle" class="t-pequeno">notícias (90 dias)</text>
+                <line class="seta" x1="170" y1="213" x2="198" y2="213"/>
+                <rect x="200" y="180" width="150" height="66" class="caixa"/>
+                <text x="212" y="196" class="t-pequeno">O2</text>
+                <text x="275" y="210" text-anchor="middle">Pacote OKF</text>
+                <text x="275" y="226" text-anchor="middle" class="t-pequeno">Markdown no git</text>
+                <text x="275" y="239" text-anchor="middle" class="t-pequeno">+ e-mail e áreas</text>
+                <line class="seta" x1="350" y1="213" x2="378" y2="213"/>
+                <rect x="380" y="180" width="150" height="66" class="caixa-ciano"/>
+                <text x="392" y="196" class="t-pequeno">O3</text>
+                <text x="455" y="210" text-anchor="middle">Importação</text>
+                <text x="455" y="226" text-anchor="middle" class="t-pequeno">só o que mudou</text>
+                <text x="455" y="239" text-anchor="middle" class="t-pequeno">páginas, pessoas, turmas</text>
+                <path class="seta" d="M530 205 H700 L760 152"/>
+
+                <!-- ligação com a fase B -->
+                <path class="seta" d="M790 230 H570 V318"/>
+                <text x="590" y="222" class="t-pequeno">a busca lê o banco e o grafo</text>
+
+                <!-- Fase B -->
+                <text x="20" y="292" class="t-titulo">B · Resposta a uma pergunta</text>
+                <text x="380" y="292" class="t-pequeno">cada mensagem · poucos segundos</text>
+                <rect x="20" y="320" width="120" height="84" class="caixa"/>
+                <text x="80" y="350" text-anchor="middle">Pergunta</text>
+                <text x="80" y="368" text-anchor="middle" class="t-pequeno">do aluno, com</text>
+                <text x="80" y="382" text-anchor="middle" class="t-pequeno">o histórico</text>
+                <line class="seta" x1="140" y1="362" x2="158" y2="362"/>
+                <rect x="160" y="320" width="140" height="84" class="caixa-ciano"/>
+                <text x="172" y="338" class="t-pequeno">B1</text>
+                <text x="230" y="356" text-anchor="middle">Perfil</text>
+                <text x="230" y="374" text-anchor="middle" class="t-pequeno">curso e ano;</text>
+                <text x="230" y="388" text-anchor="middle" class="t-pequeno">pergunta se falta</text>
+                <line class="seta" x1="300" y1="362" x2="318" y2="362"/>
+                <rect x="320" y="320" width="140" height="84" class="caixa-ciano"/>
+                <text x="332" y="338" class="t-pequeno">B2</text>
+                <text x="390" y="356" text-anchor="middle">Reescrita</text>
+                <text x="390" y="374" text-anchor="middle" class="t-pequeno">"e o prazo?" vira</text>
+                <text x="390" y="388" text-anchor="middle" class="t-pequeno">pergunta completa</text>
+                <line class="seta" x1="460" y1="362" x2="498" y2="362"/>
+                <rect x="500" y="320" width="140" height="84" class="caixa"/>
+                <text x="512" y="338" class="t-pequeno">B3</text>
+                <text x="570" y="354" text-anchor="middle">Busca</text>
+                <text x="570" y="370" text-anchor="middle" class="t-pequeno">normas + páginas,</text>
+                <text x="570" y="383" text-anchor="middle" class="t-pequeno">pelo grafo; + pessoas,</text>
+                <text x="570" y="396" text-anchor="middle" class="t-pequeno">turmas e contatos</text>
+                <line class="seta" x1="640" y1="362" x2="658" y2="362"/>
+                <rect x="660" y="320" width="140" height="84" class="caixa-ciano"/>
+                <text x="672" y="338" class="t-pequeno">B4</text>
+                <text x="730" y="356" text-anchor="middle">Rerank</text>
+                <text x="730" y="374" text-anchor="middle" class="t-pequeno">nota 0–10;</text>
+                <text x="730" y="388" text-anchor="middle" class="t-pequeno">ficam os 5 melhores</text>
+                <line class="seta" x1="800" y1="362" x2="818" y2="362"/>
+                <rect x="820" y="320" width="160" height="84" class="caixa-dupla"/>
+                <text x="832" y="338" class="t-pequeno">B5</text>
+                <text x="900" y="356" text-anchor="middle">Resposta</text>
+                <text x="900" y="374" text-anchor="middle" class="t-pequeno">só com os trechos,</text>
+                <text x="900" y="388" text-anchor="middle" class="t-pequeno">citando [1] [2]…</text>
+
+                <!-- modelos de cada etapa -->
+                <text x="230" y="424" text-anchor="middle" class="t-pequeno t-ciano">gpt-oss-20b</text>
+                <text x="390" y="424" text-anchor="middle" class="t-pequeno t-ciano">gpt-oss-20b</text>
+                <text x="570" y="424" text-anchor="middle" class="t-pequeno t-ciano">Gemini (vetor)</text>
+                <text x="730" y="424" text-anchor="middle" class="t-pequeno t-ciano">qwen3.8-27b</text>
+                <text x="900" y="424" text-anchor="middle" class="t-pequeno t-ciano">gpt-oss-120b (reserva: 20b)</text>
+                <text x="230" y="440" text-anchor="middle" class="t-pequeno">prancha 07</text>
+                <text x="390" y="440" text-anchor="middle" class="t-pequeno">prancha 06</text>
+                <text x="570" y="440" text-anchor="middle" class="t-pequeno">pranchas 06 · 13</text>
+                <text x="730" y="440" text-anchor="middle" class="t-pequeno">prancha 06</text>
+                <text x="900" y="440" text-anchor="middle" class="t-pequeno">prancha 07</text>
+
+                <!-- legenda -->
+                <line class="linha-fina" x1="20" y1="470" x2="980" y2="470"/>
+                <rect x="20" y="490" width="30" height="18" class="caixa"/>
+                <text x="60" y="504" class="t-pequeno">código e banco</text>
+                <rect x="190" y="490" width="30" height="18" class="caixa-ciano"/>
+                <text x="230" y="504" class="t-pequeno">chama um modelo (de linguagem ou de vetores)</text>
+                <text x="560" y="506" class="t-caneta">o modelo só responde com o que a busca trouxe</text>
+            </svg>
+            <figcaption>Fig. 00.1 — Plano geral: a preparação (A) alimenta o banco uma vez por dia, pelos PDFs (A1–A5) e pelas páginas dos sites no formato OKF (O1–O3); cada pergunta (B) lê esse banco. Em ciano, as etapas que usam um modelo.</figcaption>
+        </figure>
+
+        <h3>Por que duas fases</h3>
+        <p>Ler, cortar e vetorizar centenas de PDFs leva horas e esbarra em cotas diárias, então isso acontece uma vez por dia, longe do aluno. Na hora da pergunta resta só o trabalho leve: buscar no banco já pronto e chamar os modelos algumas vezes. Por isso uma falha na importação (site fora do ar, cota esgotada) não derruba o chat, que continua respondendo com o acervo do dia anterior.</p>
+
+        <h3>Como usar este manual</h3>
+        <ul>
+            <li><strong>Pranchas:</strong> cada prancha explica uma parte do sistema, com desenho, arquivos envolvidos e o porquê das decisões. A ordem segue o caminho dos dados: primeiro a importação, depois o banco e o grafo, por fim a pergunta.</li>
+            <li><strong>Notas:</strong> selecione qualquer trecho de texto e clique em <em>Anotar</em>. A nota fica presa ao parágrafo, como uma marca expansível de caneta. Cada prancha também tem um espaço de notas gerais no fim. Tudo é salvo em <code>docs/dados/notas.json</code>.</li>
+            <li><strong>Perguntas ao Claude:</strong> o botão <em>Perguntar ao Claude</em> abre a conversa. O Claude recebe o código inteiro do repositório e o nome da prancha que você está lendo. Selecionando um trecho, você pode perguntar sobre ele. Uma resposta útil pode virar nota com um clique.</li>
+            <li><strong>Caderno:</strong> reúne todas as notas por prancha e exporta tudo em Markdown.</li>
+        </ul>
+        <div class="dica">O manual descreve o código como ele estava quando foi escrito. O Claude lê o código atual a cada pergunta: se os dois divergirem, ele avisa.</div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">GrizzWolfAI · Manual técnico</div>
+        <div><b>Prancha</b>00 / 13</div><div><b>Assunto</b>Plano geral</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 01 -->
+<section class="prancha" id="p01" data-titulo="Implantação geral">
+    <header class="prancha-cabecalho">
+        <span class="numero">01</span>
+        <h2>Implantação geral<small>Onde cada parte roda e quem conversa com quem</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>O sistema tem duas metades que só se encontram no banco. A metade <strong>em lote</strong> roda no GitHub Actions uma vez por dia: lê os sites, baixa os PDFs, gera os vetores e monta o grafo. A metade <strong>em tempo real</strong> roda na Vercel: recebe a pergunta, busca no banco, chama os modelos de linguagem e devolve a resposta.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 540" role="img" aria-label="Diagrama de implantação com fontes, GitHub Actions, banco Neon, Vercel, navegador e serviços externos">
+                <!-- serviços externos -->
+                <rect x="215" y="18" width="200" height="62" class="caixa-externa"/>
+                <text x="315" y="42" text-anchor="middle" class="t-titulo">Gemini</text>
+                <text x="315" y="62" text-anchor="middle" class="t-pequeno">gemini-embedding-001 · 768d</text>
+                <rect x="600" y="10" width="300" height="82" class="caixa-externa"/>
+                <text x="750" y="34" text-anchor="middle" class="t-titulo">Groq</text>
+                <text x="750" y="52" text-anchor="middle" class="t-pequeno">gpt-oss-120b → resposta</text>
+                <text x="750" y="66" text-anchor="middle" class="t-pequeno">gpt-oss-20b → perfil, reescrita, rerank</text>
+                <text x="750" y="80" text-anchor="middle" class="t-pequeno">qwen3.8-27b → leitura do grafo</text>
+
+                <!-- fontes -->
+                <rect x="20" y="170" width="150" height="56" class="caixa"/>
+                <text x="95" y="194" text-anchor="middle">Site da FACOM</text>
+                <text x="95" y="212" text-anchor="middle" class="t-pequeno">aba Documentos</text>
+                <rect x="20" y="256" width="150" height="56" class="caixa"/>
+                <text x="95" y="280" text-anchor="middle">Site do IME</text>
+                <text x="95" y="298" text-anchor="middle" class="t-pequeno">aba Documentos</text>
+
+                <!-- github actions -->
+                <rect x="215" y="140" width="210" height="220" class="caixa-dupla"/>
+                <text x="320" y="166" text-anchor="middle" class="t-titulo">GitHub Actions</text>
+                <text x="320" y="184" text-anchor="middle" class="t-pequeno">todo dia ~6h17 (Brasília)</text>
+                <line class="linha-fina" x1="225" y1="194" x2="415" y2="194"/>
+                <text x="232" y="216">1 migrate</text>
+                <text x="232" y="240">2 sync <tspan class="t-pequeno">(FACOM + IME)</tspan></text>
+                <text x="232" y="264">3 dedupe</text>
+                <text x="232" y="288">4 graph <tspan class="t-pequeno">(até 80 docs)</tspan></text>
+                <text x="232" y="312">5 graph --references</text>
+                <text x="232" y="344" class="t-pequeno">sync-documents.yml</text>
+                <line class="seta" x1="170" y1="198" x2="213" y2="210"/>
+                <line class="seta" x1="170" y1="284" x2="213" y2="268"/>
+
+                <!-- banco -->
+                <path class="caixa-dupla" d="M470 170 v170 a90 22 0 0 0 180 0 v-170"/>
+                <ellipse cx="560" cy="170" rx="90" ry="22" class="caixa-dupla"/>
+                <text x="560" y="222" text-anchor="middle" class="t-titulo">Neon</text>
+                <text x="560" y="242" text-anchor="middle" class="t-pequeno">PostgreSQL + pgvector</text>
+                <text x="560" y="268" text-anchor="middle" class="t-pequeno">documentos · trechos</text>
+                <text x="560" y="284" text-anchor="middle" class="t-pequeno">vetores · grafo</text>
+                <text x="560" y="300" text-anchor="middle" class="t-pequeno">avaliações</text>
+                <line class="seta" x1="425" y1="250" x2="468" y2="250"/>
+                <text x="446" y="242" text-anchor="middle" class="t-pequeno">grava</text>
+
+                <!-- vercel -->
+                <rect x="700" y="190" width="150" height="120" class="caixa-dupla"/>
+                <text x="775" y="214" text-anchor="middle" class="t-titulo">Vercel</text>
+                <text x="775" y="234" text-anchor="middle" class="t-pequeno">api/index.js</text>
+                <text x="775" y="256" text-anchor="middle">POST /api/chat</text>
+                <text x="775" y="276" text-anchor="middle">POST /api/feedback</text>
+                <text x="775" y="298" text-anchor="middle" class="t-pequeno">cle1 · até 60 s</text>
+                <path class="seta" d="M700 236 L652 236" />
+                <path class="seta" d="M652 268 L700 268" />
+                <text x="676" y="228" text-anchor="middle" class="t-pequeno">lê</text>
+
+                <!-- navegador -->
+                <rect x="882" y="200" width="104" height="100" class="caixa"/>
+                <text x="934" y="224" text-anchor="middle">Navegador</text>
+                <text x="934" y="244" text-anchor="middle" class="t-pequeno">public/</text>
+                <text x="934" y="262" text-anchor="middle" class="t-pequeno">histórico no</text>
+                <text x="934" y="276" text-anchor="middle" class="t-pequeno">localStorage</text>
+                <line class="seta" x1="882" y1="236" x2="852" y2="236"/>
+                <line class="seta" x1="852" y1="268" x2="882" y2="268"/>
+
+                <!-- chamadas externas -->
+                <path class="seta-tracejada" d="M280 140 V82"/>
+                <text x="272" y="118" text-anchor="end" class="t-pequeno">vetores dos trechos</text>
+                <path class="seta-tracejada" d="M400 140 V106 H640 V94"/>
+                <text x="440" y="100" class="t-pequeno">leitura do grafo (qwen)</text>
+                <path class="seta-tracejada" d="M800 190 V94"/>
+                <text x="808" y="146" class="t-pequeno">perfil, reescrita,</text>
+                <text x="808" y="160" class="t-pequeno">rerank, resposta</text>
+                <path class="seta-tracejada" d="M740 190 V126 H350 V82"/>
+                <text x="470" y="121" class="t-pequeno">vetor da pergunta</text>
+
+                <!-- cotas -->
+                <path class="cota" d="M20 420 H650" marker-start="url(#traco-cota)" marker-end="url(#traco-cota)"/>
+                <text x="335" y="412" text-anchor="middle" class="t-pequeno">METADE EM LOTE · roda sem ninguém olhando</text>
+                <path class="cota" d="M470 460 H986" marker-start="url(#traco-cota)" marker-end="url(#traco-cota)"/>
+                <text x="728" y="452" text-anchor="middle" class="t-pequeno">METADE EM TEMPO REAL · cada pergunta, poucos segundos</text>
+                <text x="20" y="505" class="t-caneta">o banco é o único ponto em comum: nenhuma metade chama a outra</text>
+            </svg>
+            <figcaption>Fig. 01.1 — Implantação: lote (esquerda) e tempo real (direita) se encontram no banco Neon.</figcaption>
+        </figure>
+
+        <h3>Serviços e para que servem</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Serviço</th><th>Papel</th><th>Onde aparece no código</th></tr>
+            <tr><td>Neon (PostgreSQL + pgvector)</td><td>Guarda documentos, trechos, vetores de 768 dimensões, índice de palavras-chave e o grafo.</td><td><code>db/pool.js</code>, <code>models/</code></td></tr>
+            <tr><td>Gemini <code>gemini-embedding-001</code></td><td>Transforma cada trecho (na importação) e cada pergunta (na busca) num vetor.</td><td><code>services/embeddings.js</code></td></tr>
+            <tr><td>Groq <code>openai/gpt-oss-120b</code></td><td>Escreve a resposta final do Grizz.</td><td><code>services/llm.js</code> (<code>CHAT_MODEL</code>)</td></tr>
+            <tr><td>Groq <code>openai/gpt-oss-20b</code></td><td>Lê o perfil do aluno, reescreve a pergunta, dá nota aos trechos (rerank) e checa normas concorrentes.</td><td><code>RERANK_MODEL</code> em <code>services/llm.js</code></td></tr>
+            <tr><td>Groq <code>qwen/qwen3.8-27b</code></td><td>Lê o início de cada documento para o grafo. Tem cota separada da do chat de propósito.</td><td><code>GRAPH_MODEL</code> em <code>services/llm.js</code></td></tr>
+            <tr><td>Vercel</td><td>Hospeda a página e a API como função serverless.</td><td><code>vercel.json</code>, <code>api/index.js</code></td></tr>
+            <tr><td>GitHub Actions</td><td>Roda a importação e o grafo todo dia.</td><td><code>.github/workflows/sync-documents.yml</code></td></tr>
+        </table>
+        </div>
+        <div class="arquivos" data-arquivos="server.js api/index.js vercel.json services/llm.js services/embeddings.js db/pool.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Implantação geral</div>
+        <div><b>Prancha</b>01 / 13</div><div><b>Assunto</b>Infraestrutura</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 02 -->
+<section class="prancha" id="p02" data-titulo="Estrutura de pastas">
+    <header class="prancha-cabecalho">
+        <span class="numero">02</span>
+        <h2>Estrutura de pastas<small>O mapa do terreno: cada pasta, uma responsabilidade</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>O projeto segue uma divisão em camadas simples. <code>models/</code> só fala com o banco, uma tabela por arquivo. <code>services/</code> guarda as regras de negócio. <code>scripts/</code> são os comandos de linha que a automação roda. Nenhum arquivo de <code>models/</code> chama um serviço externo, e nenhum serviço escreve SQL direto, com uma exceção consciente: <code>scripts/dedupe-documents.js</code>.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 600" role="img" aria-label="Árvore de pastas do repositório com a função de cada uma">
+                <text x="30" y="34" class="t-titulo">GrizzWolfAI/</text>
+                <line class="linha" x1="40" y1="44" x2="40" y2="568"/>
+                <g>
+                    <line class="linha" x1="40" y1="70" x2="70" y2="70"/><text x="78" y="75">server.js</text><text x="440" y="75" class="t-pequeno">app Express: /api/chat e /api/feedback, validação da entrada</text>
+                    <line class="linha" x1="40" y1="104" x2="70" y2="104"/><text x="78" y="109">api/index.js</text><text x="440" y="109" class="t-pequeno">entrada da função serverless da Vercel (reaproveita o server.js)</text>
+                    <line class="linha" x1="40" y1="138" x2="70" y2="138"/><text x="78" y="143">db/</text><text x="440" y="143" class="t-pequeno">pool.js (conexão, tempos limite) · migrate.js · migrations/001…010</text>
+                    <line class="linha" x1="40" y1="172" x2="70" y2="172"/><text x="78" y="177">models/</text><text x="440" y="177" class="t-pequeno">acesso às tabelas: Document, Chunk, Category, Feedback, KnowledgeGraph</text>
+                    <line class="linha" x1="40" y1="206" x2="70" y2="206"/><text x="78" y="211">services/</text><text x="440" y="211" class="t-pequeno">regras de negócio — detalhado ao lado ↓</text>
+                    <line class="linha" x1="40" y1="410" x2="70" y2="410"/><text x="78" y="415">scripts/</text><text x="440" y="415" class="t-pequeno">sync · ingest · build-graph · dedupe-documents · copy-vendor</text>
+                    <line class="linha" x1="40" y1="444" x2="70" y2="444"/><text x="78" y="449">public/</text><text x="440" y="449" class="t-pequeno">a página do chat: index.html, script.js, style.css, imagens</text>
+                    <line class="linha" x1="40" y1="478" x2="70" y2="478"/><text x="78" y="483">data/sources.json</text><text x="440" y="483" class="t-pequeno">lista manual de documentos extras (npm run ingest)</text>
+                    <line class="linha" x1="40" y1="512" x2="70" y2="512"/><text x="78" y="517">.github/workflows/</text><text x="440" y="517" class="t-pequeno">sync-documents.yml: a automação diária</text>
+                    <line class="linha" x1="40" y1="546" x2="70" y2="546"/><text x="78" y="551">docs/</text><text x="440" y="551" class="t-caneta">este manual (notas e chave do Claude fora do git)</text>
+                </g>
+                <!-- services detalhado -->
+                <line class="linha" x1="110" y1="216" x2="110" y2="390"/>
+                <g>
+                    <line class="linha-fina" x1="110" y1="238" x2="130" y2="238"/><text x="136" y="242" class="t-ciano">agent.js</text><text x="440" y="242" class="t-pequeno">o Grizz: perfil, perguntas de esclarecimento, prompt, resposta</text>
+                    <line class="linha-fina" x1="110" y1="262" x2="130" y2="262"/><text x="136" y="266" class="t-ciano">search.js · reranker.js</text><text x="440" y="266" class="t-pequeno">busca híbrida, RRF, cobertura de currículos, versões, notas 0–10</text>
+                    <line class="linha-fina" x1="110" y1="286" x2="130" y2="286"/><text x="136" y="290" class="t-ciano">knowledgeGraph.js</text><text x="440" y="290" class="t-pequeno">grafo: montagem (regras + LLM) e consulta na hora da busca</text>
+                    <line class="linha-fina" x1="110" y1="310" x2="130" y2="310"/><text x="136" y="314" class="t-ciano">profile.js · queryRewriter.js</text><text x="440" y="314" class="t-pequeno">leitura do perfil, normas concorrentes, pergunta completa</text>
+                    <line class="linha-fina" x1="110" y1="334" x2="130" y2="334"/><text x="136" y="338" class="t-ciano">courses.js</text><text x="440" y="338" class="t-pequeno">unidades, cursos, currículos e o catálogo do prompt</text>
+                    <line class="linha-fina" x1="110" y1="358" x2="130" y2="358"/><text x="136" y="362" class="t-ciano">unitCrawler · extractor · ocr · chunker</text><text x="440" y="362" class="t-pequeno">importação: listagem, download, texto, trechos</text>
+                    <line class="linha-fina" x1="110" y1="382" x2="130" y2="382"/><text x="136" y="386" class="t-ciano">ingestion · embeddings · llm · network</text><text x="440" y="386" class="t-pequeno">gravação, Gemini, Groq, erros de rede · hostOverrides (IP fixo)</text>
+                </g>
+                <text x="760" y="24" class="t-caneta">models/ = só SQL</text>
+                <text x="760" y="44" class="t-caneta">services/ = só regras</text>
+            </svg>
+            <figcaption>Fig. 02.1 — Árvore de pastas. Em ciano, os serviços; em letra de mão, a regra de camadas.</figcaption>
+        </figure>
+        <div class="arquivos" data-arquivos="README.md package.json .gitignore"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Estrutura de pastas</div>
+        <div><b>Prancha</b>02 / 13</div><div><b>Assunto</b>Organização</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 03 -->
+<section class="prancha" id="p03" data-titulo="Importação">
+    <header class="prancha-cabecalho">
+        <span class="numero">03</span>
+        <h2>Importação<small>Do link no site da unidade até os trechos com vetor no banco</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>A importação é comandada por <code>scripts/sync.js</code> (<code>npm run sync</code>). Para cada unidade, ela lê todas as páginas da aba Documentos, descarta o que não interessa, ordena por prioridade e importa um documento por vez. Tudo é retomável: o que já está no banco é pulado, então uma queda no meio só atrasa o trabalho.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 490" role="img" aria-label="Linha de importação em oito estações, com uma decisão no hash do arquivo">
+                <!-- linha 1 -->
+                <rect x="20" y="40" width="200" height="86" class="caixa"/>
+                <text x="32" y="62" class="t-pequeno">01</text><text x="120" y="66" text-anchor="middle">Listagem</text>
+                <text x="120" y="88" text-anchor="middle" class="t-pequeno">unitCrawler.crawl()</text>
+                <text x="120" y="104" text-anchor="middle" class="t-pequeno">página a página · 1,5 s</text>
+                <line class="seta" x1="220" y1="83" x2="262" y2="83"/>
+                <rect x="264" y="40" width="210" height="86" class="caixa"/>
+                <text x="276" y="62" class="t-pequeno">02</text><text x="369" y="66" text-anchor="middle">Filtro e ordem</text>
+                <text x="369" y="88" text-anchor="middle" class="t-pequeno">shouldSkip · toEntry</text>
+                <text x="369" y="104" text-anchor="middle" class="t-pequeno">priorityOf (TCC, fichas)</text>
+                <line class="seta" x1="474" y1="83" x2="516" y2="83"/>
+                <rect x="518" y="40" width="200" height="86" class="caixa"/>
+                <text x="530" y="62" class="t-pequeno">03</text><text x="618" y="66" text-anchor="middle">Download</text>
+                <text x="618" y="88" text-anchor="middle" class="t-pequeno">extractor.extract()</text>
+                <text x="618" y="104" text-anchor="middle" class="t-pequeno">limite de 60 s</text>
+                <line class="seta" x1="718" y1="83" x2="760" y2="83"/>
+                <rect x="762" y="40" width="218" height="86" class="caixa"/>
+                <text x="774" y="62" class="t-pequeno">04</text><text x="871" y="66" text-anchor="middle">Texto</text>
+                <text x="871" y="88" text-anchor="middle" class="t-pequeno">pdf-parse · HTML: cheerio</text>
+                <text x="871" y="104" text-anchor="middle" class="t-pequeno">&lt;50 caract./pág. → OCR</text>
+                <!-- descida -->
+                <path class="seta" d="M871 126 V176 H760"/>
+                <!-- decisão -->
+                <path d="M690 176 L760 224 L690 272 L620 224 z" class="caixa-ciano" transform="translate(-10 -48)"/>
+                <text x="680" y="172" text-anchor="middle" class="t-pequeno">05</text>
+                <text x="680" y="186" text-anchor="middle">hash já</text>
+                <text x="680" y="200" text-anchor="middle">existe?</text>
+                <path class="seta-ciano" d="M680 224 V292"/>
+                <text x="690" y="262" class="t-ciano t-pequeno">sim</text>
+                <rect x="560" y="294" width="240" height="66" class="caixa-ciano"/>
+                <text x="680" y="318" text-anchor="middle">Guarda o endereço novo</text>
+                <text x="680" y="336" text-anchor="middle" class="t-pequeno">document_sources + categoria</text>
+                <text x="680" y="350" text-anchor="middle" class="t-pequeno">não baixa de novo amanhã</text>
+                <path class="seta" d="M610 176 H520"/>
+                <text x="560" y="168" text-anchor="middle" class="t-pequeno">não</text>
+                <!-- linha 2 -->
+                <rect x="290" y="134" width="228" height="86" class="caixa"/>
+                <text x="302" y="156" class="t-pequeno">06</text><text x="404" y="160" text-anchor="middle">Trechos</text>
+                <text x="404" y="182" text-anchor="middle" class="t-pequeno">chunker: quebra em "Art. N"</text>
+                <text x="404" y="198" text-anchor="middle" class="t-pequeno">até 1200 caract. · 200 de sobra</text>
+                <path class="seta" d="M290 177 H240 V246"/>
+                <rect x="20" y="248" width="230" height="86" class="caixa"/>
+                <text x="32" y="270" class="t-pequeno">07</text><text x="135" y="274" text-anchor="middle">Vetores</text>
+                <text x="135" y="296" text-anchor="middle" class="t-pequeno">Gemini · 768 dimensões</text>
+                <text x="135" y="312" text-anchor="middle" class="t-pequeno">ritmo por minuto · cota diária</text>
+                <line class="seta" x1="250" y1="291" x2="292" y2="291"/>
+                <rect x="294" y="248" width="230" height="86" class="caixa-dupla"/>
+                <text x="306" y="270" class="t-pequeno">08</text><text x="409" y="274" text-anchor="middle">Gravação</text>
+                <text x="409" y="296" text-anchor="middle" class="t-pequeno">documents · chunks (+ heading)</text>
+                <text x="409" y="312" text-anchor="middle" class="t-pequeno">categoria facom / ime</text>
+
+                <!-- anotações -->
+                <rect x="20" y="380" width="960" height="96" class="caixa-alerta"/>
+                <text x="36" y="404" class="t-alerta">Paradas de segurança</text>
+                <text x="36" y="426" class="t-pequeno">cota diária do Gemini esgotada → para tudo e retoma amanhã (DailyQuotaError)</text>
+                <text x="36" y="444" class="t-pequeno">3 falhas de rede seguidas → espera 60 s, testa site e banco, continua ou para · site de uma unidade fora do ar → pula só essa unidade</text>
+                <text x="36" y="462" class="t-pequeno">falha de um documento (404, PDF inválido) → registra e segue para o próximo</text>
+            </svg>
+            <figcaption>Fig. 03.1 — Linha de importação. O losango é a única decisão: arquivo repetido não é processado de novo.</figcaption>
+        </figure>
+
+        <h3>Estação por estação</h3>
+        <ol>
+            <li><strong>Listagem.</strong> As duas unidades usam o mesmo modelo de site (Drupal da UFU), então um só crawler serve às duas. A configuração de cada uma (endereço, filtros, órgão emissor, como montar o título) fica em <code>UNITS</code>, em <code>services/unitCrawler.js</code>.</li>
+            <li><strong>Filtro e ordem.</strong> Só PDFs entram. Saem documentos sobre a vida funcional dos professores, concursos, eleições e eventos (<code>skipTitles</code>, <code>skipFiles</code>). No IME, normas de TCC e fichas de disciplinas vêm primeiro (<code>priority</code>), porque a cota diária do Gemini nem sempre dá para tudo.</li>
+            <li><strong>Título, tipo e número.</strong> <code>toEntry()</code> monta o título com o nome do arquivo quando ele acrescenta informação, deduz o tipo (resolução, portaria, edital…), o número ("18/2024") e o órgão emissor (CONFACOM, CONIME, CONFAMAT…).</li>
+            <li><strong>Texto.</strong> PDFs com pouco texto (menos de 50 caracteres por página) são escaneados e passam por OCR com <code>tesseract.js</code> (<code>services/ocr.js</code>).</li>
+            <li><strong>Arquivo repetido.</strong> O <em>hash</em> do texto normalizado identifica o documento. Se já existe, a URL nova é guardada em <code>document_sources</code> e a categoria da unidade é acrescentada. Sem isso, um arquivo publicado em dois endereços seria baixado todo dia.</li>
+            <li><strong>Trechos.</strong> O texto é cortado respeitando os artigos das normas: um novo "Art. N" começa um trecho novo se o atual já tem 400 caracteres. Cada trecho tem até 1200 caracteres e repete os 200 finais do anterior, para uma frase cortada não perder o contexto.</li>
+            <li><strong>Vetores.</strong> O Gemini recebe os trechos em lotes, respeitando o limite por minuto com 15% de folga (<code>SAFETY_MARGIN</code>).</li>
+            <li><strong>Gravação.</strong> O documento, os trechos (com o título e a ementa em <code>heading</code>, usados na busca por palavras-chave) e as categorias são gravados. Se algo falha no meio, o documento é removido inteiro.</li>
+        </ol>
+        <div class="arquivos" data-arquivos="scripts/sync.js services/unitCrawler.js services/extractor.js services/ocr.js services/chunker.js services/ingestion.js services/embeddings.js scripts/ingest.js scripts/dedupe-documents.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Importação de documentos</div>
+        <div><b>Prancha</b>03 / 13</div><div><b>Assunto</b>Pipeline em lote</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 04 -->
+<section class="prancha" id="p04" data-titulo="Banco de dados">
+    <header class="prancha-cabecalho">
+        <span class="numero">04</span>
+        <h2>Banco de dados<small>Tabelas, relações e as migrations que as criaram</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>O banco é um PostgreSQL no Neon com três extensões: <code>vector</code> (pgvector, para os vetores e a busca por similaridade), <code>unaccent</code> (busca sem acentos) e <code>pgcrypto</code>. O schema nasce e evolui só por migrations em <code>db/migrations/</code>, aplicadas em ordem por <code>npm run migrate</code>, que anota cada uma em <code>schema_migrations</code>.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 610" role="img" aria-label="Diagrama entidade-relacionamento do banco">
+                <!-- documents -->
+                <rect x="360" y="20" width="270" height="250" class="caixa-dupla"/>
+                <text x="495" y="44" text-anchor="middle" class="t-titulo">documents</text>
+                <line class="linha" x1="360" y1="54" x2="630" y2="54"/>
+                <text x="372" y="76">id <tspan class="t-pequeno">PK</tspan></text>
+                <text x="372" y="96">title · doc_type · issuer</text>
+                <text x="372" y="116">number <tspan class="t-pequeno">"18/2024"</tspan></text>
+                <text x="372" y="136">subject <tspan class="t-pequeno">ementa</tspan></text>
+                <text x="372" y="156">source_url · published_at</text>
+                <text x="372" y="176">status <tspan class="t-pequeno">vigente|revogado|duplicado</tspan></text>
+                <text x="372" y="196">replaced_by <tspan class="t-pequeno">→ documents</tspan></text>
+                <text x="372" y="216">file_hash <tspan class="t-pequeno">UNIQUE</tspan></text>
+                <text x="372" y="236">graph_built_at</text>
+                <path class="seta-tracejada" d="M630 206 C700 210 700 300 590 274"/>
+                <text x="648" y="304" class="t-pequeno">revogado por</text>
+
+                <!-- chunks -->
+                <rect x="700" y="20" width="285" height="210" class="caixa"/>
+                <text x="842" y="44" text-anchor="middle" class="t-titulo">chunks</text>
+                <line class="linha" x1="700" y1="54" x2="985" y2="54"/>
+                <text x="712" y="76">id · document_id <tspan class="t-pequeno">FK</tspan></text>
+                <text x="712" y="96">chunk_index · page</text>
+                <text x="712" y="116">content</text>
+                <text x="712" y="136">heading <tspan class="t-pequeno">título + ementa</tspan></text>
+                <text x="712" y="156">embedding <tspan class="t-pequeno">vector(768) · HNSW</tspan></text>
+                <text x="712" y="176">tsv <tspan class="t-pequeno">gerado · GIN</tspan></text>
+                <text x="712" y="198" class="t-pequeno">heading peso A + content peso D</text>
+                <line class="linha" x1="630" y1="90" x2="700" y2="90"/>
+                <text x="640" y="84" class="t-pequeno">1</text><text x="688" y="84" class="t-pequeno">N</text>
+
+                <!-- categorias -->
+                <rect x="20" y="20" width="180" height="90" class="caixa"/>
+                <text x="110" y="44" text-anchor="middle" class="t-titulo">categories</text>
+                <line class="linha" x1="20" y1="54" x2="200" y2="54"/>
+                <text x="32" y="76">id · slug</text>
+                <text x="32" y="96" class="t-pequeno">facom · ime · graduacao</text>
+                <rect x="40" y="150" width="250" height="70" class="caixa"/>
+                <text x="165" y="174" text-anchor="middle" class="t-titulo">document_categories</text>
+                <line class="linha" x1="40" y1="184" x2="290" y2="184"/>
+                <text x="52" y="206">document_id · category_id</text>
+                <line class="linha" x1="110" y1="110" x2="110" y2="150"/>
+                <line class="linha" x1="290" y1="186" x2="360" y2="186"/>
+
+                <!-- document_sources -->
+                <rect x="40" y="250" width="250" height="70" class="caixa"/>
+                <text x="165" y="274" text-anchor="middle" class="t-titulo">document_sources</text>
+                <line class="linha" x1="40" y1="284" x2="290" y2="284"/>
+                <text x="52" y="306">url <tspan class="t-pequeno">PK</tspan> · document_id</text>
+                <path class="linha" d="M290 284 H330 V250 H360"/>
+
+                <!-- grafo -->
+                <rect x="360" y="330" width="270" height="110" class="caixa-ciano"/>
+                <text x="495" y="354" text-anchor="middle" class="t-titulo t-ciano">kg_nodes</text>
+                <line class="linha-fina" x1="360" y1="364" x2="630" y2="364"/>
+                <text x="372" y="386">id · type · key · label</text>
+                <text x="372" y="406">document_id <tspan class="t-pequeno">→ documents</tspan></text>
+                <text x="372" y="426" class="t-pequeno">5 tipos: unidade, curso, currículo…</text>
+                <path class="linha" d="M495 270 V330"/>
+                <rect x="700" y="330" width="285" height="110" class="caixa-ciano"/>
+                <text x="842" y="354" text-anchor="middle" class="t-titulo t-ciano">kg_edges</text>
+                <line class="linha-fina" x1="700" y1="364" x2="985" y2="364"/>
+                <text x="712" y="386">source_id → relation → target_id</text>
+                <text x="712" y="406">origin <tspan class="t-pequeno">regra | llm</tspan></text>
+                <text x="712" y="426" class="t-pequeno">aplica_a · trata_de · revoga…</text>
+                <line class="linha" x1="630" y1="380" x2="700" y2="380"/>
+                <line class="linha" x1="630" y1="410" x2="700" y2="410"/>
+
+                <!-- isoladas -->
+                <rect x="20" y="370" width="290" height="110" class="caixa"/>
+                <text x="165" y="394" text-anchor="middle" class="t-titulo">feedback</text>
+                <line class="linha" x1="20" y1="404" x2="310" y2="404"/>
+                <text x="32" y="426">answer_id · rating ±1</text>
+                <text x="32" y="446">question · answer · sources</text>
+                <text x="32" y="466" class="t-pequeno">course · entry_year · model</text>
+                <rect x="20" y="510" width="290" height="70" class="caixa"/>
+                <text x="165" y="534" text-anchor="middle" class="t-titulo">schema_migrations</text>
+                <line class="linha" x1="20" y1="544" x2="310" y2="544"/>
+                <text x="32" y="566">name · applied_at</text>
+                <text x="360" y="520" class="t-caneta">feedback não aponta para trechos de propósito:</text>
+                <text x="360" y="542" class="t-caneta">a avaliação é anônima e sobrevive à reimportação</text>
+            </svg>
+            <figcaption>Fig. 04.1 — Diagrama entidade-relacionamento. Em ciano, as tabelas do grafo de conhecimento.</figcaption>
+        </figure>
+
+        <h3>Linha do tempo das migrations</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Migration</th><th>O que fez</th></tr>
+            <tr><td><code>001_create_tables</code></td><td>Extensões, configuração de busca em português sem acento (<code>pt_unaccent</code>), tabelas base e índices HNSW (vetores) e GIN (palavras).</td></tr>
+            <tr><td><code>002_document_status_duplicado</code></td><td>Status <code>duplicado</code>, usado por <code>npm run dedupe</code>.</td></tr>
+            <tr><td><code>003</code>, <code>004</code></td><td>Perfil e cliente nas conversas. Ficaram obsoletas com a 006.</td></tr>
+            <tr><td><code>005_document_subject</code></td><td>Coluna <code>subject</code> (ementa), preenchida a partir dos primeiros trechos.</td></tr>
+            <tr><td><code>006_history_in_browser</code></td><td>Apaga conversas do servidor: o histórico passa a viver só no navegador. Cria a <code>feedback</code> anônima.</td></tr>
+            <tr><td><code>007_plural_normalization</code></td><td><code>pt_normalize()</code>: "-ões" e "-ães" viram "-ão", para "resoluções" casar com "resolução".</td></tr>
+            <tr><td><code>008_knowledge_graph</code></td><td>Tabelas <code>kg_nodes</code> e <code>kg_edges</code> e a coluna <code>graph_built_at</code>.</td></tr>
+            <tr><td><code>009_document_sources</code></td><td>Todos os endereços de cada documento, contra downloads repetidos.</td></tr>
+            <tr><td><code>010_chunk_heading</code></td><td>Título e ementa no índice de palavras de cada trecho, com peso A.</td></tr>
+        </table>
+        </div>
+        <div class="arquivos" data-arquivos="db/migrations/001_create_tables.sql db/migrations/008_knowledge_graph.sql db/migrations/010_chunk_heading.sql db/migrate.js models/Document.js models/Chunk.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Banco de dados</div>
+        <div><b>Prancha</b>04 / 13</div><div><b>Assunto</b>Schema</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 05 -->
+<section class="prancha" id="p05" data-titulo="Grafo de conhecimento">
+    <header class="prancha-cabecalho">
+        <span class="numero">05</span>
+        <h2>Grafo de conhecimento<small>A quem cada norma vale, do que trata e quais normas ela altera ou revoga</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>Os vetores dizem o que um trecho <em>significa</em>, mas não dizem <em>a quem a norma vale</em> nem se ela <em>ainda vale</em>. O grafo guarda esse tipo de fato e deixa a busca aplicar, antes do modelo de linguagem, as regras que o prompt do Grizz exige: norma de outro curso não vale para o aluno, a norma mais nova prevalece, e a regra pode depender de outro documento.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 520" role="img" aria-label="Tipos de nó e de aresta do grafo, com um exemplo real de revogações em cadeia">
+                <!-- taxonomia -->
+                <rect x="40" y="30" width="150" height="46" class="caixa-dupla"/>
+                <text x="115" y="58" text-anchor="middle">unidade: FACOM</text>
+                <rect x="40" y="130" width="150" height="46" class="caixa"/>
+                <text x="115" y="158" text-anchor="middle">curso: bcc</text>
+                <rect x="40" y="230" width="150" height="46" class="caixa"/>
+                <text x="115" y="250" text-anchor="middle">currículo</text>
+                <text x="115" y="266" text-anchor="middle" class="t-pequeno">bcc:2023-1</text>
+                <line class="seta" x1="115" y1="130" x2="115" y2="78"/>
+                <text x="122" y="108" class="t-pequeno">pertence_a</text>
+                <line class="seta" x1="115" y1="230" x2="115" y2="178"/>
+                <text x="122" y="208" class="t-pequeno">pertence_a</text>
+                <rect x="40" y="330" width="150" height="46" class="caixa"/>
+                <text x="115" y="350" text-anchor="middle">assunto</text>
+                <text x="115" y="366" text-anchor="middle" class="t-pequeno">estágio, tcc…</text>
+                <rect x="40" y="420" width="150" height="46" class="caixa-dupla"/>
+                <text x="115" y="440" text-anchor="middle">unidade: UFU</text>
+                <text x="115" y="456" text-anchor="middle" class="t-pequeno">vale para toda a UFU</text>
+
+                <!-- documento central -->
+                <rect x="330" y="200" width="250" height="70" class="caixa-ciano"/>
+                <text x="455" y="226" text-anchor="middle">documento</text>
+                <text x="455" y="246" text-anchor="middle" class="t-pequeno">Resolução nº 29/2026 CONFACOM</text>
+                <text x="455" y="260" text-anchor="middle" class="t-pequeno">normas das ACEs</text>
+                <path class="seta-ciano" d="M330 214 Q250 120 192 56"/>
+                <text x="232" y="110" class="t-ciano t-pequeno">emitido_por</text>
+                <path class="seta-ciano" d="M330 236 Q250 200 192 160"/>
+                <text x="240" y="174" class="t-ciano t-pequeno">aplica_a</text>
+                <path class="seta-ciano" d="M330 256 Q250 320 192 350"/>
+                <text x="232" y="324" class="t-ciano t-pequeno">trata_de</text>
+
+                <!-- cadeia de revogações -->
+                <rect x="680" y="60" width="290" height="62" class="caixa"/>
+                <text x="825" y="86" text-anchor="middle">Resolução nº 10/2023</text>
+                <text x="825" y="104" text-anchor="middle" class="t-pequeno">status: revogado · replaced_by → 29/2026</text>
+                <path class="seta" d="M580 220 Q640 120 678 98"/>
+                <text x="600" y="150" class="t-pequeno">revoga</text>
+                <rect x="680" y="200" width="138" height="62" class="caixa-externa"/>
+                <text x="749" y="226" text-anchor="middle">nº 1/2021</text>
+                <text x="749" y="244" text-anchor="middle" class="t-pequeno">original</text>
+                <rect x="832" y="200" width="138" height="62" class="caixa-externa"/>
+                <text x="901" y="226" text-anchor="middle">nº 1/2021</text>
+                <text x="901" y="244" text-anchor="middle" class="t-pequeno">republicação</text>
+                <path class="seta" d="M780 122 L749 198"/>
+                <path class="seta" d="M870 122 L901 198"/>
+                <text x="826" y="164" text-anchor="middle" class="t-pequeno">as duas</text>
+                <text x="826" y="178" text-anchor="middle" class="t-pequeno">versões</text>
+                <rect x="680" y="320" width="290" height="62" class="caixa"/>
+                <text x="825" y="346" text-anchor="middle">Resolução nº 27/2026</text>
+                <text x="825" y="364" text-anchor="middle" class="t-pequeno">altera a nº 8/2023 (original e consolidada)</text>
+                <path class="seta-tracejada" d="M580 262 Q640 330 678 345"/>
+                <text x="600" y="318" class="t-pequeno">cita</text>
+                <text x="680" y="420" class="t-caneta">versões da mesma norma = mesmo número,</text>
+                <text x="680" y="442" class="t-caneta">mesmo órgão, mesmo tipo → todas ligadas</text>
+                <text x="330" y="330" class="t-pequeno">o currículo substitui o curso quando</text>
+                <text x="330" y="346" class="t-pequeno">o documento vale só para uma versão</text>
+                <text x="330" y="362" class="t-pequeno">(PPC, grade de um currículo)</text>
+            </svg>
+            <figcaption>Fig. 05.1 — Nós e arestas do grafo, com uma cadeia real de revogações das normas de extensão da FACOM.</figcaption>
+        </figure>
+
+        <h3>Como o grafo é montado</h3>
+        <p><code>npm run graph</code> (<code>scripts/build-graph.js</code>) primeiro garante a taxonomia (unidades, cursos, currículos e 16 assuntos, tirados de <code>services/courses.js</code> e de <code>TOPICS</code>). Depois lê os documentos ainda não lidos pelo modelo, até 80 por rodada, e monta as arestas de cada um com duas fontes:</p>
+        <ul>
+            <li><strong>Regras</strong> (<code>extractWithRules</code>, <code>findReferences</code>): padrões no título e na ementa dizem o curso e os assuntos. Expressões como "Resolução nº X/AAAA" ou "Nº 1, de 08 de fevereiro de 2021" no texto viram citações. O verbo antes da citação ("revogar", "alterar") decide a relação.</li>
+            <li><strong>Modelo de linguagem</strong> (<code>extractWithLlm</code>, Qwen): lê o título, a ementa e os primeiros 2.500 caracteres e responde em JSON com o escopo (curso, unidade ou UFU), os cursos, os currículos, os assuntos e as normas que o documento altera ou revoga, com o órgão emissor.</li>
+        </ul>
+        <p>Quando o modelo responde, o escopo dele prevalece. Os assuntos das duas fontes se somam. Se o modelo falhar, o documento fica só com as regras e é lido de novo na próxima rodada.</p>
+
+        <h3>Resolver uma citação sem errar</h3>
+        <p><code>resolveReference()</code> transforma "Resolução nº 2/2019" no documento certo do acervo. Os filtros vêm de erros reais:</p>
+        <ul>
+            <li><strong>Tipo:</strong> uma resolução citada não casa com um edital de mesmo número.</li>
+            <li><strong>Unidade:</strong> a nº 5/2022 do CONIME não é a nº 5/2022 do CONFACOM. Outra unidade só vale para órgãos da UFU toda (CONGRAD, CONSUN…).</li>
+            <li><strong>Família do órgão:</strong> "do Colegiado do Curso" não casa com um documento do Conselho da unidade.</li>
+            <li><strong>Versões:</strong> se sobram vários documentos com mesmo número, órgão e tipo, são versões da mesma norma, e todas são ligadas.</li>
+            <li><strong>Datas:</strong> uma norma não revoga outra mais nova. Isso protege contra títulos como "Revogada pela Resolução nº 17/2024" lidos ao contrário.</li>
+        </ul>
+        <div class="aviso">Uma revogação só muda o <code>status</code> no banco quando <strong>as regras e o modelo concordam</strong> (<code>applyRevocations</code>). Com uma só das fontes, a aresta existe e a busca já tira a norma revogada, mas o banco não é alterado: um erro aqui esconderia uma norma válida.</div>
+
+        <h3>Modos do comando</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Comando</th><th>O que faz</th></tr>
+            <tr><td><code>npm run graph</code></td><td>Lê até 80 documentos pendentes com o modelo. Para quando a cota diária do modelo acaba.</td></tr>
+            <tr><td><code>-- --limit=N</code></td><td>Muda o limite da rodada (também em <code>GRAPH_MAX_DOCS</code>).</td></tr>
+            <tr><td><code>-- --rules-only</code></td><td>Só regras, sem gastar cota. Também é o modo automático sem <code>GROQ_API_KEY</code>.</td></tr>
+            <tr><td><code>-- --references</code></td><td>Refaz só as citações (altera, revoga, cita) de todos os documentos, pelas regras.</td></tr>
+            <tr><td><code>-- --rebuild</code></td><td>Relê tudo com o modelo. É recusado junto com <code>--rules-only</code>, que apagaria o trabalho do modelo.</td></tr>
+        </table>
+        </div>
+        <div class="arquivos" data-arquivos="services/knowledgeGraph.js models/KnowledgeGraph.js scripts/build-graph.js services/courses.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Grafo de conhecimento</div>
+        <div><b>Prancha</b>05 / 13</div><div><b>Assunto</b>Montagem do grafo</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 06 -->
+<section class="prancha" id="p06" data-titulo="Busca">
+    <header class="prancha-cabecalho">
+        <span class="numero">06</span>
+        <h2>Busca<small>Da pergunta reescrita aos 5 trechos que o Grizz vai ler</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>A busca (<code>hybridSearch</code>, em <code>services/search.js</code>) combina dois jeitos de achar um trecho e usa o grafo antes e depois deles. O objetivo é chegar a no máximo 5 trechos relevantes, do curso certo e da versão vigente da norma.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 760" role="img" aria-label="Fluxo da busca em etapas, da pergunta reescrita ao rerank">
+                <rect x="330" y="16" width="340" height="50" class="caixa"/>
+                <text x="500" y="38" text-anchor="middle">Pergunta completa</text>
+                <text x="500" y="56" text-anchor="middle" class="t-pequeno">queryRewriter · "e o prazo?" → frase inteira</text>
+                <path class="seta" d="M440 66 L300 104"/>
+                <path class="seta" d="M560 66 L700 104"/>
+                <rect x="160" y="106" width="280" height="62" class="caixa"/>
+                <text x="300" y="130" text-anchor="middle">Vetor da pergunta</text>
+                <text x="300" y="150" text-anchor="middle" class="t-pequeno">Gemini · pergunta + perfil do aluno</text>
+                <rect x="560" y="106" width="300" height="78" class="caixa-ciano"/>
+                <text x="710" y="128" text-anchor="middle">Escopo no grafo · scopeFor()</text>
+                <text x="710" y="146" text-anchor="middle" class="t-pequeno">excluídos: normas de outros cursos/unidade</text>
+                <text x="710" y="160" text-anchor="middle" class="t-pequeno">foco: docs do curso sobre o assunto</text>
+                <text x="710" y="174" text-anchor="middle" class="t-pequeno">currículos: docs de cada currículo possível</text>
+
+                <!-- três listas -->
+                <path class="seta" d="M300 168 L170 230"/>
+                <path class="seta" d="M330 168 L470 230"/>
+                <path class="seta-ciano" d="M660 184 L500 230"/>
+                <path class="seta-ciano" d="M760 184 L790 230"/>
+                <rect x="40" y="232" width="260" height="78" class="caixa"/>
+                <text x="170" y="256" text-anchor="middle">Vetorial</text>
+                <text x="170" y="276" text-anchor="middle" class="t-pequeno">pgvector · distância de cosseno</text>
+                <text x="170" y="292" text-anchor="middle" class="t-pequeno">20 trechos</text>
+                <rect x="340" y="232" width="300" height="78" class="caixa"/>
+                <text x="490" y="256" text-anchor="middle">Palavras-chave</text>
+                <text x="490" y="276" text-anchor="middle" class="t-pequeno">tsvector · título peso A, corpo peso D</text>
+                <text x="490" y="292" text-anchor="middle" class="t-pequeno">termos ligados por OU · 20 trechos</text>
+                <rect x="680" y="232" width="260" height="78" class="caixa-ciano"/>
+                <text x="810" y="256" text-anchor="middle">Foco</text>
+                <text x="810" y="276" text-anchor="middle" class="t-pequeno">as duas buscas, só nos</text>
+                <text x="810" y="292" text-anchor="middle" class="t-pequeno">documentos do assunto</text>
+                <path class="seta" d="M170 310 L460 360"/>
+                <path class="seta" d="M490 310 L500 358"/>
+                <path class="seta" d="M810 310 L540 360"/>
+
+                <!-- RRF -->
+                <rect x="360" y="362" width="280" height="60" class="caixa-dupla"/>
+                <text x="500" y="386" text-anchor="middle">Fusão RRF · k = 60</text>
+                <text x="500" y="406" text-anchor="middle" class="t-pequeno">soma de 1/(60 + posição) · fica com 12</text>
+                <path class="seta" d="M500 422 V448"/>
+                <rect x="320" y="450" width="360" height="56" class="caixa-ciano"/>
+                <text x="500" y="474" text-anchor="middle">Cobrir currículos · coverCurricula()</text>
+                <text x="500" y="492" text-anchor="middle" class="t-pequeno">sem ano de ingresso: um trecho de cada currículo</text>
+                <path class="seta" d="M500 506 V532"/>
+                <rect x="320" y="534" width="360" height="62" class="caixa-ciano"/>
+                <text x="500" y="556" text-anchor="middle">Versões · withGraph()</text>
+                <text x="500" y="574" text-anchor="middle" class="t-pequeno">revogadas saem · a versão nova entra (até 3)</text>
+                <text x="500" y="588" text-anchor="middle" class="t-pequeno">cada trecho ganha "Vale para", "Alterado por"…</text>
+                <path class="seta" d="M500 596 V622"/>
+                <rect x="320" y="624" width="360" height="62" class="caixa-dupla"/>
+                <text x="500" y="646" text-anchor="middle">Rerank · qwen3.8-27b</text>
+                <text x="500" y="664" text-anchor="middle" class="t-pequeno">nota 0–10 por trecho · outro curso vale no máx. 1</text>
+                <text x="500" y="678" text-anchor="middle" class="t-pequeno">descarta abaixo de 2 · fica com 5</text>
+                <path class="seta" d="M500 686 V720"/>
+                <text x="500" y="740" text-anchor="middle" class="t-titulo">5 trechos → agente</text>
+
+                <!-- retorno sem escopo -->
+                <path class="seta-tracejada" d="M680 655 H880 V350 H642"/>
+                <text x="760" y="560" class="t-pequeno">nada sobrou e</text>
+                <text x="760" y="576" class="t-pequeno">havia exclusões?</text>
+                <text x="760" y="592" class="t-pequeno">refaz sem escopo</text>
+                <text x="40" y="420" class="t-caneta">o vetor acha o sentido,</text>
+                <text x="40" y="442" class="t-caneta">a palavra-chave acha "Resolução 19/2024";</text>
+                <text x="40" y="464" class="t-caneta">a fusão junta o melhor dos dois</text>
+            </svg>
+            <figcaption>Fig. 06.1 — Fluxo da busca. As etapas em ciano usam o grafo; a seta tracejada é a segunda tentativa sem escopo.</figcaption>
+        </figure>
+
+        <h3>Por que cada etapa existe</h3>
+        <ul>
+            <li><strong>Reescrita:</strong> sem ela, a busca somava todo o histórico, e uma pergunta sobre TCC depois de uma sobre estágio buscava os dois assuntos.</li>
+            <li><strong>Busca híbrida:</strong> o vetor acha trechos de sentido parecido mesmo com outras palavras. A palavra-chave acha termos exatos, números e siglas.</li>
+            <li><strong>Título na palavra-chave:</strong> PDFs escaneados e tabelas têm texto ruim, mas o título da listagem do site é limpo. Com o título indexado, documentos do IME achados pelo próprio título passaram de 33% para 95%.</li>
+            <li><strong>RRF</strong> (<em>Reciprocal Rank Fusion</em>): junta listas com notas incomparáveis (cosseno e <code>ts_rank</code>) olhando só a posição de cada item.</li>
+            <li><strong>Cobrir currículos:</strong> sem ela, um aluno de BCC sem ano informado via só a grade 2023-1, e o Grizz não tinha como mostrar a 2010-2.</li>
+            <li><strong>Rerank:</strong> um modelo pequeno lê os 12 candidatos e dá uma nota de relevância de verdade, não só de semelhança.</li>
+        </ul>
+        <div class="dica">Cada etapa tem plano B: sem vetor (cota do Gemini), a busca usa só palavras-chave; sem rerank (cota da Groq), fica a ordem da fusão; sem grafo, busca sem escopo. A pergunta pode piorar, mas não quebra.</div>
+        <div class="arquivos" data-arquivos="services/search.js services/reranker.js services/queryRewriter.js services/knowledgeGraph.js models/Chunk.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Busca híbrida</div>
+        <div><b>Prancha</b>06 / 13</div><div><b>Assunto</b>Recuperação</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 07 -->
+<section class="prancha" id="p07" data-titulo="O agente Grizz">
+    <header class="prancha-cabecalho">
+        <span class="numero">07</span>
+        <h2>O agente Grizz<small>Perfil do aluno, perguntas de esclarecimento e a resposta com fontes</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p><code>answer()</code>, em <code>services/agent.js</code>, é o cérebro do chat. Antes de buscar, ele decide se precisa saber mais sobre o aluno. Depois da busca, ainda pode perguntar o ano de ingresso, se encontrou normas que valem para turmas diferentes. Só então escreve a resposta.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 640" role="img" aria-label="Máquina de estados do agente: perfil, perguntas de esclarecimento, busca e resposta">
+                <rect x="400" y="14" width="200" height="44" class="caixa"/>
+                <text x="500" y="41" text-anchor="middle">Mensagem do aluno</text>
+                <path class="seta" d="M500 58 V84"/>
+                <path d="M500 86 L620 130 L500 174 L380 130 z" class="caixa-ciano"/>
+                <text x="500" y="126" text-anchor="middle">curso conhecido e</text>
+                <text x="500" y="142" text-anchor="middle">nada pendente?</text>
+                <path class="seta" d="M620 130 H780 V430"/>
+                <text x="640" y="122" class="t-pequeno">sim</text>
+                <path class="seta" d="M500 174 V206"/>
+                <text x="508" y="196" class="t-pequeno">não</text>
+                <rect x="320" y="208" width="360" height="56" class="caixa"/>
+                <text x="500" y="230" text-anchor="middle">extractProfile() · gpt-oss-20b</text>
+                <text x="500" y="250" text-anchor="middle" class="t-pequeno">curso, ano, recusa, fora do tema, pergunta completa</text>
+                <path class="seta" d="M320 236 H220"/>
+                <rect x="40" y="208" width="178" height="56" class="caixa-alerta"/>
+                <text x="129" y="230" text-anchor="middle">fora do tema</text>
+                <text x="129" y="250" text-anchor="middle" class="t-pequeno">resposta padrão do lobo</text>
+                <path class="seta" d="M500 264 V292"/>
+                <path d="M500 294 L620 336 L500 378 L380 336 z" class="caixa-ciano"/>
+                <text x="500" y="332" text-anchor="middle">falta o curso e</text>
+                <text x="500" y="348" text-anchor="middle">pode perguntar?</text>
+                <path class="seta" d="M380 336 H220"/>
+                <text x="300" y="328" class="t-pequeno">sim</text>
+                <rect x="40" y="306" width="178" height="62" class="caixa"/>
+                <text x="129" y="330" text-anchor="middle">pergunta o curso</text>
+                <text x="129" y="348" text-anchor="middle" class="t-pequeno">guarda a pergunta</text>
+                <text x="129" y="360" text-anchor="middle" class="t-pequeno">pendente (completa)</text>
+                <path class="seta" d="M500 378 V430 H660"/>
+                <text x="508" y="404" class="t-pequeno">não</text>
+                <rect x="662" y="430" width="240" height="56" class="caixa"/>
+                <text x="782" y="452" text-anchor="middle">reescrita + busca</text>
+                <text x="782" y="472" text-anchor="middle" class="t-pequeno">prancha 06</text>
+                <path class="seta" d="M782 486 V512"/>
+                <path d="M782 510 L962 556 L782 602 L602 556 z" class="caixa-ciano"/>
+                <text x="782" y="550" text-anchor="middle">curso com 2+ currículos,</text>
+                <text x="782" y="566" text-anchor="middle">sem ano, normas concorrem?</text>
+                <path class="seta" d="M962 556 H980 V624 H129 V560"/>
+                <text x="964" y="546" class="t-pequeno">sim</text>
+                <rect x="40" y="500" width="178" height="58" class="caixa"/>
+                <text x="129" y="524" text-anchor="middle">pergunta o ano</text>
+                <text x="129" y="542" text-anchor="middle" class="t-pequeno">só com curso conhecido</text>
+                <path class="seta" d="M602 556 H410"/>
+                <text x="560" y="548" class="t-pequeno">não</text>
+                <rect x="230" y="526" width="178" height="62" class="caixa-dupla"/>
+                <text x="319" y="550" text-anchor="middle">resposta</text>
+                <text x="319" y="568" text-anchor="middle" class="t-pequeno">gpt-oss-120b + fontes [n]</text>
+                <text x="250" y="450" class="t-caneta">recusa ("prefiro não dizer") vale</text>
+                <text x="250" y="472" class="t-caneta">para curso e ano: não pergunta de novo</text>
+            </svg>
+            <figcaption>Fig. 07.1 — Decisões do agente. Losangos são perguntas que o código faz; caixas, o que ele devolve ao aluno.</figcaption>
+        </figure>
+
+        <h3>Anatomia do prompt da resposta</h3>
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 300" role="img" aria-label="Camadas do prompt do sistema, de cima para baixo">
+                <rect x="40" y="16" width="600" height="38" class="caixa"/><text x="56" y="40">1 · Persona: o lobo ancião da FACOM e do IME</text>
+                <rect x="40" y="58" width="600" height="38" class="caixa"/><text x="56" y="82">2 · Catálogo de cursos que ele atende <tspan class="t-pequeno">(describeCatalog)</tspan></text>
+                <rect x="40" y="100" width="600" height="38" class="caixa"/><text x="56" y="124">3 · Regras: só documentos, citar [n], curso certo, norma mais nova</text>
+                <rect x="40" y="142" width="600" height="38" class="caixa"/><text x="56" y="166">4 · Fora do território: resposta padrão</text>
+                <rect x="40" y="184" width="600" height="38" class="caixa-ciano"/><text x="56" y="208">5 · Perfil do aluno <tspan class="t-pequeno">(profileInstructions, muda por aluno)</tspan></text>
+                <rect x="40" y="226" width="600" height="58" class="caixa-ciano"/><text x="56" y="250">6 · Documentos consultados [1]…[5]</text><text x="56" y="270" class="t-pequeno">ementa + "Vale para" + "Alterado por" + "Altera" + "Menciona" (do grafo)</text>
+                <path class="cota" d="M680 16 V180" marker-start="url(#traco-cota)" marker-end="url(#traco-cota)"/>
+                <text x="696" y="96" class="t-pequeno">fixo para todos</text>
+                <path class="cota" d="M680 184 V284" marker-start="url(#traco-cota)" marker-end="url(#traco-cota)"/>
+                <text x="696" y="236" class="t-pequeno">muda a cada pergunta</text>
+                <text x="696" y="140" class="t-caneta">depois: últimas 6 mensagens</text>
+                <text x="696" y="162" class="t-caneta">e a pergunta do aluno</text>
+            </svg>
+            <figcaption>Fig. 07.2 — Camadas do prompt do sistema. A resposta só pode citar o que está na camada 6 ou no catálogo da camada 2.</figcaption>
+        </figure>
+        <p>Depois da resposta, o código troca as citações no formato do modelo (<code>【1†…】</code>) por <code>[1]</code> e só devolve ao navegador as fontes que foram de fato citadas.</p>
+        <div class="arquivos" data-arquivos="services/agent.js services/profile.js services/courses.js services/queryRewriter.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">O agente Grizz</div>
+        <div><b>Prancha</b>07 / 13</div><div><b>Assunto</b>Conversa</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 08 -->
+<section class="prancha" id="p08" data-titulo="Servidor e página">
+    <header class="prancha-cabecalho">
+        <span class="numero">08</span>
+        <h2>Servidor e página<small>O caminho de uma requisição e o que fica guardado no navegador</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>O servidor não guarda nenhuma conversa. A cada pergunta, o navegador envia as últimas 6 mensagens e o perfil do aluno, e recebe de volta a resposta e o perfil atualizado, que guarda no <code>localStorage</code>. Isso deixa o servidor sem estado, bom para uma função serverless.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 380" role="img" aria-label="Diagrama de sequência entre navegador, servidor, agente e banco">
+                <text x="110" y="30" text-anchor="middle" class="t-titulo">Navegador</text>
+                <text x="390" y="30" text-anchor="middle" class="t-titulo">server.js</text>
+                <text x="640" y="30" text-anchor="middle" class="t-titulo">agent.answer()</text>
+                <text x="880" y="30" text-anchor="middle" class="t-titulo">Banco / LLMs</text>
+                <line class="eixo" x1="110" y1="42" x2="110" y2="360"/>
+                <line class="eixo" x1="390" y1="42" x2="390" y2="360"/>
+                <line class="eixo" x1="640" y1="42" x2="640" y2="360"/>
+                <line class="eixo" x1="880" y1="42" x2="880" y2="360"/>
+                <path class="seta" d="M110 70 H388"/>
+                <text x="120" y="50" class="t-pequeno">POST /api/chat</text>
+                <text x="120" y="64" class="t-pequeno">{question, history, profile}</text>
+                <rect x="380" y="80" width="20" height="60" class="caixa"/>
+                <text x="410" y="100" class="t-pequeno">valida: pergunta ≤ 1000</text>
+                <text x="410" y="114" class="t-pequeno">histórico ≤ 6 × 4000</text>
+                <text x="410" y="128" class="t-pequeno">curso existe em COURSES</text>
+                <path class="seta" d="M400 150 H638"/>
+                <rect x="630" y="160" width="20" height="120" class="caixa"/>
+                <path class="seta" d="M650 176 H878"/>
+                <text x="660" y="170" class="t-pequeno">perfil, reescrita, busca…</text>
+                <path class="seta-tracejada" d="M878 210 H652"/>
+                <text x="700" y="204" class="t-pequeno">trechos, notas, texto</text>
+                <path class="seta-tracejada" d="M630 290 H400"/>
+                <text x="420" y="284" class="t-pequeno">{answer, sources, profile}</text>
+                <path class="seta-tracejada" d="M380 320 H112"/>
+                <text x="120" y="314" class="t-pequeno">JSON · 200 ou 503 (cota) / 500</text>
+                <text x="120" y="350" class="t-caneta">guarda a conversa e o perfil no localStorage</text>
+            </svg>
+            <figcaption>Fig. 08.1 — Sequência de uma pergunta. O servidor só valida e repassa; quem decide é o agente.</figcaption>
+        </figure>
+
+        <h3>Rotas da API</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Rota</th><th>Entrada</th><th>Saída</th></tr>
+            <tr><td><code>POST /api/chat</code></td><td><code>question</code>, <code>history</code> (últimas 6), <code>profile</code></td><td><code>answer</code>, <code>sources</code> (só as citadas), <code>profile</code>, <code>model</code>, <code>question</code></td></tr>
+            <tr><td><code>POST /api/feedback</code></td><td><code>answerId</code> (UUID), <code>rating</code> ±1, pergunta, resposta, fontes, perfil</td><td>201, ou 409 se a resposta já foi avaliada</td></tr>
+        </table>
+        </div>
+        <p>Erros com "429" ou "cota" na mensagem viram 503 com um aviso amigável ("O lobo está sem fôlego"). Os outros viram 500.</p>
+
+        <h3>A página</h3>
+        <ul>
+            <li><code>public/index.html</code>, <code>style.css</code> e <code>script.js</code>, em HTML, CSS e JavaScript puros, sem build.</li>
+            <li>As respostas são Markdown, renderizado com <code>marked</code> e limpo com <code>DOMPurify</code>, copiados para <code>public/vendor/</code> no <code>postinstall</code>.</li>
+            <li>Citações <code>[n]</code> viram links para o PDF oficial.</li>
+            <li>Até 50 conversas ficam no navegador. Se o espaço acabar, as mais antigas saem primeiro.</li>
+        </ul>
+        <h3>Na Vercel</h3>
+        <p><code>vercel.json</code> serve <code>public/</code> pelo CDN e manda <code>/api/*</code> para <code>api/index.js</code>, que exporta o mesmo <code>app</code> do <code>server.js</code>. A função roda em Cleveland (<code>cle1</code>), perto do banco no Neon, com até 60 s por requisição.</p>
+        <div class="arquivos" data-arquivos="server.js api/index.js vercel.json public/script.js public/index.html scripts/copy-vendor.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Servidor e página</div>
+        <div><b>Prancha</b>08 / 13</div><div><b>Assunto</b>API e front</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 09 -->
+<section class="prancha" id="p09" data-titulo="Automação">
+    <header class="prancha-cabecalho">
+        <span class="numero">09</span>
+        <h2>Automação<small>O que roda sozinho todo dia, e os comandos para rodar na mão</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>A importação e o grafo não dependem de ninguém lembrar de rodar: o GitHub Actions dispara o workflow todo dia de manhã. Cada etapa é retomável, então um dia que falha no meio (cota, rede) é completado no dia seguinte.</p>
+        <figure class="desenho">
+            <svg class="d" viewBox="0 70 1000 165" role="img" aria-label="Linha do tempo do workflow diário">
+                <line class="linha" x1="30" y1="120" x2="970" y2="120" stroke-width="2"/>
+                <g>
+                    <circle cx="60" cy="120" r="7" class="ponto"/><text x="60" y="94" text-anchor="middle">cron</text><text x="60" y="150" text-anchor="middle" class="t-pequeno">9h17 UTC</text><text x="60" y="164" text-anchor="middle" class="t-pequeno">6h17 Brasília</text>
+                    <circle cx="190" cy="120" r="7" class="ponto"/><text x="190" y="94" text-anchor="middle">npm ci</text><text x="190" y="150" text-anchor="middle" class="t-pequeno">Node 24</text>
+                    <circle cx="310" cy="120" r="7" class="ponto"/><text x="310" y="94" text-anchor="middle">migrate</text><text x="310" y="150" text-anchor="middle" class="t-pequeno">DATABASE_URL</text>
+                    <circle cx="450" cy="120" r="9" class="caixa-dupla"/><text x="450" y="94" text-anchor="middle">sync</text><text x="450" y="150" text-anchor="middle" class="t-pequeno">+ GEMINI_API_KEY</text><text x="450" y="164" text-anchor="middle" class="t-pequeno">FACOM_IP, IME_IP</text>
+                    <circle cx="590" cy="120" r="7" class="ponto"/><text x="590" y="94" text-anchor="middle">dedupe</text><text x="590" y="150" text-anchor="middle" class="t-pequeno">sempre</text>
+                    <circle cx="730" cy="120" r="9" class="caixa-dupla"/><text x="730" y="94" text-anchor="middle">graph</text><text x="730" y="150" text-anchor="middle" class="t-pequeno">+ GROQ_API_KEY</text><text x="730" y="164" text-anchor="middle" class="t-pequeno">sempre</text>
+                    <circle cx="890" cy="120" r="7" class="ponto"/><text x="890" y="94" text-anchor="middle">graph --references</text><text x="890" y="150" text-anchor="middle" class="t-pequeno">sem LLM · sempre</text>
+                </g>
+                <text x="30" y="215" class="t-caneta">"sempre" = roda mesmo se a etapa anterior falhou (if: always())</text>
+            </svg>
+            <figcaption>Fig. 09.1 — Linha do tempo do workflow <code>sync-documents.yml</code>.</figcaption>
+        </figure>
+        <h3>Comandos</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Comando</th><th>O que faz</th></tr>
+            <tr><td><code>npm run dev</code> / <code>npm start</code></td><td>Sobe o servidor do chat (com ou sem recarga automática).</td></tr>
+            <tr><td><code>npm run migrate</code></td><td>Aplica as migrations pendentes.</td></tr>
+            <tr><td><code>npm run sync</code></td><td>Importa as duas unidades. <code>sync:facom</code> e <code>sync:ime</code> importam uma só, e <code>-- --dry-run</code> só lista.</td></tr>
+            <tr><td><code>npm run graph</code></td><td>Monta o grafo (modos na prancha 05).</td></tr>
+            <tr><td><code>npm run dedupe</code></td><td>Marca como <code>duplicado</code> documentos com texto idêntico a outro e apaga os trechos deles.</td></tr>
+            <tr><td><code>npm run ingest -- data/sources.json</code></td><td>Importa documentos de uma lista manual, com opção de marcar qual norma cada um substitui.</td></tr>
+        </table>
+        </div>
+        <div class="arquivos" data-arquivos=".github/workflows/sync-documents.yml package.json scripts/sync.js scripts/build-graph.js scripts/dedupe-documents.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Automação</div>
+        <div><b>Prancha</b>09 / 13</div><div><b>Assunto</b>Workflow e scripts</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 10 -->
+<section class="prancha" id="p10" data-titulo="Resiliência e cotas">
+    <header class="prancha-cabecalho">
+        <span class="numero">10</span>
+        <h2>Resiliência e cotas<small>Tempos limite, novas tentativas e o que acontece quando uma cota acaba</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>Todos os serviços externos do projeto estão em planos gratuitos, com limites por minuto e por dia. O código foi desenhado para degradar com dignidade: cada falha tem um caminho previsto.</p>
+
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 300" role="img" aria-label="Guarda de rede: três falhas seguidas, pausa, teste de conexão">
+                <rect x="30" y="110" width="160" height="60" class="caixa"/>
+                <text x="110" y="136" text-anchor="middle">documento</text>
+                <text x="110" y="154" text-anchor="middle" class="t-pequeno">falha de rede</text>
+                <path class="seta" d="M190 140 H250"/>
+                <path d="M330 90 L410 140 L330 190 L250 140 z" class="caixa-ciano"/>
+                <text x="330" y="136" text-anchor="middle">3 seguidas?</text>
+                <text x="330" y="152" text-anchor="middle" class="t-pequeno">sucesso zera</text>
+                <path class="seta" d="M330 190 V250 H110 V172"/>
+                <text x="140" y="244" class="t-pequeno">não: segue para o próximo</text>
+                <path class="seta" d="M410 140 H480"/>
+                <rect x="482" y="110" width="160" height="60" class="caixa"/>
+                <text x="562" y="136" text-anchor="middle">espera 60 s</text>
+                <text x="562" y="154" text-anchor="middle" class="t-pequeno">networkGuard</text>
+                <path class="seta" d="M642 140 H700"/>
+                <path d="M780 90 L860 140 L780 190 L700 140 z" class="caixa-ciano"/>
+                <text x="780" y="136" text-anchor="middle">site e banco</text>
+                <text x="780" y="152" text-anchor="middle">respondem?</text>
+                <path class="seta" d="M780 90 V40 H562 V108"/>
+                <text x="600" y="34" class="t-pequeno">sim: continua de onde parou</text>
+                <path class="seta" d="M860 140 H910 V220"/>
+                <text x="870" y="132" class="t-pequeno">não</text>
+                <rect x="822" y="222" width="176" height="56" class="caixa-alerta"/>
+                <text x="910" y="246" text-anchor="middle">para</text>
+                <text x="910" y="264" text-anchor="middle" class="t-pequeno">"12 de 155 importados"</text>
+            </svg>
+            <figcaption>Fig. 10.1 — Guarda de rede dos lotes (<code>services/network.js</code>). Falhas de documento (404, PDF inválido) não contam.</figcaption>
+        </figure>
+
+        <h3>Tempos limite</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Chamada</th><th>Limite</th><th>Onde</th></tr>
+            <tr><td>Download de documentos</td><td>60 s, incluindo a leitura do corpo</td><td><code>services/extractor.js</code></td></tr>
+            <tr><td>Groq (todas as chamadas)</td><td>45 s</td><td><code>services/llm.js</code></td></tr>
+            <tr><td>Gemini e páginas dos sites</td><td>30 s</td><td><code>embeddings.js</code>, <code>unitCrawler.js</code></td></tr>
+            <tr><td>Neon: conectar / cada consulta</td><td>15 s / 60 s</td><td><code>db/pool.js</code></td></tr>
+        </table>
+        </div>
+
+        <h3>Novas tentativas</h3>
+        <ul>
+            <li><strong>Groq:</strong> 429 e erros 5xx são tentados de novo, esperando o tempo que a Groq pede. No chat, até 15 s e 3 tentativas; na montagem do grafo, até 90 s e 6 tentativas. Resposta vazia (o modelo gastou tudo raciocinando) também é tentada de novo. Cota diária esgotada vira <code>DailyLimitError</code>, que faz a rodada do grafo parar.</li>
+            <li><strong>Gemini:</strong> a janela de 60 s controla requisições e tokens por minuto antes de enviar. A cota diária vira <code>DailyQuotaError</code> e para a importação.</li>
+            <li><strong>Sites:</strong> 3 tentativas para falha de rede e até 4 para 403, 429 e 503, com esperas crescentes.</li>
+        </ul>
+
+        <h3>Capacidade dos planos gratuitos</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Modelo</th><th>Limites</th><th>Consumo</th></tr>
+            <tr><td><code>gpt-oss-20b</code></td><td>8 mil tokens/min · 200 mil tokens/dia</td><td>6 a 7 mil tokens por pergunta (perfil, reescrita, rerank, versões): cerca de <strong>30 perguntas por dia</strong> e 1 por minuto</td></tr>
+            <tr><td><code>gpt-oss-120b</code></td><td>8 mil tokens/min</td><td>Uma chamada por pergunta (a resposta)</td></tr>
+            <tr><td><code>qwen3.8-27b</code></td><td>Cota própria</td><td>Só a montagem do grafo, separada do chat de propósito</td></tr>
+        </table>
+        </div>
+        <div class="aviso">O <code>gpt-oss-20b</code> é o gargalo do chat. Quando a cota acaba, o Grizz continua respondendo, mas sem rerank, sem ler o perfil e sem reescrever a pergunta, e a qualidade cai. Veja a prancha 12.</div>
+        <div class="arquivos" data-arquivos="services/network.js services/llm.js services/embeddings.js db/pool.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Resiliência e cotas</div>
+        <div><b>Prancha</b>10 / 13</div><div><b>Assunto</b>Falhas previstas</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 11 -->
+<section class="prancha" id="p11" data-titulo="Configuração">
+    <header class="prancha-cabecalho">
+        <span class="numero">11</span>
+        <h2>Configuração<small>Variáveis de ambiente e o cadastro de cursos</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <h3>Variáveis do projeto (<code>.env</code>)</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Variável</th><th>Obrig.</th><th>Para quê</th></tr>
+            <tr><td><code>DATABASE_URL</code></td><td>sim</td><td>Conexão com o Neon. O SSL vem do <code>sslmode</code> da URL.</td></tr>
+            <tr><td><code>GEMINI_API_KEY</code></td><td>sim</td><td>Vetores dos trechos e das perguntas.</td></tr>
+            <tr><td><code>GROQ_API_KEY</code></td><td>sim</td><td>Resposta, rerank, perfil, reescrita e grafo.</td></tr>
+            <tr><td><code>GROQ_MODEL</code> · <code>GROQ_RERANK_MODEL</code> · <code>GROQ_GRAPH_MODEL</code></td><td>não</td><td>Trocam os três modelos da Groq.</td></tr>
+            <tr><td><code>GRAPH_MAX_DOCS</code></td><td>não</td><td>Documentos lidos pelo modelo por rodada do grafo (padrão 80).</td></tr>
+            <tr><td><code>EMBED_TEXTS_PER_MINUTE</code> · <code>EMBED_TOKENS_PER_MINUTE</code></td><td>não</td><td>Limites por minuto do plano do Gemini.</td></tr>
+            <tr><td><code>FACOM_IP</code> · <code>IME_IP</code></td><td>não</td><td>IP fixo do site, para quando o DNS falha (<code>services/hostOverrides.js</code>).</td></tr>
+            <tr><td><code>PORT</code></td><td>não</td><td>Porta do servidor local (padrão 3000).</td></tr>
+        </table>
+        </div>
+        <h3>Variáveis deste guia (<code>docs/.env</code>)</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Variável</th><th>Para quê</th></tr>
+            <tr><td><code>ANTHROPIC_API_KEY</code></td><td>Liga as perguntas ao Claude.</td></tr>
+            <tr><td><code>ESTUDOS_PORT</code></td><td>Porta do guia (padrão 4100).</td></tr>
+            <tr><td><code>ESTUDOS_MODEL</code> · <code>ESTUDOS_EFFORT</code></td><td>Modelo do Claude (padrão <code>claude-opus-5-5</code>) e nível de esforço (padrão <code>medium</code>).</td></tr>
+        </table>
+        </div>
+
+        <h3>Cadastro de cursos (<code>services/courses.js</code>)</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Id</th><th>Curso</th><th>Unidade</th><th>Currículos</th></tr>
+            <tr><td><code>bcc</code></td><td>Ciência da Computação</td><td>FACOM</td><td>2010-2 · 2023-1</td></tr>
+            <tr><td><code>bsi</code></td><td>Sistemas de Informação (Santa Mônica)</td><td>FACOM</td><td>2009-1 · 2016-1 · 2022-2</td></tr>
+            <tr><td><code>bsi-mc</code></td><td>Sistemas de Informação (Monte Carmelo)</td><td>FACOM</td><td>2016 · 2022</td></tr>
+            <tr><td><code>bia</code></td><td>Inteligência Artificial</td><td>FACOM</td><td>único (2025)</td></tr>
+            <tr><td><code>mat-bach</code></td><td>Bacharelado em Matemática</td><td>IME</td><td>2011 · 2018</td></tr>
+            <tr><td><code>mat-lic</code></td><td>Licenciatura em Matemática (presencial)</td><td>IME</td><td>2011 · 2018</td></tr>
+            <tr><td><code>mat-ead</code></td><td>Licenciatura em Matemática a distância</td><td>IME</td><td>turmas 1 a 4</td></tr>
+            <tr><td><code>estat</code></td><td>Ciência de Dados e Estatística</td><td>IME</td><td>2016-1 · 2026-1</td></tr>
+        </table>
+        </div>
+        <p>Cada curso tem um padrão de texto (<code>pattern</code>) para reconhecer documentos dele. <code>PATTERN_ORDER</code> testa os mais específicos primeiro: "Monte Carmelo" antes de "Sistemas de Informação", e "a distância" antes de "licenciatura". O currículo do aluno vem do ano de ingresso (<code>curriculumFor</code>). Quando o ano é o de início de um currículo que começa no 2º semestre, valem os dois.</p>
+        <div class="arquivos" data-arquivos="services/courses.js services/hostOverrides.js README.md"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Configuração</div>
+        <div><b>Prancha</b>11 / 13</div><div><b>Assunto</b>Ambiente e cadastro</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 12 -->
+<section class="prancha" id="p12" data-titulo="Pontos de atenção">
+    <header class="prancha-cabecalho">
+        <span class="numero">12</span>
+        <h2>Pontos de atenção<small>Pendências conhecidas e um glossário</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <h3>Pendências conhecidas</h3>
+        <ul>
+            <li><strong>Cotas da Groq por minuto:</strong> cada modelo aguenta 8 mil tokens por minuto. O rerank foi para o <code>qwen3.8-27b</code> e a resposta tem o <code>gpt-oss-20b</code> como reserva, mas três perguntas em 15 segundos ainda esgotam os três modelos.</li>
+            <li><strong>Limite por visitante, não global:</strong> <code>/api/chat</code> aceita 5 perguntas por minuto e 25 por dia de cada IP (tabela <code>rate_limits</code>), mas muitos IPs ao mesmo tempo ainda esgotam as cotas.</li>
+            <li><strong>Cota do Gemini dividida:</strong> as importações param na reserva de 200 vetores do chat (tabela <code>api_usage</code>), mas a contagem só vê o que passa por este código.</li>
+            <li><strong>Horários sem docentes:</strong> BSI Santa Mônica e Matemática EaD não publicam horários com os nomes; na Matemática, os PDFs de 2026/2 perderam os nomes no OCR, e vale o 2026/1.</li>
+            <li><strong>Currículos da Matemática EaD:</strong> os anos de início das turmas foram estimados pelas datas dos projetos pedagógicos e precisam ser confirmados com a coordenação.</li>
+            <li><strong>Grade 2023-1 de BCC:</strong> numa resposta apareceram códigos GBC misturados com FACOM3xxxx. Falta conferir com o PDF se é a grade ou o modelo misturando os currículos.</li>
+            <li><strong>Leituras do grafo pelo modelo:</strong> podem errar o curso de um documento, e aí ele some para os alunos do curso certo. As ligações ficam em <code>kg_edges</code> para conferência.</li>
+            <li><strong>Normas sem ano no título</strong> (ex.: "Resolução CONIME nº 31") ficam sem número e não entram nas citações do grafo.</li>
+            <li><strong>Revogações antigas:</strong> documentos lidos pelo modelo antes da revogação automática não foram reavaliados. Algumas revogações foram marcadas à mão.</li>
+            <li><strong>Testes só das regras puras:</strong> <code>npm test</code> cobre pessoas, contatos, páginas, turmas e busca sem rede nem banco; as respostas do modelo continuam sendo conferidas à mão.</li>
+        </ul>
+
+        <h3>Glossário</h3>
+        <div class="rolagem">
+        <table class="tabela-tecnica">
+            <tr><th>Termo</th><th>Significado aqui</th></tr>
+            <tr><td>RAG</td><td>Buscar documentos antes de gerar a resposta, e só responder com base neles.</td></tr>
+            <tr><td>Trecho (<em>chunk</em>)</td><td>Pedaço de até 1.200 caracteres de um documento, a unidade da busca.</td></tr>
+            <tr><td>Embedding / vetor</td><td>Lista de 768 números que representa o sentido de um texto. Textos parecidos têm vetores próximos.</td></tr>
+            <tr><td>pgvector · HNSW</td><td>Extensão do Postgres para vetores, e o índice que acelera a busca do vizinho mais próximo.</td></tr>
+            <tr><td>tsvector · GIN</td><td>Índice de palavras do Postgres, com radicais em português e sem acentos.</td></tr>
+            <tr><td>RRF</td><td>Fusão de listas pela posição de cada item: 1/(60 + posição).</td></tr>
+            <tr><td>Rerank</td><td>Segunda passada em que um modelo dá nota de relevância aos candidatos.</td></tr>
+            <tr><td>OCR</td><td>Reconhecimento de texto em imagem, para PDFs escaneados.</td></tr>
+            <tr><td>Grafo de conhecimento</td><td>Nós (documentos, cursos, assuntos…) e arestas (aplica_a, revoga…) com fatos sobre as normas.</td></tr>
+            <tr><td>PPC</td><td>Projeto Pedagógico do Curso: o documento que define o currículo.</td></tr>
+        </table>
+        </div>
+        <div class="arquivos" data-arquivos="README.md services/llm.js server.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Pontos de atenção</div>
+        <div><b>Prancha</b>12 / 13</div><div><b>Assunto</b>Pendências</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+<!-- ===================================================================== 13 -->
+<section class="prancha" id="p13" data-titulo="Páginas dos sites (OKF)">
+    <header class="prancha-cabecalho">
+        <span class="numero">13</span>
+        <h2>Páginas dos sites (OKF)<small>Do site ao pacote de Markdown, do pacote ao banco, e do banco à resposta</small></h2>
+        <div class="acoes"></div>
+    </header>
+    <div class="conteudo">
+        <p>Além dos PDFs normativos, o Grizz conhece as <strong>páginas dos sites</strong> da FACOM e do IME: graduação, institucional, Mais FACOM/IME, extensão, perfis de pessoas e notícias e editais dos últimos 90 dias. Elas são guardadas no formato <strong>OKF</strong> (<em>Open Knowledge Format</em>): um arquivo Markdown por página em <code>conhecimento/</code>, com um cabeçalho de dados (tipo, título, unidade, seção, cursos, endereço, datas, <em>hash</em> do conteúdo) e links relativos entre os arquivos. O pacote fica no git, então cada mudança nos sites aparece como um <em>diff</em> legível.</p>
+        <p>O OKF não substitui o RAG: navegar o pacote arquivo por arquivo a cada pergunta passaria do limite de tokens da Groq. Ele é a <strong>camada de conhecimento</strong> de onde saem cinco coisas que o Grizz consulta de jeitos diferentes, cada um adequado ao tipo de dado.</p>
+
+        <h3>Preparação: do site ao banco</h3>
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 470" role="img" aria-label="Preparação do pacote OKF: geração a partir dos sites, enriquecimento, importação para o banco">
+                <text x="20" y="28" class="t-titulo">Geração · npm run okf</text>
+                <text x="330" y="28" class="t-pequeno">sem LLM · respeita o robots.txt (10 s entre requisições)</text>
+                <rect x="20" y="44" width="170" height="78" class="caixa"/>
+                <text x="105" y="68" text-anchor="middle">Descoberta</text>
+                <text x="105" y="88" text-anchor="middle" class="t-pequeno">sitemap.xml + listagens</text>
+                <text x="105" y="104" text-anchor="middle" class="t-pequeno">/acontece, /editais</text>
+                <line class="seta" x1="190" y1="83" x2="218" y2="83"/>
+                <rect x="220" y="44" width="170" height="78" class="caixa"/>
+                <text x="305" y="68" text-anchor="middle">Seleção</text>
+                <text x="305" y="88" text-anchor="middle" class="t-pequeno">seções no escopo · notícia</text>
+                <text x="305" y="104" text-anchor="middle" class="t-pequeno">e edital só até 90 dias</text>
+                <line class="seta" x1="390" y1="83" x2="418" y2="83"/>
+                <rect x="420" y="44" width="170" height="78" class="caixa"/>
+                <text x="505" y="68" text-anchor="middle">Extração</text>
+                <text x="505" y="88" text-anchor="middle" class="t-pequeno">HTML → Markdown limpo</text>
+                <text x="505" y="104" text-anchor="middle" class="t-pequeno">só baixa o que mudou</text>
+                <line class="seta" x1="590" y1="83" x2="618" y2="83"/>
+                <rect x="620" y="44" width="170" height="78" class="caixa-dupla"/>
+                <text x="705" y="68" text-anchor="middle">conhecimento/</text>
+                <text x="705" y="88" text-anchor="middle" class="t-pequeno">1 .md por página</text>
+                <text x="705" y="104" text-anchor="middle" class="t-pequeno">cabeçalho + hash · git</text>
+                <line class="seta" x1="790" y1="83" x2="818" y2="83"/>
+                <rect x="820" y="44" width="160" height="78" class="caixa"/>
+                <text x="900" y="64" text-anchor="middle">Enriquecimento</text>
+                <text x="900" y="82" text-anchor="middle" class="t-pequeno">e-mail e áreas de</text>
+                <text x="900" y="96" text-anchor="middle" class="t-pequeno">pesquisa nos perfis</text>
+                <text x="900" y="112" text-anchor="middle" class="t-pequeno">+ fatos.json (contatos)</text>
+
+                <text x="20" y="148" class="t-titulo">Importação · npm run okf:import e npm run teaching</text>
+                <text x="20" y="166" class="t-pequeno">compara o hash de cada arquivo com o do banco: só o que mudou volta; o que sumiu vira "removido"</text>
+                <path class="seta" d="M705 122 V182 H110 V200"/>
+
+                <rect x="20" y="202" width="180" height="96" class="caixa-ciano"/>
+                <text x="110" y="224" text-anchor="middle">Páginas</text>
+                <text x="110" y="244" text-anchor="middle" class="t-pequeno">documents (kind pagina,</text>
+                <text x="110" y="258" text-anchor="middle" class="t-pequeno">noticia, edital)</text>
+                <text x="110" y="274" text-anchor="middle" class="t-pequeno">trechos por seção ## + vetor</text>
+                <text x="110" y="288" text-anchor="middle" class="t-pequeno">grafo por regra (sem LLM)</text>
+                <rect x="215" y="202" width="180" height="96" class="caixa-ciano"/>
+                <text x="305" y="224" text-anchor="middle">Pessoas</text>
+                <text x="305" y="244" text-anchor="middle" class="t-pequeno">tabela pessoas: cargo,</text>
+                <text x="305" y="258" text-anchor="middle" class="t-pequeno">sala, telefone, e-mail, áreas</text>
+                <text x="305" y="274" text-anchor="middle" class="t-pequeno">vetor por docente</text>
+                <text x="305" y="288" text-anchor="middle" class="t-pequeno">(nome + áreas + formação)</text>
+                <rect x="410" y="202" width="180" height="96" class="caixa"/>
+                <text x="500" y="224" text-anchor="middle">Turmas</text>
+                <text x="500" y="244" text-anchor="middle" class="t-pequeno">dos horários de aula:</text>
+                <text x="500" y="258" text-anchor="middle" class="t-pequeno">disciplina, turma, docente,</text>
+                <text x="500" y="274" text-anchor="middle" class="t-pequeno">horário e sala</text>
+                <text x="500" y="288" text-anchor="middle" class="t-pequeno">por regras (sem LLM)</text>
+                <rect x="605" y="202" width="180" height="96" class="caixa"/>
+                <text x="695" y="224" text-anchor="middle">Contatos fixos</text>
+                <text x="695" y="244" text-anchor="middle" class="t-pequeno">conhecimento/fatos.json</text>
+                <text x="695" y="258" text-anchor="middle" class="t-pequeno">coordenação, secretaria,</text>
+                <text x="695" y="274" text-anchor="middle" class="t-pequeno">horário, e-mail, endereço</text>
+                <text x="695" y="288" text-anchor="middle" class="t-pequeno">vai junto no deploy</text>
+                <rect x="800" y="202" width="180" height="96" class="caixa"/>
+                <text x="890" y="224" text-anchor="middle">Limites</text>
+                <text x="890" y="244" text-anchor="middle" class="t-pequeno">até 300 vetores por dia</text>
+                <text x="890" y="258" text-anchor="middle" class="t-pequeno">reserva de 200 para o chat</text>
+                <text x="890" y="274" text-anchor="middle" class="t-pequeno">(tabela api_usage)</text>
+                <path class="seta" d="M305 182 V200"/>
+                <path class="seta" d="M500 182 V200"/>
+                <path class="seta" d="M695 182 V200"/>
+
+                <line class="linha-fina" x1="20" y1="320" x2="980" y2="320"/>
+                <text x="20" y="346" class="t-caneta">cada tipo de dado tem a busca que combina com ele:</text>
+                <text x="20" y="372" class="t-pequeno">· página: trecho com vetor, como as normas, mas em lista separada</text>
+                <text x="20" y="392" class="t-pequeno">· pessoa: pelo nome em memória; pela área, com vetor + palavra-chave</text>
+                <text x="20" y="412" class="t-pequeno">· turma: palavra-chave na disciplina, só do semestre mais recente</text>
+                <text x="20" y="432" class="t-pequeno">· contato: sem busca nenhuma, vai direto ao prompt</text>
+                <text x="560" y="372" class="t-pequeno">Action diária: sync dos PDFs → okf → commit do pacote</text>
+                <text x="560" y="392" class="t-pequeno">→ okf:import → dedupe → grafo → teaching</text>
+                <text x="560" y="412" class="t-pequeno">estado do gerador (.estado.json) em cache, fora do git</text>
+            </svg>
+            <figcaption>Fig. 13.1 — Preparação do OKF. Em ciano, o que gera vetores no Gemini; o resto é feito por regras.</figcaption>
+        </figure>
+
+        <h3>Busca: como o OKF entra numa resposta</h3>
+        <p>A cada pergunta, o agente (<code>services/agent.js</code>) dispara em paralelo a busca normal e quatro consultas ao que veio do OKF. Cada consulta só roda quando a pergunta pede aquele tipo de dado, e o resultado vira uma <strong>fonte numerada</strong> antes dos trechos das normas.</p>
+        <figure class="desenho">
+            <svg class="d" viewBox="0 0 1000 560" role="img" aria-label="Como as fontes do OKF entram na resposta: busca híbrida com páginas, pessoas pelo nome, turmas, docentes por área e contatos fixos">
+                <rect x="350" y="14" width="300" height="52" class="caixa"/>
+                <text x="500" y="36" text-anchor="middle">Pergunta + perfil do aluno</text>
+                <text x="500" y="54" text-anchor="middle" class="t-pequeno">depois da leitura do perfil e da reescrita</text>
+                <path class="seta" d="M380 66 L110 108"/>
+                <path class="seta" d="M440 66 L305 108"/>
+                <path class="seta" d="M500 66 V108"/>
+                <path class="seta" d="M560 66 L695 108"/>
+                <path class="seta" d="M620 66 L890 108"/>
+
+                <rect x="20" y="110" width="180" height="150" class="caixa-ciano"/>
+                <text x="110" y="132" text-anchor="middle">1 · Busca híbrida</text>
+                <text x="110" y="152" text-anchor="middle" class="t-pequeno">sempre</text>
+                <text x="110" y="172" text-anchor="middle" class="t-pequeno">normas: 12 candidatos</text>
+                <text x="110" y="188" text-anchor="middle" class="t-pequeno">páginas: lista à parte, 4</text>
+                <text x="110" y="204" text-anchor="middle" class="t-pequeno">máx. 4 trechos por doc.</text>
+                <text x="110" y="220" text-anchor="middle" class="t-pequeno">rerank dá a nota</text>
+                <text x="110" y="236" text-anchor="middle" class="t-pequeno">resposta: até 2 páginas,</text>
+                <text x="110" y="250" text-anchor="middle" class="t-pequeno">1 trecho por página</text>
+                <rect x="215" y="110" width="180" height="150" class="caixa"/>
+                <text x="305" y="132" text-anchor="middle">2 · Pessoa pelo nome</text>
+                <text x="305" y="152" text-anchor="middle" class="t-pequeno">"quem é Renato Aquino?"</text>
+                <text x="305" y="172" text-anchor="middle" class="t-pequeno">nomes do cadastro em</text>
+                <text x="305" y="188" text-anchor="middle" class="t-pequeno">memória, sem LLM</text>
+                <text x="305" y="204" text-anchor="middle" class="t-pequeno">2 partes do nome, ou 1 rara</text>
+                <text x="305" y="220" text-anchor="middle" class="t-pequeno">+ "professor", "ramal"…</text>
+                <text x="305" y="236" text-anchor="middle" class="t-pequeno">perfil + disciplinas</text>
+                <text x="305" y="250" text-anchor="middle" class="t-pequeno">do semestre</text>
+                <rect x="410" y="110" width="180" height="150" class="caixa"/>
+                <text x="500" y="132" text-anchor="middle">3 · Turmas</text>
+                <text x="500" y="152" text-anchor="middle" class="t-pequeno">"quem dá aula de BD?"</text>
+                <text x="500" y="172" text-anchor="middle" class="t-pequeno">só se a pergunta tem</text>
+                <text x="500" y="188" text-anchor="middle" class="t-pequeno">"dá aula", "horário de",</text>
+                <text x="500" y="204" text-anchor="middle" class="t-pequeno">"sala de", "professor de"</text>
+                <text x="500" y="220" text-anchor="middle" class="t-pequeno">palavra-chave na disciplina</text>
+                <text x="500" y="236" text-anchor="middle" class="t-pequeno">semestre mais recente;</text>
+                <text x="500" y="250" text-anchor="middle" class="t-pequeno">curso do aluno primeiro</text>
+                <rect x="605" y="110" width="180" height="150" class="caixa-ciano"/>
+                <text x="695" y="132" text-anchor="middle">4 · Docentes por área</text>
+                <text x="695" y="152" text-anchor="middle" class="t-pequeno">"IC com IA?"</text>
+                <text x="695" y="172" text-anchor="middle" class="t-pequeno">só com "IC", "orientador",</text>
+                <text x="695" y="188" text-anchor="middle" class="t-pequeno">"pesquisa", "TCC com"</text>
+                <text x="695" y="204" text-anchor="middle" class="t-pequeno">vetor da pergunta ×</text>
+                <text x="695" y="220" text-anchor="middle" class="t-pequeno">vetor de cada docente</text>
+                <text x="695" y="236" text-anchor="middle" class="t-pequeno">+ palavra-chave nas áreas</text>
+                <text x="695" y="250" text-anchor="middle" class="t-pequeno">fusão RRF · 6 docentes</text>
+                <rect x="800" y="110" width="180" height="150" class="caixa"/>
+                <text x="890" y="132" text-anchor="middle">5 · Contatos fixos</text>
+                <text x="890" y="152" text-anchor="middle" class="t-pequeno">sempre, sem busca</text>
+                <text x="890" y="172" text-anchor="middle" class="t-pequeno">fatos.json no prompt:</text>
+                <text x="890" y="188" text-anchor="middle" class="t-pequeno">com o curso, os do curso</text>
+                <text x="890" y="204" text-anchor="middle" class="t-pequeno">e da unidade; sem ele,</text>
+                <text x="890" y="220" text-anchor="middle" class="t-pequeno">secretarias e a</text>
+                <text x="890" y="236" text-anchor="middle" class="t-pequeno">coordenação de cada</text>
+                <text x="890" y="250" text-anchor="middle" class="t-pequeno">curso · sem número [n]</text>
+
+                <path class="seta" d="M110 260 V330 H380"/>
+                <path class="seta" d="M305 260 V310 H420 V328"/>
+                <path class="seta" d="M500 260 V328"/>
+                <path class="seta" d="M695 260 V310 H580 V328"/>
+                <path class="seta" d="M890 260 V330 H620"/>
+
+                <rect x="380" y="330" width="240" height="96" class="caixa-dupla"/>
+                <text x="500" y="352" text-anchor="middle">Prompt da resposta</text>
+                <text x="500" y="372" text-anchor="middle" class="t-pequeno">[1]…[k] perfis, turmas, docentes</text>
+                <text x="500" y="388" text-anchor="middle" class="t-pequeno">[k+1]… trechos (Norma / Página)</text>
+                <text x="500" y="404" text-anchor="middle" class="t-pequeno">+ contatos · regra: a norma</text>
+                <text x="500" y="418" text-anchor="middle" class="t-pequeno">prevalece sobre a página</text>
+                <path class="seta" d="M500 426 V452"/>
+                <rect x="380" y="454" width="240" height="60" class="caixa-ciano"/>
+                <text x="500" y="476" text-anchor="middle">gpt-oss-120b escreve</text>
+                <text x="500" y="494" text-anchor="middle" class="t-pequeno">citando [n] de cada fonte</text>
+                <path class="seta" d="M620 484 H690"/>
+                <rect x="692" y="450" width="288" height="70" class="caixa"/>
+                <text x="836" y="472" text-anchor="middle">Conferência (guards.js)</text>
+                <text x="836" y="490" text-anchor="middle" class="t-pequeno">e-mail que não estava no contexto sai</text>
+                <text x="836" y="506" text-anchor="middle" class="t-pequeno">perfil citado pelo nome vira fonte</text>
+                <text x="20" y="470" class="t-caneta">as fontes do OKF vêm com os</text>
+                <text x="20" y="494" class="t-caneta">primeiros números: a pergunta</text>
+                <text x="20" y="518" class="t-caneta">é sobre elas</text>
+            </svg>
+            <figcaption>Fig. 13.2 — As cinco fontes que o OKF alimenta numa resposta. Em ciano, as que usam vetores (o Gemini gera um vetor da pergunta).</figcaption>
+        </figure>
+
+        <h3>Por que cada escolha</h3>
+        <ul>
+            <li><strong>Pacote no git, não só no banco:</strong> o <em>diff</em> de <code>conhecimento/</code> mostra o que a FACOM e o IME mudaram nos sites; o banco pode ser refeito do pacote sem baixar tudo de novo (2 horas, por causa do intervalo do <code>robots.txt</code>).</li>
+            <li><strong>Páginas em lista separada das normas:</strong> com ~1.300 trechos de páginas na mesma lista, elas tirariam normas do rerank. Com cota própria (4 candidatos, no máximo 2 na resposta), uma pergunta de norma continua respondida pelas normas.</li>
+            <li><strong>A norma prevalece:</strong> página serve para contato, procedimento, evento; em regra, vale a norma, e uma página divergente é apontada.</li>
+            <li><strong>Pessoa pelo nome sem LLM:</strong> os ~380 nomes cabem em memória; casar duas partes do nome é exato e não gasta cota. Nome comum ("professor Marcelo") traz os candidatos para o Grizz perguntar qual.</li>
+            <li><strong>Docentes por área com vetor:</strong> quem escreve "IA" quer achar também quem pesquisa "aprendizado de máquina"; só a palavra-chave não faria isso.</li>
+            <li><strong>Turmas por regras:</strong> cada curso publica o horário num formato (SIGAA, grade com legenda), e um nome curto só é ligado ao cadastro quando não há dúvida; senão fica como está na grade.</li>
+            <li><strong>Contatos direto no prompt:</strong> são poucos e estáveis; ir pela busca seria arriscar que a página do curso não viesse.</li>
+            <li><strong>Gatilhos por palavras:</strong> "estágio" bateria com a turma de Estágio Supervisionado numa pergunta sobre a norma; por isso turmas e docentes por área só entram quando a pergunta é desse tipo.</li>
+        </ul>
+        <div class="dica">Tudo do OKF tem plano B: sem o cadastro, sem as turmas ou sem vetor da pergunta, a consulta daquele tipo devolve vazio e a resposta segue só com as normas e as páginas.</div>
+        <div class="arquivos" data-arquivos="services/okf.js scripts/build-okf.js services/okfPeople.js services/okfContacts.js services/okfFacts.js scripts/import-okf.js services/people.js models/Person.js services/teaching.js models/Turma.js services/agent.js services/guards.js"></div>
+    </div>
+    <div class="carimbo">
+        <div class="titulo-carimbo">Páginas dos sites · OKF</div>
+        <div><b>Prancha</b>13 / 13</div><div><b>Assunto</b>Conhecimento</div><div><b>Escala</b>Sem escala</div><div><b>Revisão</b>Nov/2026</div>
+    </div>
+</section>
+
+</main>
+
+<!-- Conversa com o Claude -->
+<aside class="conversa" id="conversa" aria-label="Perguntas ao Claude">
+    <div class="conversa-cabecalho">
+        <h2>Perguntar ao Claude</h2>
+        <button class="botao pequeno" id="limpar-conversa" title="Começar uma conversa nova">Nova</button>
+        <button class="botao pequeno" id="fechar-conversa" aria-label="Fechar">✕</button>
+    </div>
+    <div class="contexto-pergunta" id="contexto-pergunta"></div>
+    <div class="mensagens" id="mensagens"></div>
+    <form class="caixa-pergunta" id="form-pergunta">
+        <textarea id="pergunta" placeholder="Pergunte sobre o código. Ex.: como a busca decide quais documentos excluir?" aria-label="Pergunta"></textarea>
+        <div class="linha-acoes">
+            <span id="dica-envio">Ctrl+Enter envia</span>
+            <button class="botao ciano" type="submit" id="enviar">Enviar</button>
+        </div>
+    </form>
+</aside>
+
+<!-- Balão sobre a seleção de texto -->
+<div class="balao-selecao" id="balao-selecao">
+    <button class="botao pequeno caneta" id="anotar-selecao">✎ Anotar</button>
+    <button class="botao pequeno ciano" id="perguntar-selecao">◆ Perguntar</button>
+</div>
+
+<!-- Caderno com todas as notas -->
+<dialog class="caderno" id="caderno">
+    <div class="caderno-cabecalho">
+        <h2>Caderno de notas</h2>
+        <button class="botao pequeno caneta" id="exportar-notas-caderno">Exportar (.md)</button>
+        <button class="botao pequeno" id="fechar-caderno" aria-label="Fechar">✕</button>
+    </div>
+    <div class="caderno-corpo" id="caderno-corpo"></div>
+</dialog>
+
+<script src="/vendor/marked.js"></script>
+<script src="/vendor/purify.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

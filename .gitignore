@@ -18,8 +18,11 @@ data/pdfs/
 # configurações locais do Claude Code
 .claude/settings.local.json
 
-# guia de estudos local: manual técnico, servidor de perguntas ao Claude e notas pessoais
-estudos/
+# manual técnico (docs/): o manual e o servidor vão para o git; a chave do Claude, as notas pessoais e as
+# dependências, não
+docs/.env
+docs/dados/
+docs/node_modules/
 
 # logs
 *.log

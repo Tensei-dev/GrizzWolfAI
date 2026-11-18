@@ -7,6 +7,9 @@ O Grizz é um assistente de perguntas e respostas (RAG) sobre as normas da Facul
 > [!NOTE]
 > O Grizz não substitui a coordenação do curso nem a secretaria. Ele só responde com base nos documentos que conseguiu ler e avisa quando não encontra a informação.
 
+> [!TIP]
+> **Manual técnico:** a arquitetura inteira do Grizz explicada em pranchas de desenho técnico, da importação dos documentos à resposta, está em [`docs/`](docs/LEIA-ME.md). Veja [Manual técnico](#manual-técnico) para abrir.
+
 ## Funcionalidades
 
 - **Respostas com fontes:** cada afirmação traz uma citação `[n]` com link para o PDF oficial.
@@ -280,6 +283,8 @@ npm run ingest -- data/sources.json
 │   └── politeFetch.js        # requisições que respeitam o robots.txt (Crawl-delay e Disallow)
 ├── scripts/                  # comandos de importação e manutenção
 ├── conhecimento/             # pacote OKF gerado das páginas dos sites (npm run okf)
+├── docs/                     # manual técnico em pranchas, com notas e perguntas ao Claude
+├── test/                     # testes das regras (npm test)
 ├── data/sources.json         # lista de documentos extras para importar
 └── public/                   # front: HTML, CSS, JS e imagens
 ```
@@ -308,6 +313,31 @@ npm run ingest -- data/sources.json
 - **Grafo:** as ligações lidas pelo modelo podem errar, e um documento ligado ao curso errado deixa de aparecer para os alunos do curso certo. As ligações ficam em `kg_edges` para conferência e podem ser refeitas com `npm run graph -- --rebuild`.
 - **Perguntas de continuação:** antes de buscar, um modelo da Groq reescreve a mensagem como uma pergunta completa usando as últimas mensagens ("e o prazo?" vira "Qual o prazo do relatório de estágio?"). Se a reescrita falhar, a busca usa a pergunta atual junto com a mensagem anterior do aluno, e continuações muito curtas podem buscar pior.
 - **Histórico:** fica só no navegador. Ele não sincroniza entre dispositivos e some se os dados do navegador forem limpos.
+
+## Manual técnico
+
+O [manual técnico](docs/LEIA-ME.md) explica o Grizz em 14 pranchas no estilo de desenho técnico (papel azul quadriculado), cada uma com um diagrama, os arquivos envolvidos e o porquê das decisões:
+
+| Pranchas | Assunto |
+|---|---|
+| 00 | Plano geral do modelo: as duas fases (preparar o acervo, responder uma pergunta) |
+| 01 – 02 | Implantação (Vercel, GitHub Actions, Neon) e estrutura de pastas |
+| 03 – 05 | Importação dos documentos, banco de dados e grafo de conhecimento |
+| 06 – 07 | Busca híbrida com rerank e o agente Grizz |
+| 08 – 11 | Servidor e página, automação, resiliência e cotas, configuração |
+| 12 | Pontos de atenção e glossário |
+| 13 | Páginas dos sites no formato OKF: pessoas, turmas, contatos e como entram na busca |
+
+O manual é uma página com um pequeno servidor, que também guarda notas presas aos parágrafos e responde perguntas sobre o código com o Claude (lendo o repositório a cada pergunta):
+
+```bash
+cd docs
+npm install
+cp .env.example .env   # opcional: ANTHROPIC_API_KEY para as perguntas ao Claude
+npm start              # abre em http://localhost:4100
+```
+
+Sem a chave do Claude, o manual e as notas funcionam; só a conversa fica desligada. Para só ler, dá para abrir [`docs/public/index.html`](docs/public/index.html) direto no navegador. As notas (`docs/dados/`) e a chave (`docs/.env`) ficam fora do git.
 
 ## Licença
 

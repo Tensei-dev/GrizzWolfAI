@@ -1,0 +1,19 @@
+{
+  "name": "grizzwolfai-estudos",
+  "private": true,
+  "description": "Guia de estudos local do GrizzWolfAI: manual técnico em pranchas, perguntas ao Claude sobre o repositório e notas.",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.9.0",
+    "dompurify": "^3.4.18",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "marked": "^18.2.1"
+  }
+}
