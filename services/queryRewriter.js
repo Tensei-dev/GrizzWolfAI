@@ -1,4 +1,4 @@
-const { complete, RERANK_MODEL } = require('./llm');
+const { complete, PROFILE_MODEL } = require('./llm');
 
 // A busca usa só a pergunta atual, reescrita como pergunta completa. O histórico serve para resolver referências
 // ("e o prazo?") sem arrastar para a busca os assuntos anteriores da conversa.
@@ -40,7 +40,7 @@ async function rewriteQuestion(question, history = []) {
                 { role: 'system', content: SYSTEM_PROMPT },
                 { role: 'user', content: `Histórico:\n${formatHistory(history)}\n\nMensagem atual do estudante: ${question}` },
             ],
-            { model: RERANK_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }
+            { model: PROFILE_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }
         );
         return validQuery(JSON.parse(raw).query) || fallbackQuery(question, history);
     } catch (err) {

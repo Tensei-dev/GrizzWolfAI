@@ -1,4 +1,4 @@
-const { complete, RERANK_MODEL } = require('./llm');
+const { complete, PROFILE_MODEL } = require('./llm');
 const { UNITS, COURSES, courseOfText } = require('./courses');
 const { REWRITE_RULES, validQuery } = require('./queryRewriter');
 
@@ -56,7 +56,7 @@ async function extractProfile(message, history = []) {
                     content: `${context ? `Histórico:\n${context}\n\n` : ''}Mensagem atual do estudante: ${message}`,
                 },
             ],
-            { model: RERANK_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }
+            { model: PROFILE_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }
         );
         const data = JSON.parse(raw);
         const year = Number(data.entryYear);
@@ -139,7 +139,7 @@ async function hasCompetingVersions(question, chunks, { courseId, courseName = n
                     content: `${courseName ? `Curso do estudante: ${courseName}\n` : ''}Pergunta: ${question}\n\nDocumentos vigentes:\n\n${list}`,
                 },
             ],
-            { model: RERANK_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }
+            { model: PROFILE_MODEL, temperature: 0, json: true, reasoningEffort: 'low' }
         );
         return JSON.parse(raw).needsEntryYear === true;
     } catch (err) {

@@ -208,7 +208,7 @@ async function extractWithLlm(doc, excerpt) {
             model: GRAPH_MODEL,
             temperature: 0,
             json: true,
-            reasoningEffort: GRAPH_MODEL.startsWith('openai/gpt-oss') ? 'low' : null,
+            reasoningEffort: GRAPH_MODEL.startsWith('openai/gpt-oss') ? 'low' : null, // o Qwen raciocina: o grafo precisa
             maxAttempts: 6,
             maxRetryDelayMs: 90000,
         }

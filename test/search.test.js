@@ -69,3 +69,11 @@ test('e-mail que não estava no contexto sai da resposta', () => {
     const answer = 'Fale com a secretaria (gabriel.firme@ufu.br ou facom@ufu.br) ou com RALOPES@ufu.br.';
     assert.equal(withoutUnknownEmails(answer, context), 'Fale com a secretaria (e-mail não informado no site ou facom@ufu.br) ou com RALOPES@ufu.br.');
 });
+
+test('esforço de raciocínio no formato de cada família de modelo', () => {
+    const { effortFor } = require('../services/llm');
+    assert.equal(effortFor('openai/gpt-oss-20b', 'low'), 'low');
+    assert.equal(effortFor('qwen/qwen3.8-27b', 'low'), 'none');
+    assert.equal(effortFor('allam-2-7b', 'low'), null);
+    assert.equal(effortFor('qwen/qwen3.8-27b', null), null);
+});

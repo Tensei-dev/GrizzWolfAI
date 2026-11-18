@@ -115,7 +115,9 @@ Abra **http://localhost:3000**.
 | `GEMINI_API_KEY` | sim | Chave da API do Gemini, usada para gerar os embeddings. |
 | `GROQ_API_KEY` | sim | Chave da API da Groq, usada para gerar as respostas e fazer o rerank. |
 | `GROQ_MODEL` | não | Modelo das respostas. Padrão: `openai/gpt-oss-120b`. |
-| `GROQ_RERANK_MODEL` | não | Modelo do rerank, da leitura do perfil do aluno e da reescrita das perguntas. Padrão: `openai/gpt-oss-20b`. |
+| `GROQ_PROFILE_MODEL` | não | Modelo da leitura do perfil do aluno, da reescrita das perguntas e da conferência de versões concorrentes (chamadas curtas). Padrão: `openai/gpt-oss-20b`. |
+| `GROQ_RERANK_MODEL` | não | Modelo do rerank, a chamada de apoio mais pesada (~3 mil tokens por pergunta). Padrão: `qwen/qwen3.8-27b`, que tem cota própria e divide com o grafo, que só lê documentos novos. |
+| `GROQ_FALLBACK_MODEL` | não | Modelo reserva da resposta: quando o `GROQ_MODEL` está no limite de tokens por minuto, a resposta vai para ele em vez de falhar. Padrão: `openai/gpt-oss-20b`. |
 | `GROQ_GRAPH_MODEL` | não | Modelo que lê os documentos para montar o grafo. Padrão: `qwen/qwen3.8-27b`. Use um modelo diferente dos do chat: cada modelo tem a sua cota diária na Groq, e a montagem do grafo gasta muitos tokens. |
 | `GRAPH_MAX_DOCS` | não | Quantos documentos o modelo lê por rodada de `npm run graph`. Padrão: `80`. |
 | `EMBED_TEXTS_PER_MINUTE` | não | Limite de requisições por minuto (RPM) do seu plano no Gemini. Padrão: `100`. |
