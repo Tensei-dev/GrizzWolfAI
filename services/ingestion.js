@@ -20,8 +20,6 @@ async function ensureCategories(categories = []) {
     return bySlug;
 }
 
-// O mesmo arquivo em outra URL: guarda o endereço, para a sincronização não baixá-lo de novo, e a categoria
-// de onde ele veio. Se a categoria for nova (ex.: publicado também no site da outra unidade), o grafo é refeito.
 async function linkExisting(doc, sourceUrl, slugs = [], categoriesBySlug = {}) {
     if (sourceUrl) await Document.addSource(doc.id, sourceUrl);
     const current = new Set((await Document.getCategories(doc.id)).map((c) => c.slug));

@@ -1,6 +1,3 @@
--- O título e a ementa do documento entram na busca por palavras-chave de cada trecho, com peso A (o conteúdo fica
--- com o peso D de antes). Em PDFs escaneados, fichas e tabelas, o título da listagem do site é o texto mais confiável:
--- sem ele, a ficha "Cálculo Diferencial e Integral II" com OCR "INTEGRAL TI" não era encontrada.
 ALTER TABLE chunks ADD COLUMN heading TEXT;
 
 UPDATE chunks c

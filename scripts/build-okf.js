@@ -1,11 +1,3 @@
-// Gera o pacote OKF dos sites das unidades em conhecimento/: um Markdown por página, só reescrito quando o conteúdo muda.
-//   npm run okf                      as duas unidades
-//   npm run okf -- facom             só uma unidade
-//   npm run okf -- --limit=20        baixa no máximo 20 páginas por unidade (para testar)
-//   npm run okf -- --dry-run         só mostra o que entraria, sem baixar as páginas
-//   npm run okf -- --revisar-dias=7  páginas sem data no sitemap são conferidas de novo a cada N dias
-//   npm run okf -- facom --paginas=telefones,servicos   baixa só estas páginas, mesmo sem mudança na data
-//                                    (sem a barra inicial: o Git Bash do Windows transforma "/x" em caminho de disco)
 const fs = require('fs/promises');
 const path = require('path');
 const { writeFacts } = require('../services/okfFacts');
@@ -18,8 +10,6 @@ const STATE_FILE = path.join(okf.ROOT, '.estado.json');
 const today = () => new Date().toISOString().slice(0, 10);
 const daysSince = (date) => (date ? (Date.now() - new Date(date).getTime()) / 86400000 : Infinity);
 const MIN_BODY_CHARS = 40;
-// Prazo máximo por página (espera da vez + download). Numa amostra, uma requisição ficou pendurada sem
-// que o tempo limite do fetch disparasse; com isso, ela vira falha de rede e a carga segue.
 const PAGE_DEADLINE_MS = 90000;
 
 function withDeadline(promise, ms, label) {
@@ -56,8 +46,6 @@ async function writeFile(file, text) {
     await fs.writeFile(file, text);
 }
 
-// Notícias e editais recentes que o sitemap não lista, lidos das listagens (/acontece, /editais) página a página.
-// Cada página da listagem tem alguns itens antigos fixados: para quando uma página inteira só tem itens com mais de 90 dias.
 async function discoverNews(unitId, known) {
     const unit = okf.UNITS[unitId];
     const cutoffMonth = okf.cutoffDate().slice(0, 7);
@@ -67,7 +55,6 @@ async function discoverNews(unitId, known) {
             const res = await politeFetch(`${unit.baseUrl}${listing}${n ? `?page=${n}` : ''}`, {}, { label: `a listagem ${listing} de ${unitId}` });
             if (!res.ok) break;
             const paths = okf.parseListing(await res.text(), listing, unit.baseUrl);
-            // sem data no endereço: entra, e o filtro de 90 dias usa a data de publicação da própria notícia
             const candidates = paths.filter((p) => !okf.dateFromPath(p) || okf.dateFromPath(p) >= cutoffMonth);
             for (const p of candidates) {
                 if (known.has(p)) continue;
@@ -106,13 +93,10 @@ async function syncUnit(unitId, { limit, dryRun, revisitDays, state, forced }) {
         existing.set(file, okf.parseFrontmatter(await fs.readFile(file, 'utf8')).data);
     }
 
-    // O que precisa ser baixado: página nova, data do sitemap mudou, ou página sem data não conferida há N dias.
     const toFetch = selected.filter((p) => {
-        // --paginas: baixa só estas, mesmo sem mudança na data (atualização manual ou teste)
         if (forced) return forced.has(p.path);
         const file = urlToFile.get(p.path);
         const s = state[`${unitId}${p.path}`];
-        // sem arquivo: nunca baixada, ou descartada antes (vazia, notícia antiga), que só volta quando mudar
         if (!existing.has(file) && !s?.descartada) return true;
         if (p.lastmod) return p.lastmod !== s?.lastmod;
         return daysSince(s?.verificadoEm) >= revisitDays;
@@ -137,7 +121,6 @@ async function syncUnit(unitId, { limit, dryRun, revisitDays, state, forced }) {
     const guard = networkGuard({ probe: () => politeFetch(`${unit.baseUrl}/robots.txt`, { method: 'HEAD' }, { timeoutMs: 15000 }) });
     const cutoff = okf.cutoffDate();
 
-    // Já no pacote, sem baixar de novo: páginas de teste e editais soltos (/node/) que venceram saem.
     for (const [file, data] of [...existing]) {
         const stale = isLoose(data.secao, data.title) && okf.staleReason(data, cutoff);
         if (!stale || !data.source) continue;
@@ -154,7 +137,6 @@ async function syncUnit(unitId, { limit, dryRun, revisitDays, state, forced }) {
                 const r = await politeFetch(page.url, {}, { label: page.url });
                 return { status: r.status, ok: r.ok, html: r.ok ? await r.text() : '' };
             })(), PAGE_DEADLINE_MS, page.url);
-            // o sitemap às vezes lista páginas que não existem mais: lembra o 404 para não tentar de novo todo dia
             if ([404, 410].includes(res.status)) {
                 state[key] = { lastmod: page.lastmod, verificadoEm: today(), descartada: true };
                 await remove(file, `HTTP ${res.status}`);
@@ -216,7 +198,6 @@ async function syncUnit(unitId, { limit, dryRun, revisitDays, state, forced }) {
         }
     }
 
-    // Páginas que saíram do sitemap (ou do escopo) e notícias que passaram de 90 dias saem do pacote.
     const inScope = new Set(urlToFile.values());
     for (const [file, data] of [...existing]) {
         if (!inScope.has(file)) await remove(file, 'fora do sitemap ou do escopo');
@@ -227,8 +208,6 @@ async function syncUnit(unitId, { limit, dryRun, revisitDays, state, forced }) {
     return count;
 }
 
-// Um link relativo para uma página descartada (vazia, notícia antiga) aponta para um arquivo que não existe:
-// volta a ser o endereço do site. O hash do conteúdo não muda, então isso não conta como alteração da página.
 async function repairLinks(existing, urlToFile, baseUrl) {
     const fileToPath = new Map([...urlToFile].map(([pagePath, file]) => [file, pagePath]));
     for (const file of existing.keys()) {
@@ -243,8 +222,6 @@ async function repairLinks(existing, urlToFile, baseUrl) {
     }
 }
 
-// index.md da unidade: as páginas por seção, com título e descrição (a porta de entrada do pacote).
-// Páginas soltas do portal e de teste: as únicas que a regra do título (okf.staleReason) olha fora de notícias e editais.
 function isLoose(section, title = '') {
     return section === 'node' || /^teste/i.test(title);
 }
@@ -294,7 +271,6 @@ async function main() {
     if (!dryRun) {
         const sorted = Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b)));
         await writeFile(STATE_FILE, `${JSON.stringify(sorted, null, 1)}\n`);
-        // e-mail e áreas de pesquisa no cabeçalho dos perfis (sem rede): um perfil baixado de novo volta sem eles
         const enriched = await enrichBundle();
         console.log(`perfis: ${enriched.comEmail} com e-mail e ${enriched.comAreas} com áreas de pesquisa (${enriched.alterados} atualizados)`);
         const facts = await writeFacts();

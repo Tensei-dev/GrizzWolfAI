@@ -12,7 +12,6 @@ const { COURSES, UNITS, courseOfText } = require('./courses');
 
 const CONTACT_WORDS = /coorden|secretari|contato|e-?mail|telefone|whatsapp|hor[aá]rio de atendimento|atendimento|endere[cç]o|onde fica|sala d/i;
 
-// Contatos dos cursos e das unidades, gerados das páginas dos sites pelo `npm run okf` (services/okfFacts.js).
 const FACTS = (() => {
     try {
         return require('../conhecimento/fatos.json');
@@ -75,8 +74,6 @@ Fora do seu território:
 - Se o estudante pedir qualquer outra coisa (receitas, futebol, política, piadas, fazer o exercício ou o código dele, perguntas gerais de conhecimento, de programação ou de matemática), não responda o pedido, nem em parte. Responda exatamente: "${OFF_TOPIC_REPLY}"
 - Se perguntarem quem você é, apresente-se em uma ou duas frases como o Grizz, o lobo ancião da FACOM e do IME da UFU, e diga com o que pode ajudar.`;
 
-// Regras de cada tipo de fonte, só no prompt das perguntas que trazem aquele tipo (o prompt fixo tinha ~2.300 tokens,
-// e o modelo da resposta aguenta 8 mil por minuto: cada token a menos é mais perguntas por minuto).
 const PAGES_RULES = `Normas e páginas dos sites:
 - Os documentos consultados são de dois tipos: normas (resoluções, regulamentos, PPCs, fichas) e páginas, notícias e editais dos sites da FACOM e do IME, marcados como "(página do site…)", "(notícia do site…)" ou "(edital…)".
 - As páginas servem para informações práticas: contatos, secretarias, coordenação, atendimento, formulários, procedimentos, eventos e oportunidades.
@@ -119,8 +116,6 @@ function profileInstructions(profile) {
 const pageBlock = (p) => `${p.title} (${p.source}):\n${p.fields.map((f) => `- ${f.label}: ${f.value}`).join('\n')}`;
 const COORDINATION = /^(coordenador|presidente)/i;
 
-// Com o curso do estudante, vão os contatos completos do curso e da unidade dele; sem o curso, as secretarias das
-// unidades e só a coordenação de cada curso, para o prompt não crescer à toa.
 function describeContacts(courseId) {
     if (!FACTS) return '';
     const course = courseId && COURSES[courseId];
@@ -138,7 +133,6 @@ function describeContacts(courseId) {
     return `\n\nContatos (das páginas dos sites da FACOM e do IME):\n\n${parts.join('\n\n')}`;
 }
 
-// Linhas que o grafo de conhecimento acrescenta a cada documento consultado.
 function graphLines(graph, numberOf) {
     if (!graph) return '';
     const cite = (d) => (numberOf.has(d.documentId) ? `${d.title} (veja [${numberOf.get(d.documentId)}])` : `${d.title} (não consultado)`);
@@ -150,7 +144,6 @@ function graphLines(graph, numberOf) {
     ].filter(Boolean).map((line) => `\n${line}`).join('');
 }
 
-// Diz ao modelo o que é cada fonte: as normas mandam; páginas e notícias dos sites completam.
 function kindLabel(c) {
     const unit = c.issuer ? ` da ${c.issuer}` : '';
     const date = c.published_at ? new Date(c.published_at).toLocaleDateString('pt-BR') : null;
@@ -160,9 +153,6 @@ function kindLabel(c) {
     return '';
 }
 
-// Fontes que vêm antes dos trechos e ficam com os primeiros números: os perfis das pessoas citadas e as turmas da
-// disciplina perguntada. A pergunta é sobre elas, e o modelo tende a citar [1] (sobretudo quando o histórico já citou [1]).
-// Cada uma: { title, sourceUrl, text }.
 function leadingSources(found, classes, advisors = []) {
     const profiles = found.people.map((p) => ({
         title: `Perfil: ${p.nome} (${p.unidade.toUpperCase()})`,
@@ -233,21 +223,14 @@ async function resolveProfile(profile, message, history, { mentionsPerson = fals
         entryYear: profile.entryYear || extracted.entryYear,
         prospective: profile.prospective || extracted.prospective,
     };
-    // "quem é Renato Aquino?" parecia conhecimento geral para o leitor de perfil; se o nome é de alguém do cadastro
-    // da FACOM ou do IME, a pergunta é do território do Grizz.
     if (extracted.offTopic && !mentionsPerson) return { profile, offTopic: true };
-    // Quem recusou informar o perfil não é perguntado de novo: nem o curso, nem o ano de ingresso.
     if (extracted.declined) profile = { ...profile, profilePrompts: MAX_PROFILE_PROMPTS, yearAsked: true };
 
     const pending = Boolean(profile.pendingQuestion);
-    // Contato e perfil de uma pessoa não dependem do curso do estudante, nem o contato de um curso que a pergunta já cita
-    // ("quem coordena SI de Monte Carmelo?").
     const asksCourseContact = !pending && CONTACT_WORDS.test(message) && Boolean(courseOfText(message));
-    // "com quem faço IC em IA?" busca docentes pela área, nas duas unidades se for preciso: não depende do curso
     const asksAdvisor = !pending && ADVISOR_WORDS.test(message);
     const missingCourse = (extracted.needsCourse || pending) && !profile.course && !mentionsPerson && !asksCourseContact && !asksAdvisor;
     const canAsk = profile.profilePrompts === 0 || (learned && profile.profilePrompts < MAX_PROFILE_PROMPTS);
-    // A pendente já foi guardada completa; quem responde à pergunta do Grizz (curso, ano) não está fazendo uma dúvida nova.
     const answeredGrizz = pending && learned;
     const hasQuestion = extracted.hasQuestion || (!answeredGrizz && (looksLikeQuestion(message) || mentionsPerson));
     if (missingCourse && canAsk) {
@@ -256,16 +239,12 @@ async function resolveProfile(profile, message, history, { mentionsPerson = fals
         return { profile, ask: askForCourse({ ambiguousCourse: extracted.ambiguousCourse }) };
     }
 
-    // A mensagem atual vem com a versão reescrita pela leitura do perfil.
     if (hasQuestion && !answeredGrizz) return { profile, question: message, searchQuery: extracted.searchQuery };
     return { profile, question: profile.pendingQuestion, searchQuery: profile.pendingQuestion };
 }
 
-// "Quem dá aula de Banco de Dados?", "qual o horário de Cálculo I?", "em que sala é Sistemas Digitais?"
 const CLASS_WORDS = /\b(d[aá]|deu|dar[aá]|ministra|leciona|ensina)\s+(a\s+)?(aula|disciplina|mat[eé]ria)|\bquem\s+(d[aá]|ministra|leciona|ensina)\b|\bprofessor(a|es)?\s+d[aeo]s?\b|\bdocentes?\s+d[aeo]s?\b|\bhor[aá]rios?\s+d[aeo]s?\b|\bsala\s+d[aeo]s?\b|\bturmas?\s+d[aeo]s?\b/i;
 
-// Turmas da disciplina perguntada, dos horários de aula. Só para perguntas desse tipo: "estágio" bateria com
-// "Estágio Supervisionado" numa pergunta sobre a norma de estágio.
 async function findClasses(question, searchQuery, course) {
     if (!CLASS_WORDS.test(question) && !CLASS_WORDS.test(searchQuery || '')) return [];
     if (/hor[aá]rio de atendimento/i.test(question)) return [];
@@ -277,18 +256,16 @@ async function findClasses(question, searchQuery, course) {
     }
 }
 
-// "Qual professor eu procuro para fazer IC com IA?", "quem pesquisa visão computacional?", "orientador de TCC em banco de dados"
 const ADVISOR_WORDS = /inicia[cç][aã]o cient[ií]fica|\bIC\b|orienta[cç][aã]o|orientador|orientadora|orientar|\bpesquis(a|ar|as|ador|adora|adores)\b|quem (trabalha|estuda|pesquisa)|especialista|linha de pesquisa|[aá]rea de (pesquisa|atua[cç][aã]o|interesse)|\btcc (com|em|sobre|na [aá]rea)\b|\bmonografia\b/i;
 const UNIT_IN_TEXT = { facom: /\bfacom\b|computa[cç][aã]o|sistemas de informa[cç][aã]o|intelig[eê]ncia artificial/i, ime: /\bime\b|matem[aá]tica|estat[ií]stica|ci[eê]ncia de dados/i };
 
-// Docentes pela área de pesquisa. A unidade é a do curso do estudante ou a citada na pergunta; sem nenhuma, as duas.
 async function findAdvisors(question, searchQuery, course) {
     const text = searchQuery || question;
     if (!ADVISOR_WORDS.test(question) && !ADVISOR_WORDS.test(text)) return [];
     const cited = Object.keys(UNIT_IN_TEXT).filter((u) => UNIT_IN_TEXT[u].test(question));
     const unidade = COURSES[course]?.unit || (cited.length === 1 ? cited[0] : null);
     try {
-        const embedding = await embedQuery(text).catch(() => null); // sem cota, fica só a palavra-chave
+        const embedding = await embedQuery(text).catch(() => null);
         return await Person.searchByArea(text, embedding, { unidade });
     } catch (err) {
         console.error(`busca de docentes por área indisponível: ${err.message}`);
@@ -296,7 +273,6 @@ async function findAdvisors(question, searchQuery, course) {
     }
 }
 
-// As disciplinas de cada pessoa citada, para o perfil dizer o que ela dá no semestre.
 async function withClasses(found) {
     if (!found.people.length) return found;
     try {
@@ -308,7 +284,6 @@ async function withClasses(found) {
     }
 }
 
-// A busca de pessoas não pode derrubar a resposta: sem o cadastro, o Grizz responde só com os documentos.
 async function findPeople(...texts) {
     try {
         return await people.findMentioned(...texts);
@@ -318,7 +293,6 @@ async function findPeople(...texts) {
     }
 }
 
-// O ano de ingresso só escolhe o currículo de um curso conhecido: sem o curso, perguntar o ano não resolve nada.
 function shouldAskEntryYear(profile) {
     if (profile.entryYear || profile.prospective || profile.yearAsked) return false;
     return Boolean(profile.course) && hasMultipleCurricula(profile.course);
@@ -344,7 +318,6 @@ async function answer({ message, history = [], profile = {} }) {
     const searchQuery = resolved.searchQuery || await rewriteQuestion(question, history);
     const [chunks, found, classes, advisors] = await Promise.all([
         hybridSearch(searchQuery, { profile: described, originalQuestion: question }),
-        // a versão reescrita resolve "e o ramal dele?" para o nome citado antes na conversa
         (named.people.length && question === message ? Promise.resolve(named) : findPeople(question, searchQuery)).then(withClasses),
         findClasses(question, searchQuery, profile.course),
         findAdvisors(question, searchQuery, profile.course),
@@ -366,19 +339,16 @@ async function answer({ message, history = [], profile = {} }) {
         (classes.length || found.people.some((p) => p.disciplinas?.length)) && CLASS_RULES,
     ].filter(Boolean).map((r) => `\n\n${r}`).join('');
     const system = `${SYSTEM_PROMPT}${rules}\n\n${profileInstructions(described)}${describeContacts(profile.course)}\n\nDocumentos consultados:\n\n${formatSources(chunks, leads)}`;
-    // Modelo principal no limite da cota: em vez de esperar até 40 s (ou falhar), responde o modelo reserva.
     const { content: raw, model: usedModel } = await completeWithFallback([
         { role: 'system', content: system },
         ...history.map((m) => ({ role: m.role, content: m.content })),
         { role: 'user', content: question },
     ], [CHAT_MODEL, FALLBACK_MODEL], { maxRetryDelayMs: 5000 });
-    // 【3†fonte】 vira [3]; marcas sem número (【Curso do estudante】) saem
     const content = withoutUnknownEmails(
         raw.replace(/【(\d+)[^】]*】/g, '[$1]').replace(/\s*【[^】]*】/g, ''),
         `${system}\n${history.map((m) => m.content).join('\n')}\n${question}`
     );
     const cited = new Set([...content.matchAll(/\[(\d+)\]/g)].map((m) => Number(m[1])));
-    // perfil de quem a resposta cita pelo nome também é fonte, mesmo que o modelo esqueça o [n]
     leads.forEach((l, i) => { if (l.name && content.includes(l.name)) cited.add(i + 1); });
 
     return {

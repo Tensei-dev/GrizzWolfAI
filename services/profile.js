@@ -101,19 +101,15 @@ Ignore os documentos de outros cursos que não o do estudante.`;
 
 const MAX_SNIPPET_CHARS = 300;
 
-// O curso vem do grafo de conhecimento; sem ele, do título e da ementa.
 function documentCourse(chunk) {
     if (chunk.graph?.courses.length) return chunk.graph.courses.length === 1 ? chunk.graph.courses[0] : null;
     return courseOfText(`${chunk.title} ${chunk.subject || ''}`);
 }
 
-// Versões da mesma norma (original, republicação, consolidado) têm o mesmo número, órgão e tipo e contam como uma só;
-// documentos diferentes que só compartilham o número (o Edital 10/2023 e a Resolução 10/2023) ficam separados.
 function normKey(chunk) {
     return chunk.number ? `${chunk.number}|${chunk.issuer || ''}|${chunk.doc_type}` : `doc-${chunk.document_id}`;
 }
 
-// Só é chamada com o curso do estudante conhecido: é ele que diz quais documentos concorrem entre si.
 async function hasCompetingVersions(question, chunks, { courseId, courseName = null }) {
     const documents = new Map();
     for (const c of chunks) {

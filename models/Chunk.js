@@ -2,9 +2,6 @@ const pool = require('../db/pool');
 
 const toVector = (embedding) => `[${embedding.join(',')}]`;
 
-// heading: título e ementa do documento, indexados junto com cada trecho na busca por palavras-chave.
-// Um trecho pode trazer o próprio heading (páginas: título da página e da seção).
-// Recebe uma conexão com transação aberta (quem chama faz BEGIN/COMMIT).
 async function insertMany(client, documentId, chunks, heading = null) {
     const created = [];
     for (const [i, chunk] of chunks.entries()) {

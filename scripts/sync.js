@@ -50,7 +50,6 @@ async function syncUnit(unitId, { dryRun }) {
     return failures;
 }
 
-// A conexão voltou? O site da unidade e o banco precisam responder.
 async function probe(unitId) {
     const res = await fetchWithTimeout(UNITS[unitId].baseUrl, { method: 'HEAD' }, { timeoutMs: 15000, label: `o ${UNITS[unitId].siteName}` });
     if (res.status >= 500) throw new Error(`o ${UNITS[unitId].siteName} respondeu HTTP ${res.status}`);
@@ -71,7 +70,6 @@ async function main() {
         } catch (err) {
             failures++;
             console.error(`[${unitId}] ${err.message}`);
-            // Site de uma unidade fora do ar não impede as outras; a cota do Gemini acabou para todas.
             if (err instanceof DailyQuotaError) break;
         }
     }

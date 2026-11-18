@@ -46,9 +46,6 @@ function splitLong(paragraphs) {
     return out;
 }
 
-// Páginas dos sites (Markdown do pacote OKF): o corte é nos títulos de seção, não nos artigos. Cada trecho
-// leva no heading o título da página e o caminho de seções ("Perguntas frequentes › O que é ENADE?"),
-// que entra na busca por palavras-chave com peso maior.
 const HEADING = /^(#{1,6})\s+(.*)$/;
 
 function chunkMarkdown(markdown, title) {
@@ -64,12 +61,12 @@ function chunkMarkdown(markdown, title) {
     };
 
     const lines = markdown
-        .replace(/\[([^\]]*)\]\([^)\s]+\.md\)/g, '$1') // links internos do pacote: só o texto
+        .replace(/\[([^\]]*)\]\([^)\s]+\.md\)/g, '$1')
         .split('\n');
     for (const line of splitLong(lines)) {
         const h = line.match(HEADING);
         if (h) {
-            if (h[1].length === 1) continue; // o "# título" da página já está no heading
+            if (h[1].length === 1) continue;
             flush(false);
             trail.length = h[1].length - 2;
             trail.push(h[2].replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').trim());
@@ -81,8 +78,6 @@ function chunkMarkdown(markdown, title) {
         current += (current && !current.endsWith('\n') ? '\n' : '') + line;
     }
     flush(false);
-    // Página só de títulos ("Núcleos" → "## Núcleo de Estatística", ...): a lista dos títulos é o conteúdo. Sem isso,
-    // ela não gerava nenhum trecho e ficava pendente na importação para sempre.
     if (!chunks.length) {
         const titles = lines
             .map((l) => l.match(HEADING))

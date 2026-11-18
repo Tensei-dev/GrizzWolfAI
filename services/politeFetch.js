@@ -1,5 +1,3 @@
-// Requisições educadas aos sites das unidades: respeita o robots.txt de cada host (Crawl-delay e Disallow).
-// Os sites da FACOM e do IME pedem 10 s entre requisições; ignorar isso pode bloquear o robô.
 const { fetchWithTimeout } = require('./network');
 
 const USER_AGENT = 'GrizzWolfAI/1.0 (+https://github.com/Tensei-dev/GrizzWolfAI)';
@@ -11,7 +9,6 @@ const nextSlotByHost = new Map();
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// Só o grupo "User-agent: *" interessa: o robô não tem regras próprias nos sites.
 function parseRobots(text) {
     const rules = { delayMs: DEFAULT_DELAY_MS, disallow: [] };
     let inGroup = false;
@@ -42,7 +39,6 @@ async function robotsFor(origin) {
     return robotsByOrigin.get(origin);
 }
 
-// Disallow do robots.txt: prefixo de caminho, com "*" e "$" como no padrão do Google.
 function matchesRule(pathAndQuery, rule) {
     const pattern = rule.replace(/[.+?^{}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*');
     return new RegExp(`^${pattern}`).test(pathAndQuery);
@@ -54,7 +50,6 @@ async function isAllowed(url) {
     return !disallow.some((rule) => matchesRule(u.pathname + u.search, rule));
 }
 
-// Espera a vez do host: cada requisição ao mesmo host fica pelo menos Crawl-delay depois da anterior.
 async function waitTurn(url) {
     const u = new URL(url);
     const { delayMs } = await robotsFor(u.origin);

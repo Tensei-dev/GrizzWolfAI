@@ -1,13 +1,9 @@
-// Falhas de rede (DNS, conexão, tempo esgotado) são separadas das falhas de um documento (404, PDF inválido):
-// numa queda de rede, todos os próximos documentos falhariam do mesmo jeito.
-
 class NetworkError extends Error {}
 
 const NETWORK_CODES = /^(ENOTFOUND|EAI_AGAIN|ECONNRESET|ECONNREFUSED|ETIMEDOUT|EPIPE|ENETUNREACH|EHOSTUNREACH|UND_ERR_\w+)$/;
 const NETWORK_MESSAGES = /fetch failed|timeout|timed out|connection terminated|socket hang up|getaddrinfo/i;
 
 function errorCode(err) {
-    // O fetch do Node guarda o código na causa, às vezes dentro de um AggregateError.
     return err?.code || err?.cause?.code || err?.cause?.cause?.code || err?.cause?.errors?.[0]?.code || null;
 }
 
@@ -19,7 +15,6 @@ function isNetworkError(err) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// fetch com tempo limite: o prazo vale até o fim da leitura da resposta, não só até o primeiro byte.
 async function fetchWithTimeout(url, options = {}, { timeoutMs = 30000, label = url } = {}) {
     try {
         return await fetch(url, { ...options, signal: AbortSignal.timeout(timeoutMs) });
@@ -29,8 +24,6 @@ async function fetchWithTimeout(url, options = {}, { timeoutMs = 30000, label = 
     }
 }
 
-// Para os lotes (importação, grafo): depois de algumas falhas de rede seguidas, espera e testa a conexão.
-// Se ela voltou, o lote continua; se não, failed() lança um NetworkError e o lote deve parar.
 function networkGuard({ probe, maxConsecutive = 3, pauseMs = 60000 }) {
     let consecutive = 0;
     return {

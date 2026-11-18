@@ -41,7 +41,6 @@ function fromHtml(html) {
 
 const DOWNLOAD_TIMEOUT_MS = 60000;
 
-// O tempo limite do fetch também corta a leitura do corpo; aqui o erro vira NetworkError com o nome do arquivo.
 async function readBody(res, source, isPdf) {
     try {
         return isPdf ? Buffer.from(await res.arrayBuffer()) : await res.text();
@@ -52,7 +51,6 @@ async function readBody(res, source, isPdf) {
 
 async function extract(source) {
     if (/^https?:\/\//i.test(source)) {
-        // politeFetch respeita o Crawl-delay do site (10 s na FACOM e no IME) entre um download e outro
         const res = await politeFetch(source, {}, { timeoutMs: DOWNLOAD_TIMEOUT_MS });
         if (!res.ok) throw new Error(`HTTP ${res.status} ao baixar ${source}`);
         const type = res.headers.get('content-type') || '';

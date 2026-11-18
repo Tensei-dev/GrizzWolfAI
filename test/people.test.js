@@ -1,4 +1,3 @@
-// Busca de pessoas pelo nome na pergunta (services/people.js), com um cadastro de mentira: sem banco.
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { mentioned, words, describe } = require('../services/people');
@@ -14,7 +13,6 @@ const cadastro = registry([
     ['Adriano Mendonça Rocha'], ['Adriano Barbosa Silva', 'Ex-docente'], ['Rosana Sueli Da Motta Jafelice'],
     ['Marcelo de Almeida Maia'], ['Marcelo Keese Albertini'], ['Marcelo Tavares'], ['Maria da Silva'], ['José da Silva'],
     ['João Silva'],
-    // no cadastro real, 34 pessoas têm Silva no nome: mais que os 8 candidatos que o Grizz lista
     ...['Ana', 'Bruno', 'Carla', 'Diego', 'Elisa', 'Fábio', 'Gabi', 'Hugo', 'Iara'].map((n) => [`${n} Pereira Silva`]),
 ]);
 const names = (text) => mentioned(text, cadastro).people.map((p) => p.nome);

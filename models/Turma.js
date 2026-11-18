@@ -1,6 +1,5 @@
 const pool = require('../db/pool');
 
-// Só o semestre mais recente com dados de cada curso: a Matemática ainda tem só 2026/1 com os docentes, o BCC já tem 2026/2.
 const LATEST = `(SELECT curso, max(semestre) AS semestre FROM turmas GROUP BY curso)`;
 
 const COLUMNS = `t.id, t.document_id, t.curso, t.semestre, t.codigo, t.disciplina, t.turma, t.docente, t.pessoa_id, t.horarios,
@@ -16,8 +15,6 @@ async function forPeople(personIds) {
     return rows;
 }
 
-// Turmas cuja disciplina (ou código) bate com a pergunta, do semestre mais recente; as que batem com mais palavras
-// primeiro. Com o curso do estudante, as do curso dele vêm na frente.
 async function search(text, { curso = null, limit = 10 } = {}) {
     const { rows } = await pool.query(
         `SELECT ${COLUMNS}, ts_rank_cd(t.tsv, q.q) AS score
@@ -29,7 +26,6 @@ async function search(text, { curso = null, limit = 10 } = {}) {
         [text, curso, limit * 3]
     );
     if (!rows.length) return [];
-    // só as que batem quase tão bem quanto a melhor: "Banco de Dados" não deve trazer todas as disciplinas "de Dados"
     const best = Math.max(...rows.map((r) => r.score));
     return rows.filter((r) => r.score >= best * 0.6).slice(0, limit);
 }

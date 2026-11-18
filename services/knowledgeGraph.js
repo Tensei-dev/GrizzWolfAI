@@ -3,10 +3,6 @@ const Document = require('../models/Document');
 const { complete, GRAPH_MODEL, DailyLimitError } = require('./llm');
 const { UNITS, COURSES, courseOfText } = require('./courses');
 
-// O grafo liga cada documento às unidades, cursos, currículos e assuntos a que ele se aplica, e às normas que
-// ele altera, revoga ou cita. A busca usa essas ligações para aplicar as regras do prompt do Grizz antes do LLM:
-// norma de outro curso não vale para o estudante, a norma mais nova prevalece e a regra pode depender de outro documento.
-
 const UFU = 'ufu';
 const ALL_UNITS = { ...Object.fromEntries(Object.entries(UNITS).map(([id, u]) => [id, `todos os cursos da ${u.name}`])), [UFU]: 'toda a UFU' };
 
@@ -38,7 +34,6 @@ function detectTopics(text) {
 const curriculumKey = (courseId, name) => `${courseId}:${name}`;
 const EXTINCT = 'anteriores';
 
-// Ano do currículo citado no título ou na ementa ("Currículo 10/97" → 1997, "currículo 2004" → 2004).
 function curriculumYear(text) {
     const m = text.match(/curr[ií]culos?\s*(?:de\s*|n?[ºo°]\s*)?(\d{1,2})\/(\d{2,4})\b|curr[ií]culos?\s*(?:de\s*)?((?:19|20)\d{2})\b/i);
     if (!m) return null;
@@ -47,14 +42,10 @@ function curriculumYear(text) {
     return y < 100 ? y + (y > 50 ? 1900 : 2000) : y;
 }
 
-// Norma de um currículo mais antigo que todos os do cadastro (ex.: estágio do BCC "Currículo 10/97"): sem um nó
-// para ele, o LLM a ligava ao curso inteiro, e ela aparecia para quem é do currículo 2023-1.
 function isExtinctCurriculum(header, courseId) {
     const year = curriculumYear(header);
     return Boolean(year) && year < Math.min(...COURSES[courseId].curricula.map((c) => c.startYear));
 }
-
-// ---------- Taxonomia: unidades, cursos, currículos e assuntos ----------
 
 async function ensureTaxonomy() {
     const ids = { unidade: {}, curso: {}, curriculo: {}, assunto: {}, extinto: {} };
@@ -69,7 +60,6 @@ async function ensureTaxonomy() {
             ids.curriculo[key] = await Graph.upsertNode({ type: 'curriculo', key, label: `${course.name}, currículo ${c.name}` });
             await Graph.addEdge(ids.curriculo[key], 'pertence_a', ids.curso[courseId]);
         }
-        // currículos anteriores aos do cadastro: nenhum estudante de hoje é deles, então o escopo nunca os inclui
         const key = curriculumKey(courseId, EXTINCT);
         ids.extinto[courseId] = await Graph.upsertNode({ type: 'curriculo', key, label: `${course.name}, currículos anteriores ao ${course.curricula[0].name} (extintos)` });
         await Graph.addEdge(ids.extinto[courseId], 'pertence_a', ids.curso[courseId]);
@@ -95,8 +85,6 @@ function taxonomyIds() {
     return taxonomyCache;
 }
 
-// ---------- Referências entre normas ----------
-
 const REFERENCE = /\b(resolu[cç][aã]o|portaria|edital)\b([^\n;]{0,60}?)(?:n[º°o.]\.?\s*)?(?<![\d/.])(\d{1,3}(?:\.\d{3})?)\s*\/\s*((?:19|20)\d{2})\b/gi;
 
 function normalizeNumber(number) {
@@ -111,7 +99,6 @@ function relationBefore(text, index) {
     return 'cita';
 }
 
-// Mesmo número, órgãos diferentes: a "Resolução nº 2/2019 do Colegiado do Curso" não é a nº 2/2019 do Conselho da FACOM.
 const ISSUER_FAMILIES = [
     ['colegiado', /colegiado|\bCOLCO\w*/i],
     ['universidade', /\b(CONGRAD|CONSUN|CONSEX|CONDIR)\b|conselho (universit[aá]rio|de gradua[cç][aã]o|de extens[aã]o|diretor)/i],
@@ -119,15 +106,11 @@ const ISSUER_FAMILIES = [
 ];
 const issuerFamily = (text) => ISSUER_FAMILIES.find(([, pattern]) => pattern.test(text || ''))?.[0] || null;
 
-// Devolve os documentos que a referência aponta: um só, ou todas as versões da mesma norma (original,
-// republicação, texto consolidado), que têm o mesmo número, órgão e tipo. Se for ambíguo, nenhum.
 function resolveReference(doc, { number, kind, context }, docsByNumber) {
     const familyOf = (d) => issuerFamily(`${d.issuer} ${d.title}`);
     const typed = (d) => /^(resolu|portaria|edital)/.test(d.doc_type);
     let candidates = (docsByNumber.get(number) || []).filter((d) => d.id !== doc.id)
-        // A "Resolução nº 5/2023" citada não é o "Edital nº 5/2023".
         .filter((d) => !kind || !typed(d) || d.doc_type.startsWith(kind.slice(0, 5)))
-        // A norma de outra unidade com o mesmo número só vale se for de um órgão da UFU toda (CONGRAD, CONSUN...).
         .filter((d) => !doc.unit || !d.unit || d.unit === doc.unit || familyOf(d) === 'universidade');
     const family = issuerFamily(context);
     if (family) {
@@ -151,7 +134,6 @@ function resolveReference(doc, { number, kind, context }, docsByNumber) {
     return sameNorm ? candidates : [];
 }
 
-// "Resolução CONFACOM Nº 1, de 08 de fevereiro de 2021": o número sem a barra, com a data por extenso.
 const REFERENCE_WITH_DATE = /\b(resolu[cç][aã]o|portaria|edital)\b([^\n;]{0,60}?)n[º°o.]\.?\s*(\d{1,3}),?\s+de\s+\d{1,2}º?\s+de\s+[a-zç]+\s+de\s+((?:19|20)\d{2})\b/gi;
 
 function findReferences(doc, text) {
@@ -165,8 +147,6 @@ function findReferences(doc, text) {
     }
     return refs;
 }
-
-// ---------- Leitura do documento pelo LLM ----------
 
 const EXTRACT_PROMPT = `Você monta o mapa de normas de um acervo de documentos oficiais da UFU.
 Recebe um documento publicado por uma unidade acadêmica e responde só com JSON no formato:
@@ -208,7 +188,7 @@ async function extractWithLlm(doc, excerpt) {
             model: GRAPH_MODEL,
             temperature: 0,
             json: true,
-            reasoningEffort: GRAPH_MODEL.startsWith('openai/gpt-oss') ? 'low' : null, // o Qwen raciocina: o grafo precisa
+            reasoningEffort: GRAPH_MODEL.startsWith('openai/gpt-oss') ? 'low' : null,
             maxAttempts: 6,
             maxRetryDelayMs: 90000,
         }
@@ -236,8 +216,6 @@ function extractWithRules(doc) {
     return { scope, courses: course ? [course] : [], curricula: [], topics: detectTopics(header) };
 }
 
-// ---------- Construção do grafo de um documento ----------
-
 async function buildDocument(doc, { taxonomy, docsByNumber, useLlm }) {
     const nodeId = await Graph.upsertNode({ type: 'documento', key: String(doc.id), label: doc.title.slice(0, 300), documentId: doc.id });
     const text = await Graph.documentText(doc.id);
@@ -257,7 +235,6 @@ async function buildDocument(doc, { taxonomy, docsByNumber, useLlm }) {
     const add = (relation, targetId, origin) => { if (targetId) edges.push({ relation, targetId, origin }); };
     for (const unit of doc.units) add('emitido_por', taxonomy.unidade[unit], 'regra');
 
-    // A quem o documento se aplica: currículos específicos, cursos, a unidade inteira ou a UFU toda.
     const source = llm?.scope ? llm : rules;
     const origin = llm?.scope ? 'llm' : 'regra';
     const coursesWithCurriculum = new Set(source.curricula.map((key) => key.split(':')[0]));
@@ -269,7 +246,6 @@ async function buildDocument(doc, { taxonomy, docsByNumber, useLlm }) {
         if (taxonomy.extinto?.[id] && isExtinctCurriculum(header, id)) add('aplica_a', taxonomy.extinto[id], 'regra');
         else add('aplica_a', taxonomy.curso[id], origin);
     }
-    // Publicado pelas duas unidades, uma norma "da unidade" vale para as duas.
     if (!edges.some((e) => e.relation === 'aplica_a')) {
         const units = source.scope === UFU || doc.units.length === 0 ? [UFU] : doc.units;
         for (const unit of units) add('aplica_a', taxonomy.unidade[unit], origin);
@@ -288,15 +264,12 @@ async function buildDocument(doc, { taxonomy, docsByNumber, useLlm }) {
     return { edges: edges.length, llm: Boolean(llm), references: references.edges.length, revoked };
 }
 
-// Normas alteradas, revogadas ou citadas que estão no acervo. Para cada uma vale a relação mais forte
-// (revoga > altera > cita), e a revogação é "confirmada" quando as regras e o LLM a encontram.
 async function referenceEdges(doc, ruleRefs, llmRefs, docsByNumber) {
     const strength = { cita: 0, altera: 1, revoga: 2 };
     const byTarget = new Map();
     for (const [origin, refs] of [['regra', ruleRefs], ['llm', llmRefs]]) {
         for (const ref of refs) {
             for (const target of resolveReference(doc, ref, docsByNumber)) {
-                // Uma norma não altera nem revoga outra mais nova: é o título "revogada pela nº X" lido ao contrário.
                 const relation = isNewer(target, doc) ? 'cita' : ref.relation;
                 const entry = byTarget.get(target.id) || { target, relation: 'cita', origin, revokedBy: new Set() };
                 if (strength[relation] > strength[entry.relation]) Object.assign(entry, { relation, origin });
@@ -316,15 +289,12 @@ async function referenceEdges(doc, ruleRefs, llmRefs, docsByNumber) {
     return { edges, confirmedRevocations };
 }
 
-// O ano do número ("18/2024") é a data da norma; a data de publicação no site pode ser bem posterior.
 function isNewer(a, b) {
     const year = (d) => Number(normalizeNumber(d.number)?.split('/')[1]) || null;
     if (year(a) && year(b)) return year(a) > year(b);
     return Boolean(a.published_at && b.published_at && new Date(a.published_at) > new Date(b.published_at));
 }
 
-// Revogação confirmada pelas regras e pelo LLM vira status no banco: a norma revogada sai das respostas
-// e aponta para a que a revogou. Uma norma vigente nunca é revogada por uma mais antiga.
 async function applyRevocations(doc, targets) {
     if (doc.status !== 'vigente') return [];
     const revoked = [];
@@ -338,7 +308,6 @@ async function applyRevocations(doc, targets) {
     return revoked;
 }
 
-// Refaz só as referências vindas das regras (altera, revoga, cita), sem chamar o LLM nem mexer no resto.
 async function rebuildRuleReferences(doc, { docsByNumber }) {
     const nodeId = await Graph.upsertNode({ type: 'documento', key: String(doc.id), label: doc.title.slice(0, 300), documentId: doc.id });
     const { edges } = await referenceEdges(doc, findReferences(doc, await Graph.documentText(doc.id)), [], docsByNumber);
@@ -346,12 +315,6 @@ async function rebuildRuleReferences(doc, { docsByNumber }) {
     return edges.length;
 }
 
-// ---------- Consulta na hora da busca ----------
-
-// Escopo do estudante no grafo: documentos de outros cursos (ou de outra unidade) ficam de fora,
-// e os documentos do curso dele sobre o assunto da pergunta entram como candidatos extras.
-// Se o currículo dele não é conhecido (sem ano de ingresso, ou ano que cai entre dois currículos), curriculumDocs
-// traz, para cada currículo possível, os documentos que valem só para ele: a busca garante um trecho de cada.
 async function scopeFor(profile, question) {
     if (!profile?.courseId) return null;
     try {
@@ -377,7 +340,6 @@ async function scopeFor(profile, question) {
     }
 }
 
-// O que o grafo sabe de cada documento: a quem vale, o que altera e quem o alterou ou revogou.
 async function describeDocuments(documentIds) {
     const ids = [...new Set(documentIds)];
     const info = new Map(ids.map((id) => [id, { appliesTo: [], courses: [], alters: [], cites: [], alteredBy: [], revokedBy: [] }]));
@@ -404,8 +366,6 @@ async function describeDocuments(documentIds) {
     return info;
 }
 
-// Páginas dos sites (pacote OKF): o cabeçalho já diz a unidade e os cursos, então as ligações saem sem LLM.
-// Página de curso vale para o curso; o resto vale para todos os cursos da unidade.
 async function linkPage({ documentId, title, description, unidade, cursos = [] }) {
     const ids = await taxonomyIds();
     const nodeId = await Graph.upsertNode({ type: 'documento', key: String(documentId), label: title.slice(0, 300), documentId });

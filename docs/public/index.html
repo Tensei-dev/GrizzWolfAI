@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<!-- Símbolos comuns a todos os desenhos: pontas de seta e hachura -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
         <marker id="ponta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
@@ -48,7 +47,6 @@
 
 <main id="manual">
 
-<!-- ===================================================================== 00 -->
 <section class="prancha" id="p00" data-titulo="Plano geral do modelo">
     <header class="prancha-cabecalho">
         <span class="numero">00</span>
@@ -65,7 +63,6 @@
 
         <figure class="desenho">
             <svg class="d" viewBox="0 0 1000 540" role="img" aria-label="Plano geral do modelo: fase de preparação do acervo e fase de resposta, ligadas pelo banco de dados">
-                <!-- Fase A -->
                 <text x="20" y="30" class="t-titulo">A · Preparação do acervo</text>
                 <text x="360" y="30" class="t-pequeno">todo dia, em lote · GitHub Actions</text>
                 <rect x="20" y="50" width="150" height="80" class="caixa"/>
@@ -93,7 +90,6 @@
                 <text x="635" y="118" text-anchor="middle" class="t-pequeno">números por trecho</text>
                 <line class="seta" x1="710" y1="90" x2="758" y2="90"/>
 
-                <!-- Banco -->
                 <path class="caixa-dupla" d="M760 60 v100 a110 20 0 0 0 220 0 v-100"/>
                 <ellipse cx="870" cy="60" rx="110" ry="20" class="caixa-dupla"/>
                 <text x="870" y="100" text-anchor="middle" class="t-titulo">Banco</text>
@@ -106,7 +102,6 @@
                 <line class="seta" x1="870" y1="196" x2="870" y2="184"/>
                 <text x="365" y="148" text-anchor="middle" class="t-pequeno">detalhes nas pranchas 03 · 04 · 05</text>
 
-                <!-- Faixa OKF: páginas dos sites -->
                 <text x="20" y="170" class="t-pequeno t-ciano">páginas dos sites · OKF · prancha 13</text>
                 <rect x="20" y="180" width="150" height="66" class="caixa"/>
                 <text x="32" y="196" class="t-pequeno">O1</text>
@@ -127,11 +122,9 @@
                 <text x="455" y="239" text-anchor="middle" class="t-pequeno">páginas, pessoas, turmas</text>
                 <path class="seta" d="M530 205 H700 L760 152"/>
 
-                <!-- ligação com a fase B -->
                 <path class="seta" d="M790 230 H570 V318"/>
                 <text x="590" y="222" class="t-pequeno">a busca lê o banco e o grafo</text>
 
-                <!-- Fase B -->
                 <text x="20" y="292" class="t-titulo">B · Resposta a uma pergunta</text>
                 <text x="380" y="292" class="t-pequeno">cada mensagem · poucos segundos</text>
                 <rect x="20" y="320" width="120" height="84" class="caixa"/>
@@ -170,7 +163,6 @@
                 <text x="900" y="374" text-anchor="middle" class="t-pequeno">só com os trechos,</text>
                 <text x="900" y="388" text-anchor="middle" class="t-pequeno">citando [1] [2]…</text>
 
-                <!-- modelos de cada etapa -->
                 <text x="230" y="424" text-anchor="middle" class="t-pequeno t-ciano">gpt-oss-20b</text>
                 <text x="390" y="424" text-anchor="middle" class="t-pequeno t-ciano">gpt-oss-20b</text>
                 <text x="570" y="424" text-anchor="middle" class="t-pequeno t-ciano">Gemini (vetor)</text>
@@ -182,7 +174,6 @@
                 <text x="730" y="440" text-anchor="middle" class="t-pequeno">prancha 06</text>
                 <text x="900" y="440" text-anchor="middle" class="t-pequeno">prancha 07</text>
 
-                <!-- legenda -->
                 <line class="linha-fina" x1="20" y1="470" x2="980" y2="470"/>
                 <rect x="20" y="490" width="30" height="18" class="caixa"/>
                 <text x="60" y="504" class="t-pequeno">código e banco</text>
@@ -211,7 +202,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 01 -->
 <section class="prancha" id="p01" data-titulo="Implantação geral">
     <header class="prancha-cabecalho">
         <span class="numero">01</span>
@@ -223,7 +213,6 @@
 
         <figure class="desenho">
             <svg class="d" viewBox="0 0 1000 540" role="img" aria-label="Diagrama de implantação com fontes, GitHub Actions, banco Neon, Vercel, navegador e serviços externos">
-                <!-- serviços externos -->
                 <rect x="215" y="18" width="200" height="62" class="caixa-externa"/>
                 <text x="315" y="42" text-anchor="middle" class="t-titulo">Gemini</text>
                 <text x="315" y="62" text-anchor="middle" class="t-pequeno">gemini-embedding-001 · 768d</text>
@@ -233,7 +222,6 @@
                 <text x="750" y="66" text-anchor="middle" class="t-pequeno">gpt-oss-20b → perfil, reescrita, rerank</text>
                 <text x="750" y="80" text-anchor="middle" class="t-pequeno">qwen3.8-27b → leitura do grafo</text>
 
-                <!-- fontes -->
                 <rect x="20" y="170" width="150" height="56" class="caixa"/>
                 <text x="95" y="194" text-anchor="middle">Site da FACOM</text>
                 <text x="95" y="212" text-anchor="middle" class="t-pequeno">aba Documentos</text>
@@ -241,7 +229,6 @@
                 <text x="95" y="280" text-anchor="middle">Site do IME</text>
                 <text x="95" y="298" text-anchor="middle" class="t-pequeno">aba Documentos</text>
 
-                <!-- github actions -->
                 <rect x="215" y="140" width="210" height="220" class="caixa-dupla"/>
                 <text x="320" y="166" text-anchor="middle" class="t-titulo">GitHub Actions</text>
                 <text x="320" y="184" text-anchor="middle" class="t-pequeno">todo dia ~6h17 (Brasília)</text>
@@ -255,7 +242,6 @@
                 <line class="seta" x1="170" y1="198" x2="213" y2="210"/>
                 <line class="seta" x1="170" y1="284" x2="213" y2="268"/>
 
-                <!-- banco -->
                 <path class="caixa-dupla" d="M470 170 v170 a90 22 0 0 0 180 0 v-170"/>
                 <ellipse cx="560" cy="170" rx="90" ry="22" class="caixa-dupla"/>
                 <text x="560" y="222" text-anchor="middle" class="t-titulo">Neon</text>
@@ -266,7 +252,6 @@
                 <line class="seta" x1="425" y1="250" x2="468" y2="250"/>
                 <text x="446" y="242" text-anchor="middle" class="t-pequeno">grava</text>
 
-                <!-- vercel -->
                 <rect x="700" y="190" width="150" height="120" class="caixa-dupla"/>
                 <text x="775" y="214" text-anchor="middle" class="t-titulo">Vercel</text>
                 <text x="775" y="234" text-anchor="middle" class="t-pequeno">api/index.js</text>
@@ -277,7 +262,6 @@
                 <path class="seta" d="M652 268 L700 268" />
                 <text x="676" y="228" text-anchor="middle" class="t-pequeno">lê</text>
 
-                <!-- navegador -->
                 <rect x="882" y="200" width="104" height="100" class="caixa"/>
                 <text x="934" y="224" text-anchor="middle">Navegador</text>
                 <text x="934" y="244" text-anchor="middle" class="t-pequeno">public/</text>
@@ -286,7 +270,6 @@
                 <line class="seta" x1="882" y1="236" x2="852" y2="236"/>
                 <line class="seta" x1="852" y1="268" x2="882" y2="268"/>
 
-                <!-- chamadas externas -->
                 <path class="seta-tracejada" d="M280 140 V82"/>
                 <text x="272" y="118" text-anchor="end" class="t-pequeno">vetores dos trechos</text>
                 <path class="seta-tracejada" d="M400 140 V106 H640 V94"/>
@@ -297,7 +280,6 @@
                 <path class="seta-tracejada" d="M740 190 V126 H350 V82"/>
                 <text x="470" y="121" class="t-pequeno">vetor da pergunta</text>
 
-                <!-- cotas -->
                 <path class="cota" d="M20 420 H650" marker-start="url(#traco-cota)" marker-end="url(#traco-cota)"/>
                 <text x="335" y="412" text-anchor="middle" class="t-pequeno">METADE EM LOTE · roda sem ninguém olhando</text>
                 <path class="cota" d="M470 460 H986" marker-start="url(#traco-cota)" marker-end="url(#traco-cota)"/>
@@ -328,7 +310,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 02 -->
 <section class="prancha" id="p02" data-titulo="Estrutura de pastas">
     <header class="prancha-cabecalho">
         <span class="numero">02</span>
@@ -354,7 +335,6 @@
                     <line class="linha" x1="40" y1="512" x2="70" y2="512"/><text x="78" y="517">.github/workflows/</text><text x="440" y="517" class="t-pequeno">sync-documents.yml: a automação diária</text>
                     <line class="linha" x1="40" y1="546" x2="70" y2="546"/><text x="78" y="551">docs/</text><text x="440" y="551" class="t-caneta">este manual (notas e chave do Claude fora do git)</text>
                 </g>
-                <!-- services detalhado -->
                 <line class="linha" x1="110" y1="216" x2="110" y2="390"/>
                 <g>
                     <line class="linha-fina" x1="110" y1="238" x2="130" y2="238"/><text x="136" y="242" class="t-ciano">agent.js</text><text x="440" y="242" class="t-pequeno">o Grizz: perfil, perguntas de esclarecimento, prompt, resposta</text>
@@ -378,7 +358,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 03 -->
 <section class="prancha" id="p03" data-titulo="Importação">
     <header class="prancha-cabecalho">
         <span class="numero">03</span>
@@ -390,7 +369,6 @@
 
         <figure class="desenho">
             <svg class="d" viewBox="0 0 1000 490" role="img" aria-label="Linha de importação em oito estações, com uma decisão no hash do arquivo">
-                <!-- linha 1 -->
                 <rect x="20" y="40" width="200" height="86" class="caixa"/>
                 <text x="32" y="62" class="t-pequeno">01</text><text x="120" y="66" text-anchor="middle">Listagem</text>
                 <text x="120" y="88" text-anchor="middle" class="t-pequeno">unitCrawler.crawl()</text>
@@ -410,9 +388,7 @@
                 <text x="774" y="62" class="t-pequeno">04</text><text x="871" y="66" text-anchor="middle">Texto</text>
                 <text x="871" y="88" text-anchor="middle" class="t-pequeno">pdf-parse · HTML: cheerio</text>
                 <text x="871" y="104" text-anchor="middle" class="t-pequeno">&lt;50 caract./pág. → OCR</text>
-                <!-- descida -->
                 <path class="seta" d="M871 126 V176 H760"/>
-                <!-- decisão -->
                 <path d="M690 176 L760 224 L690 272 L620 224 z" class="caixa-ciano" transform="translate(-10 -48)"/>
                 <text x="680" y="172" text-anchor="middle" class="t-pequeno">05</text>
                 <text x="680" y="186" text-anchor="middle">hash já</text>
@@ -425,7 +401,6 @@
                 <text x="680" y="350" text-anchor="middle" class="t-pequeno">não baixa de novo amanhã</text>
                 <path class="seta" d="M610 176 H520"/>
                 <text x="560" y="168" text-anchor="middle" class="t-pequeno">não</text>
-                <!-- linha 2 -->
                 <rect x="290" y="134" width="228" height="86" class="caixa"/>
                 <text x="302" y="156" class="t-pequeno">06</text><text x="404" y="160" text-anchor="middle">Trechos</text>
                 <text x="404" y="182" text-anchor="middle" class="t-pequeno">chunker: quebra em "Art. N"</text>
@@ -441,7 +416,6 @@
                 <text x="409" y="296" text-anchor="middle" class="t-pequeno">documents · chunks (+ heading)</text>
                 <text x="409" y="312" text-anchor="middle" class="t-pequeno">categoria facom / ime</text>
 
-                <!-- anotações -->
                 <rect x="20" y="380" width="960" height="96" class="caixa-alerta"/>
                 <text x="36" y="404" class="t-alerta">Paradas de segurança</text>
                 <text x="36" y="426" class="t-pequeno">cota diária do Gemini esgotada → para tudo e retoma amanhã (DailyQuotaError)</text>
@@ -470,7 +444,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 04 -->
 <section class="prancha" id="p04" data-titulo="Banco de dados">
     <header class="prancha-cabecalho">
         <span class="numero">04</span>
@@ -482,7 +455,6 @@
 
         <figure class="desenho">
             <svg class="d" viewBox="0 0 1000 610" role="img" aria-label="Diagrama entidade-relacionamento do banco">
-                <!-- documents -->
                 <rect x="360" y="20" width="270" height="250" class="caixa-dupla"/>
                 <text x="495" y="44" text-anchor="middle" class="t-titulo">documents</text>
                 <line class="linha" x1="360" y1="54" x2="630" y2="54"/>
@@ -498,7 +470,6 @@
                 <path class="seta-tracejada" d="M630 206 C700 210 700 300 590 274"/>
                 <text x="648" y="304" class="t-pequeno">revogado por</text>
 
-                <!-- chunks -->
                 <rect x="700" y="20" width="285" height="210" class="caixa"/>
                 <text x="842" y="44" text-anchor="middle" class="t-titulo">chunks</text>
                 <line class="linha" x1="700" y1="54" x2="985" y2="54"/>
@@ -512,7 +483,6 @@
                 <line class="linha" x1="630" y1="90" x2="700" y2="90"/>
                 <text x="640" y="84" class="t-pequeno">1</text><text x="688" y="84" class="t-pequeno">N</text>
 
-                <!-- categorias -->
                 <rect x="20" y="20" width="180" height="90" class="caixa"/>
                 <text x="110" y="44" text-anchor="middle" class="t-titulo">categories</text>
                 <line class="linha" x1="20" y1="54" x2="200" y2="54"/>
@@ -525,14 +495,12 @@
                 <line class="linha" x1="110" y1="110" x2="110" y2="150"/>
                 <line class="linha" x1="290" y1="186" x2="360" y2="186"/>
 
-                <!-- document_sources -->
                 <rect x="40" y="250" width="250" height="70" class="caixa"/>
                 <text x="165" y="274" text-anchor="middle" class="t-titulo">document_sources</text>
                 <line class="linha" x1="40" y1="284" x2="290" y2="284"/>
                 <text x="52" y="306">url <tspan class="t-pequeno">PK</tspan> · document_id</text>
                 <path class="linha" d="M290 284 H330 V250 H360"/>
 
-                <!-- grafo -->
                 <rect x="360" y="330" width="270" height="110" class="caixa-ciano"/>
                 <text x="495" y="354" text-anchor="middle" class="t-titulo t-ciano">kg_nodes</text>
                 <line class="linha-fina" x1="360" y1="364" x2="630" y2="364"/>
@@ -549,7 +517,6 @@
                 <line class="linha" x1="630" y1="380" x2="700" y2="380"/>
                 <line class="linha" x1="630" y1="410" x2="700" y2="410"/>
 
-                <!-- isoladas -->
                 <rect x="20" y="370" width="290" height="110" class="caixa"/>
                 <text x="165" y="394" text-anchor="middle" class="t-titulo">feedback</text>
                 <line class="linha" x1="20" y1="404" x2="310" y2="404"/>
@@ -589,7 +556,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 05 -->
 <section class="prancha" id="p05" data-titulo="Grafo de conhecimento">
     <header class="prancha-cabecalho">
         <span class="numero">05</span>
@@ -601,7 +567,6 @@
 
         <figure class="desenho">
             <svg class="d" viewBox="0 0 1000 520" role="img" aria-label="Tipos de nó e de aresta do grafo, com um exemplo real de revogações em cadeia">
-                <!-- taxonomia -->
                 <rect x="40" y="30" width="150" height="46" class="caixa-dupla"/>
                 <text x="115" y="58" text-anchor="middle">unidade: FACOM</text>
                 <rect x="40" y="130" width="150" height="46" class="caixa"/>
@@ -620,7 +585,6 @@
                 <text x="115" y="440" text-anchor="middle">unidade: UFU</text>
                 <text x="115" y="456" text-anchor="middle" class="t-pequeno">vale para toda a UFU</text>
 
-                <!-- documento central -->
                 <rect x="330" y="200" width="250" height="70" class="caixa-ciano"/>
                 <text x="455" y="226" text-anchor="middle">documento</text>
                 <text x="455" y="246" text-anchor="middle" class="t-pequeno">Resolução nº 29/2026 CONFACOM</text>
@@ -632,7 +596,6 @@
                 <path class="seta-ciano" d="M330 256 Q250 320 192 350"/>
                 <text x="232" y="324" class="t-ciano t-pequeno">trata_de</text>
 
-                <!-- cadeia de revogações -->
                 <rect x="680" y="60" width="290" height="62" class="caixa"/>
                 <text x="825" y="86" text-anchor="middle">Resolução nº 10/2023</text>
                 <text x="825" y="104" text-anchor="middle" class="t-pequeno">status: revogado · replaced_by → 29/2026</text>
@@ -700,7 +663,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 06 -->
 <section class="prancha" id="p06" data-titulo="Busca">
     <header class="prancha-cabecalho">
         <span class="numero">06</span>
@@ -726,7 +688,6 @@
                 <text x="710" y="160" text-anchor="middle" class="t-pequeno">foco: docs do curso sobre o assunto</text>
                 <text x="710" y="174" text-anchor="middle" class="t-pequeno">currículos: docs de cada currículo possível</text>
 
-                <!-- três listas -->
                 <path class="seta" d="M300 168 L170 230"/>
                 <path class="seta" d="M330 168 L470 230"/>
                 <path class="seta-ciano" d="M660 184 L500 230"/>
@@ -747,7 +708,6 @@
                 <path class="seta" d="M490 310 L500 358"/>
                 <path class="seta" d="M810 310 L540 360"/>
 
-                <!-- RRF -->
                 <rect x="360" y="362" width="280" height="60" class="caixa-dupla"/>
                 <text x="500" y="386" text-anchor="middle">Fusão RRF · k = 60</text>
                 <text x="500" y="406" text-anchor="middle" class="t-pequeno">soma de 1/(60 + posição) · fica com 12</text>
@@ -768,7 +728,6 @@
                 <path class="seta" d="M500 686 V720"/>
                 <text x="500" y="740" text-anchor="middle" class="t-titulo">5 trechos → agente</text>
 
-                <!-- retorno sem escopo -->
                 <path class="seta-tracejada" d="M680 655 H880 V350 H642"/>
                 <text x="760" y="560" class="t-pequeno">nada sobrou e</text>
                 <text x="760" y="576" class="t-pequeno">havia exclusões?</text>
@@ -798,7 +757,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 07 -->
 <section class="prancha" id="p07" data-titulo="O agente Grizz">
     <header class="prancha-cabecalho">
         <span class="numero">07</span>
@@ -889,7 +847,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 08 -->
 <section class="prancha" id="p08" data-titulo="Servidor e página">
     <header class="prancha-cabecalho">
         <span class="numero">08</span>
@@ -958,7 +915,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 09 -->
 <section class="prancha" id="p09" data-titulo="Automação">
     <header class="prancha-cabecalho">
         <span class="numero">09</span>
@@ -1003,7 +959,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 10 -->
 <section class="prancha" id="p10" data-titulo="Resiliência e cotas">
     <header class="prancha-cabecalho">
         <span class="numero">10</span>
@@ -1079,7 +1034,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 11 -->
 <section class="prancha" id="p11" data-titulo="Configuração">
     <header class="prancha-cabecalho">
         <span class="numero">11</span>
@@ -1134,7 +1088,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 12 -->
 <section class="prancha" id="p12" data-titulo="Pontos de atenção">
     <header class="prancha-cabecalho">
         <span class="numero">12</span>
@@ -1180,7 +1133,6 @@
     </div>
 </section>
 
-<!-- ===================================================================== 13 -->
 <section class="prancha" id="p13" data-titulo="Páginas dos sites (OKF)">
     <header class="prancha-cabecalho">
         <span class="numero">13</span>
@@ -1381,7 +1333,6 @@
 
 </main>
 
-<!-- Conversa com o Claude -->
 <aside class="conversa" id="conversa" aria-label="Perguntas ao Claude">
     <div class="conversa-cabecalho">
         <h2>Perguntar ao Claude</h2>
@@ -1399,13 +1350,11 @@
     </form>
 </aside>
 
-<!-- Balão sobre a seleção de texto -->
 <div class="balao-selecao" id="balao-selecao">
     <button class="botao pequeno caneta" id="anotar-selecao">✎ Anotar</button>
     <button class="botao pequeno ciano" id="perguntar-selecao">◆ Perguntar</button>
 </div>
 
-<!-- Caderno com todas as notas -->
 <dialog class="caderno" id="caderno">
     <div class="caderno-cabecalho">
         <h2>Caderno de notas</h2>

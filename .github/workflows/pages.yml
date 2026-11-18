@@ -1,7 +1,5 @@
 name: Publicar o manual técnico (GitHub Pages)
 
-# Publica só a página do manual (docs/public) como site estático, em modo leitura. O servidor local (docs/server.js),
-# a chave do Claude (docs/.env, fora do git) e as notas (docs/dados/, fora do git) não vão para o site.
 on:
   push:
     branches: [main]

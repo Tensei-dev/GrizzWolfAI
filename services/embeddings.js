@@ -15,7 +15,6 @@ const BATCH_SIZE = Math.min(100, TEXTS_PER_MINUTE);
 const BATCH_TOKENS = Math.floor(TOKENS_PER_MINUTE / 2);
 const CHARS_PER_TOKEN = 3;
 
-// Cota diária de textos do plano gratuito e quanto dela as importações deixam para as buscas do chat.
 const DAILY_TEXTS = Number(process.env.EMBED_TEXTS_PER_DAY) || 1000;
 const CHAT_RESERVE = Number.isFinite(Number(process.env.EMBED_CHAT_RESERVE)) && process.env.EMBED_CHAT_RESERVE !== undefined
     ? Number(process.env.EMBED_CHAT_RESERVE) : 200;
@@ -101,8 +100,6 @@ async function embedBatch(texts, taskType, { maxAttempts = 6, maxDelayMs = Infin
     }
 }
 
-// Importações (sync dos PDFs, pacote OKF): param antes de entrar na reserva do chat. A contagem é a deste banco;
-// uso da mesma chave em outro lugar não aparece nela, e a cota real continua valendo (DailyQuotaError no 429).
 async function embedDocuments(texts, { source = usage.defaultSource() } = {}) {
     const vectors = [];
     for (const batch of splitIntoBatches(texts)) {

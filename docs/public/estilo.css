@@ -1,4 +1,3 @@
-/* Manual técnico do GrizzWolfAI: papel azul quadriculado de prancha de arquitetura. */
 :root {
     --papel: #12406f;
     --papel-escuro: #0c3058;
@@ -50,8 +49,6 @@ code, kbd {
 }
 button { font: inherit; color: inherit; cursor: pointer; }
 
-/* ---------- Barra superior ---------- */
-
 .barra {
     position: sticky; top: 0; z-index: 30;
     display: flex; align-items: center; gap: 16px;
@@ -91,8 +88,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .status.ok { color: var(--ciano); border-color: var(--ciano); }
 .status.erro { color: var(--alerta); border-color: var(--alerta); }
 
-/* ---------- Índice lateral ---------- */
-
 .indice {
     position: fixed; top: 56px; bottom: 0; left: 0; z-index: 20;
     width: var(--lateral); overflow-y: auto;
@@ -116,8 +111,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .indice .qtd-notas { font: 11px var(--fonte-tecnica); color: var(--caneta); }
 .indice .ferramentas { margin-top: 24px; display: grid; gap: 8px; }
 
-/* ---------- Pranchas ---------- */
-
 main {
     margin-left: var(--lateral);
     padding: 40px clamp(16px, 4vw, 56px) 120px;
@@ -133,7 +126,6 @@ body.conversa-aberta main { margin-right: var(--conversa); }
     outline: 1px solid var(--linha-fraca); outline-offset: 7px;
     background: rgba(18, 64, 111, 0.55);
 }
-/* marcas de corte nos cantos */
 .prancha::before, .prancha::after {
     content: ''; position: absolute; width: 22px; height: 22px; border-color: var(--linha-media); border-style: solid;
 }
@@ -209,7 +201,6 @@ body.conversa-aberta main { margin-right: var(--conversa); }
     margin: 18px 0; padding: 12px 16px; border-left: 3px solid var(--ciano); background: rgba(143, 227, 255, 0.06);
 }
 
-/* Carimbo (legenda da prancha) */
 .carimbo {
     display: grid; grid-template-columns: repeat(4, auto);
     width: fit-content; max-width: 100%; margin: 36px 0 0 auto;
@@ -219,8 +210,6 @@ body.conversa-aberta main { margin-right: var(--conversa); }
 .carimbo div { padding: 5px 10px; border: 0.5px solid var(--linha-fraca); }
 .carimbo b { display: block; font-weight: 400; font-size: 9.5px; color: var(--linha-media); letter-spacing: 0.08em; }
 .carimbo .titulo-carimbo { grid-column: 1 / -1; font: 600 15px var(--fonte-titulo); letter-spacing: 0.12em; }
-
-/* ---------- Desenhos SVG (traço de prancha) ---------- */
 
 .d { font-family: var(--fonte-tecnica); }
 .d text { fill: var(--linha); font-size: 13px; }
@@ -243,8 +232,6 @@ body.conversa-aberta main { margin-right: var(--conversa); }
 .d .linha { fill: none; stroke: var(--linha); stroke-width: 1.4; }
 .d .linha-fina { fill: none; stroke: var(--linha-fraca); stroke-width: 1; }
 .d .ponto { fill: var(--linha); }
-
-/* ---------- Notas (marcas expansíveis) ---------- */
 
 .marcas { margin: 10px 0 16px; display: grid; gap: 8px; }
 .marca {
@@ -292,18 +279,14 @@ body.conversa-aberta main { margin-right: var(--conversa); }
 .formulario-nota blockquote { margin: 0; padding: 4px 10px; border-left: 2px solid var(--caneta); font-style: italic; color: var(--linha-media); }
 .formulario-nota .acoes-nota { display: flex; gap: 8px; justify-content: flex-end; }
 
-/* trecho com nota: um sublinhado de caneta no parágrafo anotado */
 [data-ancora].tem-nota { box-shadow: inset 3px 0 0 var(--caneta); padding-left: 10px; }
 
-/* botão flutuante sobre a seleção de texto */
 .balao-selecao {
     position: absolute; z-index: 40; display: none; gap: 6px;
     padding: 6px; background: var(--papel-escuro); border: 1.5px solid var(--linha);
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 .balao-selecao.visivel { display: flex; }
-
-/* ---------- Conversa com o Claude ---------- */
 
 .conversa {
     position: fixed; top: 56px; right: 0; bottom: 0; z-index: 25;
@@ -323,14 +306,12 @@ body.conversa-aberta .conversa { transform: none; }
 .contexto-pergunta strong { color: var(--ciano); font-weight: 500; }
 .contexto-pergunta .trecho { display: block; margin-top: 4px; max-height: 4.4em; overflow: hidden; font-style: italic; }
 .contexto-pergunta button { margin-left: 6px; border: 0; background: none; color: var(--alerta); font: 11px var(--fonte-tecnica); text-decoration: underline; padding: 0; }
-/* minmax(0, 1fr) e min-width: 0: sem isso, uma linha de código ou um título largo alarga a coluna e corta o resto */
 .mensagens {
     flex: 1; overflow-y: auto; overflow-x: hidden; padding: 14px;
     display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-content: start;
 }
 .mensagem { min-width: 0; padding: 10px 12px; border: 1px solid var(--linha-fraca); }
 
-/* cada pergunta + resposta é uma marca expansível com o tópico no rótulo */
 .troca { min-width: 0; border: 1.5px dashed var(--ciano); background: rgba(143, 227, 255, 0.04); }
 .troca summary {
     display: flex; gap: 8px; align-items: baseline;
@@ -365,8 +346,6 @@ body.conversa-aberta .conversa { transform: none; }
 .caixa-pergunta .linha-acoes span { flex: 1; font: 11px var(--fonte-tecnica); color: var(--linha-fraca); }
 .sem-chave { padding: 12px 14px; border: 1.5px dashed var(--alerta); margin: 14px; font-size: 14px; }
 
-/* ---------- Caderno (todas as notas) ---------- */
-
 dialog.caderno {
     width: min(860px, calc(100vw - 32px)); max-height: calc(100vh - 64px);
     padding: 0; color: var(--linha);
@@ -379,8 +358,6 @@ dialog.caderno::backdrop { background: rgba(5, 20, 40, 0.65); }
 .caderno-corpo h3 { font: 600 15px var(--fonte-titulo); letter-spacing: 0.12em; text-transform: uppercase; margin: 18px 0 8px; }
 .caderno-corpo h3 a { color: var(--linha); }
 .vazio { color: var(--linha-media); font-style: italic; }
-
-/* ---------- Telas menores ---------- */
 
 @media (max-width: 1180px) {
     :root { --conversa: 400px; }
@@ -407,7 +384,6 @@ dialog.caderno::backdrop { background: rgba(5, 20, 40, 0.65); }
     .prancha { break-inside: avoid-page; }
 }
 
-/* Versão online (GitHub Pages): só leitura. Notas e perguntas ao Claude precisam do servidor local. */
 .so-leitura #abrir-caderno,
 .so-leitura #abrir-conversa,
 .so-leitura #exportar-notas,

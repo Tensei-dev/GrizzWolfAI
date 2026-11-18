@@ -1,7 +1,3 @@
-// Monta a tabela turmas (quem dá cada disciplina) a partir dos horários de aula já importados. Sem LLM e sem vetores:
-// pode rodar todo dia depois do sync. Cada documento tem as turmas trocadas por inteiro a cada rodada.
-//   npm run teaching             refaz as turmas de todos os horários
-//   npm run teaching -- --dry-run  só mostra o resumo, sem gravar
 const pool = require('../db/pool');
 const { COURSES } = require('../services/courses');
 const { parseTimetable, resolvePerson, semesterOf, unitOfCode } = require('../services/teaching');
@@ -53,7 +49,6 @@ async function main() {
     const client = await pool.connect();
     try {
         await client.query('BEGIN');
-        // horários que deixaram de valer (ou de ter docentes) saem também
         await client.query('DELETE FROM turmas');
         for (const { doc, curso, semestre, rows } of kept) {
             for (const r of rows) {

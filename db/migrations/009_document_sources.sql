@@ -1,5 +1,3 @@
--- Todos os endereços em que um documento foi encontrado. O mesmo arquivo pode estar em mais de uma URL
--- (republicado com outro nome ou publicado no site das duas unidades); sem isso ele seria baixado de novo a cada sincronização.
 CREATE TABLE document_sources (
     url         TEXT PRIMARY KEY,
     document_id INTEGER NOT NULL REFERENCES documents(id) ON DELETE CASCADE,

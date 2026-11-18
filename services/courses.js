@@ -78,7 +78,6 @@ const COURSES = {
     },
 };
 
-// Ordem de teste dos padrões: os mais específicos primeiro.
 const PATTERN_ORDER = ['bia', 'bsi-mc', 'bsi', 'bcc', 'mat-ead', 'estat', 'mat-lic', 'mat-bach'];
 
 function courseOfText(text, unit = null) {
@@ -129,7 +128,6 @@ function describeProfile(courseId, entryYear, { prospective = false } = {}) {
     return { courseId, courseName: course.name, unit: course.unit, unitName: unit.name, entryYear, prospective, curricula, text };
 }
 
-// Unidades, cursos e currículos que o Grizz atende, em texto para o prompt do agente.
 function describeCatalog() {
     return Object.entries(UNITS).map(([unitId, unit]) => {
         const courses = Object.values(COURSES)

@@ -5,11 +5,11 @@ const { scopeFor, describeDocuments } = require('./knowledgeGraph');
 
 const CANDIDATES_PER_SEARCH = 20;
 const CANDIDATES_TO_RERANK = 12;
-const MAX_PER_DOCUMENT = 4; // trechos do mesmo documento entre os candidatos ao rerank
+const MAX_PER_DOCUMENT = 4;
 const MAX_NEWER_VERSIONS = 3;
-const PAGE_CANDIDATES = 4; // trechos de páginas dos sites que vão ao rerank junto com os das normas
-const MAX_PAGES = 2; // trechos de páginas na resposta, no máximo
-const RERANK_FALLBACK = 3; // trechos de normas usados quando o rerank não aprova nenhum
+const PAGE_CANDIDATES = 4;
+const MAX_PAGES = 2;
+const RERANK_FALLBACK = 3;
 const RRF_K = 60;
 
 function reciprocalRankFusion(lists) {
@@ -40,13 +40,10 @@ function searchBoth(searchText, embedding, filters) {
     ]);
 }
 
-// Os trechos mais relevantes para a pergunta dentro de um conjunto de documentos, do melhor para o pior.
 async function rankWithin(documentIds, searchText, embedding) {
     return reciprocalRankFusion(await searchBoth(searchText, embedding, { onlyIds: documentIds }));
 }
 
-// Sem saber o currículo do estudante, cada currículo possível precisa aparecer na lista: se a busca só trouxe
-// a grade 2023-1, o Grizz não teria como mostrar a diferença para a 2010-2. Entra o melhor trecho de cada um que faltou.
 async function coverCurricula(chunks, curriculumDocs, searchText, embedding) {
     const present = new Set(chunks.map((c) => c.document_id));
     const missing = curriculumDocs.filter((ids) => !ids.some((id) => present.has(id)));
@@ -55,12 +52,9 @@ async function coverCurricula(chunks, curriculumDocs, searchText, embedding) {
         const [best] = await rankWithin(ids, searchText, embedding);
         if (best) extra.push(best);
     }
-    // Logo depois do primeiro: o rerank reordena tudo, mas se ele falhar a busca fica com os primeiros da lista.
     return [...chunks.slice(0, 1), ...extra, ...chunks.slice(1)];
 }
 
-// Anota cada trecho com o que o grafo sabe do documento. Trechos de normas revogadas saem, e as normas
-// que alteraram ou revogaram um documento encontrado entram na lista, para o Grizz usar a versão mais nova.
 async function withGraph(chunks, searchText, embedding) {
     let info;
     try {
@@ -88,9 +82,6 @@ async function withGraph(chunks, searchText, embedding) {
     return kept.map((c) => ({ ...c, graph: info.get(c.document_id) || null }));
 }
 
-// Os candidatos ao rerank na ordem da fusão, com no máximo MAX_PER_DOCUMENT trechos de cada documento. Sem o limite,
-// "como funciona o estágio? qual a carga horária?" enchia as 12 vagas com trechos das duas resoluções de estágio, e a
-// ficha da disciplina (com as 160 h do currículo 2023-1) nunca chegava ao rerank.
 function diversify(fused, limit) {
     const perDocument = new Map();
     const chosen = [];
@@ -104,9 +95,6 @@ function diversify(fused, limit) {
     return chosen;
 }
 
-// Os melhores trechos na ordem do rerank, com no máximo MAX_PAGES de páginas dos sites: a resposta continua
-// apoiada nas normas, e as páginas completam com contatos, procedimentos e avisos.
-// Um trecho por página: duas vagas para a mesma página (a da ASCII) deixavam outra igualmente boa (a da TechMob) de fora.
 function pick(ranked, topK) {
     const chosen = [];
     const pages = new Set();
@@ -120,7 +108,6 @@ function pick(ranked, topK) {
     return chosen;
 }
 
-// question é a pergunta completa (reescrita); originalQuestion, o que o estudante digitou, só ajuda o rerank.
 async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank = true, profile = null, originalQuestion = null } = {}) {
     const searchText = question;
     const profileText = profile?.text || null;
@@ -133,7 +120,6 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
         const excludeIds = scoped ? scope.excludeIds : null;
         const [lists, pageLists] = await Promise.all([
             searchBoth(searchText, embedding, { categoryIds, excludeIds }),
-            // as páginas dos sites têm lista e cota próprias, para não tirarem as normas do rerank
             searchBoth(searchText, embedding, { categoryIds, excludeIds, kinds: Chunk.PAGES }),
         ]);
         if (scoped && scope.focusIds.length) lists.push(...await searchBoth(searchText, embedding, { categoryIds, onlyIds: scope.focusIds }));
@@ -145,9 +131,6 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
         return { chosen: pick(ranked, topK), fused };
     };
 
-    // O rerank às vezes dá nota baixa a tudo, até a trechos que respondem (visto na carga horária de estágio):
-    // em vez de responder "não encontrei", vão as normas mais bem colocadas na busca (do curso do estudante, se houver),
-    // e o modelo julga se elas respondem. Só depois de tentar o acervo todo.
     const fallback = (first) => {
         const norms = first.fused.filter((c) => c.kind === 'norma');
         if (norms.length) console.error('rerank não aprovou nenhum trecho; usando as normas mais bem colocadas na busca');
@@ -160,7 +143,6 @@ async function hybridSearch(question, { categoryIds = null, topK = 5, useRerank 
     }
     const scoped = await run(true);
     if (scoped.chosen.length) return scoped.chosen;
-    // Nada do curso do estudante respondeu: busca no acervo todo, e o prompt manda deixar claro de qual curso é a regra.
     if (scope.excludeIds.length) {
         const all = await run(false);
         if (all.chosen.length) return all.chosen;

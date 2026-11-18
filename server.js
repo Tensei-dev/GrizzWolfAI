@@ -6,8 +6,6 @@ const { answer, EMPTY_PROFILE, MAX_PROFILE_PROMPTS } = require('./services/agent
 const { COURSES } = require('./services/courses');
 const { rateLimit } = require('./services/rateLimit');
 
-// Por visitante: o plano gratuito da Groq aguenta umas 30 perguntas por dia no total.
-// 0 desliga a janela
 const limitNumber = (name, fallback) => {
     const value = Number.parseInt(process.env[name], 10);
     return Number.isInteger(value) && value >= 0 ? value : fallback;

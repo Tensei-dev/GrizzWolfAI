@@ -1,4 +1,3 @@
-// Regras da busca e do grafo que corrigiram respostas erradas. Sem banco nem LLM.
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { pick, reciprocalRankFusion } = require('../services/search');
@@ -10,7 +9,6 @@ const norma = (id, documentId = id) => ({ id, document_id: documentId, kind: 'no
 const pagina = (id, documentId) => ({ id, document_id: documentId, kind: 'pagina' });
 
 test('no máximo 2 trechos de páginas, e um por página', () => {
-    // a resposta da empresa júnior trazia a ASCII duas vezes e deixava a TechMob de fora
     const ranked = [pagina(1, 336), pagina(2, 336), pagina(3, 335), pagina(4, 400), norma(5), norma(6)];
     assert.deepEqual(pick(ranked, 5).map((c) => c.id), [1, 3, 5, 6]);
 });
@@ -33,7 +31,6 @@ test('ano do currículo citado no título', () => {
 });
 
 test('norma de currículo mais antigo que os do cadastro é de currículo extinto', () => {
-    // a norma de estágio do currículo 10/97 aparecia para quem entrou em 2023
     assert.equal(isExtinctCurriculum('Estágio Supervisionado do Curso de Ciência da Computação (Currículo 10/97)', 'bcc'), true);
     assert.equal(isExtinctCurriculum('Estágio Supervisionado do Curso de Ciência da Computação (Currículo 2010)', 'bcc'), false);
     assert.equal(isExtinctCurriculum('Resolução nº 18/2024, do Conselho da FACOM', 'bcc'), false);
@@ -56,7 +53,6 @@ test('IP do visitante: fora da Vercel, x-forwarded-for do cliente não vale', ()
 
 test('candidatos ao rerank: no máximo 4 trechos do mesmo documento', () => {
     const { diversify } = require('../services/search');
-    // as duas resoluções de estágio enchiam as 12 vagas, e a ficha com as 160 h ficava de fora
     const fused = [...Array(10)].map((_, i) => norma(i, 29)).concat([...Array(10)].map((_, i) => norma(100 + i, 37)), [norma(200, 66)]);
     const chosen = diversify(fused, 12);
     assert.equal(chosen.filter((c) => c.document_id === 29).length, 4);

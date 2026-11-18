@@ -1,6 +1,3 @@
--- Páginas dos sites (pacote OKF em conhecimento/) entram como documentos de outro tipo, ao lado das normas.
--- kind separa as normas (PDFs) das páginas; content_hash é o hash do conteúdo no pacote, que decide se a página
--- precisa ser reimportada; uma página que sai do pacote vira "removido".
 ALTER TABLE documents ADD COLUMN kind TEXT NOT NULL DEFAULT 'norma'
     CHECK (kind IN ('norma', 'pagina', 'noticia', 'edital'));
 ALTER TABLE documents ADD COLUMN content_hash TEXT;
@@ -10,10 +7,8 @@ ALTER TABLE documents DROP CONSTRAINT documents_status_check;
 ALTER TABLE documents ADD CONSTRAINT documents_status_check
     CHECK (status IN ('vigente', 'revogado', 'duplicado', 'removido'));
 
--- Uma página é identificada pelo endereço: alterada, ela atualiza o mesmo documento.
 CREATE UNIQUE INDEX documents_page_source_idx ON documents (source_url) WHERE kind <> 'norma';
 
--- Perfis de pessoas: dados estruturados, buscados só por palavra-chave (sem vetores).
 CREATE TABLE pessoas (
     id                     SERIAL PRIMARY KEY,
     source_url             TEXT NOT NULL UNIQUE,

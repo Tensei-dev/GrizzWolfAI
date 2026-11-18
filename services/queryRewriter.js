@@ -1,8 +1,5 @@
 const { complete, PROFILE_MODEL } = require('./llm');
 
-// A busca usa só a pergunta atual, reescrita como pergunta completa. O histórico serve para resolver referências
-// ("e o prazo?") sem arrastar para a busca os assuntos anteriores da conversa.
-
 const REWRITE_RULES = `Reescreva a mensagem atual do estudante como uma pergunta completa e independente, para buscar em documentos oficiais da UFU.
 - Use o histórico só para entender referências da mensagem atual (ex.: "e o prazo?", "e para quem já fez?", "isso vale no noturno?").
 - Não inclua assuntos anteriores que a mensagem atual não retoma.
@@ -26,7 +23,6 @@ function validQuery(value) {
     return typeof value === 'string' && value.trim() && value.length <= MAX_QUERY_CHARS ? value.trim() : null;
 }
 
-// Sem o modelo, a melhor aposta é a pergunta atual com a mensagem anterior do estudante, não a conversa toda.
 function fallbackQuery(question, history) {
     const previous = [...history].reverse().find((m) => m.role === 'user' && m.content !== question);
     return previous ? `${previous.content}\n${question}` : question;

@@ -13,7 +13,6 @@ async function findAll() {
     return rows;
 }
 
-// Perfil novo ou alterado: grava por endereço e volta a ficar ativo.
 async function upsert(person) {
     const values = FIELDS.map((f) => person[f] ?? null);
     const placeholders = FIELDS.map((_, i) => `$${i + 1}`).join(', ');
@@ -32,7 +31,6 @@ async function markRemoved(ids) {
     await pool.query(`UPDATE pessoas SET status = 'removido', updated_at = now() WHERE id = ANY($1)`, [ids]);
 }
 
-// Docentes em exercício cujo vetor de áreas falta ou está velho (o texto mudou).
 async function needingEmbedding() {
     const { rows } = await pool.query(
         `SELECT id, source_url, nome, areas, resumo, embedding_hash FROM pessoas
@@ -45,7 +43,6 @@ async function setEmbedding(id, embedding, hash) {
     await pool.query('UPDATE pessoas SET embedding = $2, embedding_hash = $3 WHERE id = $1', [id, toVector(embedding), hash]);
 }
 
-// Busca só por palavra-chave (nome, cargo, lotação): perguntas sobre pessoas usam nomes e cargos.
 async function search(text, { limit = 5, unidade = null } = {}) {
     const { rows } = await pool.query(
         `SELECT p.*, ts_rank_cd(p.tsv, q.q) AS score
@@ -59,8 +56,6 @@ async function search(text, { limit = 5, unidade = null } = {}) {
     return rows;
 }
 
-// Docentes em exercício pela área de pesquisa: vetor (sentido: "IA" acha "aprendizado de máquina") e palavra-chave
-// (nome exato de uma área), fundidos como na busca dos documentos. Para "com quem eu faço IC em IA?".
 async function searchByArea(text, embedding, { limit = 6, unidade = null } = {}) {
     const base = `p.status = 'ativo' AND p.categoria = 'Docente' AND p.situacao = 'Em exercício' AND ($2::text IS NULL OR p.unidade = $2)`;
     const [byVector, byKeyword] = await Promise.all([

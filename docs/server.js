@@ -1,6 +1,3 @@
-// Servidor do guia de estudos do GrizzWolfAI.
-// Serve o manual técnico (public/), guarda as notas em dados/notas.json e responde perguntas sobre o
-// repositório com o Claude, que recebe o código inteiro como contexto (com cache de prompt).
 const path = require('path');
 const fs = require('fs/promises');
 const crypto = require('crypto');
@@ -16,7 +13,6 @@ const Anthropic = require('@anthropic-ai/sdk').default;
 const PORT = Number(process.env.ESTUDOS_PORT) || 4100;
 const MODEL = process.env.ESTUDOS_MODEL || 'claude-opus-5-5';
 const EFFORT = process.env.ESTUDOS_EFFORT || 'medium';
-// ESTUDOS_DADOS aponta outra pasta (ex.: para testes não mexerem nas notas de verdade).
 const DATA_DIR = process.env.ESTUDOS_DADOS ? path.resolve(process.env.ESTUDOS_DADOS) : path.join(__dirname, 'dados');
 const NOTES_FILE = path.join(DATA_DIR, 'notas.json');
 const BACKUP_DIR = path.join(DATA_DIR, 'backup');
@@ -25,13 +21,8 @@ const MAX_QUESTION_CHARS = 4000;
 const MAX_HISTORY_TURNS = 12;
 const MAX_NOTE_CHARS = 20000;
 
-// ---------- Retrato do repositório para o Claude ----------
-
-// Fora do retrato: binários e lockfiles; o pacote OKF (conhecimento/: ~700 arquivos de dados, centenas de milhares de
-// tokens, mais que cabe numa pergunta); e este manual (docs/), que já vai como a prancha que o estudante está lendo.
 const SKIP_FILES = /(^|\/)(package-lock\.json|LICENSE)$|\.(png|jpe?g|gif|svg|ico|pdf|woff2?|ttf|traineddata)$|^(conhecimento|docs)\//i;
 
-// Os arquivos versionados no git, numerados por linha, para o Claude citar "arquivo:linha".
 async function readRepository() {
     const files = execFileSync('git', ['ls-files'], { cwd: ROOT, encoding: 'utf8' })
         .split('\n')
@@ -42,7 +33,7 @@ async function readRepository() {
         try {
             text = await fs.readFile(path.join(ROOT, file), 'utf8');
         } catch {
-            continue; // removido do disco, mas ainda no índice do git
+            continue;
         }
         const width = String(text.split('\n').length).length;
         const numbered = text.split('\n').map((line, i) => `${String(i + 1).padStart(width)}| ${line}`).join('\n');
@@ -72,8 +63,6 @@ async function repositoryContext() {
     return snapshot;
 }
 
-// ---------- Notas ----------
-
 async function readNotes() {
     try {
         return JSON.parse(await fs.readFile(NOTES_FILE, 'utf8'));
@@ -83,7 +72,6 @@ async function readNotes() {
     }
 }
 
-// Antes da primeira alteração de cada dia, guarda uma cópia das notas como estavam (dados/backup/notas-AAAA-MM-DD.json).
 async function backupOfTheDay() {
     const file = path.join(BACKUP_DIR, `notas-${new Date().toISOString().slice(0, 10)}.json`);
     try {
@@ -93,12 +81,11 @@ async function backupOfTheDay() {
             await fs.mkdir(BACKUP_DIR, { recursive: true });
             await fs.copyFile(NOTES_FILE, file);
         } catch (err) {
-            if (err.code !== 'ENOENT') throw err; // ainda não há notas para copiar
+            if (err.code !== 'ENOENT') throw err;
         }
     }
 }
 
-// Grava num arquivo temporário e renomeia: uma queda no meio não corrompe as notas.
 let writing = Promise.resolve();
 function saveNotes(notes) {
     writing = writing.then(async () => {
@@ -125,12 +112,9 @@ function readNote(body, existing = {}) {
     };
 }
 
-// ---------- App ----------
-
 const app = express();
 app.use(express.json({ limit: '256kb' }));
 app.use(express.static(path.join(__dirname, 'public')));
-// Caminho direto: o campo "exports" do marked não deixa o require.resolve chegar no arquivo UMD.
 const VENDOR = path.join(__dirname, 'node_modules');
 app.get('/vendor/marked.js', (req, res) => res.sendFile(path.join(VENDOR, 'marked', 'lib', 'marked.umd.js')));
 app.get('/vendor/purify.js', (req, res) => res.sendFile(path.join(VENDOR, 'dompurify', 'dist', 'purify.min.js')));
@@ -178,8 +162,6 @@ app.delete('/api/notas/:id', async (req, res) => {
     res.status(204).end();
 });
 
-// ---------- Perguntas ao Claude (Server-Sent Events) ----------
-
 function readHistory(value) {
     if (!Array.isArray(value)) return [];
     return value
@@ -209,7 +191,6 @@ app.post('/api/perguntar', async (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/event-stream; charset=utf-8', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });
     const send = (event, data) => res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
 
-    // O contexto que muda a cada pergunta (prancha, trecho) vai na mensagem do estudante, depois do prefixo em cache.
     const where = [
         text(body.prancha, 200) && `Estou lendo a prancha "${text(body.prancha, 200)}" do manual.`,
         text(body.trecho, 3000) && `Trecho do manual que selecionei:\n"""\n${text(body.trecho, 3000)}\n"""`,
@@ -235,7 +216,6 @@ app.post('/api/perguntar', async (req, res) => {
                 { role: 'user', content: where ? `${where}\n\n${question}` : question },
             ],
         });
-        // O navegador fechou a conexão (aba fechada, "Nova" conversa) antes do fim: para de gerar e de cobrar tokens.
         res.on('close', () => { if (!res.writableEnded) stream.abort(); });
 
         for await (const event of stream) {
@@ -268,7 +248,6 @@ app.use((err, req, res, next) => {
     res.status(500).json({ erro: err.message });
 });
 
-// No Express 5 este callback também roda quando o listen falha, recebendo o erro (tratado em server.on('error')).
 const server = app.listen(PORT, '127.0.0.1', async (err) => {
     if (err) return;
     const repo = await repositoryContext();

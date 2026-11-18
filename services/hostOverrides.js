@@ -1,7 +1,6 @@
 require('dotenv').config();
 const dns = require('dns');
 
-// IP fixo por host, para quando o DNS do site de uma unidade falhar (FACOM_IP, IME_IP no .env).
 const OVERRIDES = {};
 for (const [unit, ip] of [['facom', process.env.FACOM_IP], ['ime', process.env.IME_IP]]) {
     if (ip) for (const host of [`${unit}.ufu.br`, `www.${unit}.ufu.br`]) OVERRIDES[host] = ip;

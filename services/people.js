@@ -1,14 +1,9 @@
 const pool = require('../db/pool');
 
-// Encontra as pessoas (docentes e técnicos) citadas pelo nome numa pergunta, para o Grizz responder "quem é",
-// telefone, ramal e sala. A busca é pelos nomes do cadastro em memória, sem LLM: um nome conta quando a pergunta
-// traz duas partes dele (ex.: "Adriano Rocha"), ou uma parte rara junto de uma palavra como "professor" ou "ramal".
-// Uma parte comum (ex.: "professor Marcelo") traz as pessoas com esse nome como candidatas.
-
 const CACHE_MS = 10 * 60 * 1000;
 const MAX_PEOPLE = 3;
-const RARE = 2; // uma parte do nome que no máximo 2 pessoas têm
-const AMBIGUOUS = 8; // "professor Marcelo": até 8 pessoas com o nome viram candidatas, para o Grizz perguntar qual
+const RARE = 2;
+const AMBIGUOUS = 8;
 const CONNECTORS = new Set(['da', 'de', 'do', 'das', 'dos', 'e']);
 const PERSON_WORDS = /\b(prof|profa|professora?s?|docentes?|tecnic[oa]s?|servidor[ae]?s?|telefones?|ramal|ramais|sala|contato|email|e-mail|quem e|falar com)\b/;
 
@@ -46,8 +41,6 @@ function match(text, { people, frequency }) {
         .sort((a, b) => b.hits - a.hits || Number(b.situacao === 'Em exercício') - Number(a.situacao === 'Em exercício'));
 }
 
-// Quem foi citado na pergunta (ou na versão reescrita dela): fica só quem bate melhor, para "Adriano Barbosa Silva"
-// não trazer também outros Adrianos e Silvas. Retorna { people, ambiguous }.
 function mentioned(text, registry) {
     if (!text.trim()) return { people: [], ambiguous: false };
     const found = match(text, registry);
@@ -82,7 +75,6 @@ function describe(p) {
     ].filter(Boolean).join('\n');
 }
 
-// "Disciplinas em 2026/2 (horários de aula publicados): Projeto de Graduação (FACOM31806, Ciência da Computação, turma PG) …"
 function describeClasses(rows) {
     if (!rows.length) return [];
     const { COURSES } = require('./courses');

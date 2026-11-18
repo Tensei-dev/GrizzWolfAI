@@ -1,4 +1,3 @@
-// Pacote OKF: classificação das páginas, contatos fixos e corte por seções. Sem rede nem banco.
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const okf = require('../services/okf');
@@ -71,7 +70,6 @@ test('e-mail das pessoas: só nas listas em que cada uma tem o próprio título;
     const entries = [
         pessoa('ana'), pessoa('marisa'), pessoa('augusto'), pessoa('bruno'),
         pagina('corpo-docente', '### [Ana](pessoas/ana.md)\n\nProfessora\n\n[ana@ufu.br](mailto:ana@ufu.br)\n\n### [Marisa](pessoas/marisa.md)\n\nProfessora'),
-        // comissão: o e-mail depois do último membro é o da comissão
         pagina('comissao', '**Presidente:** [Ana](https://ime.ufu.br/pessoas/ana)\n\n**Membro:** [Marisa](https://ime.ufu.br/pessoas/marisa)\n\n[comissao@ufu.br](mailto:comissao@ufu.br)'),
         pagina('tecnicos', '### [Augusto](pessoas/augusto.md)\n\n[ime@ufu.br](mailto:ime@ufu.br)\n\n### [Bruno](pessoas/bruno.md)\n\n[ime@ufu.br](mailto:ime@ufu.br)'),
     ];

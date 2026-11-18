@@ -1,14 +1,9 @@
 const path = require('path');
 
-// Uso diário das APIs com cota, por origem. Serve para as importações deixarem uma reserva para o chat: a cota
-// diária do Gemini é uma só para os vetores das importações e das buscas.
+const TODAY = `(now() AT TIME ZONE 'America/Los_Angeles')::date`;
 
-const TODAY = `(now() AT TIME ZONE 'America/Los_Angeles')::date`; // a cota do Gemini renova à meia-noite do Pacífico
-
-// pool só quando usado: os testes e scripts sem banco carregam embeddings.js sem precisar dele
 const db = () => require('../db/pool');
 
-// Origem padrão: o script que está rodando (import-okf, sync-documents…); no servidor, "servidor".
 function defaultSource() {
     const main = require.main?.filename;
     if (!main) return 'servidor';
@@ -24,7 +19,6 @@ async function record(service, source, units) {
             [service, source, units]
         );
     } catch (err) {
-        // a contagem não pode derrubar a busca nem a importação
         console.error(`não consegui registrar o uso de ${service}: ${err.message}`);
     }
 }

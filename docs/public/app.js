@@ -1,11 +1,8 @@
-// Guia de estudos: índice, notas presas aos parágrafos (marcas expansíveis) e perguntas ao Claude.
 'use strict';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-// Fora da própria máquina (GitHub Pages), o manual é só leitura: notas e perguntas ao Claude precisam do servidor
-// local (npm start em docs/), que guarda as notas e tem a chave da API. Os arquivos citados viram links para o GitHub.
 const SO_LEITURA = !['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
 const REPOSITORIO = 'https://github.com/Tensei-dev/GrizzWolfAI/blob/main/';
 if (SO_LEITURA) document.body.classList.add('so-leitura');
@@ -33,11 +30,8 @@ function quando(iso) {
 
 const guardar = {
     ler(chave, padrao) { try { return JSON.parse(localStorage.getItem(chave)) ?? padrao; } catch { return padrao; } },
-    gravar(chave, valor) { try { localStorage.setItem(chave, JSON.stringify(valor)); } catch { /* sem armazenamento: segue sem lembrar */ } },
+    gravar(chave, valor) { try { localStorage.setItem(chave, JSON.stringify(valor)); } catch { } },
 };
-
-// ---------- Âncoras estáveis por parágrafo ----------
-// O id vem do próprio texto, não da posição: reeditar outra parte do manual não move as notas.
 
 function hashTexto(texto) {
     let h = 5381;
@@ -54,8 +48,6 @@ for (const prancha of pranchas) {
         el.dataset.ancora = n === 1 ? base : `${base}-${n}`;
     }
 }
-
-// ---------- Índice e prancha atual ----------
 
 const lista = $('#lista-pranchas');
 lista.innerHTML = pranchas.map((p) => `
@@ -78,7 +70,6 @@ pranchas.forEach((p) => observador.observe(p));
 lista.addEventListener('click', () => document.body.classList.remove('indice-aberto'));
 $('#abrir-indice').addEventListener('click', () => document.body.classList.toggle('indice-aberto'));
 
-// Botões do cabeçalho de cada prancha e fichas de arquivos
 for (const p of pranchas) {
     $('.acoes', p).innerHTML = `
         <button class="botao pequeno caneta" data-nova-nota="${p.id}">✎ Nota</button>
@@ -90,15 +81,13 @@ for (const caixa of $$('.arquivos')) {
         : `<span class="arquivo">${escapeHtml(f)}<button type="button" data-explicar="${escapeHtml(f)}">explicar</button></span>`)).join('');
 }
 
-// ---------- Notas ----------
-
 let notas = [];
 
 async function api(caminho, opcoes = {}) {
     const res = await fetch(caminho, { headers: { 'Content-Type': 'application/json' }, ...opcoes });
     if (!res.ok && res.status !== 204) {
         let erro = `HTTP ${res.status}`;
-        try { erro = (await res.json()).erro || erro; } catch { /* corpo sem JSON */ }
+        try { erro = (await res.json()).erro || erro; } catch { }
         throw new Error(erro);
     }
     return res.status === 204 ? null : res.json();
@@ -129,7 +118,6 @@ function htmlMarca(nota) {
         </details>`;
 }
 
-// Onde a caixa de marcas de um parágrafo fica: logo depois dele (ou dentro, no fim, se for item de lista).
 function caixaDeMarcas(ancora, criar = true) {
     const alvo = $(`[data-ancora="${CSS.escape(ancora)}"]`);
     if (!alvo) return null;
@@ -158,7 +146,6 @@ function caixaGeral(prancha) {
 }
 
 function desenharNotas() {
-    // guarda quais marcas estavam abertas para não fechar tudo a cada redesenho
     const abertas = new Set($$('.marca[open]').map((d) => d.dataset.nota));
     $$('.marcas[data-de]').forEach((c) => c.remove());
     $$('[data-ancora].tem-nota').forEach((el) => el.classList.remove('tem-nota'));
@@ -178,7 +165,6 @@ function desenharNotas() {
         }
         caixa.insertAdjacentHTML('beforeend', htmlMarca(nota));
     }
-    // notas cuja prancha não existe mais vão para a primeira prancha, para não sumirem
     for (const nota of orfas) caixaGeral(pranchas[0]).insertAdjacentHTML('beforeend', htmlMarca(nota));
 
     pranchas.forEach((p) => {
@@ -189,7 +175,6 @@ function desenharNotas() {
     if ($('#caderno').open) desenharCaderno();
 }
 
-// Formulário de nota, aberto no lugar onde a nota vai ficar.
 function abrirFormulario({ prancha, ancora = null, trecho = null, nota = null }) {
     $$('.formulario-nota').forEach((f) => f.remove());
     const form = document.createElement('form');
@@ -247,8 +232,6 @@ async function apagarNota(id) {
     }
 }
 
-// ---------- Seleção de texto: anotar ou perguntar ----------
-
 const balao = $('#balao-selecao');
 let selecao = null;
 
@@ -292,10 +275,8 @@ $('#perguntar-selecao').addEventListener('click', () => {
     window.getSelection().removeAllRanges();
 });
 
-// ---------- Conversa com o Claude ----------
-
 const CHAVE_CONVERSA = 'estudos:conversa';
-let conversa = guardar.ler(CHAVE_CONVERSA, []); // [{role, content, trecho?, prancha?, uso?}]
+let conversa = guardar.ler(CHAVE_CONVERSA, []);
 let contexto = { prancha: null, trecho: null };
 let claudePronto = false;
 let respondendo = false;
@@ -323,13 +304,11 @@ function htmlMensagem(m, i) {
         ${m.content ? `<div class="acoes-nota"><button class="botao pequeno caneta" data-salvar-resposta="${i}">✎ Salvar como nota</button></div>` : ''}</div>`;
 }
 
-// O tópico de uma resposta é o título "## …" com que o Claude a abre; sem ele, o começo da pergunta.
 function tituloDaResposta(texto) {
     const linha = (texto || '').match(/^\s*#{1,3}\s+(.+)$/m)?.[1];
     return linha ? linha.replace(/[*_`]/g, '').trim() : null;
 }
 
-// A resposta sem o título de tópico, que já aparece no rótulo da marca.
 function semTitulo(texto) {
     return tituloDaResposta(texto) ? texto.replace(/^\s*#{1,3}\s+.+\n*/m, '').trim() : texto;
 }
@@ -339,7 +318,6 @@ function resumir(texto, limite = 90) {
     return t.length <= limite ? t : `${t.slice(0, limite).replace(/\s+\S*$/, '')}…`;
 }
 
-// Junta cada pergunta com a(s) resposta(s) seguinte(s): cada par vira uma marca expansível.
 function trocasDaConversa() {
     const trocas = [];
     conversa.forEach((m, i) => {
@@ -384,7 +362,6 @@ function abrirConversa({ prancha = pranchaAtual, trecho = null } = {}) {
     $('#pergunta').focus();
 }
 
-// Lê os eventos do servidor (Server-Sent Events) de um fetch com corpo em streaming.
 async function* lerEventos(res) {
     const leitor = res.body.getReader();
     const decodificador = new TextDecoder();
@@ -422,7 +399,6 @@ async function perguntar(pergunta) {
         requestAnimationFrame(() => {
             agendado = false;
             el.innerHTML = markdown(semTitulo(resposta.content));
-            // o rótulo da marca passa a ser o tópico assim que o título "## …" chega
             const topico = tituloDaResposta(resposta.content);
             if (topico) el.closest('.troca').querySelector('summary').textContent = topico;
             mensagensEl.scrollTop = mensagensEl.scrollHeight;
@@ -444,7 +420,6 @@ async function perguntar(pergunta) {
         }
     } catch (err) {
         if (!resposta.content) conversa.pop();
-        // TypeError do fetch = nem chegou no servidor (desligado ou reiniciando), não é erro do Claude.
         const desligado = err instanceof TypeError;
         conversa.push({ role: 'erro', content: desligado
             ? 'O servidor do guia não respondeu. Ele está ligado? Rode npm start dentro de docs/ e mande a pergunta de novo.'
@@ -480,7 +455,6 @@ $('#limpar-conversa').addEventListener('click', () => {
 async function salvarResposta(i) {
     const resposta = conversa[i];
     const pergunta = conversa.slice(0, i).reverse().find((m) => m.role === 'user');
-    // Na prancha, a marca mostra só o tópico; a resposta inteira fica dentro dela, sem o título repetido.
     const topico = tituloDaResposta(resposta.content);
     const texto = semTitulo(resposta.content);
     try {
@@ -501,8 +475,6 @@ async function salvarResposta(i) {
         alert(`Não consegui salvar: ${err.message}`);
     }
 }
-
-// ---------- Caderno e exportação ----------
 
 function notasPorPrancha() {
     return pranchas.map((p) => ({ prancha: p, notas: notas.filter((n) => n.prancha === p.id) })).filter((g) => g.notas.length);
@@ -538,8 +510,6 @@ $('#fechar-caderno').addEventListener('click', () => $('#caderno').close());
 $('#exportar-notas').addEventListener('click', exportarNotas);
 $('#exportar-notas-caderno').addEventListener('click', exportarNotas);
 
-// ---------- Cliques delegados ----------
-
 document.addEventListener('click', (e) => {
     const alvo = e.target.closest('button, a');
     if (!alvo) return;
@@ -557,8 +527,6 @@ document.addEventListener('click', (e) => {
     else if (alvo.id === 'tirar-trecho') { contexto.trecho = null; desenharContexto(); }
     else if (alvo.hasAttribute('data-fechar-caderno')) $('#caderno').close();
 });
-
-// ---------- Início ----------
 
 async function verificarServidor() {
     const status = $('#status');
@@ -580,10 +548,9 @@ async function verificarServidor() {
 
 desenharContexto();
 if (SO_LEITURA) {
-    $('#status').remove(); // online não há servidor para mostrar o estado
+    $('#status').remove();
 } else {
     verificarServidor();
-    // As notas inseridas depois do carregamento empurram o conteúdo: um link para "#p05" cairia no lugar errado.
     carregarNotas().then(() => {
         const alvo = location.hash && document.getElementById(location.hash.slice(1));
         if (alvo) alvo.scrollIntoView({ behavior: 'instant' });

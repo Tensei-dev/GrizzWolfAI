@@ -1,4 +1,3 @@
-// Quem dá cada disciplina (services/teaching.js), com trechos dos horários reais e um cadastro de mentira: sem banco.
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { parseTimetable, resolvePerson, semesterOf, unitOfCode, splitNames } = require('../services/teaching');
@@ -20,7 +19,6 @@ test('SIGAA: código, disciplina, turma, docente e horários; trechos repetidos 
         'Estrutura Curricular: Disciplinas Obrigatórias',
         'FACOM34101 - Fundamentos de Inteligência Artificial Docentes: Murillo Guimarães Carneiro',
         'Horários: Segunda-feira 10:40:00 às 12:20:00 - Teórica Início: 01/09/2026 Fim: 19/12/2026 CH Ofertada:. 2 Sala: 1B 110 Capacidade: 80',
-        // a sobreposição dos trechos repete o bloco
         'FACOM34101 - Fundamentos de Inteligência Artificial Docentes: Murillo Guimarães Carneiro',
         'Horários: Sexta-feira 10:40:00 às 12:20:00 - Teórica Início: 01/09/2026 Fim: 19/12/2026 CH Ofertada:. 2 Sala: 1B 204 Capacidade: 80',
         '60 CH Total: CH Téorica: 60 CH Prática: 0 Período Ideal: 1',
@@ -68,7 +66,6 @@ test('ligação ao cadastro: nome completo em qualquer unidade; nome curto na un
     assert.equal(resolvePerson('Gustavo', people, { unit: 'facom' }), null);
     assert.equal(resolvePerson('Daniel', people, { unit: 'facom' }), null);
     assert.equal(resolvePerson('Daniel', people, { unit: 'facom', campus: 'Monte Carmelo' })?.id, 6);
-    // substituto não é ligado pelo primeiro nome, mesmo havendo uma Sarah no cadastro
     assert.equal(resolvePerson('Sarah (substituta)', people, { unit: 'ime' }), null);
     assert.equal(unitOfCode('IERI39202'), null);
 });

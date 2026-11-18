@@ -5,7 +5,6 @@ const { GRAPH_MODEL, DailyLimitError } = require('../services/llm');
 const { UNITS } = require('../services/courses');
 const { networkGuard } = require('../services/network');
 
-// Documentos lidos pelo modelo por rodada; o resto fica para a próxima. Mude com --limit N ou GRAPH_MAX_DOCS.
 const DEFAULT_LIMIT = 80;
 
 function readLimit() {
@@ -24,7 +23,6 @@ async function main() {
     const all = await Graph.findDocuments({ onlyPending: false });
     const docsByNumber = new Map();
     for (const d of all) {
-        // Só as categorias que são unidades (facom, ime) contam; a primeira define os cursos que o modelo vê.
         d.units = d.units.filter((slug) => UNITS[slug]);
         d.unit = d.units[0] || null;
         const n = normalizeNumber(d.number);
@@ -57,7 +55,6 @@ async function main() {
     if (failures) process.exitCode = 1;
 }
 
-// Depois de algumas falhas de rede seguidas, espera e testa o banco; se ele não voltou, a rodada para.
 async function stopOnNetwork(guard, err, progress) {
     try {
         await guard.failed(err);
@@ -68,7 +65,6 @@ async function stopOnNetwork(guard, err, progress) {
     }
 }
 
-// --references: refaz as referências entre normas de todos os documentos só pelas regras, sem gastar cota do LLM.
 async function rebuildReferences(all, docsByNumber) {
     console.log(`refazendo as referências entre normas de ${all.length} documentos (só regras)`);
     const guard = networkGuard({ probe: () => pool.query('SELECT 1') });

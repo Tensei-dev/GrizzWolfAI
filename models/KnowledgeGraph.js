@@ -39,7 +39,6 @@ async function replaceEdgesFrom(sourceId, edges) {
     }
 }
 
-// Troca só as referências que vieram das regras; as lidas pelo LLM e as outras relações ficam.
 async function replaceRuleReferences(sourceId, edges) {
     const client = await pool.connect();
     try {
@@ -94,7 +93,6 @@ async function nodeIds(type, keys) {
     return Object.fromEntries(rows.map((r) => [r.key, r.id]));
 }
 
-// Documentos que valem só para cursos, currículos ou unidades fora de allowedNodeIds.
 async function documentsOutside(allowedNodeIds) {
     const { rows } = await pool.query(
         `SELECT n.document_id
@@ -107,7 +105,6 @@ async function documentsOutside(allowedNodeIds) {
     return rows.map((r) => r.document_id);
 }
 
-// Documentos vigentes que tratam de um dos assuntos e valem para um dos nós (curso, currículo ou unidade).
 async function documentsAbout(topicKeys, appliesToNodeIds, limit = 8) {
     const { rows } = await pool.query(
         `SELECT n.document_id
@@ -124,7 +121,6 @@ async function documentsAbout(topicKeys, appliesToNodeIds, limit = 8) {
     return rows.map((r) => r.document_id);
 }
 
-// Documentos vigentes que valem para cada um dos nós (currículos), agrupados por nó.
 async function documentsApplyingTo(nodeIds) {
     const { rows } = await pool.query(
         `SELECT e.target_id, array_agg(DISTINCT n.document_id) AS document_ids
@@ -138,7 +134,6 @@ async function documentsApplyingTo(nodeIds) {
     return rows;
 }
 
-// Todas as arestas que saem dos documentos ou chegam neles, com os dois lados já resolvidos.
 async function edgesOfDocuments(documentIds) {
     const { rows } = await pool.query(
         `SELECT e.relation,

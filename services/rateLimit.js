@@ -1,17 +1,12 @@
 const crypto = require('crypto');
 const pool = require('../db/pool');
 
-// Limite de requisições por visitante, guardado no banco (na Vercel, cada requisição pode cair numa instância
-// diferente). O visitante é um hash do IP com um sal secreto: o IP não é gravado.
-
 const WINDOWS = { min: 60, dia: 86400 };
-const CLEANUP_CHANCE = 0.02; // de vez em quando, apaga as janelas antigas
+const CLEANUP_CHANCE = 0.02;
 
-// Sem RATE_LIMIT_SALT, o sal sai do DATABASE_URL, que já é secreto: sem sal, o hash de um IPv4 se desfaz por força bruta.
 const SALT = process.env.RATE_LIMIT_SALT || crypto.createHash('sha256').update(process.env.DATABASE_URL || 'grizz').digest('hex');
 
 function clientIp(req) {
-    // na Vercel, x-vercel-forwarded-for é preenchido pela própria plataforma; x-forwarded-for pode vir do cliente
     const forwarded = req.headers['x-vercel-forwarded-for'] || (process.env.VERCEL ? req.headers['x-forwarded-for'] : null);
     return (forwarded ? String(forwarded).split(',')[0].trim() : req.socket?.remoteAddress) || 'desconhecido';
 }
@@ -29,7 +24,6 @@ async function hit(bucket, visitor, seconds) {
     return rows[0];
 }
 
-// limits: { min: 5, dia: 25 }. Passou de algum, responde 429 com Retry-After e a mensagem do Grizz.
 function rateLimit(name, limits, message) {
     return async (req, res, next) => {
         let blocked = null;
@@ -44,7 +38,6 @@ function rateLimit(name, limits, message) {
                 pool.query(`DELETE FROM rate_limits WHERE window_start < now() - interval '2 days'`).catch(() => {});
             }
         } catch (err) {
-            // sem o banco, o chat também não responderia; não é o limite que deve derrubar a requisição
             console.error(`limite de requisições indisponível, deixando passar: ${err.message}`);
             return next();
         }

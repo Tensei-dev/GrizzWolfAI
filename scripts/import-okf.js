@@ -1,12 +1,3 @@
-// Importa o pacote OKF (conhecimento/) para o banco: só o que é novo ou mudou, comparando o hash de cada arquivo
-// com o guardado no banco (mesmo efeito do git diff, sem depender do histórico do git).
-//   npm run okf:import                  importa páginas e perfis
-//   npm run okf:import -- --dry-run     só mostra o que mudaria, sem gerar vetores nem gravar
-//   npm run okf:import -- --limit=20    importa no máximo 20 páginas (os vetores gastam cota do Gemini)
-//   npm run okf:import -- --max-trechos=300   para antes de passar de 300 trechos (vetores) na rodada: a cota diária
-//                                       do Gemini é a mesma das buscas do chat, e a Action deixa sobra para elas
-// Páginas viram documentos (kind pagina/noticia/edital) com trechos por seção; perfis vão para a tabela pessoas,
-// buscada só por palavra-chave. O que saiu do pacote fica com status "removido".
 const fs = require('fs/promises');
 const path = require('path');
 const pool = require('../db/pool');
@@ -52,7 +43,6 @@ async function importPeople(entries, { phones, emails }, { dryRun }) {
         const phone = phones.get(e.data.source) || {};
         const email = (e.data.pessoa || {}).email || emails.get(e.data.source) || null;
         const areas = (e.data.pessoa || {}).areas || null;
-        // telefone, e-mail e áreas vêm de fora do conteúdo baixado (outras páginas, enriquecimento): entram no hash
         const contentHash = `${e.data.hash}|${phone.telefone || ''}|${phone.ramal || ''}|${email || ''}|${areas || ''}`;
         const before = inDb.get(e.data.source);
         if (before && before.content_hash === contentHash && before.status === 'ativo') { count.iguais++; continue; }
@@ -88,14 +78,11 @@ async function importPeople(entries, { phones, emails }, { dryRun }) {
     return count;
 }
 
-// Texto do vetor de cada docente: nome, áreas de pesquisa e o resumo de formação (que traz os temas mesmo sem o campo).
 function areaText(p) {
     const formation = fieldText(p.resumo || '', /^\*\*Formação:\*\*/) || '';
     return [p.nome, p.areas && `Áreas de pesquisa: ${p.areas}`, formation.slice(0, 800)].filter(Boolean).join('\n');
 }
 
-// Vetores dos docentes em exercício cujo texto mudou (ou que ainda não têm). Gastam a cota do Gemini como as páginas,
-// então respeitam o mesmo limite da rodada e param na reserva do chat.
 async function embedPeople({ dryRun, maxChunks }) {
     const pending = (await Person.needingEmbedding())
         .map((p) => ({ ...p, text: areaText(p) }))
@@ -144,7 +131,6 @@ async function importPages(entries, { dryRun, limit, maxChunks = Infinity }) {
             break;
         }
         try {
-            // o vetor de cada trecho leva o título da página e da seção: o trecho sozinho perde o contexto
             const embeddings = await embedDocuments(chunks.map((c) => `${c.heading}\n\n${c.content}`));
             const [kind, docType] = KINDS[e.data.type];
             const saved = await Document.savePage({

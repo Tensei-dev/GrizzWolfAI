@@ -100,8 +100,6 @@ async function getCategories(documentId) {
     return rows;
 }
 
-// ---------- Páginas dos sites (pacote OKF) ----------
-
 async function listPages() {
     const { rows } = await pool.query(
         `SELECT id, source_url, status, content_hash FROM documents WHERE kind <> 'norma' ORDER BY id`
@@ -109,8 +107,6 @@ async function listPages() {
     return rows;
 }
 
-// Grava uma página e os trechos dela numa transação: página nova vira documento; página alterada atualiza o
-// mesmo documento (mesmo id, trechos trocados) e volta para a fila do grafo. Identidade pelo endereço.
 async function savePage(page, chunks, categoryId) {
     const client = await pool.connect();
     try {
@@ -130,7 +126,6 @@ async function savePage(page, chunks, categoryId) {
             );
             await client.query('DELETE FROM chunks WHERE document_id = $1', [id]);
         } else {
-            // file_hash é único e as páginas podem ter conteúdo idêntico (a biblioteca de cada curso): usa o endereço
             const { rows } = await client.query(
                 `INSERT INTO documents (title, doc_type, kind, issuer, source_url, published_at, subject, content_hash, okf_path, file_hash)
                  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id`,

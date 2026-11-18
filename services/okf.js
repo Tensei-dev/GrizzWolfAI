@@ -1,5 +1,3 @@
-// Pacote OKF (Open Knowledge Format) dos sites das unidades: um arquivo Markdown por página, com cabeçalho YAML
-// (tipo, título, descrição, unidade, cursos, fonte, datas, hash) e links entre os arquivos do pacote.
 const path = require('path');
 const crypto = require('crypto');
 const cheerio = require('cheerio');
@@ -9,9 +7,6 @@ const { gfm } = require('turndown-plugin-gfm');
 const ROOT = path.join(__dirname, '..', 'conhecimento');
 const NEWS_DAYS = 90;
 
-// Seções do site (primeira pasta do endereço) que entram no pacote. O resto (tags, versões em inglês,
-// páginas em construção, agendamento, a aba Documentos já importada como PDF) fica de fora.
-// A pós-graduação (especializacao, programas em outros sites) fica para uma segunda etapa.
 const UNITS = {
     facom: {
         baseUrl: 'https://facom.ufu.br',
@@ -43,18 +38,11 @@ const UNITS = {
     },
 };
 
-// Notícias e editais só entram se forem dos últimos 90 dias.
 const NEWS_SECTIONS = new Set(['acontece', 'editais']);
-// O sitemap não lista as notícias recentes: elas vêm das listagens, página a página (?page=N).
 const NEWS_LISTINGS = { facom: ['/acontece'], ime: ['/acontece', '/editais'] };
 const MAX_LISTING_PAGES = 10;
-// Páginas-modelo vazias do portal.
 const TEMPLATE_PAGE = /^\/graduacao\/(curso-modelo|novo-curso-|modelo-[a-z])/;
 
-// ---------- Sitemap ----------
-
-// Os sitemaps listam os endereços com os nomes antigos dos sites (www.portal.facom.ufu.br, www.famat.ufu.br):
-// fica só o caminho, sobre o endereço atual da unidade.
 function parseSitemap(xml, baseUrl) {
     const seen = new Set();
     const pages = [];
@@ -72,7 +60,6 @@ function parseSitemap(xml, baseUrl) {
 
 const sectionOf = (pagePath) => pagePath.split('/').filter(Boolean)[0] || '';
 
-// Itens de uma página de listagem (/acontece, /editais): os caminhos das notícias, sem a query.
 function parseListing(html, listingPath, baseUrl) {
     const $ = cheerio.load(html);
     const prefix = `${listingPath}/`;
@@ -80,14 +67,12 @@ function parseListing(html, listingPath, baseUrl) {
     $('.region-content a[href]').each((_, a) => {
         try {
             const p = decodeURIComponent(new URL($(a).attr('href'), baseUrl).pathname).replace(/\/+$/, '');
-            // "/acontece/2022" é o arquivo do ano, não uma notícia
             if (p.startsWith(prefix) && !/\/\d+$/.test(p)) paths.add(p);
-        } catch { /* link inválido */ }
+        } catch { }
     });
     return [...paths];
 }
 
-// Data de publicação que o próprio endereço revela: /acontece/2019/08/…, /acontece/2025-09-…, /editais/2026-10-…
 function dateFromPath(pagePath) {
     const m = pagePath.match(/\/((?:19|20)\d{2})[/-](\d{2})(?:[/-]|$)/);
     return m ? `${m[1]}-${m[2]}` : null;
@@ -97,7 +82,6 @@ function cutoffDate(days = NEWS_DAYS, now = new Date()) {
     return new Date(now.getTime() - days * 86400000).toISOString().slice(0, 10);
 }
 
-// Decide, só pelo endereço, se a página entra no pacote (antes de baixá-la).
 function selectPage(unitId, page, now = new Date()) {
     const unit = UNITS[unitId];
     const section = sectionOf(page.path);
@@ -116,10 +100,7 @@ function coursesOf(unitId, pagePath) {
     return Object.entries(UNITS[unitId].courses).filter(([, slugs]) => slugs.includes(slug)).map(([id]) => id);
 }
 
-// As páginas soltas do portal (/node/123) são quase todas editais e resultados antigos (monitoria, eleições,
-// concursos): pelo título, viram edital e seguem a regra dos 90 dias. Páginas de teste do portal saem.
 const NODE_EDITAL = /\b(edital|resultado|homologa[cç][aã]o|processo seletivo|sele[cç][aã]o de|concurso|elei[cç][oõ]es|monitoria|vagas remanescentes|professor(\(a\))? (substitut|visitante)|prof\. substituto|reabertura|visiting professor)/i;
-// evento ou aviso com o ano no título ("AWC 2019"): dá para saber que passou
 const pastYearIn = (title, now = new Date()) => (title.match(/\b20\d{2}\b/g) || []).some((y) => Number(y) < now.getFullYear());
 const TEST_PAGE = /^teste\b/i;
 
@@ -131,7 +112,6 @@ function typeOf(section, title = '') {
     return 'pagina';
 }
 
-// Por que uma página já baixada não deve ficar no pacote (sem baixá-la de novo): teste do portal ou edital vencido.
 function staleReason(data, cutoff = cutoffDate()) {
     if (TEST_PAGE.test(data.title || '')) return 'página de teste do portal';
     const type = data.secao === 'node' ? typeOf('node', data.title) : data.type;
@@ -139,13 +119,10 @@ function staleReason(data, cutoff = cutoffDate()) {
     return null;
 }
 
-// Caminho do arquivo dentro do pacote: conhecimento/<unidade>/<caminho da página>.md
 function filePathFor(unitId, pagePath) {
     const parts = pagePath.split('/').filter(Boolean).map((p) => p.replace(/[<>:"\\|?*\x00-\x1f]/g, '-'));
     return path.join(unitId, ...(parts.length ? parts : ['inicio'])) + '.md';
 }
-
-// ---------- Página → Markdown ----------
 
 const turndown = new TurndownService({ headingStyle: 'atx', bulletListMarker: '-', codeBlockStyle: 'fenced', emDelimiter: '*' });
 turndown.use(gfm);
@@ -166,8 +143,6 @@ function cleanMarkdown(md) {
 
 const plain = (md) => md.replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/^\s*[-*]\s+/gm, '').replace(/[*_`#>]/g, '').replace(/\s+/g, ' ').trim();
 
-// Tira repetições comuns nas páginas do portal: o título da página de novo no começo do corpo,
-// e o parágrafo que só repete o título acima dele (sanfonas de perguntas frequentes).
 function removeRepeats(md, title) {
     const lines = md.split('\n');
     const out = [];
@@ -188,7 +163,6 @@ function firstSentence(md, max = 200) {
     return sentence.length <= max ? sentence.trim() : `${sentence.slice(0, max).replace(/\s+\S*$/, '')}…`;
 }
 
-// Campos do perfil de uma pessoa ("Cargo: …", "Endereço: …") viram dados estruturados no cabeçalho.
 const PERSON_FIELDS = {
     'field-categoria-funcional': 'categoria',
     'field-cargo': 'cargo',
@@ -206,8 +180,6 @@ const PERSON_FIELDS = {
 function extractPage(html, page, unitId) {
     const $ = cheerio.load(html);
     const root = $('.region-content').first().length ? $('.region-content').first() : $('body');
-    // Página de conteúdo (um nó: perfil, notícia, página) ou página de lista (vários nós: legislação, serviços).
-    // Numa lista, o "primeiro nó" é só o primeiro item: o título vem da aba e o corpo é a lista inteira.
     const isNodePage = /\bpage-node\b/.test($('body').attr('class') || '');
     const main = isNodePage && root.find('.node').length ? root.find('.node').first() : root;
     const meta = main.find('.field-name-autor-publicacao-alteracao').first().text();
@@ -227,29 +199,22 @@ function extractPage(html, page, unitId) {
     main.find('script, style, noscript, form, iframe, .compartilhar, [class*="compartilhar"], .field-name-autor-publicacao-alteracao, '
         + '.field-name-field-categoria-funcional, .field-name-campo-dinamico, .carousel-control, .pager, .views-exposed-form, .element-invisible, '
         + '.breadcrumb, img, svg, i.fa, i[class*="fa-"]').remove();
-    // o título do próprio nó já vai no cabeçalho; numa lista, o título de cada item fica
     if (main !== root) main.find('.field-name-title').first().remove();
-    // "Cargo:" e "Professor Associado" ficam em blocos separados no HTML: viram uma linha só
     main.find('.field').each((_, field) => {
         const label = $(field).children('.field-label').text().replace(/\s+/g, ' ').trim();
         if (!label) return;
-        // os <div> internos viram <span>: um bloco dentro do parágrafo quebraria a linha na conversão
         const value = ($(field).children('.field-items').html() || '').replace(/<(\/?)div\b[^>]*>/g, '<$1span>');
         $(field).replaceWith(`<p><strong>${label.replace(/:?\s*$/, ':')}</strong> ${value}</p>`);
     });
     main.find('a[href]').each((_, a) => {
         const href = $(a).attr('href');
-        // âncoras internas (sanfonas "#collapse-1-0") não levam a lugar nenhum: fica só o texto
         if (href.startsWith('#')) return void $(a).replaceWith($(a).html());
-        if (!$(a).text().trim()) return void $(a).remove(); // link que só tinha imagem
+        if (!$(a).text().trim()) return void $(a).remove();
         try { $(a).attr('href', new URL(href, UNITS[unitId].baseUrl).href); } catch { $(a).removeAttr('href'); }
     });
-    // O Drupal monta listas (telefones, serviços) como tabelas sem cabeçalho, que o conversor deixaria em HTML:
-    // cada linha vira um item de lista, com as células separadas por " — ".
     main.find('table').each((_, table) => {
         if ($(table).find('th').length) return;
         const items = $(table).find('tr').map((_, tr) => {
-            // parágrafos e blocos dentro da célula viram <span>, para o item ficar numa linha só
             const cells = $(tr).children('td').map((_, td) => $(td).html().trim().replace(/<(\/?)(p|div)\b[^>]*>/g, '<$1span> ')).get()
                 .filter((c) => $('<div>').html(c).text().trim());
             return cells.length ? `<li>${cells.join(' — ')}</li>` : '';
@@ -267,7 +232,6 @@ function extractPage(html, page, unitId) {
     };
 }
 
-// Links para outras páginas do pacote viram links relativos entre os arquivos (o "grafo" do OKF).
 function linkInternal(body, fromFile, urlToFile) {
     return body.replace(/\]\((https?:\/\/[^)\s]+)\)/g, (match, href) => {
         let key;
@@ -277,9 +241,6 @@ function linkInternal(body, fromFile, urlToFile) {
         return `](${path.relative(path.dirname(fromFile), target).split(path.sep).join('/')})`;
     });
 }
-
-// ---------- Cabeçalho YAML ----------
-// Cada valor é escrito como JSON, que também é YAML válido: leitura e escrita sem biblioteca e sem ambiguidade.
 
 const FIELD_ORDER = ['type', 'title', 'description', 'unidade', 'secao', 'cursos', 'tags', 'source', 'publicado', 'atualizado', 'pessoa', 'hash'];
 
@@ -297,7 +258,7 @@ function parseFrontmatter(raw) {
     const data = {};
     for (const line of m[1].split('\n')) {
         const i = line.indexOf(': ');
-        if (i > 0) { try { data[line.slice(0, i)] = JSON.parse(line.slice(i + 2)); } catch { /* linha editada à mão */ } }
+        if (i > 0) { try { data[line.slice(0, i)] = JSON.parse(line.slice(i + 2)); } catch { } }
     }
     return { data, body: text.slice(m[0].length) };
 }

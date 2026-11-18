@@ -1,6 +1,3 @@
-// Fatos fixos para o prompt do Grizz: coordenação, secretaria, horário de atendimento, e-mail, telefone e
-// endereço de cada curso e de cada unidade, tirados das páginas do pacote OKF. São poucos e mudam pouco, então
-// vão direto ao prompt, sem passar pela busca. Gerado pelo `npm run okf` em conhecimento/fatos.json.
 const fs = require('fs/promises');
 const path = require('path');
 const { parseFrontmatter } = require('./okf');
@@ -9,7 +6,6 @@ const { COURSES, courseOfText } = require('./courses');
 const ROOT = path.join(__dirname, '..', 'conhecimento');
 const OUTPUT = path.join(ROOT, 'fatos.json');
 
-// Páginas de onde saem os contatos de cada curso e de cada unidade (caminhos no pacote).
 const COURSE_PAGES = {
     bcc: ['facom/graduacao/ciencia-da-computacao/conheca.md'],
     bsi: ['facom/graduacao/sistemas-de-informacao-campus-santa-monica/conheca.md', 'facom/graduacao/bsi-santamonica/secretaria.md'],
@@ -26,7 +22,6 @@ const UNIT_PAGES = {
 };
 const COORDINATORS_WALL = { facom: 'facom/mural-de-coordenadores.md' };
 
-// Campos que interessam (o rótulo em negrito no começo da linha); os outros (representantes, tópicos) ficam de fora.
 const WANTED = /^(coordenador|vice-?coordenador|secret[aá]ri|secretaria|hor[aá]rio|endere[cç]o|diretor|vice-?diretor|presidente|whatsapp)/i;
 const LABEL = /^\*\*([^*]+?)\*\*\s*(.*)$/;
 
@@ -39,7 +34,6 @@ function plain(text) {
         .trim();
 }
 
-// "**Rótulo:** valor" e as linhas logo abaixo (nome, e-mail, telefone, endereço) até o próximo rótulo.
 function contactFields(body) {
     const fields = [];
     let current = null;
@@ -72,8 +66,6 @@ async function readPage(okfPath) {
     }
 }
 
-// O mural traz "### Nome", o mandato ("2025 até 2027") e o curso em negrito. Vale quem tem mandato no ano atual,
-// e só se for o único do curso nesse ano.
 async function coordinatorsFromWall(okfPath, year) {
     let body;
     try {
@@ -98,9 +90,7 @@ async function coordinatorsFromWall(okfPath, year) {
 }
 
 async function buildFacts({ year = new Date().getFullYear() } = {}) {
-    // sem data de geração: o arquivo só muda (e aparece no git diff) quando um contato muda
     const facts = { cursos: {}, unidades: {}, faltando: [] };
-    // Páginas do mesmo curso repetem campos (a secretaria aparece na página do curso e na do colegiado): fica a primeira.
     const load = async (paths) => {
         const pages = [];
         const seen = new Set();

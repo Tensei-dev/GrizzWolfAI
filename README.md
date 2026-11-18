@@ -4,6 +4,8 @@
 
 O Grizz é um assistente de perguntas e respostas (RAG) sobre as normas da Faculdade de Computação (FACOM) e do Instituto de Matemática e Estatística (IME) da Universidade Federal de Uberlândia: estágio, TCC, atividades complementares, monitoria, extensão, horários e mais. Cada resposta cita o trecho e o PDF oficial de onde a informação saiu.
 
+**Converse com o Grizz:** [grizz-wolf-ai.vercel.app](https://grizz-wolf-ai.vercel.app/)
+
 > [!NOTE]
 > O Grizz não substitui a coordenação do curso nem a secretaria. Ele só responde com base nos documentos que conseguiu ler e avisa quando não encontra a informação.
 
