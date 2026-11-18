@@ -7,14 +7,17 @@ source: "https://ime.ufu.br"
 
 # Páginas do site da IME
 
-## acontece (1)
+## acontece (2)
 
 - [Novo Curso de Matemática](acontece/2026-10-novo-curso-de-matematica.md) — A partir de 2027, o Curso de Graduação em Matemática do Instituto de Matemática e Estatística (IME) da Universidade Federal de Uberlândia (UFU) adota uma nova estrutura curricular, unindo sua sólida…
+- [Acontece](acontece/Inscrições no link- https-/forms.gle/aGB88ZzHL23S3g6ZA.md) — Promoção à Classe de Professor Titular 06/11/2026 - 12:02 Matemática Aplicada 29/10/2026 - 11:08 OLIMPÍADA BRASILEIRA DE ESTATÍSTICA (OB 27/10/2026 - 17:32 Robótica: Educação e Pesquisa 12/03/2026 -…
 
-## editais (2)
+## editais (4)
 
 - [Concurso Público de provas e títulos para preenchimento de vaga(s) de Professor(a) do Magistério Superior na área de Matemática Aplicada.](editais/2026-10-concurso-publico-de-provas-e-titulos-para-preenchimento-de-vagas-de-professora-do.md) — Concurso Docente EDITAL PROGEP Nº 156/2026 Público-alvo: Professor Data de publicação: 08/10/2026 As inscrições devem ser realizadas, exclusivamente, pelo endereço eletrônico iniciando-se às 15 horas…
 - [EDITAL DE SELEÇÃO DE ESTUDANTES PARA INGRESSO NO PET ESTATÍSTICA](editais/2026-10-edital-de-selecao-de-estudantes-para-ingresso-no-pet-estatistica.md) — PET EDITAL IME Nº 2/2026 Público-alvo: Estudante Data de publicação: 02/10/2026 O PET Estatística da UFU está com inscrições abertas para novos integrantes.
+- [EDITAL DIRIME Nº 14/2026](editais/2026-11-edital-dirime-no-142026.md) — Outros EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Público-alvo: Professor Data de publicação: 18/11/2026 Arquivos: Edital — EDITAL DIRIME Nº 14/2026
+- [EDITAL DIRIME Nº 15/2026](editais/2026-11-edital-dirime-no-152026.md) — Outros EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Público-alvo: Professor Data de publicação: 18/11/2026 Arquivos: Edital — EDITAL DIRIME Nº 15/2026
 
 ## egressos (1)
 
