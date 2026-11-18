@@ -14,6 +14,10 @@ npm start
 
 Abra **http://localhost:4100**. O servidor só aceita conexões da própria máquina.
 
+A versão online (só leitura, sem notas nem Claude) fica em https://tensei-dev.github.io/GrizzWolfAI/ e é publicada
+pelo workflow `.github/workflows/pages.yml` a cada mudança em `docs/public/`. O modo leitura liga sozinho quando a página
+não está em `localhost`.
+
 ## O que tem aqui
 
 | Arquivo | Para quê |

@@ -8,7 +8,7 @@ O Grizz é um assistente de perguntas e respostas (RAG) sobre as normas da Facul
 > O Grizz não substitui a coordenação do curso nem a secretaria. Ele só responde com base nos documentos que conseguiu ler e avisa quando não encontra a informação.
 
 > [!TIP]
-> **Manual técnico:** a arquitetura inteira do Grizz explicada em pranchas de desenho técnico, da importação dos documentos à resposta, está em [`docs/`](docs/LEIA-ME.md). Veja [Manual técnico](#manual-técnico) para abrir.
+> **Manual técnico:** a arquitetura inteira do Grizz explicada em pranchas de desenho técnico, da importação dos documentos à resposta, está em [`docs/`](docs/LEIA-ME.md) e online em [tensei-dev.github.io/GrizzWolfAI](https://tensei-dev.github.io/GrizzWolfAI/). Veja [Manual técnico](#manual-técnico).
 
 ## Funcionalidades
 
@@ -337,7 +337,9 @@ cp .env.example .env   # opcional: ANTHROPIC_API_KEY para as perguntas ao Claude
 npm start              # abre em http://localhost:4100
 ```
 
-Sem a chave do Claude, o manual e as notas funcionam; só a conversa fica desligada. Para só ler, dá para abrir [`docs/public/index.html`](docs/public/index.html) direto no navegador. As notas (`docs/dados/`) e a chave (`docs/.env`) ficam fora do git.
+Sem a chave do Claude, o manual e as notas funcionam; só a conversa fica desligada. As notas (`docs/dados/`) e a chave (`docs/.env`) ficam fora do git.
+
+**Versão online, só leitura:** [tensei-dev.github.io/GrizzWolfAI](https://tensei-dev.github.io/GrizzWolfAI/). O workflow [`pages.yml`](.github/workflows/pages.yml) publica no GitHub Pages só a página do manual (`docs/public/` e as duas bibliotecas de renderização), a cada mudança nela; o servidor, as notas e a chave não vão, e o workflow cancela a publicação se encontrar algo com cara de chave. Online, as notas e as perguntas ao Claude ficam escondidas, e os arquivos citados em cada prancha viram links para o código no GitHub.
 
 ## Licença
 

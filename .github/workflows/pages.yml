@@ -1,0 +1,56 @@
+name: Publicar o manual técnico (GitHub Pages)
+
+# Publica só a página do manual (docs/public) como site estático, em modo leitura. O servidor local (docs/server.js),
+# a chave do Claude (docs/.env, fora do git) e as notas (docs/dados/, fora do git) não vão para o site.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/public/**'
+      - 'docs/package-lock.json'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+      - run: npm ci
+        working-directory: docs
+      - name: Montar o site (só a página, sem o servidor)
+        run: |
+          mkdir -p _site/vendor
+          cp docs/public/index.html docs/public/estilo.css docs/public/app.js _site/
+          cp docs/node_modules/marked/lib/marked.umd.js _site/vendor/marked.js
+          cp docs/node_modules/dompurify/dist/purify.min.js _site/vendor/purify.js
+          ls -la _site _site/vendor
+      - name: Conferir que nenhuma chave vai junto
+        run: |
+          if grep -rEl 'sk-ant-[A-Za-z0-9_-]{10}|gsk_[A-Za-z0-9]{20}|AIza[0-9A-Za-z_-]{30}|postgres(ql)?://[^ "]+@' _site; then
+            echo "::error::parece haver uma chave ou senha no site; publicação cancelada"
+            exit 1
+          fi
+          echo "nenhuma chave encontrada"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4

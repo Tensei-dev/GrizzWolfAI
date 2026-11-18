@@ -406,3 +406,13 @@ dialog.caderno::backdrop { background: rgba(5, 20, 40, 0.65); }
     main { margin: 0; }
     .prancha { break-inside: avoid-page; }
 }
+
+/* Versão online (GitHub Pages): só leitura. Notas e perguntas ao Claude precisam do servidor local. */
+.so-leitura #abrir-caderno,
+.so-leitura #abrir-conversa,
+.so-leitura #exportar-notas,
+.so-leitura .prancha-cabecalho .acoes,
+.so-leitura .notas-gerais,
+.so-leitura .balao-selecao { display: none !important; }
+.so-leitura a.arquivo { text-decoration: none; }
+.so-leitura a.arquivo:hover { text-decoration: underline; }

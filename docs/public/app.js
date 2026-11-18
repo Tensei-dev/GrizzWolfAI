@@ -4,6 +4,12 @@
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
+// Fora da própria máquina (GitHub Pages), o manual é só leitura: notas e perguntas ao Claude precisam do servidor
+// local (npm start em docs/), que guarda as notas e tem a chave da API. Os arquivos citados viram links para o GitHub.
+const SO_LEITURA = !['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+const REPOSITORIO = 'https://github.com/Tensei-dev/GrizzWolfAI/blob/main/';
+if (SO_LEITURA) document.body.classList.add('so-leitura');
+
 const pranchas = $$('.prancha');
 const tituloDe = (id) => {
     const p = document.getElementById(id);
@@ -79,8 +85,9 @@ for (const p of pranchas) {
         <button class="botao pequeno ciano" data-perguntar="${p.id}">◆ Perguntar sobre esta prancha</button>`;
 }
 for (const caixa of $$('.arquivos')) {
-    caixa.innerHTML = caixa.dataset.arquivos.split(/\s+/).filter(Boolean).map((f) => `
-        <span class="arquivo">${escapeHtml(f)}<button type="button" data-explicar="${escapeHtml(f)}">explicar</button></span>`).join('');
+    caixa.innerHTML = caixa.dataset.arquivos.split(/\s+/).filter(Boolean).map((f) => (SO_LEITURA
+        ? `<a class="arquivo" href="${REPOSITORIO}${encodeURI(f)}" target="_blank" rel="noopener">${escapeHtml(f)}</a>`
+        : `<span class="arquivo">${escapeHtml(f)}<button type="button" data-explicar="${escapeHtml(f)}">explicar</button></span>`)).join('');
 }
 
 // ---------- Notas ----------
@@ -572,9 +579,16 @@ async function verificarServidor() {
 }
 
 desenharContexto();
-verificarServidor();
-// As notas inseridas depois do carregamento empurram o conteúdo: um link para "#p05" cairia no lugar errado.
-carregarNotas().then(() => {
-    const alvo = location.hash && document.getElementById(location.hash.slice(1));
-    if (alvo) alvo.scrollIntoView({ behavior: 'instant' });
-});
+if (SO_LEITURA) {
+    const status = $('#status');
+    status.className = 'status';
+    status.textContent = 'versão online · só leitura';
+    status.title = 'Notas e perguntas ao Claude funcionam no modo local: cd docs && npm install && npm start';
+} else {
+    verificarServidor();
+    // As notas inseridas depois do carregamento empurram o conteúdo: um link para "#p05" cairia no lugar errado.
+    carregarNotas().then(() => {
+        const alvo = location.hash && document.getElementById(location.hash.slice(1));
+        if (alvo) alvo.scrollIntoView({ behavior: 'instant' });
+    });
+}
