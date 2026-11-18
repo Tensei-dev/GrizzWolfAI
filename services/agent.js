@@ -7,7 +7,7 @@ const people = require('./people');
 const Turma = require('../models/Turma');
 const Person = require('../models/Person');
 const { embedQuery } = require('./embeddings');
-const { withoutUnknownEmails } = require('./guards');
+const { withoutUnknownEmails, looksLikeQuestion } = require('./guards');
 const { COURSES, UNITS, courseOfText } = require('./courses');
 
 const CONTACT_WORDS = /coorden|secretari|contato|e-?mail|telefone|whatsapp|hor[aá]rio de atendimento|atendimento|endere[cç]o|onde fica|sala d/i;
@@ -247,15 +247,17 @@ async function resolveProfile(profile, message, history, { mentionsPerson = fals
     const asksAdvisor = !pending && ADVISOR_WORDS.test(message);
     const missingCourse = (extracted.needsCourse || pending) && !profile.course && !mentionsPerson && !asksCourseContact && !asksAdvisor;
     const canAsk = profile.profilePrompts === 0 || (learned && profile.profilePrompts < MAX_PROFILE_PROMPTS);
+    // A pendente já foi guardada completa; quem responde à pergunta do Grizz (curso, ano) não está fazendo uma dúvida nova.
+    const answeredGrizz = pending && learned;
+    const hasQuestion = extracted.hasQuestion || (!answeredGrizz && (looksLikeQuestion(message) || mentionsPerson));
     if (missingCourse && canAsk) {
-        if (!pending && extracted.hasQuestion) profile.pendingQuestion = extracted.searchQuery || message;
+        if (!pending && hasQuestion) profile.pendingQuestion = extracted.searchQuery || message;
         profile.profilePrompts += 1;
         return { profile, ask: askForCourse({ ambiguousCourse: extracted.ambiguousCourse }) };
     }
 
-    // A pergunta pendente já foi guardada completa; a mensagem atual vem com a versão reescrita pela leitura do perfil.
-    const answeredGrizz = pending && learned;
-    if (extracted.hasQuestion && !answeredGrizz) return { profile, question: message, searchQuery: extracted.searchQuery };
+    // A mensagem atual vem com a versão reescrita pela leitura do perfil.
+    if (hasQuestion && !answeredGrizz) return { profile, question: message, searchQuery: extracted.searchQuery };
     return { profile, question: profile.pendingQuestion, searchQuery: profile.pendingQuestion };
 }
 

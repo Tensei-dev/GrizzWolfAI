@@ -77,3 +77,13 @@ test('esforço de raciocínio no formato de cada família de modelo', () => {
     assert.equal(effortFor('allam-2-7b', 'low'), null);
     assert.equal(effortFor('qwen/qwen3.8-27b', null), null);
 });
+
+test('mensagem com cara de pergunta é dúvida, mesmo se o leitor de perfil disser que não', () => {
+    const { looksLikeQuestion } = require('../services/guards');
+    for (const q of ['Quem é João Henrique?', 'quem é o coordenador', 'Qual a carga horária de estágio', 'posso trancar o curso?', 'e o prazo?']) {
+        assert.equal(looksLikeQuestion(q), true, q);
+    }
+    for (const m of ['Ciência da Computação', 'entrei em 2023', 'bom dia', 'valeu!']) {
+        assert.equal(looksLikeQuestion(m), false, m);
+    }
+});

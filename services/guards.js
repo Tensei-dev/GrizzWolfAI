@@ -13,4 +13,13 @@ function withoutUnknownEmails(answer, context) {
     });
 }
 
-module.exports = { withoutUnknownEmails };
+// Uma mensagem que termina em "?" ou começa com palavra de pergunta é uma dúvida, diga o leitor de perfil o que disser:
+// ele às vezes marcava "Quem é João Henrique?" como sem pergunta, e o Grizz respondia "Manda a sua dúvida".
+const QUESTION_START = /^(quem|qual|quais|como|onde|quando|quanto|quantos|quantas|o que|que|por que|porque|pra que|para que|posso|pode|podem|existe|existem|tem|há|devo|preciso|é possível)\b/i;
+
+function looksLikeQuestion(message) {
+    const text = (message || '').trim();
+    return /\?\s*$/.test(text) || QUESTION_START.test(text);
+}
+
+module.exports = { withoutUnknownEmails, looksLikeQuestion };
