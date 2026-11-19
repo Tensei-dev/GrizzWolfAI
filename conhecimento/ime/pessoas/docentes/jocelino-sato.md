@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Jocelino Sato"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/03/1993 (33 anos, 7 meses, 25 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/03/1993 (33 anos, 7 meses, 28 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/jocelino-sato"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"sato@ufu.br","areas":"Matemática (ênfase em Geometria Diferencial, atuando principalmente nos seguintes temas: olimpíadas de matemática, o ensino de geometria, informática no ensino); olimpíadas de matemática, o ensino de geometria, informática no ensino (cabri géometrè, geogebra, maple, Wingeo, Winplot), geometria equivariante"}
-hash: "df7d9d0e49684bc0"
+hash: "4218b7c81a576415"
 ---
 
 # Jocelino Sato
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 22/03/1993 (33 anos, 7 meses, 25 dias)
+**Data de ingresso:** 22/03/1993 (33 anos, 7 meses, 28 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

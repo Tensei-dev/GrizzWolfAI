@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Guilherme Chaud Tizziotti"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/03/2010 (16 anos, 8 meses, 11 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/03/2010 (16 anos, 8 meses, 14 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/guilherme-chaud-tizziotti"
 publicado: "2019-11-11"
 atualizado: "2026-06-09"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"guilhermect@ufu.br"}
-hash: "e28583de4e7671c4"
+hash: "707e31efbf1a3baf"
 ---
 
 # Guilherme Chaud Tizziotti
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 05/03/2010 (16 anos, 8 meses, 11 dias)
+**Data de ingresso:** 05/03/2010 (16 anos, 8 meses, 14 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

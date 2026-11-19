@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Cesar Guilherme De Almeida"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/03/1993 (33 anos, 7 meses, 25 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/03/1993 (33 anos, 7 meses, 28 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/cesar-guilherme-de-almeida"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"cesargui@ufu.br","areas":"Matemática Aplicada (ênfase em Meios Porosos, atuando principalmente nos seguintes temas: meios porosos, modelagem matemática, educação matemática, equacões diferenciais parciais e conjuntos fuzzy); meios porosos, modelagem matemática, educação matemática, equacões diferenciais parciais e conjuntos fuzzy"}
-hash: "e0c244dd6dbae4d8"
+hash: "72477581e33a0af5"
 ---
 
 # Cesar Guilherme De Almeida
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 22/03/1993 (33 anos, 7 meses, 25 dias)
+**Data de ingresso:** 22/03/1993 (33 anos, 7 meses, 28 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

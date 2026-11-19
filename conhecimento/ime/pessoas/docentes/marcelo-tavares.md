@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Marcelo Tavares"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/10/1998 (28 anos, 1 mês, 11 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/10/1998 (28 anos, 1 mês, 14 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/marcelo-tavares"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mtavares@ufu.br","areas":"Probabilidade e Estatística (ênfase em Probabilidade e Estatística Aplicadas, atuando principalmente nos seguintes temas: modelagem estatística, estatística, amostragem, estatística multivariada e estatística aplicada a gestão de custos e contabilidade); modelagem estatística, estatística, amostragem, estatística multivariada e estatística aplicada a gestão de custos e contabilidade"}
-hash: "f0c38b0b40076cf0"
+hash: "62d6160f05fc9fb5"
 ---
 
 # Marcelo Tavares
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 05/10/1998 (28 anos, 1 mês, 11 dias)
+**Data de ingresso:** 05/10/1998 (28 anos, 1 mês, 14 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

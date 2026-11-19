@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Eduardo Rogério Fávaro"
-description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 13/02/2015 (11 anos, 9 meses, 3 dias)…"
+description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 13/02/2015 (11 anos, 9 meses, 6 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/eduardo-rogerio-favaro"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"eduardofavaro@ufu.br","areas":"teoria dos números algébricos, códigos corretores de erros, reticulados algébricos e ideais, mínimo euclidiano"}
-hash: "905b57e11907bbf4"
+hash: "9225c314a4dfe762"
 ---
 
 # Eduardo Rogério Fávaro
@@ -22,7 +22,7 @@ Professor Associado I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 13/02/2015 (11 anos, 9 meses, 3 dias)
+**Data de ingresso:** 13/02/2015 (11 anos, 9 meses, 6 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

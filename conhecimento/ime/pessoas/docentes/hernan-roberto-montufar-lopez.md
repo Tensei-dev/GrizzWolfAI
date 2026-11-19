@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Hernán Roberto Montúfar López"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/08/2011 (15 anos, 3 meses, 8 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/08/2011 (15 anos, 3 meses, 11 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/hernan-roberto-montufar-lopez"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"montufar@ufu.br","areas":"Matemática (ênfase em Sistemas Dinâmicos, atuando principalmente nos seguintes temas: Campos de Vetores Estáveis, 2-variedades com singularidades simples, 3-variedades suaves, Funções de Lyapunov, Grafos de Lyapunov, Índice de Conley, Blocos Isolantes e Fluxos de Smale); Campos de Vetores Estáveis, 2-variedades com singularidades simples, 3-variedades suaves, Funções de Lyapunov, Grafos de Lyapunov, Índice de Conley, Blocos Isolantes e Fluxos de Smale"}
-hash: "c2ffc3dee67bdae4"
+hash: "533adf655151e62b"
 ---
 
 # Hernán Roberto Montúfar López
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 08/08/2011 (15 anos, 3 meses, 8 dias)
+**Data de ingresso:** 08/08/2011 (15 anos, 3 meses, 11 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

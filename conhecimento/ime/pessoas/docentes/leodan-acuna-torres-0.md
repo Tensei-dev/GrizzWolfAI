@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Leodan Acuña Torres"
-description: "Professor Visitante Cargo: Professor Visitante Situação Funcional: Em exercício Data de ingresso: 10/02/2025 (1 ano, 9 meses, 6 dias) Currículo Lattes ime@ufu.br 2026 - 1 2025 - 2 2025 - 1"
+description: "Professor Visitante Cargo: Professor Visitante Situação Funcional: Em exercício Data de ingresso: 10/02/2025 (1 ano, 9 meses, 9 dias) Currículo Lattes ime@ufu.br 2026 - 1 2025 - 2 2025 - 1"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/leodan-acuna-torres-0"
 publicado: "2025-02-19"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Visitante","cargo":"Professor Visitante","situacao":"Em exercício","email":"ime@ufu.br"}
-hash: "2a0240cf295ff354"
+hash: "548a137c1898c05b"
 ---
 
 # Leodan Acuña Torres
@@ -20,7 +20,7 @@ Professor Visitante
 
 **Situação Funcional:** Em exercício
 
-**Data de ingresso:** 10/02/2025 (1 ano, 9 meses, 6 dias)
+**Data de ingresso:** 10/02/2025 (1 ano, 9 meses, 9 dias)
 
 [Currículo Lattes](http://lattes.cnpq.br/9364554441325461 "Currículo Lattes de Leodan Acuña Torres ")
 

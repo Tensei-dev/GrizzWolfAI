@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Dulce Mary de Almeida"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 10/02/2003 (23 anos, 9 meses, 6 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 10/02/2003 (23 anos, 9 meses, 9 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/dulce-mary-de-almeida"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"dulce.almeida@ufu.br","areas":"Matemática (ênfase em Geometria Diferencial, atuando principalmente nos seguintes temas: Distribuições de Engel, Geometria Sub-Riemanniana, Espaços Sub-Simétricos, Conexão Sub-Riemanniana e Álgebras de Lie Involutivas); Distribuições de Engel, Geometria Sub-Riemanniana, Espaços Sub-Simétricos, Conexão Sub-Riemanniana e Álgebras de Lie Involutivas"}
-hash: "b8adf440dc8c17d5"
+hash: "eafb492fd2bd90ff"
 ---
 
 # Dulce Mary de Almeida
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 10/02/2003 (23 anos, 9 meses, 6 dias)
+**Data de ingresso:** 10/02/2003 (23 anos, 9 meses, 9 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

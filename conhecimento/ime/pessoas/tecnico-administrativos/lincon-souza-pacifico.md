@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Lincon Souza Pacífico"
-description: "Recepcionista Cargo: Recepcionista Situação Funcional: Em exercício Data de ingresso: 05/09/2023 (3 anos, 2 meses, 11 dias) Unidade Organizacional: Instituto de Matemática e Estatística…"
+description: "Recepcionista Cargo: Recepcionista Situação Funcional: Em exercício Data de ingresso: 05/09/2023 (3 anos, 2 meses, 14 dias) Unidade Organizacional: Instituto de Matemática e Estatística…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/tecnico-administrativos/lincon-souza-pacific
 publicado: "2020-02-07"
 atualizado: "2025-03-13"
 pessoa: {"categoria":"Técnico-Administrativo","funcao":"Recepcionista","cargo":"Recepcionista","situacao":"Em exercício","unidade_organizacional":"Instituto de Matemática e Estatística","email":"lincon.pacifico@ufu.br"}
-hash: "3e0308ce7483f39f"
+hash: "36f2885fd18b91a3"
 ---
 
 # Lincon Souza Pacífico
@@ -20,7 +20,7 @@ Recepcionista
 
 **Situação Funcional:** Em exercício
 
-**Data de ingresso:** 05/09/2023 (3 anos, 2 meses, 11 dias)
+**Data de ingresso:** 05/09/2023 (3 anos, 2 meses, 14 dias)
 
 **Unidade Organizacional:** [Instituto de Matemática e Estatística](../../unidades/unidade-academica/instituto-de-matematica-e-estatistica.md)
 

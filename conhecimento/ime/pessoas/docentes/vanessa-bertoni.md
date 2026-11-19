@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Vanessa Bertoni"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 30/07/2009 (17 anos, 3 meses, 17 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 30/07/2009 (17 anos, 3 meses, 20 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/vanessa-bertoni"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"bertoni@ufu.br","areas":"funções univalentes e polinômios ortogonais"}
-hash: "54d6ebaf1cf4c01b"
+hash: "f2a0de457189b99b"
 ---
 
 # Vanessa Bertoni
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 30/07/2009 (17 anos, 3 meses, 17 dias)
+**Data de ingresso:** 30/07/2009 (17 anos, 3 meses, 20 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Thiago Henrique Pereira Silva"
-description: "Professor Assistente - Nível I - Dedicação Exclusiva Cargo: Professor Assistente - Nível I Situação Funcional: Ex-docente Data de ingresso: 22/08/2023 (3 anos, 2 meses, 25 dias) Regime de Trabalho:…"
+description: "Professor Assistente - Nível I - Dedicação Exclusiva Cargo: Professor Assistente - Nível I Situação Funcional: Ex-docente Data de ingresso: 22/08/2023 (3 anos, 2 meses, 28 dias) Regime de Trabalho:…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/thiago-henrique-pereira-silva"
 publicado: "2023-08-22"
 atualizado: "2025-09-22"
 pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Ex-docente","regime":"Dedicação Exclusiva","endereco":"Campus Monte Carmelo - Bloco 1A - Sala 409Monte Carmelo - MG"}
-hash: "3eccc04ddcd29250"
+hash: "466c1c1a67e0ce39"
 ---
 
 # Thiago Henrique Pereira Silva
@@ -20,7 +20,7 @@ Professor Assistente - Nível I - Dedicação Exclusiva
 
 **Situação Funcional:** Ex-docente
 
-**Data de ingresso:** 22/08/2023 (3 anos, 2 meses, 25 dias)
+**Data de ingresso:** 22/08/2023 (3 anos, 2 meses, 28 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Taciana Oliveira Souza"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 12/11/2013 (13 anos, 4 dias) Regime de…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 12/11/2013 (13 anos, 7 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/taciana-oliveira-souza"
 publicado: "2019-11-11"
 atualizado: "2026-10-23"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"tacioli@ufu.br"}
-hash: "cacdba11d4781bd8"
+hash: "e19cf7630ddb0721"
 ---
 
 # Taciana Oliveira Souza
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 12/11/2013 (13 anos, 4 dias)
+**Data de ingresso:** 12/11/2013 (13 anos, 7 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

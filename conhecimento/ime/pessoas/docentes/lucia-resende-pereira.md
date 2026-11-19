@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Lúcia Resende Pereira"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/07/1998 (28 anos, 4 meses, 8 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/07/1998 (28 anos, 4 meses, 11 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/lucia-resende-pereira"
 publicado: "2019-11-11"
 atualizado: "2026-06-09"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"luciapereira@ufu.br","areas":"Matemática (ênfase em Equações Diferenciais Parciais, atuando principalmente nos seguintes temas: estabilidade e equação de reação-difusão); estabilidade e equação de reação-difusão"}
-hash: "d603fae130c14ae0"
+hash: "f782857e38aff80a"
 ---
 
 # Lúcia Resende Pereira
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 08/07/1998 (28 anos, 4 meses, 8 dias)
+**Data de ingresso:** 08/07/1998 (28 anos, 4 meses, 11 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Priscila Neves Faria"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 30/07/2010 (16 anos, 3 meses, 17 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 30/07/2010 (16 anos, 3 meses, 20 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/priscila-neves-faria"
 publicado: "2019-11-11"
 atualizado: "2024-02-29"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"priscilaneves@ufu.br","areas":"Modelos AMMI, Análise de agrupamentos, Análise de Componentes Principais, Análise Fatorial Exploratória"}
-hash: "971b716df5c7a1cf"
+hash: "04a6c610e8336798"
 ---
 
 # Priscila Neves Faria
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 30/07/2010 (16 anos, 3 meses, 17 dias)
+**Data de ingresso:** 30/07/2010 (16 anos, 3 meses, 20 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

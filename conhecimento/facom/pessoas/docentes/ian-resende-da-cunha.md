@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Ian Resende da Cunha"
-description: "Professor Substituto - Mestrado - 20 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Titulação: Mestrado Data de ingresso: 30/01/2025 (1 ano, 9 meses, 17 dias) Regime de Trabalho: 20…"
+description: "Professor Substituto - Mestrado - 20 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Titulação: Mestrado Data de ingresso: 30/01/2025 (1 ano, 9 meses, 20 dias) Regime de Trabalho: 20…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/ian-resende-da-cunha"
 publicado: "2025-02-06"
 atualizado: "2026-05-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto - Mestrado - 20 horas","cargo":"Professor Substituto","situacao":"Ex-docente","titulacao":"Mestrado","regime":"20 horas"}
-hash: "5df4ca1efe7348d5"
+hash: "87d5b26c9efef1ed"
 ---
 
 # Ian Resende da Cunha
@@ -22,7 +22,7 @@ Professor Substituto - Mestrado - 20 horas
 
 **Titulação:** Mestrado
 
-**Data de ingresso:** 30/01/2025 (1 ano, 9 meses, 17 dias)
+**Data de ingresso:** 30/01/2025 (1 ano, 9 meses, 20 dias)
 
 **Regime de Trabalho:** 20 horas
 

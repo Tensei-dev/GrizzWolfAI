@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Marcos Antônio da Câmara"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/11/1991 (35 anos, 8 dias) Regime de Trabalho:…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/11/1991 (35 anos, 11 dias) Regime de Trabalho:…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/marcos-antonio-da-camara"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"camara@ufu.br","areas":"programação linear fuzzy"}
-hash: "591a0d7331e34d5d"
+hash: "1ac338553dc7a709"
 ---
 
 # Marcos Antônio da Câmara
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 08/11/1991 (35 anos, 8 dias)
+**Data de ingresso:** 08/11/1991 (35 anos, 11 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

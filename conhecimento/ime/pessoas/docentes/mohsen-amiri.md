@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Mohsen Amiri"
-description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/01/2025 (1 ano, 9 meses, 23 dias) Regime de…"
+description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/01/2025 (1 ano, 9 meses, 26 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/mohsen-amiri"
 publicado: "2025-04-10"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mohsen.amiri@ufu.br"}
-hash: "0ef3534a39f1109b"
+hash: "ea4e2a5f8192f8bc"
 ---
 
 # Mohsen Amiri
@@ -22,7 +22,7 @@ Professor Adjunto - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 24/01/2025 (1 ano, 9 meses, 23 dias)
+**Data de ingresso:** 24/01/2025 (1 ano, 9 meses, 26 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Francielle Rodrigues de Castro Coelho"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 29/07/2010 (16 anos, 3 meses, 18 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 29/07/2010 (16 anos, 3 meses, 21 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/francielle-rodrigues-de-castro-coel
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"francielle@ufu.br","areas":"Matemática (ênfase em Topologia Algébrica, atuando principalmente nos seguintes temas: ação de grupos finitos e compactos de Lie, Teorema do Tipo Borsuk-Ulam, Aplicações G-equivariantes, dimensão topológica, gênus de um G-espaço); ação de grupos finitos e compactos de Lie, Teorema do Tipo Borsuk-Ulam, Aplicações G-equivariantes, dimensão topológica, gênus de um G-espaço"}
-hash: "de48096546e2064a"
+hash: "addfcd9029e265d5"
 ---
 
 # Francielle Rodrigues de Castro Coelho
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 29/07/2010 (16 anos, 3 meses, 18 dias)
+**Data de ingresso:** 29/07/2010 (16 anos, 3 meses, 21 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

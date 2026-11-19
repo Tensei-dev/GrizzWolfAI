@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Janser Moura Pereira"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 03/08/2009 (17 anos, 3 meses, 13 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 03/08/2009 (17 anos, 3 meses, 16 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/janser-moura-pereira"
 publicado: "2019-10-10"
 atualizado: "2026-06-09"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"janser@ufu.br","areas":"Probabilidade e Estatística (ênfase em Inferência Bayesiana, atuando principalmente nos seguintes temas: modelos não-lineares, mineralização de nitrogênio, inferência bayesiana e mcmc); modelos não-lineares, mineralização de nitrogênio, inferência bayesiana e mcmc"}
-hash: "cffa31c8f1cc7f11"
+hash: "032925881d8a18a1"
 ---
 
 # Janser Moura Pereira
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 03/08/2009 (17 anos, 3 meses, 13 dias)
+**Data de ingresso:** 03/08/2009 (17 anos, 3 meses, 16 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

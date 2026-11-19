@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Fábio José Bertoloto"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 12/03/2010 (16 anos, 8 meses, 4 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 12/03/2010 (16 anos, 8 meses, 7 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/fabio-jose-bertoloto"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"bertoloto@ufu.br","areas":"Matemática (ênfase em Análise Funcional, atuando principalmente nos seguintes temas: polinômios homogêneos entre espaços de Banach, holomorfia e funções inteiras nucleares); polinômios homogêneos entre espaços de Banach, holomorfia e funções inteiras nucleares"}
-hash: "1ba39311baabfcc5"
+hash: "195ed764b618ee6e"
 ---
 
 # Fábio José Bertoloto
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 12/03/2010 (16 anos, 8 meses, 4 dias)
+**Data de ingresso:** 12/03/2010 (16 anos, 8 meses, 7 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

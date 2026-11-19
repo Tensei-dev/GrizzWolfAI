@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Ednaldo Carvalho Guimarães"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/10/1996 (30 anos, 1 mês, 15 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/10/1996 (30 anos, 1 mês, 18 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/ednaldo-carvalho-guimaraes"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"ecg@ufu.br","areas":"Estatística Aplicada (ênfase em Geoestatística, atuando principalmente nos seguintes temas: semivariograma, geoestatística, krigagem, variabilidade espacial e amostragem); semivariograma, geoestatística, krigagem, variabilidade espacial e amostragem"}
-hash: "6141f9836402d154"
+hash: "c94efc8049e35318"
 ---
 
 # Ednaldo Carvalho Guimarães
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/10/1996 (30 anos, 1 mês, 15 dias)
+**Data de ingresso:** 01/10/1996 (30 anos, 1 mês, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

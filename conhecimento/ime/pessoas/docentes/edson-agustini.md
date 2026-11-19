@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Edson Agustini"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 21/05/2002 (24 anos, 5 meses, 26 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 21/05/2002 (24 anos, 5 meses, 29 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/edson-agustini"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"agustini@ufu.br"}
-hash: "b84ce8e82e40b42b"
+hash: "a4c1973c4602859b"
 ---
 
 # Edson Agustini
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 21/05/2002 (24 anos, 5 meses, 26 dias)
+**Data de ingresso:** 21/05/2002 (24 anos, 5 meses, 29 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

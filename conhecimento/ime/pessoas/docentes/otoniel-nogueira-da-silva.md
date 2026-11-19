@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Otoniel Nogueira da Silva"
-description: "Professor Adjunto - Pós-doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Pós-doutorado Data de ingresso: 04/12/2025 (11 meses, 12 dias) Regime de…"
+description: "Professor Adjunto - Pós-doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Pós-doutorado Data de ingresso: 04/12/2025 (11 meses, 15 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/otoniel-nogueira-da-silva"
 publicado: "2025-02-19"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Pós-doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Pós-doutorado","regime":"Dedicação Exclusiva","email":"otoniel@ufu.br"}
-hash: "2fed869d13273265"
+hash: "22f90159d36eed8c"
 ---
 
 # Otoniel Nogueira da Silva
@@ -22,7 +22,7 @@ Professor Adjunto - Pós-doutorado - Dedicação Exclusiva
 
 **Titulação:** Pós-doutorado
 
-**Data de ingresso:** 04/12/2025 (11 meses, 12 dias)
+**Data de ingresso:** 04/12/2025 (11 meses, 15 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Sarah Faria Monteiro Mazzini Costa"
-description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 31/05/2022 (4 anos, 5 meses, 16 dias) Regime de…"
+description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 31/05/2022 (4 anos, 5 meses, 19 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/sarah-faria-monteiro-mazzini-costa"
 publicado: "2022-06-10"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"sarahmazzini@ufu.br"}
-hash: "469135880fc28ad5"
+hash: "a3ba2d51a1439f3d"
 ---
 
 # Sarah Faria Monteiro Mazzini Costa
@@ -22,7 +22,7 @@ Professor Adjunto - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 31/05/2022 (4 anos, 5 meses, 16 dias)
+**Data de ingresso:** 31/05/2022 (4 anos, 5 meses, 19 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Adriano Barbosa Silva"
-description: "Professor Substituto - Mestrado - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Titulação: Mestrado Data de ingresso: 15/01/2024 (2 anos, 10 meses, 1 dia) Regime de Trabalho: 40…"
+description: "Professor Substituto - Mestrado - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Titulação: Mestrado Data de ingresso: 15/01/2024 (2 anos, 10 meses, 4 dias) Regime de Trabalho:…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/adriano-barbosa-silva"
 publicado: "2024-03-05"
 atualizado: "2026-02-20"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto - Mestrado - 40 horas","cargo":"Professor Substituto","situacao":"Ex-docente","titulacao":"Mestrado","regime":"40 horas","unidade_organizacional":"Faculdade de Computação"}
-hash: "ab4ba4ab91afa8a3"
+hash: "8d89f090af9d084e"
 ---
 
 # Adriano Barbosa Silva
@@ -22,7 +22,7 @@ Professor Substituto - Mestrado - 40 horas
 
 **Titulação:** Mestrado
 
-**Data de ingresso:** 15/01/2024 (2 anos, 10 meses, 1 dia)
+**Data de ingresso:** 15/01/2024 (2 anos, 10 meses, 4 dias)
 
 **Regime de Trabalho:** 40 horas
 

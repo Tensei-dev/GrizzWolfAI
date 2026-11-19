@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Fernando Rodrigo Rafaeli"
-description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 03/06/2014 (12 anos, 5 meses, 13 dias)…"
+description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 03/06/2014 (12 anos, 5 meses, 16 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/fernando-rodrigo-rafaeli"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"rafaeli@ufu.br"}
-hash: "71a1c41156fc1c64"
+hash: "865e68345843cd9e"
 ---
 
 # Fernando Rodrigo Rafaeli
@@ -22,7 +22,7 @@ Professor Associado I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 03/06/2014 (12 anos, 5 meses, 13 dias)
+**Data de ingresso:** 03/06/2014 (12 anos, 5 meses, 16 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

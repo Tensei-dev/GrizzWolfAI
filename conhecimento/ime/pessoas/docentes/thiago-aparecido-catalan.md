@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Thiago Aparecido Catalan"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/08/2011 (15 anos, 3 meses, 11 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/08/2011 (15 anos, 3 meses, 14 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/thiago-aparecido-catalan"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"tcatalan@ufu.br","areas":"Matemática (ênfase em Sistemas Dinâmicos, atuando principalmente nos seguintes temas: entropia, tangência homoclínica, extensão simbólica, expansividade, hiperbolicidade e ciclos heterodimensionais); entropia, tangência homoclínica, extensão simbólica, expansividade, hiperbolicidade e ciclos heterodimensionais"}
-hash: "54decf7cabe60f2c"
+hash: "d40a80809679ed95"
 ---
 
 # Thiago Aparecido Catalan
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 05/08/2011 (15 anos, 3 meses, 11 dias)
+**Data de ingresso:** 05/08/2011 (15 anos, 3 meses, 14 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

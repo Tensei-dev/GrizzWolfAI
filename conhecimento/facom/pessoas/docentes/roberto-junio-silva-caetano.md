@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Roberto Júnio Silva Caetano"
-description: "Professor Substituto - Mestrado - 40 horas Cargo: Professor Substituto Situação Funcional: Em exercício Titulação: Mestrado Data de ingresso: 23/07/2025 (1 ano, 3 meses, 24 dias) Data da Saida:…"
+description: "Professor Substituto - Mestrado - 40 horas Cargo: Professor Substituto Situação Funcional: Em exercício Titulação: Mestrado Data de ingresso: 23/07/2025 (1 ano, 3 meses, 27 dias) Data da Saida:…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/roberto-junio-silva-caetano"
 publicado: "2025-10-14"
 atualizado: "2026-11-05"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto - Mestrado - 40 horas","cargo":"Professor Substituto","situacao":"Em exercício","titulacao":"Mestrado","regime":"40 horas","email":"roberto.caetano@ufu.br"}
-hash: "485181b48d847a40"
+hash: "6be066a556aa098e"
 ---
 
 # Roberto Júnio Silva Caetano
@@ -22,7 +22,7 @@ Professor Substituto - Mestrado - 40 horas
 
 **Titulação:** Mestrado
 
-**Data de ingresso:** 23/07/2025 (1 ano, 3 meses, 24 dias)
+**Data de ingresso:** 23/07/2025 (1 ano, 3 meses, 27 dias)
 
 **Data da Saida:** 14/10/2025
 

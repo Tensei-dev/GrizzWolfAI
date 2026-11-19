@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Marcio Colombo Fenille"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 02/08/2013 (13 anos, 3 meses, 14 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 02/08/2013 (13 anos, 3 meses, 17 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/marcio-colombo-fenille-0"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mcfenille@ufu.br"}
-hash: "be80ebb5d2b6ac20"
+hash: "99eddc2d2f651130"
 ---
 
 # Marcio Colombo Fenille
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 02/08/2013 (13 anos, 3 meses, 14 dias)
+**Data de ingresso:** 02/08/2013 (13 anos, 3 meses, 17 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

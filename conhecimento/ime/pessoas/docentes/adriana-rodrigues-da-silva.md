@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Adriana Rodrigues da Silva"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 26/03/2010 (16 anos, 7 meses, 21 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 26/03/2010 (16 anos, 7 meses, 24 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/adriana-rodrigues-da-silva"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"adrianafamat@ufu.br","areas":"Matemática (ênfase em Geometria Algébrica e Teoria de Interseção)"}
-hash: "c8ad0bac6af9e2e6"
+hash: "6b73d6ad219f5ba9"
 ---
 
 # Adriana Rodrigues da Silva
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 26/03/2010 (16 anos, 7 meses, 21 dias)
+**Data de ingresso:** 26/03/2010 (16 anos, 7 meses, 24 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

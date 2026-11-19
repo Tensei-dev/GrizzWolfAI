@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Arlindo José de Souza Junior"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/03/1993 (33 anos, 7 meses, 25 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/03/1993 (33 anos, 7 meses, 28 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/arlindo-jose-de-souza-junior"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"arlindo@ufu.br","areas":"Educação (ênfase em Educação Matemática, atuando principalmente nos seguintes temas: saberes docentes, educação popular e cultura digital); saberes docentes, educação popular e cultura digital"}
-hash: "ffa233df3003f899"
+hash: "7f720f0902abf7c3"
 ---
 
 # Arlindo José de Souza Junior
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 22/03/1993 (33 anos, 7 meses, 25 dias)
+**Data de ingresso:** 22/03/1993 (33 anos, 7 meses, 28 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

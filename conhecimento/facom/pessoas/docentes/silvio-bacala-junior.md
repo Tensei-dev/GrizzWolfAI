@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Silvio Bacala Júnior"
-description: "Professor Adjunto - Mestrado - 20 horas Cargo: Professor Adjunto Situação Funcional: Aposentado Titulação: Mestrado Data de ingresso: 01/03/1982 (44 anos, 8 meses, 15 dias) Regime de Trabalho: 20…"
+description: "Professor Adjunto - Mestrado - 20 horas Cargo: Professor Adjunto Situação Funcional: Aposentado Titulação: Mestrado Data de ingresso: 01/03/1982 (44 anos, 8 meses, 18 dias) Regime de Trabalho: 20…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/silvio-bacala-junior"
 publicado: "2018-10-11"
 atualizado: "2025-02-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - 20 horas","cargo":"Professor Adjunto","situacao":"Aposentado","titulacao":"Mestrado","regime":"20 horas","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 138","areas":"Tem experiência na área de Ciência da Computação , com ênfase em Metodologia e Técnicas da Computação. Atuando principalmente nos seguintes temas: UML, Redes de Petri, Processo Unificado, Sistemas em Tempo Real, Sifão e Prevenção de bloqueio mortal."}
-hash: "1ca731c5726b460d"
+hash: "61561950a1839bfa"
 ---
 
 # Silvio Bacala Júnior
@@ -22,7 +22,7 @@ Professor Adjunto - Mestrado - 20 horas
 
 **Titulação:** Mestrado
 
-**Data de ingresso:** 01/03/1982 (44 anos, 8 meses, 15 dias)
+**Data de ingresso:** 01/03/1982 (44 anos, 8 meses, 18 dias)
 
 **Regime de Trabalho:** 20 horas
 

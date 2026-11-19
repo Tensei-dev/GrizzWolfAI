@@ -7,7 +7,7 @@ secao: "ime"
 tags: ["ime","ime"]
 source: "https://ime.ufu.br/ime/equipe/tecnicos"
 atualizado: "2024-09-19"
-hash: "f19a95a8798ab71a"
+hash: "33aa1b6aedc13001"
 ---
 
 # Técnicos
@@ -88,7 +88,7 @@ Assistente em Administração
 
 ### [Sandreana Poliana Silva](../../pessoas/tecnico-administrativos/sandreana-poliana-silva.md)
 
-Secretário(a)
+Secretário(a) - Mestrado
 
 [Ciência de Dados e Estatística](../../graduacao/ciencia-de-dados-e-estatistica.md)
 

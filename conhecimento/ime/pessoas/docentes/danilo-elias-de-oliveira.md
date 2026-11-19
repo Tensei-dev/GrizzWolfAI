@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Danilo Elias de Oliveira"
-description: "Professor Associado III - Doutorado Cargo: Professor Associado III Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/02/2012 (14 anos, 9 meses, 8 dias) Formação: Bacharel em…"
+description: "Professor Associado III - Doutorado Cargo: Professor Associado III Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/02/2012 (14 anos, 9 meses, 11 dias) Formação: Bacharel em…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/danilo-elias-de-oliveira"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado III - Doutorado","cargo":"Professor Associado III","situacao":"Em exercício","titulacao":"Doutorado","email":"daniloelias@ufu.br","areas":"métodos de pontos interiores e programação semidefinida"}
-hash: "5e91569da6d2e0bd"
+hash: "de1b6cfd2c8c9eb0"
 ---
 
 # Danilo Elias de Oliveira
@@ -22,7 +22,7 @@ Professor Associado III - Doutorado
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 08/02/2012 (14 anos, 9 meses, 8 dias)
+**Data de ingresso:** 08/02/2012 (14 anos, 9 meses, 11 dias)
 
 **Formação:**
 

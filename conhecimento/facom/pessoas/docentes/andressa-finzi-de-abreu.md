@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Andressa Finzi de Abreu"
-description: "Professor Substituto - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 02/03/2016 (10 anos, 8 meses, 14 dias) Regime de Trabalho: 40 horas Unidade…"
+description: "Professor Substituto - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 02/03/2016 (10 anos, 8 meses, 17 dias) Regime de Trabalho: 40 horas Unidade…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/andressa-finzi-de-abreu"
 publicado: "2025-02-26"
 atualizado: "2025-02-26"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto - 40 horas","cargo":"Professor Substituto","situacao":"Ex-docente","regime":"40 horas","unidade_organizacional":"Faculdade de Computação"}
-hash: "2503ff520a7c91a5"
+hash: "adfe573619817626"
 ---
 
 # Andressa Finzi de Abreu
@@ -20,7 +20,7 @@ Professor Substituto - 40 horas
 
 **Situação Funcional:** Ex-docente
 
-**Data de ingresso:** 02/03/2016 (10 anos, 8 meses, 14 dias)
+**Data de ingresso:** 02/03/2016 (10 anos, 8 meses, 17 dias)
 
 **Regime de Trabalho:** 40 horas
 

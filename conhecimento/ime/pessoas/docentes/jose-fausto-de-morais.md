@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "José Fausto de Morais"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 04/03/2009 (17 anos, 8 meses, 12 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 04/03/2009 (17 anos, 8 meses, 15 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/jose-fausto-de-morais"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jfmorais@ufu.br","areas":"Matemática Superior, Pesquisa Operacional, Metodologia Científica, Probabilidade, Estatística, Bioestatística, Psicometria e Educação Matemática/Estatística"}
-hash: "259ec81435898faa"
+hash: "c20ce1ca3a859e18"
 ---
 
 # José Fausto de Morais
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 04/03/2009 (17 anos, 8 meses, 12 dias)
+**Data de ingresso:** 04/03/2009 (17 anos, 8 meses, 15 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

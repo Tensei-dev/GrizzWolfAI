@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Daniel Cariello"
-description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/02/2011 (15 anos, 8 meses, 25 dias)…"
+description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/02/2011 (15 anos, 8 meses, 28 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/daniel-cariello"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"dcariello@ufu.br","areas":"Matemática (ênfase em Análise Funcional e Álgebra Multilinear)"}
-hash: "7d14a4c8c65cf9e7"
+hash: "dc379c2d0b6fb286"
 ---
 
 # Daniel Cariello
@@ -22,7 +22,7 @@ Professor Associado II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 22/02/2011 (15 anos, 8 meses, 25 dias)
+**Data de ingresso:** 22/02/2011 (15 anos, 8 meses, 28 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

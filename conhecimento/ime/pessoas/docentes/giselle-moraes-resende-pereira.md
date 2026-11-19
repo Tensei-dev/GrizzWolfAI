@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Giselle Moraes Resende Pereira"
-description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/02/2012 (14 anos, 8 meses, 23 dias)…"
+description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/02/2012 (14 anos, 8 meses, 26 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/giselle-moraes-resende-pereira"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"gisellemoraes@ufu.br","areas":"Matemática e de Educação (ênfase em Educação Matemática); ensino e aprendizagem do Cálculo Diferencial e Integral, modelagem matemática, educação superior, educação a distância e análise funcional"}
-hash: "c931826d7bb20a66"
+hash: "f18297bd8451f9da"
 ---
 
 # Giselle Moraes Resende Pereira
@@ -22,7 +22,7 @@ Professor Associado II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 24/02/2012 (14 anos, 8 meses, 23 dias)
+**Data de ingresso:** 24/02/2012 (14 anos, 8 meses, 26 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

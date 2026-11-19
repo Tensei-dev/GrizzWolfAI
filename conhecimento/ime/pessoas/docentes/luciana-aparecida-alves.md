@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Luciana Aparecida Alves"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/04/2010 (16 anos, 7 meses, 8 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/04/2010 (16 anos, 7 meses, 11 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/luciana-aparecida-alves"
 publicado: "2019-11-11"
 atualizado: "2026-06-09"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"luciana.alves@ufu.br"}
-hash: "905d282dd9ae7ba9"
+hash: "bc472d5e8fcbb255"
 ---
 
 # Luciana Aparecida Alves
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 08/04/2010 (16 anos, 7 meses, 8 dias)
+**Data de ingresso:** 08/04/2010 (16 anos, 7 meses, 11 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

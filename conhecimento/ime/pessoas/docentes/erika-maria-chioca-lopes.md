@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Érika Maria Chioca Lopes"
-description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 18/01/2011 (15 anos, 9 meses, 29 dias)…"
+description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 18/01/2011 (15 anos, 10 meses, 1 dia)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/erika-maria-chioca-lopes"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"erikalopes@ufu.br"}
-hash: "caa6459a1866e3d5"
+hash: "b9a401077fbc753d"
 ---
 
 # Érika Maria Chioca Lopes
@@ -22,7 +22,7 @@ Professor Associado I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 18/01/2011 (15 anos, 9 meses, 29 dias)
+**Data de ingresso:** 18/01/2011 (15 anos, 10 meses, 1 dia)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Clair do Nascimento"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 16/08/2010 (16 anos, 3 meses) Regime de…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 16/08/2010 (16 anos, 3 meses, 3 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/clair-do-nascimento"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"clair@ufu.br","areas":"Matemática (ênfase em Matemática, atuando principalmente nos seguintes temas: mecânica celeste, função perturbadora, análise matemática, equações diferenciais parciais, fluidos, equações de Navier-Stokes, sistema de Boussinesq); mecânica celeste, função perturbadora, análise matemática, equações diferenciais parciais, fluidos, equações de Navier-Stokes, sistema de Boussinesq"}
-hash: "f79842d9fb08156c"
+hash: "c34808d5507986a8"
 ---
 
 # Clair do Nascimento
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 16/08/2010 (16 anos, 3 meses)
+**Data de ingresso:** 16/08/2010 (16 anos, 3 meses, 3 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

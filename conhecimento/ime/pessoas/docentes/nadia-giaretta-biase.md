@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Nadia Giaretta Biase"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 28/07/2010 (16 anos, 3 meses, 19 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 28/07/2010 (16 anos, 3 meses, 22 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/nadia-giaretta-biase"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"nadiabiase@ufu.br","areas":"comparações multiplas de parâmetros binomiais, método de monte carlo e regressão"}
-hash: "536b83e687f94f50"
+hash: "ba9b78bc5bc23ab3"
 ---
 
 # Nadia Giaretta Biase
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 28/07/2010 (16 anos, 3 meses, 19 dias)
+**Data de ingresso:** 28/07/2010 (16 anos, 3 meses, 22 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

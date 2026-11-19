@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/sara-luzia-de-melo"
 publicado: "2024-07-17"
 atualizado: "2026-11-05"
 pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Bacharelado em Sistemas de Informação - Campus Monte Carmelo","email":"sara.melo@ufu.br","areas":"Sua pesquisa concentra-se na Ciência da Computação, com especial interesse em Inteligência Artificial aplicada à Educação e Robótica Socialmente Assistiva."}
-hash: "62492190677cf3d1"
+hash: "86ff63204037b51a"
 ---
 
 # Sara Luzia de Melo
@@ -22,7 +22,7 @@ Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 13/05/2024 (2 anos, 6 meses, 3 dias)
+**Data de ingresso:** 13/05/2024 (2 anos, 6 meses, 6 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

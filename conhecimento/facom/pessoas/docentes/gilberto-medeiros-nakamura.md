@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Gilberto Medeiros Nakamura"
-description: "Professor Visitante - Dedicação Exclusiva Cargo: Professor Visitante Situação Funcional: Em exercício Data de ingresso: 09/02/2026 (9 meses, 7 dias) Data da Saida: 23/02/2026 Regime de Trabalho:…"
+description: "Professor Visitante - Dedicação Exclusiva Cargo: Professor Visitante Situação Funcional: Em exercício Data de ingresso: 09/02/2026 (9 meses, 10 dias) Data da Saida: 23/02/2026 Regime de Trabalho:…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/gilberto-medeiros-nakamura"
 publicado: "2026-02-23"
 atualizado: "2026-11-05"
 pessoa: {"categoria":"Docente","funcao":"Professor Visitante - Dedicação Exclusiva","cargo":"Professor Visitante","situacao":"Em exercício","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","email":"gilberto.nakamura@gmail.com"}
-hash: "43086a6e499bbc11"
+hash: "62cc1dfe4f9a727b"
 ---
 
 # Gilberto Medeiros Nakamura
@@ -20,7 +20,7 @@ Professor Visitante - Dedicação Exclusiva
 
 **Situação Funcional:** Em exercício
 
-**Data de ingresso:** 09/02/2026 (9 meses, 7 dias)
+**Data de ingresso:** 09/02/2026 (9 meses, 10 dias)
 
 **Data da Saida:** 23/02/2026
 

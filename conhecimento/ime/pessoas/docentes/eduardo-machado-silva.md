@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Eduardo Machado Silva"
-description: "Professor Assistente I - Dedicação Exclusiva Cargo: Professor Assistente I Situação Funcional: Em exercício Data de ingresso: 13/11/2025 (1 ano, 3 dias) Regime de Trabalho: Dedicação Exclusiva…"
+description: "Professor Assistente I - Dedicação Exclusiva Cargo: Professor Assistente I Situação Funcional: Em exercício Data de ingresso: 13/11/2025 (1 ano, 6 dias) Regime de Trabalho: Dedicação Exclusiva…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/eduardo-machado-silva"
 publicado: "2025-11-13"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Assistente I - Dedicação Exclusiva","cargo":"Professor Assistente I","situacao":"Em exercício","regime":"Dedicação Exclusiva","email":"machado.silva@ufu.br"}
-hash: "0d56be5ccb51b419"
+hash: "343f435285fb4fdc"
 ---
 
 # Eduardo Machado Silva
@@ -20,7 +20,7 @@ Professor Assistente I - Dedicação Exclusiva
 
 **Situação Funcional:** Em exercício
 
-**Data de ingresso:** 13/11/2025 (1 ano, 3 dias)
+**Data de ingresso:** 13/11/2025 (1 ano, 6 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

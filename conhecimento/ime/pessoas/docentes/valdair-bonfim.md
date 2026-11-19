@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Valdair Bonfim"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/12/1999 (26 anos, 10 meses, 23 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/12/1999 (26 anos, 10 meses, 26 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/valdair-bonfim"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"valdair@ufu.br","areas":"existência e regularidade de soluções de equações de evolução; teoria de operadores monotônicos em Espaços de Hilbert; perturbações de operadores maximais monotônicos; soluções periódicas forçadas; modelagem matemática para sistemas de prospecção de petróleo"}
-hash: "4e48308e3b61c272"
+hash: "5c3f5262211bfc58"
 ---
 
 # Valdair Bonfim
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 24/12/1999 (26 anos, 10 meses, 23 dias)
+**Data de ingresso:** 24/12/1999 (26 anos, 10 meses, 26 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

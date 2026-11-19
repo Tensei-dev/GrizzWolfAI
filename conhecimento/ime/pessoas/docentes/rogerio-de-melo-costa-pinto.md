@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Rogério De Melo Costa Pinto"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 10/05/2002 (24 anos, 6 meses, 6 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 10/05/2002 (24 anos, 6 meses, 9 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/rogerio-de-melo-costa-pinto"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"rmcpinto@ufu.br","areas":"Qualidade de Vida e Bioestatística"}
-hash: "05db28ff0dd7d0cb"
+hash: "2f06a9b5484ae82c"
 ---
 
 # Rogério De Melo Costa Pinto
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 10/05/2002 (24 anos, 6 meses, 6 dias)
+**Data de ingresso:** 10/05/2002 (24 anos, 6 meses, 9 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

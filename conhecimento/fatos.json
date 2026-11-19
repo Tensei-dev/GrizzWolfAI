@@ -4,7 +4,7 @@
       {
         "title": "Curso de Bacharelado em Ciência da Computação",
         "source": "https://facom.ufu.br/graduacao/ciencia-da-computacao/conheca",
-        "atualizado": "2026-04-24",
+        "atualizado": "2026-11-17",
         "fields": [
           {
             "label": "Horário de atendimento",
@@ -20,7 +20,7 @@
           },
           {
             "label": "Endereço",
-            "value": "Campus Santa Mônica - Bloco 1B - Sala 1B 120 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+            "value": "Campus Santa Mônica - Bloco 1B - Sala 1B 119 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
           }
         ]
       }
@@ -29,11 +29,11 @@
       {
         "title": "Curso de Bacharelado em Sistemas de Informação - Campus Santa Mônica",
         "source": "https://facom.ufu.br/graduacao/sistemas-de-informacao-campus-santa-monica/conheca",
-        "atualizado": "2026-04-01",
+        "atualizado": "2026-11-17",
         "fields": [
           {
             "label": "Horário de atendimento",
-            "value": "Horário de atendimento na secretaria: de segunda à sexta-feira das 13:30 às 18:00 e, mediante agendamento, das 19:00 às 21:00 (telefone para agendamento: 34 3239-4334- WhatsApp). Sala: 1B120 (Bloco 1B, Campus Santa Mônica)."
+            "value": "Horário de atendimento na secretaria: de segunda e sexta-feira das 8h às 17h; terça, quarta e quinta-feira das 11h às 20h. Atendimento realizado também por WhatsApp (34 3239-4334) e por e-mail (bsiudi@ufu.br). Sala: 1B120 (Bloco 1B, Campus Santa Mônica)."
           },
           {
             "label": "Coordenador",
@@ -100,11 +100,11 @@
       {
         "title": "Curso de Bacharelado em Inteligência Artificial",
         "source": "https://facom.ufu.br/graduacao/inteligencia-artificial/conheca",
-        "atualizado": "2026-10-08",
+        "atualizado": "2026-11-18",
         "fields": [
           {
             "label": "Horário de atendimento",
-            "value": "Atendimento PRESENCIAL: Segunda à Sexta-feira, das 8h às 12h e das 14h às 17h Atendimento ON-LINE (e-mail, Whatsapp e Teams): Segunda à Sexta-feira, das 8h às 12h e das 14h às 17h. (E-mail e chat do Teams: cobia@facom.ufu.br - Whatsapp Bussines: +55 34 3239-4469)"
+            "value": "Presencial: segunda à sexta-feira, das 8h30 às 12h30 e das 14h30 às 16h30. Local: Sala 1B-119, Bloco 1B, Campus Santa Mônica. E-mail e chat do Teams: cobia@facom.ufu.br WhatsApp: +55 (34) 3239-4469"
           },
           {
             "label": "Coordenador",

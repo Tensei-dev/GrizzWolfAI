@@ -8,8 +8,8 @@ cursos: ["bia"]
 tags: ["facom","graduacao","bia"]
 source: "https://facom.ufu.br/graduacao/inteligencia-artificial/conheca"
 publicado: "2025-12-12"
-atualizado: "2026-10-08"
-hash: "97a84e02625c0f87"
+atualizado: "2026-11-18"
+hash: "b27052abb8159a0d"
 ---
 
 # Curso de Bacharelado em Inteligência Artificial
@@ -40,7 +40,7 @@ A Graduação conta com um corpo docente altamente qualificado de diversas Unida
 
 **Número de vagas oferecidas:** 30 vagas semestrais (60 vagas anuais)
 
-**Horário de atendimento:** Atendimento PRESENCIAL: Segunda à Sexta-feira, das 8h às 12h e das 14h às 17h Atendimento ON-LINE (e-mail, Whatsapp e Teams): Segunda à Sexta-feira, das 8h às 12h e das 14h às 17h. (E-mail e chat do Teams: cobia@facom.ufu.br - Whatsapp Bussines: +55 34 3239-4469)
+**Horário de atendimento:** Presencial: segunda à sexta-feira, das 8h30 às 12h30 e das 14h30 às 16h30. Local: Sala 1B-119, Bloco 1B, Campus Santa Mônica. E-mail e chat do Teams: cobia@facom.ufu.br WhatsApp: +55 (34) 3239-4469
 
 **Coordenador:** [Luiz Gustavo Almeida Martins](https://facom.ufu.br/pessoas/docentes/luiz-gustavo-almeida-martins "Luiz Gustavo Almeida Martins")
 

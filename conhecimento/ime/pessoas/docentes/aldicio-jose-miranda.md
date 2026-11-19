@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Aldicio José Miranda"
-description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 12/11/2013 (13 anos, 4 dias) Regime de…"
+description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 12/11/2013 (13 anos, 7 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/aldicio-jose-miranda"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"aldicio@ufu.br","areas":"Matemática (ênfase em Teoria de singularidades)"}
-hash: "c1698df9ebe9b43d"
+hash: "abf8a48ff83577d9"
 ---
 
 # Aldicio José Miranda
@@ -22,7 +22,7 @@ Professor Associado I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 12/11/2013 (13 anos, 4 dias)
+**Data de ingresso:** 12/11/2013 (13 anos, 7 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Vânia de Fátima Lemes de Miranda"
-description: "Professor Associado - Doutorado Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 16/01/2012 (14 anos, 10 meses) Formação: Possui graduação…"
+description: "Professor Associado - Doutorado Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 16/01/2012 (14 anos, 10 meses, 3 dias) Formação: Possui graduação…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/vania-de-fatima-lemes-de-miranda"
 publicado: "2019-11-11"
 atualizado: "2026-10-23"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","email":"vania@famat.ufu.br"}
-hash: "5ee8f4e21d835b40"
+hash: "cbad6ac7a3031759"
 ---
 
 # Vânia de Fátima Lemes de Miranda
@@ -22,7 +22,7 @@ Professor Associado - Doutorado
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 16/01/2012 (14 anos, 10 meses)
+**Data de ingresso:** 16/01/2012 (14 anos, 10 meses, 3 dias)
 
 **Formação:**  Possui graduação Licenciatura em Matemática pela Universidade Federal de Uberlândia (2001) e mestrado em Estatística e Experimentação Agropecuária pela Universidade Federal de Lavras (2004). Atualmente é professor assistente da Universidade Federal de Uberlândia e membro do nucleo docente estruturante da Universidade Federal de Uberlândia.
 

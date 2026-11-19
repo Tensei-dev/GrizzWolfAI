@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Maria Imaculada de Sousa Silva"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/11/2009 (17 anos, 11 dias) Regime de…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/11/2009 (17 anos, 14 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/maria-imaculada-de-sousa-silva"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"maria@ufu.br","areas":"Probabilidade e Estatística (ênfase em Probabilidade e Estatística Aplicadas, atuando principalmente nos seguintes temas: estatística genética, mapeamento de QTL, inferência bayesiana, séries temporais); estatística genética, mapeamento de QTL, inferência bayesiana, séries temporais"}
-hash: "fa55c349799cade3"
+hash: "26a8a0c2800022bd"
 ---
 
 # Maria Imaculada de Sousa Silva
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 05/11/2009 (17 anos, 11 dias)
+**Data de ingresso:** 05/11/2009 (17 anos, 14 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 
@@ -42,9 +42,9 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 [2025 - 1](https://www.sei.ufu.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?9LibXMqGnN7gSpLFOOgUQFziRouBJ5VnVL5b7-UrE5Qe_AM0mi10GAfE-GbYpRMoavYpqVDQ-eSw50wtLA-p5Y-PgbTcP5MlsOKbwc0t9iRZUGTbXI0oOGA_qM81qY9Z "Plano de Trabalho Docente de Maria Imaculada de Sousa Silva")
 
-[2024 - 3](https://www.sei.ufu.br/controlador.php?acao=documento_download_anexo&acao_origem=procedimento_visualizar&id_anexo=3661263&infra_sistema=100000100&infra_unidade_atual=110000492&infra_hash=92ef97f23e36321f6394f14f26256e01ecc69bf752bd0445efae2c8db60f02f3 "Plano de Trabalho Docente de Maria Imaculada de Sousa Silva")
-
 [2024 - 3](https://www.sei.ufu.br/controlador.php?acao=documento_download_anexo&acao_origem=procedimento_visualizar&id_anexo=3924129&infra_sistema=100000100&infra_unidade_atual=110000492&infra_hash=a9cad7029e8489c8704d1c6af9281854f68f911d632260b1b2bbfa94e268308a "Plano de Trabalho Docente de Maria Imaculada de Sousa Silva")
+
+[2024 - 3](https://www.sei.ufu.br/controlador.php?acao=documento_download_anexo&acao_origem=procedimento_visualizar&id_anexo=3661263&infra_sistema=100000100&infra_unidade_atual=110000492&infra_hash=92ef97f23e36321f6394f14f26256e01ecc69bf752bd0445efae2c8db60f02f3 "Plano de Trabalho Docente de Maria Imaculada de Sousa Silva")
 
 [2024 - 2](https://www.sei.ufu.br/sei/controlador.php?acao=documento_download_anexo&acao_origem=procedimento_visualizar&id_anexo=3354354&infra_sistema=100000100&infra_unidade_atual=110000492&infra_hash=1441e68a3f59b5b28b25dae5be7062054b90061753dc08d5307a5466c4ee56ce "Plano de Trabalho Docente de Maria Imaculada de Sousa Silva")
 

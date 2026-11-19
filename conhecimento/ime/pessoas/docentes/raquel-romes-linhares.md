@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Raquel Romes Linhares"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 12/08/2013 (13 anos, 3 meses, 4 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 12/08/2013 (13 anos, 3 meses, 7 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/raquel-romes-linhares"
 publicado: "2019-11-11"
 atualizado: "2026-10-23"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"raquelromeslinhares@ufu.br"}
-hash: "8534a399a172452f"
+hash: "9f49ce9f593e2544"
 ---
 
 # Raquel Romes Linhares
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 12/08/2013 (13 anos, 3 meses, 4 dias)
+**Data de ingresso:** 12/08/2013 (13 anos, 3 meses, 7 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

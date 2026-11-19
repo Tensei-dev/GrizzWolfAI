@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Luis Renato Gonçalves Dias"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 17/06/2013 (13 anos, 4 meses, 30 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 17/06/2013 (13 anos, 5 meses, 2 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/luis-renato-goncalves-dias"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva"}
-hash: "577d8f0310625552"
+hash: "7f3c0ea520e86776"
 ---
 
 # Luis Renato Gonçalves Dias
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 17/06/2013 (13 anos, 4 meses, 30 dias)
+**Data de ingresso:** 17/06/2013 (13 anos, 5 meses, 2 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

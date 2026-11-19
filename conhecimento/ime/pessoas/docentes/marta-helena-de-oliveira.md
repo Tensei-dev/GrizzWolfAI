@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Marta Helena de Oliveira"
-description: "Professor Associado - Doutorado Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 02/03/2012 (14 anos, 8 meses, 14 dias) Formação: Possui graduação em…"
+description: "Professor Associado - Doutorado Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 02/03/2012 (14 anos, 8 meses, 17 dias) Formação: Possui graduação em…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/marta-helena-de-oliveira"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","email":"marta@ufu.br"}
-hash: "6357d2f9e4f785b1"
+hash: "102f00cbff8bdb80"
 ---
 
 # Marta Helena de Oliveira
@@ -22,7 +22,7 @@ Professor Associado - Doutorado
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 02/03/2012 (14 anos, 8 meses, 14 dias)
+**Data de ingresso:** 02/03/2012 (14 anos, 8 meses, 17 dias)
 
 **Formação:**
 

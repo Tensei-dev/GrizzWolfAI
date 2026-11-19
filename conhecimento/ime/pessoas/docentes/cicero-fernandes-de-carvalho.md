@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Cicero Fernandes De Carvalho"
-description: "Situação Funcional: Aposentado Data de ingresso: 01/08/1986 (40 anos, 3 meses, 15 dias) Data da Saida: 01/02/2023 Formação: Possui graduação em Física pela Universidade Federal do Rio de…"
+description: "Situação Funcional: Aposentado Data de ingresso: 01/08/1986 (40 anos, 3 meses, 18 dias) Data da Saida: 01/02/2023 Formação: Possui graduação em Física pela Universidade Federal do Rio de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,14 +9,14 @@ source: "https://ime.ufu.br/pessoas/docentes/cicero-fernandes-de-carvalho"
 publicado: "2019-11-11"
 atualizado: "2025-02-19"
 pessoa: {"categoria":"Docente","situacao":"Aposentado","areas":"Matemática (ênfase em Álgebra); Diferenciais holomorfas, Curvas de Gorenstein, Curvas singulares, Moduli de curvas, Pontos de Weierstrass e Morfismo pluricanônico"}
-hash: "793c7d59579f41f8"
+hash: "8b3b578804a363ec"
 ---
 
 # Cicero Fernandes De Carvalho
 
 **Situação Funcional:** Aposentado
 
-**Data de ingresso:** 01/08/1986 (40 anos, 3 meses, 15 dias)
+**Data de ingresso:** 01/08/1986 (40 anos, 3 meses, 18 dias)
 
 **Data da Saida:** 01/02/2023
 

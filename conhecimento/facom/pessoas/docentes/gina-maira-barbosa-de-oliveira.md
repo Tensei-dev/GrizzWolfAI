@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Gina Maira Barbosa de Oliveira"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: In memoriam Titulação: Doutorado Data de ingresso: 23/08/2004 (22 anos, 2 meses, 24 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: In memoriam Titulação: Doutorado Data de ingresso: 23/08/2004 (22 anos, 2 meses, 27 dias) Regime de…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/gina-maira-barbosa-de-oliveira"
 publicado: "2018-10-05"
 atualizado: "2024-12-05"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"In memoriam","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 143","areas":"Tem experiência na área de Ciência da Computação, atuando principalmente nos seguintes temas: algoritmos genéticos, autômatos celulares, computação evolutiva e inteligência artificial."}
-hash: "fac62ccebbfa5c5b"
+hash: "f036d062d9872745"
 ---
 
 # Gina Maira Barbosa de Oliveira
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 23/08/2004 (22 anos, 2 meses, 24 dias)
+**Data de ingresso:** 23/08/2004 (22 anos, 2 meses, 27 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

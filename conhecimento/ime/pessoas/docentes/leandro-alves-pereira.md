@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Leandro Alves Pereira"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 03/11/2008 (18 anos, 13 dias) Regime de…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 03/11/2008 (18 anos, 16 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/leandro-alves-pereira"
 publicado: "2019-10-10"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"leandro.ap@ufu.br"}
-hash: "968a6c04abd84927"
+hash: "cad8cf7659ef444d"
 ---
 
 # Leandro Alves Pereira
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 03/11/2008 (18 anos, 13 dias)
+**Data de ingresso:** 03/11/2008 (18 anos, 16 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

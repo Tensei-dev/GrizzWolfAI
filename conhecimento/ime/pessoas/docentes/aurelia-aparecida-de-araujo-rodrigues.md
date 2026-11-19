@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Aurélia Aparecida de Araújo Rodrigues"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 31/07/2006 (20 anos, 3 meses, 16 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 31/07/2006 (20 anos, 3 meses, 19 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/aurelia-aparecida-de-araujo-rodrigu
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"aurelia@ufu.br","areas":"Engenharia de Produção (ênfase em Controle Estatístico de Processos, atuando principalmente nos seguintes temas: gráficos de controle, controle de qualidade, epidemiologia, controle estatístico de processos e amostragem dupla); gráficos de controle, controle de qualidade, epidemiologia, controle estatístico de processos e amostragem dupla"}
-hash: "e077707801519f53"
+hash: "108dd2e4c1065a16"
 ---
 
 # Aurélia Aparecida de Araújo Rodrigues
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 31/07/2006 (20 anos, 3 meses, 16 dias)
+**Data de ingresso:** 31/07/2006 (20 anos, 3 meses, 19 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

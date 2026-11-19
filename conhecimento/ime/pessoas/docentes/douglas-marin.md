@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Douglas Marin"
-description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 25/01/2011 (15 anos, 9 meses, 22 dias)…"
+description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 25/01/2011 (15 anos, 9 meses, 25 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/douglas-marin"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"douglasmarin@ufu.br"}
-hash: "721d99e1f5129549"
+hash: "9c1d377c68e1fd4b"
 ---
 
 # Douglas Marin
@@ -22,7 +22,7 @@ Professor Associado II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 25/01/2011 (15 anos, 9 meses, 22 dias)
+**Data de ingresso:** 25/01/2011 (15 anos, 9 meses, 25 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

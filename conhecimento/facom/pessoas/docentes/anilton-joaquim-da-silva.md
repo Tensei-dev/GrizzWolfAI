@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Anilton Joaquim da Silva"
-description: "Professor Adjunto - Mestrado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Aposentado Titulação: Mestrado Data de ingresso: 01/07/1987 (39 anos, 4 meses, 15 dias) Regime de…"
+description: "Professor Adjunto - Mestrado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Aposentado Titulação: Mestrado Data de ingresso: 01/07/1987 (39 anos, 4 meses, 18 dias) Regime de…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/anilton-joaquim-da-silva"
 publicado: "2018-09-27"
 atualizado: "2025-02-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Aposentado","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 133","areas":"Matemática (ênfase em Matemática Aplicada)"}
-hash: "5104ccd5105011c6"
+hash: "169cc52c5d887721"
 ---
 
 # Anilton Joaquim da Silva
@@ -22,7 +22,7 @@ Professor Adjunto - Mestrado - Dedicação Exclusiva
 
 **Titulação:** Mestrado
 
-**Data de ingresso:** 01/07/1987 (39 anos, 4 meses, 15 dias)
+**Data de ingresso:** 01/07/1987 (39 anos, 4 meses, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

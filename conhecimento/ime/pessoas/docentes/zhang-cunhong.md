@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Zhang Cunhong"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 21/05/2002 (24 anos, 5 meses, 26 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 21/05/2002 (24 anos, 5 meses, 29 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/zhang-cunhong"
 publicado: "2020-01-21"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"zch@ufu.br","areas":"Matemática (ênfase em Geometria e Topologia); Geometria Diferencial, Grupos de Lie, Grupos Algébricos, Semigrupos"}
-hash: "fca9855311afe2e2"
+hash: "b905b798aa21dcb4"
 ---
 
 # Zhang Cunhong
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 21/05/2002 (24 anos, 5 meses, 26 dias)
+**Data de ingresso:** 21/05/2002 (24 anos, 5 meses, 29 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

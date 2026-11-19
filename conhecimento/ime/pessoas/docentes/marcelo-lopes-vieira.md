@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Marcelo Lopes Vieira"
-description: "Professor Adjunto - Mestrado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Mestrado Data de ingresso: 06/02/2012 (14 anos, 9 meses, 10 dias) Regime de…"
+description: "Professor Adjunto - Mestrado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Mestrado Data de ingresso: 06/02/2012 (14 anos, 9 meses, 13 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/marcelo-lopes-vieira"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Mestrado","regime":"Dedicação Exclusiva","email":"marcelolv@ufu.br"}
-hash: "c964be2fce79dfcb"
+hash: "08ca2b075ea9bfd6"
 ---
 
 # Marcelo Lopes Vieira
@@ -22,7 +22,7 @@ Professor Adjunto - Mestrado - Dedicação Exclusiva
 
 **Titulação:** Mestrado
 
-**Data de ingresso:** 06/02/2012 (14 anos, 9 meses, 10 dias)
+**Data de ingresso:** 06/02/2012 (14 anos, 9 meses, 13 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

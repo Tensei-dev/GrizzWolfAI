@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/igor-da-penha-natal"
 publicado: "2025-02-06"
 atualizado: "2026-11-16"
 pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente - Nível I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Bacharelado em Sistemas de Informação - Campus Monte Carmelo","email":"igor.natal@ufu.br"}
-hash: "77dcb994e6f143b6"
+hash: "8298607a8cbe6d81"
 ---
 
 # Igor da Penha Natal
@@ -22,7 +22,7 @@ Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 03/02/2025 (1 ano, 9 meses, 13 dias)
+**Data de ingresso:** 03/02/2025 (1 ano, 9 meses, 16 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

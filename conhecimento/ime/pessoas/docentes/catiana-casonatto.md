@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Catiana Casonatto"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/08/2011 (15 anos, 3 meses, 8 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/08/2011 (15 anos, 3 meses, 11 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/catiana-casonatto"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"ccasonatto@ufu.br","areas":"Singularidades Diferenciáveis atuando principalmente em classificação de germes de aplicação e invariantes topológicos"}
-hash: "85d12a567ac8e4ae"
+hash: "c3471239fbf66d9a"
 ---
 
 # Catiana Casonatto
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 08/08/2011 (15 anos, 3 meses, 8 dias)
+**Data de ingresso:** 08/08/2011 (15 anos, 3 meses, 11 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

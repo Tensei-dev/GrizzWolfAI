@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Eustáquio São José de Faria"
-description: "Professor Associado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Ex-docente Data de ingresso: 03/02/2011 (15 anos, 9 meses, 13 dias) Regime de Trabalho: Dedicação Exclusiva…"
+description: "Professor Associado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Ex-docente Data de ingresso: 03/02/2011 (15 anos, 9 meses, 16 dias) Regime de Trabalho: Dedicação Exclusiva…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/eustaquio-sao-jose-de-faria"
 publicado: "2024-12-06"
 atualizado: "2024-12-06"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Ex-docente","regime":"Dedicação Exclusiva"}
-hash: "280b8bd7225a6769"
+hash: "3e6bc6025467f860"
 ---
 
 # Eustáquio São José de Faria
@@ -20,7 +20,7 @@ Professor Associado - Dedicação Exclusiva
 
 **Situação Funcional:** Ex-docente
 
-**Data de ingresso:** 03/02/2011 (15 anos, 9 meses, 13 dias)
+**Data de ingresso:** 03/02/2011 (15 anos, 9 meses, 16 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

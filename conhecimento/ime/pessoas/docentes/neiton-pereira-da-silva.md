@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Neiton Pereira da Silva"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 26/02/2010 (16 anos, 8 meses, 21 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 26/02/2010 (16 anos, 8 meses, 24 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/neiton-pereira-da-silva"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"neiton@ufu.br"}
-hash: "cede67f4b1d4a0f6"
+hash: "0c87de1c645c501d"
 ---
 
 # Neiton Pereira da Silva
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 26/02/2010 (16 anos, 8 meses, 21 dias)
+**Data de ingresso:** 26/02/2010 (16 anos, 8 meses, 24 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

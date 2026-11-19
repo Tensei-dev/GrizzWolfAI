@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Thiago Fialho de Queiroz Lafeta"
-description: "Professor Substituto - Mestrado - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Titulação: Mestrado Data de ingresso: 04/01/2024 (2 anos, 10 meses, 12 dias) Regime de Trabalho:…"
+description: "Professor Substituto - Mestrado - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Titulação: Mestrado Data de ingresso: 04/01/2024 (2 anos, 10 meses, 15 dias) Regime de Trabalho:…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/thiago-fialho-de-queiroz-lafeta"
 publicado: "2024-03-05"
 atualizado: "2026-02-20"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto - Mestrado - 40 horas","cargo":"Professor Substituto","situacao":"Ex-docente","titulacao":"Mestrado","regime":"40 horas","unidade_organizacional":"Faculdade de Computação"}
-hash: "be455a4dbb837bee"
+hash: "4a17c642af3f4b4a"
 ---
 
 # Thiago Fialho de Queiroz Lafeta
@@ -22,7 +22,7 @@ Professor Substituto - Mestrado - 40 horas
 
 **Titulação:** Mestrado
 
-**Data de ingresso:** 04/01/2024 (2 anos, 10 meses, 12 dias)
+**Data de ingresso:** 04/01/2024 (2 anos, 10 meses, 15 dias)
 
 **Regime de Trabalho:** 40 horas
 

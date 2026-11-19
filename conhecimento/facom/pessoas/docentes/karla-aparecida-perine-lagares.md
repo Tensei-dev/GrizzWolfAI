@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Karla Aparecida Perine Lagares"
-description: "Professor Substituto - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 17/03/2003 (23 anos, 7 meses, 30 dias) Regime de Trabalho: 40 horas Unidade…"
+description: "Professor Substituto - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 17/03/2003 (23 anos, 8 meses, 2 dias) Regime de Trabalho: 40 horas Unidade Organizacional:…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/karla-aparecida-perine-lagares"
 publicado: "2025-02-26"
 atualizado: "2025-02-26"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto - 40 horas","cargo":"Professor Substituto","situacao":"Ex-docente","regime":"40 horas","unidade_organizacional":"Faculdade de Computação"}
-hash: "39af6b745d12a59c"
+hash: "93be24c5af6be8ed"
 ---
 
 # Karla Aparecida Perine Lagares
@@ -20,7 +20,7 @@ Professor Substituto - 40 horas
 
 **Situação Funcional:** Ex-docente
 
-**Data de ingresso:** 17/03/2003 (23 anos, 7 meses, 30 dias)
+**Data de ingresso:** 17/03/2003 (23 anos, 8 meses, 2 dias)
 
 **Regime de Trabalho:** 40 horas
 

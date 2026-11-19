@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Igor Gonçalves Ribeiro Silva"
-description: "Professor Substituto - 20 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 03/02/2025 (1 ano, 9 meses, 13 dias) Regime de Trabalho: 20 horas Planos de Trabalho 2025…"
+description: "Professor Substituto - 20 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 03/02/2025 (1 ano, 9 meses, 16 dias) Regime de Trabalho: 20 horas Planos de Trabalho 2025…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/igor-goncalves-ribeiro-silva"
 publicado: "2025-02-06"
 atualizado: "2025-08-05"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto - 20 horas","cargo":"Professor Substituto","situacao":"Ex-docente","regime":"20 horas"}
-hash: "cf2fb3fd8734f705"
+hash: "9635eb3330aad40a"
 ---
 
 # Igor Gonçalves Ribeiro Silva
@@ -20,7 +20,7 @@ Professor Substituto - 20 horas
 
 **Situação Funcional:** Ex-docente
 
-**Data de ingresso:** 03/02/2025 (1 ano, 9 meses, 13 dias)
+**Data de ingresso:** 03/02/2025 (1 ano, 9 meses, 16 dias)
 
 **Regime de Trabalho:** 20 horas
 

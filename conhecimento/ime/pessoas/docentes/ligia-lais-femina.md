@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Ligia Laís Fêmina"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 21/01/2011 (15 anos, 9 meses, 26 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 21/01/2011 (15 anos, 9 meses, 29 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/ligia-lais-femina"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"ligia@ufu.br","areas":"Matemática (ênfase em Geometria e Topologia)"}
-hash: "6a94d2ff1a6a1e26"
+hash: "8e794d205ce39b88"
 ---
 
 # Ligia Laís Fêmina
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 21/01/2011 (15 anos, 9 meses, 26 dias)
+**Data de ingresso:** 21/01/2011 (15 anos, 9 meses, 29 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

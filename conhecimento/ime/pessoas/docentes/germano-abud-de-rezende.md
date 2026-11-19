@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Germano Abud de Rezende"
-description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 25/08/2006 (20 anos, 2 meses, 22 dias)…"
+description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 25/08/2006 (20 anos, 2 meses, 25 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/germano-abud-de-rezende"
 publicado: "2019-10-10"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"germano.abud@ufu.br"}
-hash: "f9489cae3b2b3456"
+hash: "3162ea475a88867d"
 ---
 
 # Germano Abud de Rezende
@@ -22,7 +22,7 @@ Professor Associado II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 25/08/2006 (20 anos, 2 meses, 22 dias)
+**Data de ingresso:** 25/08/2006 (20 anos, 2 meses, 25 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Rafael Antônio Rossato"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 13/01/2015 (11 anos, 10 meses, 3 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 13/01/2015 (11 anos, 10 meses, 6 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/rafael-antonio-rossato"
 publicado: "2019-11-11"
 atualizado: "2026-10-23"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"rafaelrossato@ufu.br","areas":"Matemática (ênfase em Equações Diferenciais Parciais)"}
-hash: "945f7a5b3601604e"
+hash: "4eb913e91f6f4d8f"
 ---
 
 # Rafael Antônio Rossato
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 13/01/2015 (11 anos, 10 meses, 3 dias)
+**Data de ingresso:** 13/01/2015 (11 anos, 10 meses, 6 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

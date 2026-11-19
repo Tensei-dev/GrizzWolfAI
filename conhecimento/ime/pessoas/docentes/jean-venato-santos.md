@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Jean Venato Santos"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/02/2011 (15 anos, 9 meses, 15 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/02/2011 (15 anos, 9 meses, 18 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/jean-venato-santos"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jvenatos@ufu.br"}
-hash: "affbfdfa969d1c75"
+hash: "a6cc915d10318792"
 ---
 
 # Jean Venato Santos
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/02/2011 (15 anos, 9 meses, 15 dias)
+**Data de ingresso:** 01/02/2011 (15 anos, 9 meses, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Andre Luiz Naves de Oliveira"
-description: "Professor Associado III - Doutorado - Dedicação Exclusiva Cargo: Professor Associado III Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 15/02/2011 (15 anos, 9 meses, 1 dia)…"
+description: "Professor Associado III - Doutorado - Dedicação Exclusiva Cargo: Professor Associado III Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 15/02/2011 (15 anos, 9 meses, 4 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/andre-luiz-naves-de-oliveira"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"andrenaves@ufu.br","areas":"Física (ênfase em Relatividade e Gravitação, atuando principalmente nos seguintes temas: cálculo, scalar-tensor, cosmic string, cosmic strings e chiral); cálculo, scalar-tensor, cosmic string, cosmic strings e chiral"}
-hash: "d5c8487a1372417c"
+hash: "1f0bd8e89b8ae770"
 ---
 
 # Andre Luiz Naves de Oliveira
@@ -22,7 +22,7 @@ Professor Associado III - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 15/02/2011 (15 anos, 9 meses, 1 dia)
+**Data de ingresso:** 15/02/2011 (15 anos, 9 meses, 4 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

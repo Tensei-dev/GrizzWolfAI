@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Flávio de Oliveira Silva"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Ex-docente Titulação: Doutorado Data de ingresso: 01/10/2008 (18 anos, 1 mês, 15 dias) Regime de…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Ex-docente Titulação: Doutorado Data de ingresso: 01/10/2008 (18 anos, 1 mês, 18 dias) Regime de…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/flavio-de-oliveira-silva"
 publicado: "2018-10-05"
 atualizado: "2025-02-05"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 138","areas":"Experiência e formação nas seguintes áreas do conhecimento: Protocolos; XML; Web Services; Redes de Computadores; Engenharia de Software; Padrões de Projeto; Projeto e Desenvolvimento do software; Planejamento e Gerência de Projetos; CMMI; Banco de Dados; Sistemas Operacionais; Estrutura de Dados; Programação Orientada a Objetos; Programação Funcional; Computação Gráfica. Experiência como administrador e desenvolvedor utilizando os seguintes bancos de dados: MS Access; MS SqlServer; MySQL e Oracle. Utilização das seguintes tecnologias de acesso: ODBC; DAO e ADO; JDBC; Hibernate. Experiência em"}
-hash: "3ae31fd2e18db511"
+hash: "e94191a80b26f387"
 ---
 
 # Flávio de Oliveira Silva
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/10/2008 (18 anos, 1 mês, 15 dias)
+**Data de ingresso:** 01/10/2008 (18 anos, 1 mês, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

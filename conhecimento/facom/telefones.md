@@ -6,7 +6,7 @@ unidade: "facom"
 secao: "telefones"
 tags: ["facom","telefones"]
 source: "https://facom.ufu.br/telefones"
-hash: "9b19f19f745f27d2"
+hash: "7cc391f9ba392791"
 ---
 
 # Telefones
@@ -52,7 +52,6 @@ hash: "9b19f19f745f27d2"
 -   [Debora Garcia](https://facom.ufu.br/pessoas/tecnico-administrativos/debora-garcia) — +55 34 3239-4469 **Ramal:** 4469
 -   [Diego Nunes Molinos](pessoas/docentes/diego-nunes-molinos.md) — **Ramal:** 1024
 -   [Dino Rogério Coinete Franklin](pessoas/docentes/dino-rogerio-coinete-franklin.md) — +55 34 3239-4305
--   [Diogo Aparecido Cavalcante de Lima](https://facom.ufu.br/pessoas/docentes/diogo-aparecido-cavalcante-de-lima) — +55 34 3810-1044 **Ramal:** 1044
 -   [Edilamar Marcelina Cruvinel](pessoas/tecnico-administrativos/edilamar-marcelina-cruvinel.md) — +55 34 3810-1044
 -   [Eduardo Alves Cunha](pessoas/tecnico-administrativos/eduardo-alves-cunha.md) — +55 34 3810-1066 **Ramal:** 1066
 -   [Eduardo Cassiano da Silva](pessoas/docentes/eduardo-cassiano-da-silva.md) — +55 34 3810-1044
@@ -93,8 +92,8 @@ hash: "9b19f19f745f27d2"
 -   [José Gustavo de Souza Paiva](pessoas/docentes/jose-gustavo-de-souza-paiva.md) — +55 34 3239-4576
 -   [José Humberto do Nascimento](pessoas/tecnico-administrativos/jose-humberto-do-nascimento.md) — +55 34 3810-1044
 -   [José Humberto do Nascimento](pessoas/tecnico-administrativos/jose-humberto-do-nascimento-0.md) — +55 34 3810-1044
--   [Júlio César de Sousa e Amaral](pessoas/tecnico-administrativos/julio-cesar-de-sousa-e-amaral.md) — +55 34 3810-1066
 -   [Julio Cesar de Sousa e Amaral](pessoas/tecnico-administrativos/julio-cesar-de-sousa-e-amaral-0.md) — +55 34 3810-1066 **Ramal:** 1066
+-   [Júlio César de Sousa e Amaral](pessoas/tecnico-administrativos/julio-cesar-de-sousa-e-amaral.md) — +55 34 3810-1066
 -   [Kifayat Ullah](pessoas/docentes/kifayat-ullah.md) — +55 34 3239-4211
 -   [Laboratórios FACOM/UFU - Bloco 1B: campus Santa Mônica](https://facom.ufu.br/unidades/laboratorio/laboratorios-facomufu-bloco-1b-campus-santa-monica) — +55 34 3239-4220 **Ramal:** 4220
 -   [Lásaro Jonas Camargos](pessoas/docentes/lasaro-jonas-camargos.md) — +55 34 3239-4530
@@ -120,8 +119,8 @@ hash: "9b19f19f745f27d2"
 -   [Núcleo Docente Estruturante - Inteligência Artificial](graduacao/inteligencia-artificial/nucleo-docente-estruturante-inteligencia-artificial.md) — +55 34 3239-4334 **Ramal:** 4334
 -   [Núcleo Docente Estruturante - Sistemas de Informação - campus Monte Carmelo](https://facom.ufu.br/graduacao/bsi-montecarmelo/nde) — +55 34 3810-1044
 -   [Paulo Henrique Ribeiro Gabriel](pessoas/docentes/paulo-henrique-ribeiro-gabriel.md) — +55 34 3239-4392
--   [Paulo Júnior Duarte Reis](pessoas/tecnico-administrativos/paulo-junior-duarte-reis-0.md) — +55 34 3810-1066
 -   [Paulo Junior Duarte Reis](pessoas/tecnico-administrativos/paulo-junior-duarte-reis.md) — +55 34 3810-1066
+-   [Paulo Júnior Duarte Reis](pessoas/tecnico-administrativos/paulo-junior-duarte-reis-0.md) — +55 34 3810-1066
 -   [Paulo Rodolfo da Silva Leite Coelho](pessoas/docentes/paulo-rodolfo-da-silva-leite-coelho.md) — +55 34 3239-4530
 -   [Pedro Frosi Rosa](pessoas/docentes/pedro-frosi-rosa.md) — +55 34 3239-4295 **Ramal:** 4295
 -   [PET Ciência da Computação](pet/comppet.md) — +55 34 3239-4528 **Ramal:** 4528
@@ -158,8 +157,8 @@ hash: "9b19f19f745f27d2"
 -   [Thiago Pirola Ribeiro](pessoas/docentes/thiago-pirola-ribeiro.md) — +55 34 3239-4478 **Ramal:** 4478
 -   [Victor Marques Oliveira](pessoas/tecnico-administrativos/victor-marques-oliveira-0.md) — +55 34 3239-4334
 -   [Victor Sobreira](pessoas/docentes/victor-sobreira.md) — +55 34 3810-1051
--   [Vinícius Soares Oliveira de Sousa Gervásio](pessoas/tecnico-administrativos/vinicius-soares-oliveira-de-sousa-gervasio.md) — +55 34 3239-4393 **Ramal:** 4393
 -   [Vinícius Soares Oliveira de Sousa Gervásio](pessoas/tecnico-administrativos/vinicius-soares-oliveira-de-sousa-gervasio-0.md) — +55 34 3239-4393
+-   [Vinícius Soares Oliveira de Sousa Gervásio](pessoas/tecnico-administrativos/vinicius-soares-oliveira-de-sousa-gervasio.md) — +55 34 3239-4393 **Ramal:** 4393
 -   [Wanderson Acássio Gomes](pessoas/tecnico-administrativos/wanderson-acassio-gomes.md) — +55 34 3239-4220 **Ramal:** 4220
 -   [Wendel Alexandre Xavier de Melo](pessoas/docentes/wendel-alexandre-xavier-de-melo.md) — +55 34 3239-4510 **Ramal:** 4510
 -   [William Chaves de Souza Carvalho](pessoas/docentes/william-chaves-de-souza-carvalho.md) — +55 34 3239-4392

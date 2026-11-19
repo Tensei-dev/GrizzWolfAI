@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Victor Gonzalo Lopez Neumann"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/09/2006 (20 anos, 2 meses, 15 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/09/2006 (20 anos, 2 meses, 18 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/victor-gonzalo-lopez-neumann"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"victor.neumann@ufu.br","areas":"Matemática (ênfase em Teoria dos Números, atuando principalmente nos seguintes temas: curvas de gênero 2, obstrução de Brauer-Manin e códigos de avaliação sobre variedades afins e projetivas); curvas de gênero 2, obstrução de Brauer-Manin e códigos de avaliação sobre variedades afins e projetivas"}
-hash: "22d299fcf97dd4bc"
+hash: "5b4c1be4d715afbf"
 ---
 
 # Victor Gonzalo Lopez Neumann
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/09/2006 (20 anos, 2 meses, 15 dias)
+**Data de ingresso:** 01/09/2006 (20 anos, 2 meses, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

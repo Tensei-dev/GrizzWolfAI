@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Laís Bássame Rodrigues"
-description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 26/01/2011 (15 anos, 9 meses, 21 dias)…"
+description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 26/01/2011 (15 anos, 9 meses, 24 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/lais-bassame-rodrigues"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"lais@ufu.br","areas":"Matemática (ênfase em Geometria Diferencial)"}
-hash: "d6390099a44c4684"
+hash: "b99230caaaebb44c"
 ---
 
 # Laís Bássame Rodrigues
@@ -22,7 +22,7 @@ Professor Associado I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 26/01/2011 (15 anos, 9 meses, 21 dias)
+**Data de ingresso:** 26/01/2011 (15 anos, 9 meses, 24 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

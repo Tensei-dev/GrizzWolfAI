@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Kuo Po Ling"
-description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 23/03/2010 (16 anos, 7 meses, 24 dias)…"
+description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 23/03/2010 (16 anos, 7 meses, 27 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/kuo-po-ling"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"kuo@ufu.br","areas":"Matemática (ênfase em Análise)"}
-hash: "4d90e028656afb71"
+hash: "5c41d745823eede7"
 ---
 
 # Kuo Po Ling
@@ -22,7 +22,7 @@ Professor Associado I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 23/03/2010 (16 anos, 7 meses, 24 dias)
+**Data de ingresso:** 23/03/2010 (16 anos, 7 meses, 27 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

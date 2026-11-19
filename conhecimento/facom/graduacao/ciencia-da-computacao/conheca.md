@@ -8,8 +8,8 @@ cursos: ["bcc"]
 tags: ["facom","graduacao","bcc"]
 source: "https://facom.ufu.br/graduacao/ciencia-da-computacao/conheca"
 publicado: "2017-11-28"
-atualizado: "2026-04-24"
-hash: "ee7f2f2c1dab69b3"
+atualizado: "2026-11-17"
+hash: "4547a2f96011af9c"
 ---
 
 # Curso de Bacharelado em Ciência da Computação
@@ -54,6 +54,6 @@ Inácio Castilho Neto
 
 -   [YouTube](https://www.youtube.com/channel/UCM9V1hWBbzhC8JudDPuJ7PA)
 
-**Endereço:** Campus Santa Mônica - Bloco 1B - Sala 1B 120
+**Endereço:** Campus Santa Mônica - Bloco 1B - Sala 1B 119
 Av. João Naves de Ávila - 2121 - Bairro Santa Mônica
 Uberlândia - MG - CEP 38408-100

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Ana Cláudia Molina Zaqueu Xavier"
-description: "Professor Adjunto II - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 02/09/2019 (7 anos, 2 meses, 14 dias) Regime…"
+description: "Professor Adjunto II - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 02/09/2019 (7 anos, 2 meses, 17 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/ana-claudia-molina-zaqueu-xavier"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"ana.zaqueu@ufu.br"}
-hash: "bea2ecf3fcafe66c"
+hash: "86f84c353cbdb9cb"
 ---
 
 # Ana Cláudia Molina Zaqueu Xavier
@@ -22,7 +22,7 @@ Professor Adjunto II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 02/09/2019 (7 anos, 2 meses, 14 dias)
+**Data de ingresso:** 02/09/2019 (7 anos, 2 meses, 17 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

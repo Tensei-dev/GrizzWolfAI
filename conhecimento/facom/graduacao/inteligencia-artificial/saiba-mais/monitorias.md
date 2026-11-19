@@ -8,8 +8,8 @@ cursos: ["bia"]
 tags: ["facom","graduacao","bia"]
 source: "https://facom.ufu.br/graduacao/inteligencia-artificial/saiba-mais/monitorias"
 publicado: "2025-12-12"
-atualizado: "2026-05-06"
-hash: "e8d11a43c4be5e93"
+atualizado: "2026-11-19"
+hash: "b3741316a94d3420"
 ---
 
 # Monitorias
@@ -44,4 +44,5 @@ cobia@facom.ufu.br +55 34 3239-4469 **Ramal:** 4469
 | Anexo | Tamanho |
 | --- | --- |
 | [Modelo Relatório Final Monitoria](https://facom.ufu.br/system/files/conteudo/relatorio_monitoria_ufu_modelo.pdf "relatorio_monitoria_ufu_modelo.pdf") | 232.07 KB |
-| [edital\_monitoria\_-\_inteligencia\_artificial\_-\_ufu\_-\_2026-1.pdf](https://facom.ufu.br/system/files/conteudo/edital_monitoria_-_inteligencia_artificial_-_ufu_-_2026-1_0.pdf) | 281.63 KB |
+| [Edital de Monitoria - Inteligência Artificial- 2026/2](https://facom.ufu.br/system/files/conteudo/sei_7717407_edital_2.pdf "sei_7717407_edital_2.pdf") | 68.96 KB |
+| [Edital Homologação - Monitoria - Inteligência Artificial - 2026/2 (Resultado)](https://facom.ufu.br/system/files/conteudo/sei_7743859_edital_de_homologacao_2.pdf "sei_7743859_edital_de_homologacao_2.pdf") | 45.41 KB |

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Quintiliano Siqueira Schroden Nomelini"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 02/08/2010 (16 anos, 3 meses, 14 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 02/08/2010 (16 anos, 3 meses, 17 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/quintiliano-siqueira-schroden-nomel
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"quintiliano.nomelini@ufu.br"}
-hash: "9719be597bbf98a6"
+hash: "1378f23392f6958a"
 ---
 
 # Quintiliano Siqueira Schroden Nomelini
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 02/08/2010 (16 anos, 3 meses, 14 dias)
+**Data de ingresso:** 02/08/2010 (16 anos, 3 meses, 17 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

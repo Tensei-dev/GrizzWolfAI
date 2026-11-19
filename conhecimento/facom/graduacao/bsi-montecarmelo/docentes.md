@@ -9,7 +9,7 @@ tags: ["facom","graduacao","bsi-mc"]
 source: "https://facom.ufu.br/graduacao/bsi-montecarmelo/docentes"
 publicado: "2018-05-04"
 atualizado: "2019-05-31"
-hash: "1137f5a2c8a143c0"
+hash: "5f08ca1649285e4e"
 ---
 
 # Corpo Docente
@@ -86,14 +86,6 @@ Sistemas de Informação Campus Monte Carmelo
 
 +55 34 3810-1044 **R:**1044
 
-### [Daniele Carvalho Oliveira](../../pessoas/docentes/daniele-carvalho-oliveira.md)
-
-Professor Adjunto - Nível II - Mestrado - Dedicação Exclusiva
-
-Sistemas de Informação Campus Monte Carmelo
-
-[Currículo Lattes](http://lattes.cnpq.br/0858402708122364 "Currículo Lattes de Daniele Carvalho Oliveira")
-
 ### [Diego Nunes Molinos](../../pessoas/docentes/diego-nunes-molinos.md)
 
 Professor Assistente - Nível I - Doutorado - Dedicação Exclusiva
@@ -103,26 +95,6 @@ Sistemas de Informação Campus Monte Carmelo
 [Currículo Lattes](http://lattes.cnpq.br/2451163675391898 "Currículo Lattes de Diego Nunes Molinos")
 
 [diego.molinos@ufu.br](mailto:diego.molinos@ufu.br)
-
-### [Diogo Aparecido Cavalcante de Lima](https://facom.ufu.br/pessoas/docentes/diogo-aparecido-cavalcante-de-lima)
-
-Professor Substituto - Doutorado - 40 horas
-
-Sistemas de Informação Campus Monte Carmelo
-
-[Currículo Lattes](http://lattes.cnpq.br/2013978292322934 "Currículo Lattes de Diogo Aparecido Cavalcante de Lima")
-
-### [Eduardo Cassiano da Silva](../../pessoas/docentes/eduardo-cassiano-da-silva.md)
-
-Professor Substituto - 40 horas
-
-Sistemas de Informação Campus Monte Carmelo
-
-[Currículo Lattes](http://lattes.cnpq.br/3847609564575258 "Currículo Lattes de Eduardo Cassiano da Silva")
-
-[eduardocassiano@ufu.br](mailto:eduardocassiano@ufu.br)
-
-+55 34 3810-1044
 
 ### [Igor da Penha Natal](../../pessoas/docentes/igor-da-penha-natal.md)
 

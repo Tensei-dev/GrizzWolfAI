@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Bruno Andrade de Souza"
-description: "Professor Adjunto III - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto III Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 15/07/2013 (13 anos, 4 meses, 1 dia)…"
+description: "Professor Adjunto III - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto III Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 15/07/2013 (13 anos, 4 meses, 4 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/bruno-andrade-de-souza"
 publicado: "2019-11-11"
 atualizado: "2026-10-26"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto III - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"brunoandrade@ufu.br"}
-hash: "83062c1054788e8b"
+hash: "0395c3f34faec022"
 ---
 
 # Bruno Andrade de Souza
@@ -22,7 +22,7 @@ Professor Adjunto III - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 15/07/2013 (13 anos, 4 meses, 1 dia)
+**Data de ingresso:** 15/07/2013 (13 anos, 4 meses, 4 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

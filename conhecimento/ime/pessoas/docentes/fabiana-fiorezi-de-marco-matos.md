@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Fabiana Fiorezi de Marco Matos"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/08/2005 (21 anos, 3 meses, 8 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/08/2005 (21 anos, 3 meses, 11 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/fabiana-fiorezi-de-marco-matos"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"fabiana.marco@ufu.br"}
-hash: "7bc283ab68d8f7a7"
+hash: "c9ebca82b5660a07"
 ---
 
 # Fabiana Fiorezi de Marco Matos
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 08/08/2005 (21 anos, 3 meses, 8 dias)
+**Data de ingresso:** 08/08/2005 (21 anos, 3 meses, 11 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

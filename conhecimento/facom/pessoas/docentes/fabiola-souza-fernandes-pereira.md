@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Fabíola Souza Fernandes Pereira"
-description: "Professor Adjunto - Nível II - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto - Nível II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 07/10/2021 (5 anos, 1 mês, 9…"
+description: "Professor Adjunto - Nível II - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto - Nível II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 07/10/2021 (5 anos, 1 mês,…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/fabiola-souza-fernandes-pereira"
 publicado: "2021-10-07"
 atualizado: "2026-11-05"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","email":"fabiola.pereira@ufu.br"}
-hash: "f381e21034edae27"
+hash: "b6c1f12b0e321faf"
 ---
 
 # Fabíola Souza Fernandes Pereira
@@ -22,7 +22,7 @@ Professor Adjunto - Nível II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 07/10/2021 (5 anos, 1 mês, 9 dias)
+**Data de ingresso:** 07/10/2021 (5 anos, 1 mês, 12 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

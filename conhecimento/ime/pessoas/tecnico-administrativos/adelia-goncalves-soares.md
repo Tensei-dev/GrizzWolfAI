@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Adélia Gonçalves Soares"
-description: "Secretário(a) - Doutorado Cargo: Secretário(a) Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/10/2004 (22 anos, 1 mês, 11 dias) Formação: Possui graduação em Letras:…"
+description: "Secretário(a) - Doutorado Cargo: Secretário(a) Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/10/2004 (22 anos, 1 mês, 14 dias) Formação: Possui graduação em Letras:…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/tecnico-administrativos/adelia-goncalves-soa
 publicado: "2020-03-30"
 atualizado: "2025-03-18"
 pessoa: {"categoria":"Técnico-Administrativo","funcao":"Secretário(a) - Doutorado","cargo":"Secretário(a)","situacao":"Em exercício","titulacao":"Doutorado","unidade_organizacional":"Instituto de Matemática e Estatística","email":"adelia@ufu.br"}
-hash: "b2fbc98c5b133177"
+hash: "5aa8d6fa72136e67"
 ---
 
 # Adélia Gonçalves Soares
@@ -22,7 +22,7 @@ Secretário(a) - Doutorado
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 05/10/2004 (22 anos, 1 mês, 11 dias)
+**Data de ingresso:** 05/10/2004 (22 anos, 1 mês, 14 dias)
 
 **Formação:**
 

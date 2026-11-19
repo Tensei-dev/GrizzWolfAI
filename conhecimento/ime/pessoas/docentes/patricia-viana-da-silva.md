@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Patrícia Viana da Silva"
-description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/06/2013 (13 anos, 4 meses, 23 dias) Regime de…"
+description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/06/2013 (13 anos, 4 meses, 26 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/patricia-viana-da-silva"
 publicado: "2019-11-11"
 atualizado: "2026-09-04"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"patriciaviana@ufu.br","areas":"Probabilidade e Estatística (ênfase em Estatística, atuando principalmente nos seguintes temas: full bayesian significance test - fbst, inferência bayesiana, modelos lineares, inferência paramétrica, propensity score e tabelas de contingência); full bayesian significance test - fbst, inferência bayesiana, modelos lineares, inferência paramétrica, propensity score e tabelas de contingência"}
-hash: "0579fe1fb41218c1"
+hash: "05772abde7a3f61f"
 ---
 
 # Patrícia Viana da Silva
@@ -22,7 +22,7 @@ Professor Adjunto - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 24/06/2013 (13 anos, 4 meses, 23 dias)
+**Data de ingresso:** 24/06/2013 (13 anos, 4 meses, 26 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Augusto Tannús Silva"
-description: "Professor Substituto Cargo: Professor Substituto Situação Funcional: Em exercício Data de ingresso: 05/12/2024 (1 ano, 11 meses, 11 dias) ime@ufu.br 2025 - 2"
+description: "Professor Substituto Cargo: Professor Substituto Situação Funcional: Em exercício Data de ingresso: 05/12/2024 (1 ano, 11 meses, 14 dias) ime@ufu.br 2025 - 2"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/augusto-tannus-silva"
 publicado: "2025-02-19"
 atualizado: "2026-04-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto","cargo":"Professor Substituto","situacao":"Em exercício","email":"ime@ufu.br"}
-hash: "d09c1229f4b4d8e0"
+hash: "5582766ca17cacb9"
 ---
 
 # Augusto Tannús Silva
@@ -20,7 +20,7 @@ Professor Substituto
 
 **Situação Funcional:** Em exercício
 
-**Data de ingresso:** 05/12/2024 (1 ano, 11 meses, 11 dias)
+**Data de ingresso:** 05/12/2024 (1 ano, 11 meses, 14 dias)
 
 [ime@ufu.br](mailto:ime@ufu.br)
 

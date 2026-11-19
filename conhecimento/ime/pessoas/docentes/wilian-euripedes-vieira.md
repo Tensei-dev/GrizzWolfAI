@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Wilian Eurípedes Vieira"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/02/2011 (15 anos, 8 meses, 25 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 22/02/2011 (15 anos, 8 meses, 28 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/wilian-euripedes-vieira"
 publicado: "2020-01-21"
 atualizado: "2026-10-23"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"wilianvieira@ufu.br","areas":"Matemática"}
-hash: "2ed169944e9725db"
+hash: "9543af5fb939adb2"
 ---
 
 # Wilian Eurípedes Vieira
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 22/02/2011 (15 anos, 8 meses, 25 dias)
+**Data de ingresso:** 22/02/2011 (15 anos, 8 meses, 28 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Alonso Sepúlveda Castellanos"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 25/09/2008 (18 anos, 1 mês, 22 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 25/09/2008 (18 anos, 1 mês, 25 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/alonso-sepulveda-castellanos-0"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"alonso.castellanos@ufu.br","areas":"Matemática (ênfase em Álgebra, atuando principalmente nos seguintes temas: Curvas Algébricas, Semigrupo de Weierstrass, Pesos Generalizados de Hamming, Criptografia, Códigos Algébrico-Geométricos, Semigrupos Numéricos e Polinômios de Permutação em Corpos Finitos); Curvas Algébricas, Semigrupo de Weierstrass, Pesos Generalizados de Hamming, Criptografia, Códigos Algébrico-Geométricos, Semigrupos Numéricos e Polinômios de Permutação em Corpos Finitos"}
-hash: "3ece193882f324b1"
+hash: "c5bec71309561683"
 ---
 
 # Alonso Sepúlveda Castellanos
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 25/09/2008 (18 anos, 1 mês, 22 dias)
+**Data de ingresso:** 25/09/2008 (18 anos, 1 mês, 25 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

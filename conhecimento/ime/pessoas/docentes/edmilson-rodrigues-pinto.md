@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Edmilson Rodrigues Pinto"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/08/2005 (21 anos, 3 meses, 8 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 08/08/2005 (21 anos, 3 meses, 11 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/edmilson-rodrigues-pinto"
 publicado: "2019-11-11"
 atualizado: "2026-07-17"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"edmilson.pinto@ufu.br","areas":"Probabilidade e Estatística (ênfase em Planejamento Ótimo de Experimentos e Modelos Lineares Generalizados, atuando principalmente nos seguintes temas: modelos conjuntos de locação e dispersão, planejamento de experimentos industriais, planejamento de experimentos com misturas e aplicações); modelos conjuntos de locação e dispersão, planejamento de experimentos industriais, planejamento de experimentos com misturas e aplicações"}
-hash: "d95ceb12ce854b27"
+hash: "d96f2685d27b8949"
 ---
 
 # Edmilson Rodrigues Pinto
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 08/08/2005 (21 anos, 3 meses, 8 dias)
+**Data de ingresso:** 08/08/2005 (21 anos, 3 meses, 11 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

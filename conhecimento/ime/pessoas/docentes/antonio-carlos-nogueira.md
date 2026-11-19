@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Antonio Carlos Nogueira"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 03/02/1997 (29 anos, 9 meses, 13 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 03/02/1997 (29 anos, 9 meses, 16 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/antonio-carlos-nogueira"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"anogueira@ufu.br","areas":"Matemática (ênfase em Geometria e Topologia); dualidade, umbilicos, germes, classificação"}
-hash: "6fed2e949b5414e6"
+hash: "242b66df0d15c292"
 ---
 
 # Antonio Carlos Nogueira
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 03/02/1997 (29 anos, 9 meses, 13 dias)
+**Data de ingresso:** 03/02/1997 (29 anos, 9 meses, 16 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

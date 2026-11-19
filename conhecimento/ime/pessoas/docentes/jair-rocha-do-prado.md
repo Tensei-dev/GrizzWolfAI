@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Jair Rocha do Prado"
-description: "Professor Adjunto IV - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 15/12/2015 (10 anos, 11 meses, 1 dia) Regime…"
+description: "Professor Adjunto IV - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 15/12/2015 (10 anos, 11 meses, 4 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/jair-rocha-do-prado"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jairrp@ufu.br"}
-hash: "60523677d33b8886"
+hash: "e8dfcbe8290e7ecc"
 ---
 
 # Jair Rocha do Prado
@@ -22,7 +22,7 @@ Professor Adjunto IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 15/12/2015 (10 anos, 11 meses, 1 dia)
+**Data de ingresso:** 15/12/2015 (10 anos, 11 meses, 4 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

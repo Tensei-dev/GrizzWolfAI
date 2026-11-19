@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Ana Carla Piantella"
-description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 31/07/2008 (18 anos, 3 meses, 16 dias)…"
+description: "Professor Associado IV - Doutorado - Dedicação Exclusiva Cargo: Professor Associado IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 31/07/2008 (18 anos, 3 meses, 19 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/ana-carla-piantella"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"anapiantella@ufu.br","areas":"Matemática (ênfase em Teoria da Aproximação)"}
-hash: "c3e7ed6fc2714940"
+hash: "c9f75b5e855f4fee"
 ---
 
 # Ana Carla Piantella
@@ -22,7 +22,7 @@ Professor Associado IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 31/07/2008 (18 anos, 3 meses, 16 dias)
+**Data de ingresso:** 31/07/2008 (18 anos, 3 meses, 19 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

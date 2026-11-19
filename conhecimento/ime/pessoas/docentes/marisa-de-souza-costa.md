@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Marisa de Souza Costa"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/02/2011 (15 anos, 9 meses, 15 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/02/2011 (15 anos, 9 meses, 18 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/marisa-de-souza-costa"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"marisasc@ufu.br","areas":"Matemática com ênfase em Análise Numérica, em particular, Polinômios Ortogonais e Similares"}
-hash: "be70076c1981af5a"
+hash: "f91eea1681345ef2"
 ---
 
 # Marisa de Souza Costa
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/02/2011 (15 anos, 9 meses, 15 dias)
+**Data de ingresso:** 01/02/2011 (15 anos, 9 meses, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

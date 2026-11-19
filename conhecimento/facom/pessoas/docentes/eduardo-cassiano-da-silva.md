@@ -1,15 +1,15 @@
 ---
 type: "pessoa"
 title: "Eduardo Cassiano da Silva"
-description: "Professor Substituto - 40 horas Cargo: Professor Substituto Situação Funcional: Em exercício Data de ingresso: 10/11/2025 (1 ano, 6 dias) Regime de Trabalho: 40 horas Unidade Organizacional:…"
+description: "Professor Substituto - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 10/11/2025 (1 ano, 9 dias) Regime de Trabalho: 40 horas Unidade Organizacional: Faculdade…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/eduardo-cassiano-da-silva"
 publicado: "2025-12-11"
-atualizado: "2026-11-05"
-pessoa: {"categoria":"Docente","funcao":"Professor Substituto - 40 horas","cargo":"Professor Substituto","situacao":"Em exercício","regime":"40 horas","unidade_organizacional":"Faculdade de Computação","email":"eduardocassiano@ufu.br"}
-hash: "10681cb296d679ea"
+atualizado: "2026-11-18"
+pessoa: {"categoria":"Docente","funcao":"Professor Substituto - 40 horas","cargo":"Professor Substituto","situacao":"Ex-docente","regime":"40 horas","unidade_organizacional":"Faculdade de Computação"}
+hash: "c18b59347433670a"
 ---
 
 # Eduardo Cassiano da Silva
@@ -18,19 +18,15 @@ Professor Substituto - 40 horas
 
 **Cargo:** Professor Substituto
 
-**Situação Funcional:** Em exercício
+**Situação Funcional:** Ex-docente
 
-**Data de ingresso:** 10/11/2025 (1 ano, 6 dias)
+**Data de ingresso:** 10/11/2025 (1 ano, 9 dias)
 
 **Regime de Trabalho:** 40 horas
 
 **Unidade Organizacional:** [Faculdade de Computação](../../unidades/unidade-academica/faculdade-de-computacao.md)
 
 [Currículo Lattes](http://lattes.cnpq.br/3847609564575258 "Currículo Lattes de Eduardo Cassiano da Silva")
-
-[eduardocassiano@ufu.br](mailto:eduardocassiano@ufu.br)
-
-+55 34 3810-1044
 
 Planos de Trabalho
 

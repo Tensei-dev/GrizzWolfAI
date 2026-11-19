@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Matheus Bartolo Guerrero"
-description: "Professor Assistente - Doutorado - Dedicação Exclusiva Cargo: Professor Assistente Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 26/02/2026 (8 meses, 21 dias) Regime de…"
+description: "Professor Assistente - Doutorado - Dedicação Exclusiva Cargo: Professor Assistente Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 26/02/2026 (8 meses, 24 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/matheus-bartolo-guerrero"
 publicado: "2026-03-20"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Assistente - Doutorado - Dedicação Exclusiva","cargo":"Professor Assistente","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"matheusguerrero@ufu.br"}
-hash: "e6407a4fa44706b8"
+hash: "67408682e8650984"
 ---
 
 # Matheus Bartolo Guerrero
@@ -22,7 +22,7 @@ Professor Assistente - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 26/02/2026 (8 meses, 21 dias)
+**Data de ingresso:** 26/02/2026 (8 meses, 24 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Mirian Fernandes Carvalho Araújo"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/07/2009 (17 anos, 3 meses, 23 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/07/2009 (17 anos, 3 meses, 26 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/mirian-fernandes-carvalho-araujo"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mirian@ufu.br","areas":"Matemática e Estatística (ênfase em Estatística Aplicada, atuando principalmente nos seguintes temas: Modelos AMMI, Componentes Principais e Análise de agrupamentos); Modelos AMMI, Componentes Principais e Análise de agrupamentos"}
-hash: "47739a0473634201"
+hash: "56b378d245853173"
 ---
 
 # Mirian Fernandes Carvalho Araújo
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 24/07/2009 (17 anos, 3 meses, 23 dias)
+**Data de ingresso:** 24/07/2009 (17 anos, 3 meses, 26 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

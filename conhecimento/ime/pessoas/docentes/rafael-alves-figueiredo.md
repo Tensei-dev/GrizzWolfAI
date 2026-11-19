@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Rafael Alves Figueiredo"
-description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 14/03/2017 (9 anos, 8 meses, 2 dias) Regime de…"
+description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 14/03/2017 (9 anos, 8 meses, 5 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/rafael-alves-figueiredo"
 publicado: "2019-11-11"
 atualizado: "2026-06-09"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"rafigueiredo@ufu.br","areas":"simulação numérica de escoamentos viscoelásticos e escoamentos multifásicos ou com superfícies livres, métodos de diferenças finitas, métodos numéricos para equações diferencias ordinárias"}
-hash: "a2d176a75ee5adc4"
+hash: "4210a25f8f2531ae"
 ---
 
 # Rafael Alves Figueiredo
@@ -22,7 +22,7 @@ Professor Adjunto - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 14/03/2017 (9 anos, 8 meses, 2 dias)
+**Data de ingresso:** 14/03/2017 (9 anos, 8 meses, 5 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

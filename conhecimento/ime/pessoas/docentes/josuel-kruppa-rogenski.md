@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Josuel Kruppa Rogenski"
-description: "Professor Adjunto II - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/09/2020 (6 anos, 2 meses, 15 dias) Regime…"
+description: "Professor Adjunto II - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/09/2020 (6 anos, 2 meses, 18 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/josuel-kruppa-rogenski"
 publicado: "2020-09-18"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto II - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jkrogenski@ufu.br"}
-hash: "46869aa5b74e8b36"
+hash: "57f07bb19c0aa0b2"
 ---
 
 # Josuel Kruppa Rogenski
@@ -22,7 +22,7 @@ Professor Adjunto II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/09/2020 (6 anos, 2 meses, 15 dias)
+**Data de ingresso:** 01/09/2020 (6 anos, 2 meses, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

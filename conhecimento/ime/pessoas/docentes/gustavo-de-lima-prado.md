@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Gustavo de Lima Prado"
-description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 17/03/2015 (11 anos, 7 meses, 30 dias)…"
+description: "Professor Associado I - Doutorado - Dedicação Exclusiva Cargo: Professor Associado I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 17/03/2015 (11 anos, 8 meses, 2 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/gustavo-de-lima-prado"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado I - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"glprado@ufu.br"}
-hash: "4e89452da4390c5c"
+hash: "fdf5665c127a3808"
 ---
 
 # Gustavo de Lima Prado
@@ -22,7 +22,7 @@ Professor Associado I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 17/03/2015 (11 anos, 7 meses, 30 dias)
+**Data de ingresso:** 17/03/2015 (11 anos, 8 meses, 2 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Sônia Sarita Berrios Yana"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 04/03/2009 (17 anos, 8 meses, 12 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 04/03/2009 (17 anos, 8 meses, 15 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/sonia-sarita-berrios-yana"
 publicado: "2019-11-11"
 atualizado: "2026-07-17"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"soniles@ufu.br","areas":"Matemática (ênfase em Análise); conjuntos U-limitados, continuidade fraca, modificações de polinomios, funções holomorfas"}
-hash: "312d7fdf0f27a3a3"
+hash: "224c1d8f302fb1db"
 ---
 
 # Sônia Sarita Berrios Yana
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 04/03/2009 (17 anos, 8 meses, 12 dias)
+**Data de ingresso:** 04/03/2009 (17 anos, 8 meses, 15 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

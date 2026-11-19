@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Marcus Augusto Bronzi"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 29/08/2013 (13 anos, 2 meses, 18 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 29/08/2013 (13 anos, 2 meses, 21 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/marcus-augusto-bronzi"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"mbronzi@ufu.br","areas":"Matemática (ênfase em Sistemas Dinâmicos, atuando principalmente nos seguintes temas: Sistemas Dinâmicos Hiperbólicos, Medidas de SRB e Bifurcações Homoclínicas); Sistemas Dinâmicos Hiperbólicos, Medidas de SRB e Bifurcações Homoclínicas"}
-hash: "ad8c8673e9944f56"
+hash: "be758939b7f802e6"
 ---
 
 # Marcus Augusto Bronzi
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 29/08/2013 (13 anos, 2 meses, 18 dias)
+**Data de ingresso:** 29/08/2013 (13 anos, 2 meses, 21 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -7,7 +7,7 @@ secao: "corpo-docente"
 tags: ["facom","corpo-docente"]
 source: "https://facom.ufu.br/corpo-docente"
 atualizado: "2025-02-10"
-hash: "ce7a8dc4d806f4c9"
+hash: "3ac2f68c5ff734fb"
 ---
 
 # Corpo Docente
@@ -225,18 +225,6 @@ Ciência da Computação / Programa de Pós-Graduação em Computação
 [dinofranklin@ufu.br](mailto:dinofranklin@ufu.br)
 
 +55 34 3239-4305
-
-### [Eduardo Cassiano da Silva](pessoas/docentes/eduardo-cassiano-da-silva.md)
-
-Professor Substituto - 40 horas
-
-Sistemas de Informação Campus Monte Carmelo
-
-[Currículo Lattes](http://lattes.cnpq.br/3847609564575258 "Currículo Lattes de Eduardo Cassiano da Silva")
-
-[eduardocassiano@ufu.br](mailto:eduardocassiano@ufu.br)
-
-+55 34 3810-1044
 
 ### [Elaine Ribeiro de Faria Paiva](pessoas/docentes/elaine-ribeiro-de-faria-paiva.md)
 

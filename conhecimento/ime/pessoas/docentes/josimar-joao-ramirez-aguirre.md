@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Josimar Joao Ramirez Aguirre"
-description: "Professor Adjunto IV - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/01/2017 (9 anos, 9 meses, 23 dias) Regime…"
+description: "Professor Adjunto IV - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto IV Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 24/01/2017 (9 anos, 9 meses, 26 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/josimar-joao-ramirez-aguirre"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto IV - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto IV","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"josimar.mat@ufu.br","areas":"Teoria dos números, com ênfase no comportamento aritmético de funções transcendentes, comportamento assintótico de L-funções"}
-hash: "56adb127d2aac0b8"
+hash: "4c4abd946127eea9"
 ---
 
 # Josimar Joao Ramirez Aguirre
@@ -22,7 +22,7 @@ Professor Adjunto IV - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 24/01/2017 (9 anos, 9 meses, 23 dias)
+**Data de ingresso:** 24/01/2017 (9 anos, 9 meses, 26 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Luis Florial Espinoza Sánchez"
-description: "Professor Adjunto - Doutorado Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/04/2015 (11 anos, 7 meses, 15 dias) Formação: Possui graduação em…"
+description: "Professor Adjunto - Doutorado Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/04/2015 (11 anos, 7 meses, 18 dias) Formação: Possui graduação em…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/luis-florial-espinoza-sanchez"
 publicado: "2020-01-21"
 atualizado: "2026-07-14"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","email":"luis.sanchez@ufu.br","areas":"Matemática (ênfase em Geometria Diferencial afim, Teoria das Singularidades e Teoria das Catástrofes)"}
-hash: "386df064d99171f1"
+hash: "aa66c147b54aba55"
 ---
 
 # Luis Florial Espinoza Sánchez
@@ -22,7 +22,7 @@ Professor Adjunto - Doutorado
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/04/2015 (11 anos, 7 meses, 15 dias)
+**Data de ingresso:** 01/04/2015 (11 anos, 7 meses, 18 dias)
 
 **Formação:**
 

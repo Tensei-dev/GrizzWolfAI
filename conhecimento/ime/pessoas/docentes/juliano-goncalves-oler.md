@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Juliano Gonçalves Oler"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/03/2010 (16 anos, 8 meses, 11 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 05/03/2010 (16 anos, 8 meses, 14 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/juliano-goncalves-oler"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"jgoler@ufu.br"}
-hash: "431d3c68a848195a"
+hash: "6ad2be64593e21a0"
 ---
 
 # Juliano Gonçalves Oler
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 05/03/2010 (16 anos, 8 meses, 11 dias)
+**Data de ingresso:** 05/03/2010 (16 anos, 8 meses, 14 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

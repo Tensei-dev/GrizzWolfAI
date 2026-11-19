@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Camila Mariana Ruiz"
-description: "Professor Adjunto I - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 30/05/2022 (4 anos, 5 meses, 17 dias) Regime…"
+description: "Professor Adjunto I - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto I Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 30/05/2022 (4 anos, 5 meses, 20 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/camila-mariana-ruiz"
 publicado: "2022-06-10"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto I - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto I","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"camila.ruiz@ufu.br","areas":"Matemática (ênfase em Teoria das Singularidades, atuando principalmente nos temas: Singularidades de Morin, Teoria de Morse, Teoria de Morse para variedades com bordo, n-campos de vetores e topologia de singularidades); Singularidades de Morin, Teoria de Morse, Teoria de Morse para variedades com bordo, n-campos de vetores e topologia de singularidades"}
-hash: "88a0a58da6f3e21b"
+hash: "222b05d86660630a"
 ---
 
 # Camila Mariana Ruiz
@@ -22,7 +22,7 @@ Professor Adjunto I - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 30/05/2022 (4 anos, 5 meses, 17 dias)
+**Data de ingresso:** 30/05/2022 (4 anos, 5 meses, 20 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

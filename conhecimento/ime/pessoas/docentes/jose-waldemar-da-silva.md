@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "José Waldemar da Silva"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 10/11/2009 (17 anos, 6 dias) Regime de Trabalho:…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 10/11/2009 (17 anos, 9 dias) Regime de Trabalho:…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/jose-waldemar-da-silva"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"zewaldemar@ufu.br","areas":"estatística, estatística experimental e inferëncia bayesiana"}
-hash: "887e5ed2f6b4a7b5"
+hash: "2d2de85cb840b7b7"
 ---
 
 # José Waldemar da Silva
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 10/11/2009 (17 anos, 6 dias)
+**Data de ingresso:** 10/11/2009 (17 anos, 9 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Rosana Sueli Da Motta Jafelice"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 14/03/1991 (35 anos, 8 meses, 2 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 14/03/1991 (35 anos, 8 meses, 5 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/rosana-sueli-da-motta-jafelice"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"rmotta@ufu.br","areas":"Matemática (ênfase em Matemática Aplicada, atuando principalmente nos seguintes temas: modelagem matemática, conjuntos fuzzy, epidemiologia, HIV e autômato celular); modelagem matemática, conjuntos fuzzy, epidemiologia, HIV e autômato celular"}
-hash: "167441b2ddc21123"
+hash: "3937328919637c29"
 ---
 
 # Rosana Sueli Da Motta Jafelice
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 14/03/1991 (35 anos, 8 meses, 2 dias)
+**Data de ingresso:** 14/03/1991 (35 anos, 8 meses, 5 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

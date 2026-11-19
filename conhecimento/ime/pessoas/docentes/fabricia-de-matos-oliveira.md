@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Fabrícia de Matos Oliveira"
-description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 14/02/2011 (15 anos, 9 meses, 2 dias)…"
+description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 14/02/2011 (15 anos, 9 meses, 5 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/fabricia-de-matos-oliveira"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"fabricia@ufu.br","areas":"Probabilidade e Estatística"}
-hash: "2ad616fa2b52be77"
+hash: "bcc499e97df87f5d"
 ---
 
 # Fabrícia de Matos Oliveira
@@ -22,7 +22,7 @@ Professor Associado II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 14/02/2011 (15 anos, 9 meses, 2 dias)
+**Data de ingresso:** 14/02/2011 (15 anos, 9 meses, 5 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

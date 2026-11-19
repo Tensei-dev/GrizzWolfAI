@@ -8,7 +8,7 @@ tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas"
 atualizado: "2025-02-10"
 pessoa: {"funcao":"Professor Adjunto - Nível I - Mestrado - Dedicação Exclusiva","email":"adriano.rocha@ufu.br"}
-hash: "757954198bb70b3c"
+hash: "a475665874633107"
 ---
 
 # Equipe
@@ -341,8 +341,6 @@ Sistemas de Informação Campus Monte Carmelo
 
 Professor Adjunto - Nível II - Mestrado - Dedicação Exclusiva
 
-Sistemas de Informação Campus Monte Carmelo
-
 [Currículo Lattes](http://lattes.cnpq.br/0858402708122364 "Currículo Lattes de Daniele Carvalho Oliveira")
 
 ### [Dante Candelas Júnior](pessoas/docentes/dante-candelas-junior.md)
@@ -350,6 +348,8 @@ Sistemas de Informação Campus Monte Carmelo
 ### [Debora Garcia](https://facom.ufu.br/pessoas/tecnico-administrativos/debora-garcia)
 
 Assistente em Administração
+
+Inteligência Artificial
 
 [cobia@facom.ufu.br](mailto:cobia@facom.ufu.br)
 
@@ -381,14 +381,6 @@ Ciência da Computação / Programa de Pós-Graduação em Computação
 
 +55 34 3239-4305
 
-### [Diogo Aparecido Cavalcante de Lima](https://facom.ufu.br/pessoas/docentes/diogo-aparecido-cavalcante-de-lima)
-
-Professor Substituto - Doutorado - 40 horas
-
-Sistemas de Informação Campus Monte Carmelo
-
-[Currículo Lattes](http://lattes.cnpq.br/2013978292322934 "Currículo Lattes de Diogo Aparecido Cavalcante de Lima")
-
 ### [Edilamar Marcelina Cruvinel](pessoas/tecnico-administrativos/edilamar-marcelina-cruvinel.md)
 
 Secretário(a) do Curso de Sistemas de Informação - Campus Monte Carmelo
@@ -413,13 +405,7 @@ Sistemas de Informação Campus Monte Carmelo
 
 Professor Substituto - 40 horas
 
-Sistemas de Informação Campus Monte Carmelo
-
 [Currículo Lattes](http://lattes.cnpq.br/3847609564575258 "Currículo Lattes de Eduardo Cassiano da Silva")
-
-[eduardocassiano@ufu.br](mailto:eduardocassiano@ufu.br)
-
-+55 34 3810-1044
 
 ### [Eduardo Cunha Campos](pessoas/docentes/eduardo-cunha-campos-0.md)
 

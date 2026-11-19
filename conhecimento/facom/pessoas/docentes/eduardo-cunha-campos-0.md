@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Eduardo Cunha Campos"
-description: "Professor Substituto - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 06/05/2015 (11 anos, 6 meses, 10 dias) Regime de Trabalho: 40 horas Unidade…"
+description: "Professor Substituto - 40 horas Cargo: Professor Substituto Situação Funcional: Ex-docente Data de ingresso: 06/05/2015 (11 anos, 6 meses, 13 dias) Regime de Trabalho: 40 horas Unidade…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/eduardo-cunha-campos-0"
 publicado: "2025-02-26"
 atualizado: "2025-02-26"
 pessoa: {"categoria":"Docente","funcao":"Professor Substituto - 40 horas","cargo":"Professor Substituto","situacao":"Ex-docente","regime":"40 horas","unidade_organizacional":"Faculdade de Computação"}
-hash: "4978c5ebfdbe3f76"
+hash: "7daf8f15a140f69b"
 ---
 
 # Eduardo Cunha Campos
@@ -20,7 +20,7 @@ Professor Substituto - 40 horas
 
 **Situação Funcional:** Ex-docente
 
-**Data de ingresso:** 06/05/2015 (11 anos, 6 meses, 10 dias)
+**Data de ingresso:** 06/05/2015 (11 anos, 6 meses, 13 dias)
 
 **Regime de Trabalho:** 40 horas
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "André Ricardo Backes"
-description: "Professor Associado - Nível III - Doutorado - Dedicação Exclusiva Cargo: Professor Associado - Nível III Situação Funcional: Ex-docente Titulação: Doutorado Data de ingresso: 17/08/2010 (16 anos, 2…"
+description: "Professor Associado - Nível III - Doutorado - Dedicação Exclusiva Cargo: Professor Associado - Nível III Situação Funcional: Ex-docente Titulação: Doutorado Data de ingresso: 17/08/2010 (16 anos, 3…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/andre-ricardo-backes"
 publicado: "2018-09-27"
 atualizado: "2025-02-26"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 125","areas":"Tem experiência na área de Ciência da Computação , com ênfase em Metodologia e Técnicas da Computação. Atuando principalmente nos seguintes temas: Caminhada deterministica, complexidade, Dimensão Fractal, redes complexas, Análise de Imagem."}
-hash: "32d914165c80e3fe"
+hash: "fb47813e1e3105cd"
 ---
 
 # André Ricardo Backes
@@ -22,7 +22,7 @@ Professor Associado - Nível III - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 17/08/2010 (16 anos, 2 meses, 30 dias)
+**Data de ingresso:** 17/08/2010 (16 anos, 3 meses, 2 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

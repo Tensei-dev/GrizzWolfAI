@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Lúcio Borges de Araújo"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 06/03/2009 (17 anos, 8 meses, 10 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 06/03/2009 (17 anos, 8 meses, 13 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/lucio-borges-de-araujo"
 publicado: "2019-11-11"
 atualizado: "2026-10-21"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"lucio.araujo@ufu.br","areas":"Probabilidade e Estatística (ênfase em Probabilidade, Estatística Aplicadas e Análises Multivariadas, atuando principalmente nos seguintes temas: Modelos PARAFAC, Modelos TUCKER, Modelos AMMI, correção de autovalores); Modelos PARAFAC, Modelos TUCKER, Modelos AMMI, correção de autovalores"}
-hash: "70b3a9a38fabb973"
+hash: "7117e3941a8fdee0"
 ---
 
 # Lúcio Borges de Araújo
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 06/03/2009 (17 anos, 8 meses, 10 dias)
+**Data de ingresso:** 06/03/2009 (17 anos, 8 meses, 13 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

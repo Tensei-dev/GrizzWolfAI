@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Santos Alberto Enriquez Remigio"
-description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/06/2009 (17 anos, 5 meses, 15 dias) Regime…"
+description: "Professor Associado - Doutorado - Dedicação Exclusiva Cargo: Professor Associado Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/06/2009 (17 anos, 5 meses, 18 dias) Regime…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/santos-alberto-enriquez-remigio"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"santos.er@ufu.br","areas":"Matemática (ênfase em Análise Numérica, atuando principalmente nos seguintes temas: Modelagem Matemática de problemas de interação fluido-estrutura, Método da Fronteira Imersa, métodos de solução das equações de Navier-Stokes, métodos Pseudo-espectral Fourier); Modelagem Matemática de problemas de interação fluido-estrutura, Método da Fronteira Imersa, métodos de solução das equações de Navier-Stokes, métodos Pseudo-espectral Fourier"}
-hash: "2383b8d78ff5e830"
+hash: "cf7364b91ab4b67a"
 ---
 
 # Santos Alberto Enriquez Remigio
@@ -22,7 +22,7 @@ Professor Associado - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/06/2009 (17 anos, 5 meses, 15 dias)
+**Data de ingresso:** 01/06/2009 (17 anos, 5 meses, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

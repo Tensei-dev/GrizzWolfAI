@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Elisa Regina dos Santos"
-description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 15/07/2013 (13 anos, 4 meses, 1 dia)…"
+description: "Professor Associado II - Doutorado - Dedicação Exclusiva Cargo: Professor Associado II Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 15/07/2013 (13 anos, 4 meses, 4 dias)…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/elisa-regina-dos-santos"
 publicado: "2019-11-11"
 atualizado: "2026-10-15"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"elisars@ufu.br","areas":"Matemática (ênfase em Análise Funcional)"}
-hash: "40574473f36908ad"
+hash: "cdef155b435408ce"
 ---
 
 # Elisa Regina dos Santos
@@ -22,7 +22,7 @@ Professor Associado II - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 15/07/2013 (13 anos, 4 meses, 1 dia)
+**Data de ingresso:** 15/07/2013 (13 anos, 4 meses, 4 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,15 +1,15 @@
 ---
 type: "pessoa"
 title: "Daniele Carvalho Oliveira"
-description: "Professor Adjunto - Nível II - Mestrado - Dedicação Exclusiva Cargo: Professor Adjunto - Nível II Situação Funcional: Ex-docente Titulação: Mestrado Data de ingresso: 14/01/2014 (12 anos, 10 meses, 2…"
+description: "Professor Adjunto - Nível II - Mestrado - Dedicação Exclusiva Cargo: Professor Adjunto - Nível II Situação Funcional: Ex-docente Titulação: Mestrado Data de ingresso: 14/01/2014 (12 anos, 10 meses, 5…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
 source: "https://facom.ufu.br/pessoas/docentes/daniele-carvalho-oliveira"
 publicado: "2018-09-28"
-atualizado: "2026-06-15"
+atualizado: "2026-11-18"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Nível II - Mestrado - Dedicação Exclusiva","cargo":"Professor Adjunto - Nível II","situacao":"Ex-docente","titulacao":"Mestrado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Monte Carmelo - Bloco 1AMC - Sala 410","areas":"Inteligência Artificial, Neurocomputação, Redes Neurais, Métodos Formais, Lógica Matemática e Programação Competitiva."}
-hash: "1dc715047d08cb14"
+hash: "df927be0ad348f28"
 ---
 
 # Daniele Carvalho Oliveira
@@ -22,7 +22,7 @@ Professor Adjunto - Nível II - Mestrado - Dedicação Exclusiva
 
 **Titulação:** Mestrado
 
-**Data de ingresso:** 14/01/2014 (12 anos, 10 meses, 2 dias)
+**Data de ingresso:** 14/01/2014 (12 anos, 10 meses, 5 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

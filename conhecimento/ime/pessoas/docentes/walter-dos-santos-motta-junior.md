@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Walter dos Santos Motta Junior"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 13/09/1994 (32 anos, 2 meses, 3 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 13/09/1994 (32 anos, 2 meses, 6 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/walter-dos-santos-motta-junior"
 publicado: "2019-10-10"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"wmotta@ufu.br","areas":"ensino e pesquisa em Matemática, tendo formação de pós-graduação com ênfase em Topologia das Variedades"}
-hash: "df0061b39dad334b"
+hash: "968b8e4ad4aa2963"
 ---
 
 # Walter dos Santos Motta Junior
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 13/09/1994 (32 anos, 2 meses, 3 dias)
+**Data de ingresso:** 13/09/1994 (32 anos, 2 meses, 6 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

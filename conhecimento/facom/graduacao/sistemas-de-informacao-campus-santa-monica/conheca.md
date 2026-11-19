@@ -8,8 +8,8 @@ cursos: ["bsi"]
 tags: ["facom","graduacao","bsi"]
 source: "https://facom.ufu.br/graduacao/sistemas-de-informacao-campus-santa-monica/conheca"
 publicado: "2018-05-02"
-atualizado: "2026-04-01"
-hash: "f55fd6c3b831a369"
+atualizado: "2026-11-17"
+hash: "85a06ba3f888108c"
 ---
 
 # Curso de Bacharelado em Sistemas de Informação - Campus Santa Mônica
@@ -36,7 +36,7 @@ A Graduação conta com um corpo docente altamente qualificado de diversas Unida
 
 **Prazo máximo:** 6 Anos
 
-**Horário de atendimento:** Horário de atendimento na secretaria: de segunda à sexta-feira das 13:30 às 18:00 e, mediante agendamento, das 19:00 às 21:00 (telefone para agendamento: 34 3239-4334- WhatsApp). Sala: 1B120 (Bloco 1B, Campus Santa Mônica).
+**Horário de atendimento:** Horário de atendimento na secretaria: de segunda e sexta-feira das 8h às 17h; terça, quarta e quinta-feira das 11h às 20h. Atendimento realizado também por WhatsApp (34 3239-4334) e por e-mail (bsiudi@ufu.br). Sala: 1B120 (Bloco 1B, Campus Santa Mônica).
 
 **Coordenador:** [Ronaldo Castro de Oliveira](https://facom.ufu.br/pessoas/docentes/ronaldo-castro-de-oliveira "Ronaldo Castro de Oliveira")
 

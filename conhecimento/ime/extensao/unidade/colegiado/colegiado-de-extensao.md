@@ -7,8 +7,8 @@ secao: "extensao"
 tags: ["ime","extensao"]
 source: "https://ime.ufu.br/extensao/unidade/colegiado/colegiado-de-extensao"
 publicado: "2023-07-12"
-atualizado: "2026-10-21"
-hash: "2d70eaa52a46499e"
+atualizado: "2026-11-17"
+hash: "aee000998610f86a"
 ---
 
 # Colegiado de Extensão
@@ -46,8 +46,6 @@ Composição:
 **Prof.ª Dra. Giselle Moraes Resende Pereira**
 
 **Joangelo Marins Alves**
-
-**Prof.ª Dra. Maria Imaculada de Sousa Silva**
 
 **Prof.ª Dra.** **Patrícia Viana da Silva**
 

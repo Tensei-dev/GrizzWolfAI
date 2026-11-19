@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Geraldo Marcio De Azevedo Botelho"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/02/1989 (37 anos, 9 meses, 15 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 01/02/1989 (37 anos, 9 meses, 18 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/geraldo-marcio-de-azevedo-botelho"
 publicado: "2019-11-11"
 atualizado: "2026-07-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"botelho@ufu.br","areas":"Matemática (ênfase em Análise Funcional, atuando principalmente nos seguintes temas: aplicações multilineares e polinômios homogêneos entre espaços de Banach, holomorfia em dimensão infinita, geometria dos espaços de Banach); aplicações multilineares e polinômios homogêneos entre espaços de Banach, holomorfia em dimensão infinita, geometria dos espaços de Banach"}
-hash: "8aa167deabafaa42"
+hash: "4c9c0bfe18fc6b49"
 ---
 
 # Geraldo Marcio De Azevedo Botelho
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 01/02/1989 (37 anos, 9 meses, 15 dias)
+**Data de ingresso:** 01/02/1989 (37 anos, 9 meses, 18 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Wendel Alexandre Xavier de Melo"
-description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Ex-docente Titulação: Doutorado Data de ingresso: 09/05/2017 (9 anos, 6 meses, 7 dias) Regime de…"
+description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Ex-docente Titulação: Doutorado Data de ingresso: 09/05/2017 (9 anos, 6 meses, 10 dias) Regime de…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/wendel-alexandre-xavier-de-melo"
 publicado: "2018-10-11"
 atualizado: "2024-11-18"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Ex-docente","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 116","areas":"Otimização Computacional, Programação Não Linear Inteira Mista, Otimização Combinatória, Otimização Global, Computação Científica, Inteligência Computacional, Metaheurísticas."}
-hash: "2f6ad902422997a4"
+hash: "abd382b56fd83791"
 ---
 
 # Wendel Alexandre Xavier de Melo
@@ -22,7 +22,7 @@ Professor Adjunto - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 09/05/2017 (9 anos, 6 meses, 7 dias)
+**Data de ingresso:** 09/05/2017 (9 anos, 6 meses, 10 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

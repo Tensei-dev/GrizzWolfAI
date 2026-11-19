@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Pedro Frosi Rosa"
-description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Aposentado Titulação: Doutorado Data de ingresso: 24/02/1995 (31 anos, 8 meses, 23 dias) Regime de…"
+description: "Professor Titular - Doutorado - Dedicação Exclusiva Cargo: Professor Titular Situação Funcional: Aposentado Titulação: Doutorado Data de ingresso: 24/02/1995 (31 anos, 8 meses, 26 dias) Regime de…"
 unidade: "facom"
 secao: "pessoas"
 tags: ["facom","pessoas"]
@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/pedro-frosi-rosa"
 publicado: "2018-10-10"
 atualizado: "2025-02-27"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Aposentado","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 136","areas":"Tem experiência nas áreas de Ciência e Engenharia da Computação, com ênfase em Projeto e Validação de Protocolos para Computadores, atuando principalmente nos seguintes temas: Telecomunicação (VoIP e NGN), Segurança, Autômatos, Web Services, Protocolos, CMMI e Concurrent Engineering (CSCW)."}
-hash: "9e0cec659eaba9d4"
+hash: "887cbe2532593f1f"
 ---
 
 # Pedro Frosi Rosa
@@ -22,7 +22,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 24/02/1995 (31 anos, 8 meses, 23 dias)
+**Data de ingresso:** 24/02/1995 (31 anos, 8 meses, 26 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 

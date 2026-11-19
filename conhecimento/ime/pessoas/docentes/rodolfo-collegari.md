@@ -1,7 +1,7 @@
 ---
 type: "pessoa"
 title: "Rodolfo Collegari"
-description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 14/03/2017 (9 anos, 8 meses, 2 dias) Regime de…"
+description: "Professor Adjunto - Doutorado - Dedicação Exclusiva Cargo: Professor Adjunto Situação Funcional: Em exercício Titulação: Doutorado Data de ingresso: 14/03/2017 (9 anos, 8 meses, 5 dias) Regime de…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
@@ -9,7 +9,7 @@ source: "https://ime.ufu.br/pessoas/docentes/rodolfo-collegari"
 publicado: "2019-11-11"
 atualizado: "2026-07-14"
 pessoa: {"categoria":"Docente","funcao":"Professor Adjunto - Doutorado - Dedicação Exclusiva","cargo":"Professor Adjunto","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","email":"collegari@ufu.br","areas":"Matemática (ênfase em Equações Diferenciais Ordinárias Generalizadas e Sistemas Dinâmicos com Impulso)"}
-hash: "9e50fd448c763259"
+hash: "94a63e55df75911d"
 ---
 
 # Rodolfo Collegari
@@ -22,7 +22,7 @@ Professor Adjunto - Doutorado - Dedicação Exclusiva
 
 **Titulação:** Doutorado
 
-**Data de ingresso:** 14/03/2017 (9 anos, 8 meses, 2 dias)
+**Data de ingresso:** 14/03/2017 (9 anos, 8 meses, 5 dias)
 
 **Regime de Trabalho:** Dedicação Exclusiva
 
