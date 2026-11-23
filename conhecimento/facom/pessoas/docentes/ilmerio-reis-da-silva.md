@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/ilmerio-reis-da-silva"
 publicado: "2018-05-02"
 atualizado: "2026-10-16"
 pessoa: {"categoria":"Docente","funcao":"Professor Titular - Doutorado - Dedicação Exclusiva","cargo":"Professor Titular","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 145","email":"ilmerio@ufu.br","areas":"Tem experiência na área de Computação, com ênfase em Banco de Dados e Recuperação de Informação, atuando principalmente nos seguintes temas: modelos de recuperação de informação, bibliotecas digitais e sistemas de gerenciamento de banco de dados."}
-hash: "90f02d01eb4389b6"
+hash: "1a07bfd8b97270b1"
 ---
 
 # Ilmério Reis da Silva
@@ -32,7 +32,7 @@ Professor Titular - Doutorado - Dedicação Exclusiva
 
 Tem experiência na área de Computação, com ênfase em Banco de Dados e Recuperação de Informação, atuando principalmente nos seguintes temas: modelos de recuperação de informação, bibliotecas digitais e sistemas de gerenciamento de banco de dados.
 
-**Unidade Organizacional:** [Faculdade de Computação](../../unidades/unidade-academica/faculdade-de-computacao.md)
+**Unidade Organizacional:** [Faculdade de Computação](https://facom.ufu.br/unidades/unidade-academica/faculdade-de-computacao)
 
 [Currículo Lattes](http://lattes.cnpq.br/1148059622314220 "Currículo Lattes de Ilmério Reis da Silva")
 

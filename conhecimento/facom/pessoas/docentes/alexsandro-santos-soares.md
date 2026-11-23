@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/alexsandro-santos-soares"
 publicado: "2019-07-12"
 atualizado: "2026-11-09"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível II - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível II","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 123","email":"prof.asoares@ufu.br","areas":"Inteligência Artificial; computação natural, bioinformática, redes neurais artificiais e computação evolutiva"}
-hash: "d51631dc16023139"
+hash: "b88987a32e571218"
 ---
 
 # Alexsandro Santos Soares
@@ -32,7 +32,7 @@ Atualmente é professor efetivo da Universidade Federal de Uberlândia.
 
 Tem experiência na área de Inteligência Artificial, atuando principalmente nos seguintes temas: computação natural, bioinformática, redes neurais artificiais e computação evolutiva.
 
-**Unidade Organizacional:** [Faculdade de Computação](../../unidades/unidade-academica/faculdade-de-computacao.md)
+**Unidade Organizacional:** [Faculdade de Computação](https://facom.ufu.br/unidades/unidade-academica/faculdade-de-computacao)
 
 [Currículo Lattes](http://lattes.cnpq.br/8559724221713699 "Currículo Lattes de Alexsandro Santos Soares")
 

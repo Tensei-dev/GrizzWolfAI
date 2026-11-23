@@ -2,89 +2,29 @@
   "cursos": {
     "bcc": [
       {
-        "title": "Curso de Bacharelado em Ciência da Computação",
-        "source": "https://facom.ufu.br/graduacao/ciencia-da-computacao/conheca",
-        "atualizado": "2026-11-17",
+        "title": "Mural de Coordenadores",
+        "source": "https://facom.ufu.br/mural-de-coordenadores",
         "fields": [
           {
-            "label": "Horário de atendimento",
-            "value": "Atendimento PRESENCIAL: Segunda, Terça, Quinta e Sexta Feira: das 8hs às 12hs e das 13hs às 17hs . Atendimento ON-LINE (e-mail, Whatsapp e Teams): Quarta Feira: das das 8hs às 12hs e das 13hs às 17hs. (E-mail e chat do Teams: cocom@ufu.br - Whatsapp Bussines: 3239-4218)"
-          },
-          {
-            "label": "Coordenador",
-            "value": "Renato de Aquino Lopes · cocom@ufu.br · +55 34 3239-4218 ramal 4218"
-          },
-          {
-            "label": "Secretaria - Whatsapp",
-            "value": "3239-4218 · Inácio Castilho Neto"
-          },
-          {
-            "label": "Endereço",
-            "value": "Campus Santa Mônica - Bloco 1B - Sala 1B 119 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+            "label": "Coordenador(a)",
+            "value": "Renato de Aquino Lopes (mandato 2025 até 2029)"
           }
         ]
       }
     ],
     "bsi": [
       {
-        "title": "Curso de Bacharelado em Sistemas de Informação - Campus Santa Mônica",
-        "source": "https://facom.ufu.br/graduacao/sistemas-de-informacao-campus-santa-monica/conheca",
-        "atualizado": "2026-11-17",
+        "title": "Mural de Coordenadores",
+        "source": "https://facom.ufu.br/mural-de-coordenadores",
         "fields": [
           {
-            "label": "Horário de atendimento",
-            "value": "Horário de atendimento na secretaria: de segunda e sexta-feira das 8h às 17h; terça, quarta e quinta-feira das 11h às 20h. Atendimento realizado também por WhatsApp (34 3239-4334) e por e-mail (bsiudi@ufu.br). Sala: 1B120 (Bloco 1B, Campus Santa Mônica)."
-          },
-          {
-            "label": "Coordenador",
-            "value": "Ronaldo Castro de Oliveira · bsiudi@ufu.br · +55 34 3239-4334 ramal 4334"
-          },
-          {
-            "label": "Secretaria",
-            "value": "Esther Faria Rodrigues"
-          },
-          {
-            "label": "Endereço",
-            "value": "Campus Santa Mônica - Bloco 1B - Sala 1B120 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38400-902"
-          }
-        ]
-      },
-      {
-        "title": "Secretaria do Curso de Sistemas de Informação - Campus Santa Mônica",
-        "source": "https://facom.ufu.br/graduacao/bsi-santamonica/secretaria",
-        "atualizado": "2023-10-27",
-        "fields": [
-          {
-            "label": "Horário de atendimento",
-            "value": "Segunda à sexta de 12:00 às 18:00 e das 19:00 às 21:00"
-          },
-          {
-            "label": "Secretário",
-            "value": "Esther Faria Rodrigues · bsiudi@ufu.br · +55 34 3239-4334 ramal 4334"
-          },
-          {
-            "label": "Endereço",
-            "value": "Campus Santa Mônica - Bloco 1A - Sala 1A230 · Av. João Nanes de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
+            "label": "Coordenador(a)",
+            "value": "Ronaldo Castro de Oliveira (mandato 2024 até 2028)"
           }
         ]
       }
     ],
     "bsi-mc": [
-      {
-        "title": "Secretaria do Curso de Sistemas de Informação - Campus Monte Carmelo",
-        "source": "https://facom.ufu.br/graduacao/bsi-montecarmelo/secretaria",
-        "atualizado": "2026-11-16",
-        "fields": [
-          {
-            "label": "Secretário",
-            "value": "Edilamar Marcelina Cruvinel · bsimc@ufu.br · +55 34 3810-1044"
-          },
-          {
-            "label": "Endereço",
-            "value": "Campus Monte Carmelo · Monte Carmelo - MG"
-          }
-        ]
-      },
       {
         "title": "Mural de Coordenadores",
         "source": "https://facom.ufu.br/mural-de-coordenadores",
@@ -96,27 +36,7 @@
         ]
       }
     ],
-    "bia": [
-      {
-        "title": "Curso de Bacharelado em Inteligência Artificial",
-        "source": "https://facom.ufu.br/graduacao/inteligencia-artificial/conheca",
-        "atualizado": "2026-11-18",
-        "fields": [
-          {
-            "label": "Horário de atendimento",
-            "value": "Presencial: segunda à sexta-feira, das 8h30 às 12h30 e das 14h30 às 16h30. Local: Sala 1B-119, Bloco 1B, Campus Santa Mônica. E-mail e chat do Teams: cobia@facom.ufu.br WhatsApp: +55 (34) 3239-4469"
-          },
-          {
-            "label": "Coordenador",
-            "value": "Luiz Gustavo Almeida Martins · cobia@facom.ufu.br · +55 34 3239-4469 ramal 4469"
-          },
-          {
-            "label": "Endereço",
-            "value": "Campus Santa Mônica - Bloco 1B - Sala 119 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38408-100"
-          }
-        ]
-      }
-    ],
+    "bia": [],
     "mat-bach": [
       {
         "title": "Curso de Graduação Matemática",
@@ -237,33 +157,6 @@
             "value": "Gabriel Firme da Fonseca · facom@ufu.br · +55 34 3239-4393 ramal 4393"
           }
         ]
-      },
-      {
-        "title": "Faculdade de Computação",
-        "source": "https://facom.ufu.br/unidades/unidade-academica/faculdade-de-computacao",
-        "atualizado": "2026-04-01",
-        "fields": [
-          {
-            "label": "WhatsApp para atendimento de demandas",
-            "value": "(34) 3239-4393"
-          },
-          {
-            "label": "Horário de atendimento",
-            "value": "Segunda à sexta-feira das 08:00 às 17:00"
-          },
-          {
-            "label": "Diretor",
-            "value": "Rodrigo Sanches Miani · facom@ufu.br · +55 34 3239-4393 ramal 4393"
-          },
-          {
-            "label": "Secretaria",
-            "value": "Gabriel Firme da Fonseca"
-          },
-          {
-            "label": "Endereço",
-            "value": "Campus Santa Mônica - Bloco 1B - Sala 1B116 · Av. João Naves de Ávila - 2121 - Bairro Santa Mônica · Uberlândia - MG - CEP 38400-902"
-          }
-        ]
       }
     ],
     "ime": [
@@ -315,5 +208,12 @@
       }
     ]
   },
-  "faltando": []
+  "faltando": [
+    "facom/unidades/unidade-academica/faculdade-de-computacao.md",
+    "facom/graduacao/ciencia-da-computacao/conheca.md",
+    "facom/graduacao/sistemas-de-informacao-campus-santa-monica/conheca.md",
+    "facom/graduacao/bsi-santamonica/secretaria.md",
+    "facom/graduacao/bsi-montecarmelo/secretaria.md",
+    "facom/graduacao/inteligencia-artificial/conheca.md"
+  ]
 }

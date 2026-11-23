@@ -7,10 +7,9 @@ source: "https://ime.ufu.br"
 
 # Páginas do site da IME
 
-## acontece (2)
+## acontece (1)
 
 - [Novo Curso de Matemática](acontece/2026-10-novo-curso-de-matematica.md) — A partir de 2027, o Curso de Graduação em Matemática do Instituto de Matemática e Estatística (IME) da Universidade Federal de Uberlândia (UFU) adota uma nova estrutura curricular, unindo sua sólida…
-- [Acontece](acontece/Inscrições no link- https-/forms.gle/aGB88ZzHL23S3g6ZA.md) — Promoção à Classe de Professor Titular 06/11/2026 - 12:02 Matemática Aplicada 29/10/2026 - 11:08 OLIMPÍADA BRASILEIRA DE ESTATÍSTICA (OB 27/10/2026 - 17:32 Robótica: Educação e Pesquisa 12/03/2026 -…
 
 ## editais (4)
 

@@ -9,7 +9,7 @@ tags: ["facom","graduacao","bia"]
 source: "https://facom.ufu.br/graduacao/inteligencia-artificial/saiba-mais/monitorias"
 publicado: "2025-12-12"
 atualizado: "2026-11-19"
-hash: "b3741316a94d3420"
+hash: "99b2ff54cb69b16a"
 ---
 
 # Monitorias
@@ -37,7 +37,7 @@ A seleção de monitores é feita mediante processo seletivo conduzido pelas Coo
 
 **Setor responsável:**
 
-[Curso de Bacharelado em Inteligência Artificial](../conheca.md)
+[Curso de Bacharelado em Inteligência Artificial](https://facom.ufu.br/graduacao/inteligencia-artificial/conheca)
 
 cobia@facom.ufu.br +55 34 3239-4469 **Ramal:** 4469
 

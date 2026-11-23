@@ -9,7 +9,7 @@ source: "https://facom.ufu.br/pessoas/docentes/jose-gustavo-de-souza-paiva"
 publicado: "2018-10-05"
 atualizado: "2026-11-05"
 pessoa: {"categoria":"Docente","funcao":"Professor Associado - Nível III - Doutorado - Dedicação Exclusiva","cargo":"Professor Associado - Nível III","situacao":"Em exercício","titulacao":"Doutorado","regime":"Dedicação Exclusiva","unidade_organizacional":"Faculdade de Computação","endereco":"Campus Santa Mônica - Bloco 1B - Sala 131","email":"gustavo@ufu.br","areas":"Possui experiência nas áreas de Visualização de Informação, Analítica Visual, Aprendizado de Máquina e Inteligência Artificial Explicável. Atua no desenvolvimento de técnicas e sistemas de análise visual para auxilio na tomada de decisão em diversas áreas de aplicação."}
-hash: "62786c77ab4720bf"
+hash: "4853ab76232fae3d"
 ---
 
 # José Gustavo de Souza Paiva
@@ -34,7 +34,7 @@ Atualmente é professor associado na Faculdade de Computação (FACOM) da Univer
 
 Possui experiência nas áreas de Visualização de Informação, Analítica Visual, Aprendizado de Máquina e Inteligência Artificial Explicável. Atua no desenvolvimento de técnicas e sistemas de análise visual para auxilio na tomada de decisão em diversas áreas de aplicação.
 
-**Unidade Organizacional:** [Faculdade de Computação](../../unidades/unidade-academica/faculdade-de-computacao.md)
+**Unidade Organizacional:** [Faculdade de Computação](https://facom.ufu.br/unidades/unidade-academica/faculdade-de-computacao)
 
 [Plano de Trabalho Docente](http://www.portal.facom.ufu.br/system/files/conteudo/jose-gustavo-de-souza-paiva-2022_1.pdf "Plano de Trabalho Docente de José Gustavo de Souza Paiva")
 
