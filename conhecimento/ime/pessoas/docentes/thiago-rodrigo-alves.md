@@ -1,20 +1,28 @@
 ---
 type: "pessoa"
 title: "Thiago Rodrigo Alves"
-description: "Situação Funcional: Em exercício alves.thiago@ufu.br +55 34 3230-9459 R:9459 2026 - 1"
+description: "Dedicação Exclusiva Situação Funcional: Em exercício Data de ingresso: 09/03/2026 (8 meses, 16 dias) Regime de Trabalho: Dedicação Exclusiva Currículo Lattes alves.thiago@ufu.br +55 34 3230-9459…"
 unidade: "ime"
 secao: "pessoas"
 tags: ["ime","pessoas"]
 source: "https://ime.ufu.br/pessoas/docentes/thiago-rodrigo-alves"
 publicado: "2026-04-13"
-atualizado: "2026-07-27"
-pessoa: {"categoria":"Docente","situacao":"Em exercício","email":"alves.thiago@ufu.br"}
-hash: "a9e48ddd86ec38c9"
+atualizado: "2026-11-25"
+pessoa: {"categoria":"Docente","funcao":"Dedicação Exclusiva","situacao":"Em exercício","regime":"Dedicação Exclusiva","email":"alves.thiago@ufu.br"}
+hash: "f7b652fc6192589f"
 ---
 
 # Thiago Rodrigo Alves
 
+Dedicação Exclusiva
+
 **Situação Funcional:** Em exercício
+
+**Data de ingresso:** 09/03/2026 (8 meses, 16 dias)
+
+**Regime de Trabalho:** Dedicação Exclusiva
+
+[Currículo Lattes](http://lattes.cnpq.br/4049150059686360 "Currículo Lattes de Thiago Rodrigo Alves")
 
 [alves.thiago@ufu.br](mailto:alves.thiago@ufu.br)
 

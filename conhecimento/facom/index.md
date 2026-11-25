@@ -7,12 +7,14 @@ source: "https://facom.ufu.br"
 
 # Páginas do site da FACOM
 
-## acontece (4)
+## acontece (6)
 
+- [Acontece](acontece/2020/misc.md) — Edital nº 9/2026 25/11/2026 - 11:29 Premiações no CBIE 2026 Pesquisas de mestrado e doutorado da Faculdade de Comutação (FACOM) são premiadas em evento nacional.
 - [Projeto Meninas na Computação - 2026.2](acontece/2026/09/projeto-meninas-na-computacao-20262.md) — Programação para Crianças do Ensino Fundamental II - Colégio de Aplicação – ESEBA/UFU Prezadas alunas, Estão abertas as inscrições para estudantes interessados em atuar na ação do Projeto de Extensão…
 - [Estágio de Engenharia de Dados](acontece/2026/10/estagio-de-engenharia-de-dados.md) — Inscrições abertas até 31 de outubro de 2026 Clique aqui para mais informações.
 - [Premiações no CBIE 2026](acontece/2026/10/premiacoes-no-cbie-2026.md) — Pesquisas de mestrado e doutorado da Faculdade de Comutação (FACOM) são premiadas em evento nacional.
 - [Selo Excelência Cidadã 2026](acontece/2026/10/selo-excelencia-cidada-2026.md) — Concedido pela CDL Uberlândia, Prefeitura Municipal, Câmara Municipal e Fundação CDL, este título reconhece iniciativas que promovem sustentabilidade, impacto social e compromisso com a nossa…
+- [Especialização em Ciência de Dados Aplicada – Turma II](acontece/2026/11/especializacao-em-ciencia-de-dados-aplicada-turma-ii.md) — A Faculdade de Computação da Universidade Federal de Uberlândia (FACOM/UFU) está com inscrições abertas para a segunda turma do curso de Pós-Graduação Lato Sensu Especialização em Ciência de Dados…
 
 ## corpo-docente (1)
 
