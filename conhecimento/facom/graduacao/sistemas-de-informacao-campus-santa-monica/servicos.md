@@ -7,18 +7,18 @@ secao: "graduacao"
 cursos: ["bsi"]
 tags: ["facom","graduacao","bsi"]
 source: "https://facom.ufu.br/graduacao/sistemas-de-informacao-campus-santa-monica/servicos"
-hash: "9cf457261c4d4c64"
+hash: "21afd8df9f5c01a7"
 ---
 
 # Serviços
 
 -   [Assistência Estudantil (Bolsas, Restaurante, Intercampi..)](../../servicos/assistencia-estudantil-bolsas-restaurante-intercampi.md)
--   [Colação de Grau Oficial](https://facom.ufu.br/servicos/colacao-de-grau-oficial)
--   [Diplomas - Registro](https://facom.ufu.br/servicos/diplomas-registro)
--   [ENADE - Exame Nacional de Desempenho de Estudantes](https://facom.ufu.br/servicos/enade-exame-nacional-de-desempenho-de-estudantes)
+-   [Colação de Grau Oficial](../../servicos/colacao-de-grau-oficial.md)
+-   [Diplomas - Registro](../../servicos/diplomas-registro.md)
+-   [ENADE - Exame Nacional de Desempenho de Estudantes](../../servicos/enade-exame-nacional-de-desempenho-de-estudantes.md)
 -   [Estágio](../../servicos/estagio.md)
--   [Ingresso](https://facom.ufu.br/servicos/ingresso)
+-   [Ingresso](../../servicos/ingresso.md)
 -   [Matrícula](../../servicos/matricula.md)
 -   [Modelos de documentos e procedimentos: Estágio Interno Obrigatório, Externo e Licenciatura](../../servicos/modelos-de-documentos-e-procedimentos-estagio-interno-obrigatorio-externo-e-licenciatura.md)
--   [Monitoria](https://facom.ufu.br/servicos/monitoria)
--   [PET - Programa de Educação Tutorial](https://facom.ufu.br/servicos/pet-programa-de-educacao-tutorial)
+-   [Monitoria](../../servicos/monitoria.md)
+-   [PET - Programa de Educação Tutorial](../../servicos/pet-programa-de-educacao-tutorial.md)

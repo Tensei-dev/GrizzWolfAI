@@ -6,7 +6,7 @@ unidade: "facom"
 secao: "legislacoes"
 tags: ["facom","legislacoes"]
 source: "https://facom.ufu.br/legislacoes"
-hash: "9aef2ee0557bf0ef"
+hash: "8db669eabfea4316"
 ---
 
 # Documentos/Legislação
@@ -79,6 +79,14 @@ Aprova o Regimento do Núcleo de Segurança Cibernética (NuSec), da Faculdade d
 
 -   Resolução
 -   26/11/2024
+-   **20/2024**
+
+### [Resolução nº 20/2024, do Conselho da Faculdade de Computação](https://facom.ufu.br/legislacoes/resolucao-no-202024-do-conselho-da-faculdade-de-computacao)
+
+Aprova as Normas Complementares de Estágio Supervisionado para o Curso de Graduação em Sistemas de Informação - Monte Carmelo - da Faculdade de Computação, em conformidade com a “Lei de Estágio” -
+
+-   Resolução
+-   26/11/2024
 -   **18/2024**
 
 ### [Resolução nº 18/2024, do Conselho da Faculdade de Computação](https://facom.ufu.br/legislacoes/resolucao-no-182024-do-conselho-da-faculdade-de-computacao)
@@ -94,14 +102,6 @@ Aprova as Normas de Estágio Supervisionado para o curso de Bacharelado em Ciên
 Aprova as Normas de Estágio Supervisionado para o curso de Bacharelado em Sistemas de Informação - Campus Santa Mônica - da Faculdade de Computação, em conformidade com a “Lei de Estágio” - Lei Fed
 
 -   Resolução
--   26/11/2024
--   **20/2024**
-
-### [Resolução nº 20/2024, do Conselho da Faculdade de Computação](https://facom.ufu.br/legislacoes/resolucao-no-202024-do-conselho-da-faculdade-de-computacao)
-
-Aprova as Normas Complementares de Estágio Supervisionado para o Curso de Graduação em Sistemas de Informação - Monte Carmelo - da Faculdade de Computação, em conformidade com a “Lei de Estágio” -
-
--   Resolução
 -   22/10/2024
 -   **12/2024**
 
@@ -110,10 +110,10 @@ Aprova as Normas Complementares de Estágio Supervisionado para o Curso de Gradu
 Institui normas complementares acerca da interrupção de Licença para Tratar de Interesses Particulares concedida a docentes da Faculdade de Computação da Universidade Federal de Uberlândia.
 
 -   1
--   [2](https://facom.ufu.br/legislacoes/resolucao-no-102023-do-conselho-da-faculdade-de-computacao?page=1 "Ir para a página 2")
--   [3](https://facom.ufu.br/legislacoes/resolucao-no-102023-do-conselho-da-faculdade-de-computacao?page=2 "Ir para a página 3")
--   [4](https://facom.ufu.br/legislacoes/resolucao-no-102023-do-conselho-da-faculdade-de-computacao?page=3 "Ir para a página 4")
--   [próximo ›](https://facom.ufu.br/legislacoes/resolucao-no-102023-do-conselho-da-faculdade-de-computacao?page=1 "Ir para a próxima página")
--   [fim »](https://facom.ufu.br/legislacoes/resolucao-no-102023-do-conselho-da-faculdade-de-computacao?page=3 "Ir para a última página")
+-   [2](https://facom.ufu.br/legislacoes?page=1 "Ir para a página 2")
+-   [3](https://facom.ufu.br/legislacoes?page=2 "Ir para a página 3")
+-   [4](https://facom.ufu.br/legislacoes?page=3 "Ir para a página 4")
+-   [próximo ›](https://facom.ufu.br/legislacoes?page=1 "Ir para a próxima página")
+-   [fim »](https://facom.ufu.br/legislacoes?page=3 "Ir para a última página")
 
 Voltar para o topo

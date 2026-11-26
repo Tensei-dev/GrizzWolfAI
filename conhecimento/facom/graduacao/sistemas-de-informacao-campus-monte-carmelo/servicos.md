@@ -7,19 +7,19 @@ secao: "graduacao"
 cursos: ["bsi-mc"]
 tags: ["facom","graduacao","bsi-mc"]
 source: "https://facom.ufu.br/graduacao/sistemas-de-informacao-campus-monte-carmelo/servicos"
-hash: "6c7787526b04ea70"
+hash: "fa2c75b18e7ea171"
 ---
 
 # Serviços
 
 -   [Assistência Estudantil (Bolsas, Restaurante, Intercampi..)](../../servicos/assistencia-estudantil-bolsas-restaurante-intercampi.md)
--   [Colação de Grau Oficial](https://facom.ufu.br/servicos/colacao-de-grau-oficial)
--   [Diplomas - Registro](https://facom.ufu.br/servicos/diplomas-registro)
+-   [Colação de Grau Oficial](../../servicos/colacao-de-grau-oficial.md)
+-   [Diplomas - Registro](../../servicos/diplomas-registro.md)
 -   [Dispensa de Disciplinas - BSI Monte Carmelo](../../servicos/dispensa-de-disciplinas-bsi-monte-carmelo.md)
--   [ENADE - Exame Nacional de Desempenho de Estudantes](https://facom.ufu.br/servicos/enade-exame-nacional-de-desempenho-de-estudantes)
+-   [ENADE - Exame Nacional de Desempenho de Estudantes](../../servicos/enade-exame-nacional-de-desempenho-de-estudantes.md)
 -   [Estágio](../../servicos/estagio.md)
--   [Ingresso](https://facom.ufu.br/servicos/ingresso)
+-   [Ingresso](../../servicos/ingresso.md)
 -   [Matrícula](../../servicos/matricula.md)
 -   [Modelos de documentos e procedimentos: Estágio Interno Obrigatório, Externo e Licenciatura](../../servicos/modelos-de-documentos-e-procedimentos-estagio-interno-obrigatorio-externo-e-licenciatura.md)
--   [Monitoria](https://facom.ufu.br/servicos/monitoria)
--   [PET - Programa de Educação Tutorial](https://facom.ufu.br/servicos/pet-programa-de-educacao-tutorial)
+-   [Monitoria](../../servicos/monitoria.md)
+-   [PET - Programa de Educação Tutorial](../../servicos/pet-programa-de-educacao-tutorial.md)

@@ -6,7 +6,7 @@ unidade: "facom"
 secao: "servicos"
 tags: ["facom","servicos"]
 source: "https://facom.ufu.br/servicos"
-hash: "fe6fc1421e427f66"
+hash: "2d95f1fb1585866a"
 ---
 
 # Serviços
@@ -19,7 +19,7 @@ hash: "fe6fc1421e427f66"
  |  |
 |
 
-[Agendamentos/Reservas de salas multiúso](servicos/agendamentosreservas-de-salas-multiuso.md)
+[Agendamentos/Reservas de salas multiúso](https://facom.ufu.br/servicos/agendamentosreservas-de-salas-multiuso)
 
  |  |
 |
@@ -39,17 +39,17 @@ hash: "fe6fc1421e427f66"
  |  |
 |
 
-[Atividades Complementares](https://facom.ufu.br/servicos/atividades-complementares)
+[Atividades Complementares](servicos/atividades-complementares.md)
 
  |  |
 |
 
-[Colação de Grau Oficial](https://facom.ufu.br/servicos/colacao-de-grau-oficial)
+[Colação de Grau Oficial](servicos/colacao-de-grau-oficial.md)
 
  | Ciência da Computação, Inteligência Artificial, Sistemas de Informação Campus Monte Carmelo, Sistemas de Informação Campus Santa Mônica |
 |
 
-[Diplomas - Registro](https://facom.ufu.br/servicos/diplomas-registro)
+[Diplomas - Registro](servicos/diplomas-registro.md)
 
  | Ciência da Computação, Inteligência Artificial, Sistemas de Informação Campus Monte Carmelo, Sistemas de Informação Campus Santa Mônica |
 |
@@ -64,7 +64,7 @@ hash: "fe6fc1421e427f66"
  | Ciência da Computação |
 |
 
-[ENADE - Exame Nacional de Desempenho de Estudantes](https://facom.ufu.br/servicos/enade-exame-nacional-de-desempenho-de-estudantes)
+[ENADE - Exame Nacional de Desempenho de Estudantes](servicos/enade-exame-nacional-de-desempenho-de-estudantes.md)
 
  | Ciência da Computação, Inteligência Artificial, Sistemas de Informação Campus Monte Carmelo, Sistemas de Informação Campus Santa Mônica |
 |
@@ -79,7 +79,7 @@ hash: "fe6fc1421e427f66"
  | Inteligência Artificial |
 |
 
-[Ingresso](https://facom.ufu.br/servicos/ingresso)
+[Ingresso](servicos/ingresso.md)
 
  | Ciência da Computação, Inteligência Artificial, Sistemas de Informação Campus Monte Carmelo, Sistemas de Informação Campus Santa Mônica |
 |
@@ -94,7 +94,7 @@ hash: "fe6fc1421e427f66"
  | Ciência da Computação, Sistemas de Informação Campus Monte Carmelo, Sistemas de Informação Campus Santa Mônica |
 |
 
-[Monitoria](https://facom.ufu.br/servicos/monitoria)
+[Monitoria](servicos/monitoria.md)
 
  | Ciência da Computação, Inteligência Artificial, Sistemas de Informação Campus Monte Carmelo, Sistemas de Informação Campus Santa Mônica |
 |
@@ -104,7 +104,7 @@ hash: "fe6fc1421e427f66"
  | Inteligência Artificial |
 |
 
-[PET - Programa de Educação Tutorial](https://facom.ufu.br/servicos/pet-programa-de-educacao-tutorial)
+[PET - Programa de Educação Tutorial](servicos/pet-programa-de-educacao-tutorial.md)
 
  | Ciência da Computação, Inteligência Artificial, Sistemas de Informação Campus Monte Carmelo, Sistemas de Informação Campus Santa Mônica |
 |

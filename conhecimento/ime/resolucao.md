@@ -6,7 +6,7 @@ unidade: "ime"
 secao: "resolucao"
 tags: ["ime","resolucao"]
 source: "https://ime.ufu.br/resolucao"
-hash: "e0893c7b2f8f7e4a"
+hash: "e76e108568f853a7"
 ---
 
 # Documentos/Legislação
@@ -110,10 +110,10 @@ Dispõe sobre a criação da Comissão para análise de pedidos e relatórios re
 Dispõe sobre atos normativos vigentes emitidos em período anterior à alteração do nome da Faculdade de Matemática (FAMAT) para Instituto de Matemática e Estatística (IME).
 
 -   1
--   [2](https://ime.ufu.br/resolucao?page=1 "Ir para a página 2")
--   [3](https://ime.ufu.br/resolucao?page=2 "Ir para a página 3")
--   [4](https://ime.ufu.br/resolucao?page=3 "Ir para a página 4")
--   [próximo ›](https://ime.ufu.br/resolucao?page=1 "Ir para a próxima página")
--   [fim »](https://ime.ufu.br/resolucao?page=3 "Ir para a última página")
+-   [2](https://ime.ufu.br/resolucao/assets?page=1 "Ir para a página 2")
+-   [3](https://ime.ufu.br/resolucao/assets?page=2 "Ir para a página 3")
+-   [4](https://ime.ufu.br/resolucao/assets?page=3 "Ir para a página 4")
+-   [próximo ›](https://ime.ufu.br/resolucao/assets?page=1 "Ir para a próxima página")
+-   [fim »](https://ime.ufu.br/resolucao/assets?page=3 "Ir para a última página")
 
 Voltar para o topo

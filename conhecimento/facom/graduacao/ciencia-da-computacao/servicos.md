@@ -7,20 +7,20 @@ secao: "graduacao"
 cursos: ["bcc"]
 tags: ["facom","graduacao","bcc"]
 source: "https://facom.ufu.br/graduacao/ciencia-da-computacao/servicos"
-hash: "adfe8127b57766fc"
+hash: "d6e418f5f1ef32a8"
 ---
 
 # Serviços
 
 -   [Assistência Estudantil (Bolsas, Restaurante, Intercampi..)](../../servicos/assistencia-estudantil-bolsas-restaurante-intercampi.md)
 -   [Atividade Complementar](../bcc/atividade-complementar.md)
--   [Colação de Grau Oficial](https://facom.ufu.br/servicos/colacao-de-grau-oficial)
--   [Diplomas - Registro](https://facom.ufu.br/servicos/diplomas-registro)
+-   [Colação de Grau Oficial](../../servicos/colacao-de-grau-oficial.md)
+-   [Diplomas - Registro](../../servicos/diplomas-registro.md)
 -   [Dispensas / Equivalências - Ciência da Computação](../../servicos/dispensas-equivalencias-ciencia-da-computacao.md)
--   [ENADE - Exame Nacional de Desempenho de Estudantes](https://facom.ufu.br/servicos/enade-exame-nacional-de-desempenho-de-estudantes)
+-   [ENADE - Exame Nacional de Desempenho de Estudantes](../../servicos/enade-exame-nacional-de-desempenho-de-estudantes.md)
 -   [Estágio](../../servicos/estagio.md)
--   [Ingresso](https://facom.ufu.br/servicos/ingresso)
+-   [Ingresso](../../servicos/ingresso.md)
 -   [Matrícula](../../servicos/matricula.md)
 -   [Modelos de documentos e procedimentos: Estágio Interno Obrigatório, Externo e Licenciatura](../../servicos/modelos-de-documentos-e-procedimentos-estagio-interno-obrigatorio-externo-e-licenciatura.md)
--   [Monitoria](https://facom.ufu.br/servicos/monitoria)
--   [PET - Programa de Educação Tutorial](https://facom.ufu.br/servicos/pet-programa-de-educacao-tutorial)
+-   [Monitoria](../../servicos/monitoria.md)
+-   [PET - Programa de Educação Tutorial](../../servicos/pet-programa-de-educacao-tutorial.md)
